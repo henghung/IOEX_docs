@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Elastos Carrier session APIs &mdash; Elastos Carrier API References 5.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Elastos Carrier API References 5.0 documentation" href="index.html"/>
+        <link rel="next" title="Elastos Carrier error number" href="carrier-error-number.html"/>
+        <link rel="prev" title="Elastos Carrier core APIs" href="carrier-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Elastos Carrier API References
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                5.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-intro.html">Elastos Carrier Client SDK introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">Elastos Carrier core APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Elastos Carrier session APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#elastreamtype">ElaStreamType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elastreamstate">ElaStreamState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elacandidatetype">ElaCandidateType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elanetworktopology">ElaNetworkTopology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elaaddressinfo">ElaAddressInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elatransportinfo">ElaTransportInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#portforwardingprotocol">PortForwardingProtocol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#closereason">CloseReason</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elastreamcallbacks">ElaStreamCallbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elasessionrequestcallback">ElaSessionRequestCallback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#elasessionrequestcompletecallback">ElaSessionRequestCompleteCallback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#global-session-functions">Global session functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-init">ela_session_init</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-cleanup">ela_session_cleanup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#session-instance-functions">Session instance functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-new">ela_session_new</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-close">ela_session_close</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-get-peer">ela_session_get_peer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-set-userdata">ela_session_set_userdata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-get-userdata">ela_session_get_userdata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-request">ela_session_request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-reply-request">ela_session_reply_request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-start">ela_session_start</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#stream-functions">Stream functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-add-stream">ela_session_add_stream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-remove-stream">ela_session_remove_stream</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-get-type">ela_stream_get_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-get-state">ela_stream_get_state</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-get-transport-info">ela_stream_get_transport_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-write">ela_stream_write</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-open-channel">ela_stream_open_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-close-channel">ela_stream_close_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-write-channel">ela_stream_write_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-pend-channel">ela_stream_pend_channel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-resume-channel">ela_stream_resume_channel</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#portforwarding-functions">PortForwarding functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-add-service">ela_session_add_service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-session-remove-service">ela_session_remove_service</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-open-port-forwarding">ela_stream_open_port_forwarding</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ela-stream-close-port-forwarding">ela_stream_close_port_forwarding</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">Elastos Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Elastos Carrier API References</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Elastos Carrier session APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="elastos-carrier-session-apis">
+<h1>Elastos Carrier session APIs<a class="headerlink" href="#elastos-carrier-session-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-types">
+<h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="elastreamtype">
+<h3>ElaStreamType<a class="headerlink" href="#elastreamtype" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenenum: Cannot find enum “ElaStreamType” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elastreamstate">
+<h3>ElaStreamState<a class="headerlink" href="#elastreamstate" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenenum: Cannot find enum “ElaStreamState” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elacandidatetype">
+<h3>ElaCandidateType<a class="headerlink" href="#elacandidatetype" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenenum: Cannot find enum “ElaCandidateType” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elanetworktopology">
+<h3>ElaNetworkTopology<a class="headerlink" href="#elanetworktopology" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenenum: Cannot find enum “ElaNetworkTopology” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elaaddressinfo">
+<h3>ElaAddressInfo<a class="headerlink" href="#elaaddressinfo" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenstruct: Cannot find class “ElaAddressInfo” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elatransportinfo">
+<h3>ElaTransportInfo<a class="headerlink" href="#elatransportinfo" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenstruct: Cannot find class “ElaTransportInfo” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="portforwardingprotocol">
+<h3>PortForwardingProtocol<a class="headerlink" href="#portforwardingprotocol" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenenum: Cannot find enum “PortForwardingProtocol” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="closereason">
+<h3>CloseReason<a class="headerlink" href="#closereason" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenenum: Cannot find enum “CloseReason” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elastreamcallbacks">
+<h3>ElaStreamCallbacks<a class="headerlink" href="#elastreamcallbacks" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenstruct: Cannot find class “ElaStreamCallbacks” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elasessionrequestcallback">
+<h3>ElaSessionRequestCallback<a class="headerlink" href="#elasessionrequestcallback" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygentypedef: Cannot find typedef “ElaSessionRequestCallback” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="elasessionrequestcompletecallback">
+<h3>ElaSessionRequestCompleteCallback<a class="headerlink" href="#elasessionrequestcompletecallback" title="Permalink to this headline">¶</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygentypedef: Cannot find typedef “ElaSessionRequestCompleteCallback” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="global-session-functions">
+<h3>Global session functions<a class="headerlink" href="#global-session-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ela-session-init">
+<h4>ela_session_init<a class="headerlink" href="#ela-session-init" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_init” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-cleanup">
+<h4>ela_session_cleanup<a class="headerlink" href="#ela-session-cleanup" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_cleanup” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+</div>
+<div class="section" id="session-instance-functions">
+<h3>Session instance functions<a class="headerlink" href="#session-instance-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ela-session-new">
+<h4>ela_session_new<a class="headerlink" href="#ela-session-new" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_new” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-close">
+<h4>ela_session_close<a class="headerlink" href="#ela-session-close" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_close” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-get-peer">
+<h4>ela_session_get_peer<a class="headerlink" href="#ela-session-get-peer" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_get_peer” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-set-userdata">
+<h4>ela_session_set_userdata<a class="headerlink" href="#ela-session-set-userdata" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_set_userdata” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-get-userdata">
+<h4>ela_session_get_userdata<a class="headerlink" href="#ela-session-get-userdata" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_get_userdata” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-request">
+<h4>ela_session_request<a class="headerlink" href="#ela-session-request" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_request” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-reply-request">
+<h4>ela_session_reply_request<a class="headerlink" href="#ela-session-reply-request" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_reply_request” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-start">
+<h4>ela_session_start<a class="headerlink" href="#ela-session-start" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_start” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+</div>
+<div class="section" id="stream-functions">
+<h3>Stream functions<a class="headerlink" href="#stream-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ela-session-add-stream">
+<h4>ela_session_add_stream<a class="headerlink" href="#ela-session-add-stream" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_add_stream” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-remove-stream">
+<h4>ela_session_remove_stream<a class="headerlink" href="#ela-session-remove-stream" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_remove_stream” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-get-type">
+<h4>ela_stream_get_type<a class="headerlink" href="#ela-stream-get-type" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_get_type” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-get-state">
+<h4>ela_stream_get_state<a class="headerlink" href="#ela-stream-get-state" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_get_state” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-get-transport-info">
+<h4>ela_stream_get_transport_info<a class="headerlink" href="#ela-stream-get-transport-info" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_get_transport_info” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-write">
+<h4>ela_stream_write<a class="headerlink" href="#ela-stream-write" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_write” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-open-channel">
+<h4>ela_stream_open_channel<a class="headerlink" href="#ela-stream-open-channel" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_open_channel” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-close-channel">
+<h4>ela_stream_close_channel<a class="headerlink" href="#ela-stream-close-channel" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_close_channel” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-write-channel">
+<h4>ela_stream_write_channel<a class="headerlink" href="#ela-stream-write-channel" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_write_channel” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-pend-channel">
+<h4>ela_stream_pend_channel<a class="headerlink" href="#ela-stream-pend-channel" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_pend_channel” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-resume-channel">
+<h4>ela_stream_resume_channel<a class="headerlink" href="#ela-stream-resume-channel" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_resume_channel” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+</div>
+<div class="section" id="portforwarding-functions">
+<h3>PortForwarding functions<a class="headerlink" href="#portforwarding-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ela-session-add-service">
+<h4>ela_session_add_service<a class="headerlink" href="#ela-session-add-service" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_add_service” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-session-remove-service">
+<h4>ela_session_remove_service<a class="headerlink" href="#ela-session-remove-service" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_session_remove_service” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-open-port-forwarding">
+<h4>ela_stream_open_port_forwarding<a class="headerlink" href="#ela-stream-open-port-forwarding" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_open_port_forwarding” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+<div class="section" id="ela-stream-close-port-forwarding">
+<h4>ela_stream_close_port_forwarding<a class="headerlink" href="#ela-stream-close-port-forwarding" title="Permalink to this headline">¶</a></h4>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>doxygenfunction: Cannot find function “ela_stream_close_port_forwarding” in doxygen xml output for project “CarrierAPI” from directory: ../build/CarrierAPI/xml/</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-error-number.html" class="btn btn-neutral float-right" title="Elastos Carrier error number" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="carrier-api.html" class="btn btn-neutral" title="Elastos Carrier core APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, elastos.org.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'5.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

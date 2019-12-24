@@ -1,0 +1,99 @@
+IOEX Carrier AV APIs
+=======================================
+
+These APIs are used to setup video and/or audio streaming with a friend.
+
+Data types
+----------
+
+IOEXAvCallStatus
+################
+
+.. doxygenenum:: IOEXAvCallStatus
+   :project: CarrierAPI
+
+IOEXAvCallInfo
+##############
+
+.. doxygenstruct:: IOEXAvCallInfo
+   :project: CarrierAPI
+   :members:
+
+Functions
+---------
+
+AV Functions
+############
+
+IOEX_av_call
+~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_call
+   :project: CarrierAPI
+
+IOEX_av_answer
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_answer
+   :project: CarrierAPI
+
+IOEX_av_get_info
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_get_info
+   :project: CarrierAPI
+
+IOEX_av_hangup
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_hangup
+   :project: CarrierAPI
+
+IOEX_av_pause
+~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_pause
+   :project: CarrierAPI
+
+IOEX_av_resume
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_resume
+   :project: CarrierAPI
+
+IOEX_av_set_friend_audio_enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_set_friend_audio_enable
+   :project: CarrierAPI
+
+IOEX_av_set_friend_video_enable
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_set_friend_video_enable
+   :project: CarrierAPI
+
+IOEX_av_set_audio_bitrate
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_set_audio_bitrate
+   :project: CarrierAPI
+
+IOEX_av_set_video_bitrate
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_set_video_bitrate
+   :project: CarrierAPI
+
+IOEX_av_send_audio
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_send_audio
+   :project: CarrierAPI
+
+IOEX_av_send_video
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_av_send_video
+   :project: CarrierAPI
+

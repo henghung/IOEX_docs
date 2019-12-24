@@ -1,0 +1,64 @@
+(Experimental) IOEX Carrier Tunnel APIs
+=======================================
+
+WARNING: These APIs are still under developement.
+It is highly recommended NOT to use them in production.
+
+Data types
+----------
+
+IOEXTunnelStatus
+################
+
+.. doxygenenum:: IOEXTunnelStatus
+   :project: CarrierAPI
+
+IOEXTunnelInfo
+##############
+
+.. doxygenstruct:: IOEXTunnelInfo
+   :project: CarrierAPI
+   :members:
+
+Functions
+---------
+
+Tunnel Functions
+################
+
+IOEX_tunnel_request
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_tunnel_request
+   :project: CarrierAPI
+
+IOEX_tunnel_accept
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_tunnel_accept
+   :project: CarrierAPI
+
+IOEX_tunnel_cancel
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_tunnel_cancel
+   :project: CarrierAPI
+
+IOEX_tunnel_info
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_tunnel_info
+   :project: CarrierAPI
+
+IOEX_tunnel_send_data_lossless
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_tunnel_send_data_lossless
+   :project: CarrierAPI
+
+IOEX_tunnel_send_data_lossy
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_tunnel_send_data_lossy
+   :project: CarrierAPI
+
