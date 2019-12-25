@@ -1,0 +1,720 @@
+.. java:import:: android.graphics ImageFormat
+
+.. java:import:: android.media Image
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util List
+
+Carrier
+=======
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class Carrier
+
+   The class representing Carrier node instance.
+
+Fields
+------
+MAX_ID_LEN
+^^^^^^^^^^
+
+.. java:field:: public static final int MAX_ID_LEN
+   :outertype: Carrier
+
+   Max Carrier ID length.
+
+MAX_KEY_LEN
+^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_KEY_LEN
+   :outertype: Carrier
+
+   Max Carrier KEY length.
+
+Methods
+-------
+acceptFriend
+^^^^^^^^^^^^
+
+.. java:method:: public void acceptFriend(String userId) throws IOEXException
+   :outertype: Carrier
+
+   Accept the friend request. This function is used to add a friend in response to a friend request.
+
+   :param userId: The user id who want be friend with us.
+   :throws IllegalArgumentException: IOEXException
+
+acceptFriendFile
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void acceptFriendFile(String fileid, String filename, String filepath) throws IOEXException
+   :outertype: Carrier
+
+   Accept a file from a friend.
+
+   :param fileid: The accepted file id
+   :param filename: New file name
+   :param filepath: The saved path for the accepted file
+   :throws IllegalArgumentException: IOEXException
+
+acceptFriendTunnel
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void acceptFriendTunnel(int tunnel_id) throws IOEXException
+   :outertype: Carrier
+
+   Accept a tunnel request from a friend.
+
+   :param tunnel_id: The id of the tunnel
+   :throws IllegalArgumentException: IOEXException
+
+addFriend
+^^^^^^^^^
+
+.. java:method:: public void addFriend(String address, String hello) throws IOEXException
+   :outertype: Carrier
+
+   Add friend by sending a new friend request. This function will add a new friend with specific address, and then send a friend request to the target node.
+
+   :param address: the target user address of remote carrier node.
+   :param hello: PIN for target user, or any application defined content
+   :throws IllegalArgumentException: IOEXException
+
+answerFriendCall
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void answerFriendCall(String friendId) throws IOEXException
+   :outertype: Carrier
+
+   Accept an AV call request from a friend and use default audio and video bitrate settings, which are 96 kbps and 1000 kbps, respectively.
+
+   :param friendId: Id of the friend.
+   :throws IllegalArgumentException: IOEXException
+
+answerFriendCall
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void answerFriendCall(String friendId, int audioBitrate, int videoBitrate) throws IOEXException
+   :outertype: Carrier
+
+   Accept an AV call request from a friend.
+
+   :param friendId: Id of the friend.
+   :param audioBitrate: Desire bitrate in kbps to transmit audio data. Common values are 64, 96, 128 and 196. Pass 0 to disable audio transmitting.
+   :param videoBitrate: Desire bitrate in kbps to transmit video data. Usually range between 400 to 14000. Pass 0 to disable video transmitting.
+   :throws IllegalArgumentException: IOEXException
+
+callFriend
+^^^^^^^^^^
+
+.. java:method:: public void callFriend(String friendId) throws IOEXException
+   :outertype: Carrier
+
+   Send AV call request to a friend and use default audio and video bitrate settings, which are 96 kbps and 1000 kbps, respectively.
+
+   :param friendId: Id of the friend.
+   :throws IllegalArgumentException: IOEXException
+
+callFriend
+^^^^^^^^^^
+
+.. java:method:: public void callFriend(String friendId, int audioBitrate, int videoBitrate) throws IOEXException
+   :outertype: Carrier
+
+   Send AV call request to a friend.
+
+   :param friendId: Id of the friend.
+   :param audioBitrate: Desire bitrate in kbps to transmit audio data. Common values are 64, 96, 128 and 196. Pass 0 to disable audio transmitting.
+   :param videoBitrate: Desire bitrate in kbps to transmit video data. Usually range between 400 to 14000. Pass 0 to disable video transmitting.
+   :throws IllegalArgumentException: IOEXException
+
+cancelFriendFile
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean cancelFriendFile(String fileid) throws IOEXException
+   :outertype: Carrier
+
+   Cancel the process of sending/receiving a file to/from a friend.
+
+   :param fileid: The id of the canceling file
+   :throws IllegalArgumentException: IOEXException
+
+cancelFriendTunnel
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void cancelFriendTunnel(int tunnel_id) throws IOEXException
+   :outertype: Carrier
+
+   Cancel a tunnel with a friend.
+
+   :param tunnel_id: The id of the tunnel
+   :throws IllegalArgumentException: IOEXException
+
+finalize
+^^^^^^^^
+
+.. java:method:: @Override protected void finalize() throws Throwable
+   :outertype: Carrier
+
+getAddress
+^^^^^^^^^^
+
+.. java:method:: public String getAddress() throws IOEXException
+   :outertype: Carrier
+
+   Get node address associated with the carrier node instance.
+
+   :return: the node address.
+
+getCallInfo
+^^^^^^^^^^^
+
+.. java:method:: public AvCallInfo getCallInfo() throws IOEXException
+   :outertype: Carrier
+
+   Get current AV call information.
+
+   :throws IllegalArgumentException: IOEXException
+   :return: An AvCallInfo object which contains call status.
+
+getFileInfo
+^^^^^^^^^^^
+
+.. java:method:: public FileInfo getFileInfo(String fileid) throws IOEXException
+   :outertype: Carrier
+
+   Get the information of the file transferring.
+
+   :param fileid: The file id
+   :throws IllegalArgumentException: IOEXException
+
+getFriend
+^^^^^^^^^
+
+.. java:method:: public FriendInfo getFriend(String userId) throws IOEXException
+   :outertype: Carrier
+
+   Get specified friend information.
+
+   :param userId: The user identifier of friend
+   :throws IllegalArgumentException: IOEXException
+   :return: The friend information.
+
+getFriends
+^^^^^^^^^^
+
+.. java:method:: public List<FriendInfo> getFriends() throws IOEXException
+   :outertype: Carrier
+
+   Get friends list.
+
+   :throws IOEXException:
+   :return: The list of friend information to current user
+
+getIdFromAddress
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public static String getIdFromAddress(String address)
+   :outertype: Carrier
+
+   Get carrier ID from carrier node address.
+
+   :param address: The carrier node address.
+   :return: User id if address is valid, otherwise null
+
+getInstance
+^^^^^^^^^^^
+
+.. java:method:: public static Carrier getInstance()
+   :outertype: Carrier
+
+   Get a carrier node singleton instance.
+
+   :return: A carrier node instance or nil on failure.
+
+getNodeId
+^^^^^^^^^
+
+.. java:method:: public String getNodeId() throws IOEXException
+   :outertype: Carrier
+
+   Get nodeid associated with the carrier node instance.
+
+   :return: the nodeid.
+
+getNospam
+^^^^^^^^^
+
+.. java:method:: public int getNospam() throws IOEXException
+   :outertype: Carrier
+
+   \~Egnlish Get the nospam for Carrier address. Get the 4-byte nospam part of the Carrier address with host byte order expected. Nospam for Carrier address is used to eliminate spam friend request.
+
+   :throws IOEXException:
+
+getPresence
+^^^^^^^^^^^
+
+.. java:method:: public PresenceStatus getPresence() throws IOEXException
+   :outertype: Carrier
+
+   Get self presence status.
+
+   :throws IOEXException:
+
+getSelfInfo
+^^^^^^^^^^^
+
+.. java:method:: public UserInfo getSelfInfo() throws IOEXException
+   :outertype: Carrier
+
+   Get self user information.
+
+   :throws IOEXException:
+   :return: the user information to the carrier node.
+
+getUserId
+^^^^^^^^^
+
+.. java:method:: public String getUserId() throws IOEXException
+   :outertype: Carrier
+
+   Get userid associated with the carrier node instance.
+
+   :return: the userid.
+
+getVersion
+^^^^^^^^^^
+
+.. java:method:: public static String getVersion()
+   :outertype: Carrier
+
+   Get current version of Carrier node.
+
+   :return: The version of carrier node.
+
+hangupFriendCall
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void hangupFriendCall(String friendId) throws IOEXException
+   :outertype: Carrier
+
+   Hangup an existing call, or reject a friend's call request.
+
+   :param friendId: Id of the friend.
+   :throws IllegalArgumentException: IOEXException
+
+initializeInstance
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static void initializeInstance(Options options, CarrierHandler handler) throws IOEXException
+   :outertype: Carrier
+
+   Initialize node singleton instance. After initializing the instance, it's ready to start and therefore connect to carrier network.
+
+   :param options: The options to set for creating carrier node.
+   :param handler: The interface handler for carrier node.
+   :throws IOEXException:
+
+inviteFriend
+^^^^^^^^^^^^
+
+.. java:method:: public void inviteFriend(String to, String data, FriendInviteResponseHandler handler) throws IOEXException
+   :outertype: Carrier
+
+   Send invite request to a friend. Application can attach the application defined data with in the invite request, and the data will send to target friend.
+
+   :param to: The target id
+   :param data: The application defined data send to target user
+   :param handler: The handler to receive invite reponse
+   :throws IllegalArgumentException: IOEXException
+
+isFriend
+^^^^^^^^
+
+.. java:method:: public boolean isFriend(String userId) throws IOEXException
+   :outertype: Carrier
+
+   Check if the user ID is friend.
+
+   :param userId: The userId to check
+   :throws IllegalArgumentException: IOEXException
+   :return: True if the user is a friend, or false if not
+
+isReady
+^^^^^^^
+
+.. java:method:: public boolean isReady()
+   :outertype: Carrier
+
+   \~English Check if carrier node instance is being ready. All carrier interactive APIs should be called only if carrier node instance is being ready.
+
+   :return: true if the carrier node instance is ready, or false if not.
+
+isValidAddress
+^^^^^^^^^^^^^^
+
+.. java:method:: public static boolean isValidAddress(String address)
+   :outertype: Carrier
+
+   Check if the carrier node address is valid.
+
+   :param address: The carrier node address to be check.
+   :return: True if key is valid, otherwise false.
+
+isValidId
+^^^^^^^^^
+
+.. java:method:: public static boolean isValidId(String id)
+   :outertype: Carrier
+
+   Check if the ID is Carrier node id.
+
+   :param id: The carrier node id to be check.
+   :return: True if id is valid, otherwise false.
+
+kill
+^^^^
+
+.. java:method:: public synchronized void kill()
+   :outertype: Carrier
+
+   Disconnect carrier node from carrier network, and destroy all associated resources to carreier node instance. After calling the method, the carrier node instance becomes invalid.
+
+labelFriend
+^^^^^^^^^^^
+
+.. java:method:: public void labelFriend(String userId, String label) throws IOEXException
+   :outertype: Carrier
+
+   Set the label of the specified friend. The label of a friend is a private alias name for current user. It can be seen by current user only, and has no impact to the target friend itself.
+
+   :param userId: The friend's user identifier
+   :param label: The new label of specified friend
+   :throws IllegalArgumentException: IOEXException
+
+pauseFriendCall
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void pauseFriendCall(String friendId) throws IOEXException
+   :outertype: Carrier
+
+   Pause an existing call with a friend.
+
+   :param friendId: Id of the friend.
+   :throws IllegalArgumentException: IOEXException
+
+pauseFriendFile
+^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean pauseFriendFile(String fileid) throws IOEXException
+   :outertype: Carrier
+
+   Pause the process of sending/receiving a file to/from a friend.
+
+   :param fileid: The id of the pausing file
+   :throws IllegalArgumentException: IOEXException
+
+queryFriendFile
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void queryFriendFile(String to, String filename, String message) throws IOEXException
+   :outertype: Carrier
+
+   Query a file from a friend.
+
+   :param to: The target id
+   :param filename: target file name
+   :param message: The extra message
+   :throws IllegalArgumentException: IOEXException
+
+removeFriend
+^^^^^^^^^^^^
+
+.. java:method:: public void removeFriend(String userId) throws IOEXException
+   :outertype: Carrier
+
+   Remove a friend. This function will remove a friend on this carrier node.
+
+   :param userId: The target user id to remove friendship
+   :throws IllegalArgumentException: IOEXException
+
+replyFriendInvite
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void replyFriendInvite(String to, int status, String reason, String data) throws IOEXException
+   :outertype: Carrier
+
+   Reply the friend invite request. This function will send a invite response to friend.
+
+   :param to: The id who send invite request
+   :param status: The status code of the response. 0 is success, otherwise is error
+   :param reason: The error message if status is error, or null if success
+   :param data: The application defined data send to target user. If the status is error, this will be ignored
+   :throws IllegalArgumentException: IOEXException
+
+resumeFriendCall
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void resumeFriendCall(String friendId) throws IOEXException
+   :outertype: Carrier
+
+   Resume a previously paused call. Only the client who paused the call can resume it.
+
+   :param friendId: Id of the friend.
+   :throws IllegalArgumentException: IOEXException
+
+resumeFriendFile
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean resumeFriendFile(String fileid) throws IOEXException
+   :outertype: Carrier
+
+   Resume the process of sending/receiving a file to/from a friend.
+
+   :param fileid: The id of the resuming file
+   :throws IllegalArgumentException: IOEXException
+
+scDownload
+^^^^^^^^^^
+
+.. java:method:: public void scDownload(String fileid, String filename, String filepath) throws IOEXException
+   :outertype: Carrier
+
+   Get files by content search
+
+   :param fileid: The file id
+   :param filename: The file name to be saved
+   :param filepath: The file path to be saved
+   :throws IllegalArgumentException: IOEXException
+
+scUpload
+^^^^^^^^
+
+.. java:method:: public void scUpload(String fileid, String filename, String filepath) throws IOEXException
+   :outertype: Carrier
+
+   Upload files for content search
+
+   :param fileid: The file id
+   :param filename: The file name to be saved
+   :param filepath: The file path to be saved
+   :throws IllegalArgumentException: IOEXException
+
+seekFriendFile
+^^^^^^^^^^^^^^
+
+.. java:method:: public void seekFriendFile(String fileid, String position) throws IOEXException
+   :outertype: Carrier
+
+   Seek a file from a friend.
+
+   :param fileid: The file id
+   :param position: The seeking position
+   :throws IllegalArgumentException: IOEXException
+
+sendAudioFrame
+^^^^^^^^^^^^^^
+
+.. java:method:: public void sendAudioFrame(String friendId, short[] pcm, int samples, int channels, int samplingRate) throws IOEXException
+   :outertype: Carrier
+
+   Send an pcm-16bits encoded audio frame in the call with a friend. The expected format of the PCM data is: [s1c1][s1c2][...][s2c1][s2c2][...]... Meaning: sample 1 for channel 1, sample 1 for channel 2, ... For mono audio, this has no meaning, every sample is subsequent. For stereo, this means the expected format is LRLRLR... with samples for left and right alternating.
+
+   :param friendId: ID of the friend.
+   :param pcm: An array of audio samples. The size of this array must be (samples * channels).
+   :param samples: Number of samples in this frame. It equals ((samplingRate)*(audio length)/1000). Audio length can be choose from 2.5, 5, 10, 20, 40 or 60 millseconds.
+   :param channels: Number of audio channels. Supported values are 1 (Mono) and 2 (Stereo).
+   :param samplingRate: Audio sampling rate in Hz used in this frame. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.
+   :throws IllegalArgumentException: IOEXException
+
+sendFriendFile
+^^^^^^^^^^^^^^
+
+.. java:method:: public String sendFriendFile(String to, String filename) throws IOEXException
+   :outertype: Carrier
+
+   Send a file to a friend.
+
+   :param to: The target id
+   :param filename: The message content defined by application
+   :throws IllegalArgumentException: IOEXException
+
+sendFriendMessage
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void sendFriendMessage(String to, String message) throws IOEXException
+   :outertype: Carrier
+
+   Send a message to a friend. The message length may not exceed MAX_APP_MESSAGE_LEN, and message itself should be text-formatted. Larger messages must be split by application and sent as separate messages. Other nodes can reassemble the fragments.
+
+   :param to: The target id
+   :param message: The message content defined by application
+   :throws IllegalArgumentException: IOEXException
+
+sendFriendTunnelRequest
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int sendFriendTunnelRequest(String to, String password) throws IOEXException
+   :outertype: Carrier
+
+   Send tunnel request to a friend.
+
+   :param to: The target id
+   :param password: The shared secret
+   :throws IllegalArgumentException: IOEXException
+
+sendVideoFrame
+^^^^^^^^^^^^^^
+
+.. java:method:: public void sendVideoFrame(String friendId, int width, int height, byte[] y, byte[] u, byte[] v) throws IOEXException
+   :outertype: Carrier
+
+   Send a raw YUV420 video frame in a call with a friend. This API requires Y, U and V planes separated and stored in byte array.
+
+   :param friendId: ID of the friend.
+   :param width: Width of the frame in pixels.
+   :param height: Height of the frame in pixels.
+   :param y: Y (Luminance) plane data. Size must be height * width.
+   :param u: U (Chroma) plane data. Size must be (height/2) * (width/2).
+   :param v: V (Chroma) plane data. Size must be (height/2) * (width/2).
+   :throws IllegalArgumentException: IOEXException
+
+sendVideoFrame
+^^^^^^^^^^^^^^
+
+.. java:method:: public void sendVideoFrame(String friendId, Image image) throws IOEXException
+   :outertype: Carrier
+
+   Take an Android Image object and send it in a call with a friend. Currently, only support YUV420 format.
+
+   :param friendId: ID of the friend.
+   :param image: Image object to be sent.
+   :throws IllegalArgumentException: IOEXException
+
+setFriendCallAudioBitrate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setFriendCallAudioBitrate(String friendId, int bitrate) throws IOEXException
+   :outertype: Carrier
+
+   Set our audio bit rate (in kbps) in an AV call. Usual numbers are 64, 96, 128 and 192, and the valid range is 6 ~ 510. Set 0 will disable our audio transmitting.
+
+   :param friendId: Id of the friend.
+   :param bitrate: Desired bitrate.
+   :throws IllegalArgumentException: IOEXException
+
+setFriendCallAudioEnable
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setFriendCallAudioEnable(String friendId, boolean enable) throws IOEXException
+   :outertype: Carrier
+
+   Enable or disable receiving audio from a friend in an AV call. Note that this API will not change our transmitting state, which means we could keep transmitting our AV data event if we disabled the friend's.
+
+   :param friendId: Id of the friend.
+   :param enable: Enable or disable receiving audio.
+   :throws IllegalArgumentException: IOEXException
+
+setFriendCallVideoBitrate
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setFriendCallVideoBitrate(String friendId, int bitrate) throws IOEXException
+   :outertype: Carrier
+
+   Set our video bit rate (in kbps) in an AV call. Usually numbers are 400 ~ 14000, but any number can be considered valid. Set 0 will disable our video transmitting.
+
+   :param friendId: Id of the friend.
+   :param bitrate: Desired bitrate.
+   :throws IllegalArgumentException: IOEXException
+
+setFriendCallVideoEnable
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setFriendCallVideoEnable(String friendId, boolean enable) throws IOEXException
+   :outertype: Carrier
+
+   Enable or disable receiving video from a friend in an AV call. Note that this API will not change our transmitting state, which means we could keep transmitting our AV data event if we disabled the friend's.
+
+   :param friendId: Id of the friend.
+   :param enable: Enable or disable receiving video.
+   :throws IllegalArgumentException: IOEXException
+
+setNospam
+^^^^^^^^^
+
+.. java:method:: public void setNospam(int nospam) throws IOEXException
+   :outertype: Carrier
+
+   Update self nospam of address for this carrier node. Update the nospam of carrier node address with host byte order expected. Nospam for Carrier address is used to eliminate spam friend request.
+
+   :param nospam: An integer value.
+   :throws IllegalArgumentException: IOEXException
+
+setPresence
+^^^^^^^^^^^
+
+.. java:method:: public void setPresence(PresenceStatus presence) throws IOEXException
+   :outertype: Carrier
+
+   Update self presence status.
+
+   :param presence: the new presence status.
+   :throws IllegalArgumentException: IOEXException
+
+setSelfInfo
+^^^^^^^^^^^
+
+.. java:method:: public void setSelfInfo(UserInfo userinfo) throws IOEXException
+   :outertype: Carrier
+
+   Update self user information. After self user information changed, carrier node will update this information to carrier network, and thereupon network broadcasts the change to all friends.
+
+   :param userinfo: The user information to update for this carrier node.
+   :throws IllegalArgumentException: IOEXException
+
+start
+^^^^^
+
+.. java:method:: public void start(int iterateInterval)
+   :outertype: Carrier
+
+   Start carrier node asynchronously to connect to carrier network. If the connection to network is successful, carrier node starts working.
+
+   :param iterateInterval: Internal loop interval, in milliseconds.
+
+writeTunnelDataLossless
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void writeTunnelDataLossless(int tunnel_id, byte[] data, int length) throws IOEXException
+   :outertype: Carrier
+
+   Send lossless data via a tunnel.
+
+   :param tunnel_id: The id of the tunnel
+   :param data: Buffer store the data
+   :param length: Size of the data in bytes
+   :throws IllegalArgumentException: IOEXException
+
+writeTunnelDataLossy
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void writeTunnelDataLossy(int tunnel_id, byte[] data, int length) throws IOEXException
+   :outertype: Carrier
+
+   Send lossy data via a tunnel.
+
+   :param tunnel_id: The id of the tunnel
+   :param data: Buffer store the data
+   :param length: Size of the data in bytes
+   :throws IllegalArgumentException: IOEXException
+

@@ -1,0 +1,46 @@
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+CheckIDTest
+===========
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: @RunWith public class CheckIDTest
+
+Methods
+-------
+checkInvalidAddress
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void checkInvalidAddress()
+   :outertype: CheckIDTest
+
+checkInvalidId
+^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void checkInvalidId()
+   :outertype: CheckIDTest
+
+checkValidAddress
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void checkValidAddress()
+   :outertype: CheckIDTest
+
+checkValidId
+^^^^^^^^^^^^
+
+.. java:method:: @Test public void checkValidId()
+   :outertype: CheckIDTest
+
+testGetIdFromAddress
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testGetIdFromAddress()
+   :outertype: CheckIDTest
+

@@ -1,0 +1,32 @@
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+GetInstanceTest
+===============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: @RunWith public class GetInstanceTest extends AbstractCarrierHandler
+
+Methods
+-------
+testCarrier
+^^^^^^^^^^^
+
+.. java:method:: @Test public void testCarrier()
+   :outertype: GetInstanceTest
+

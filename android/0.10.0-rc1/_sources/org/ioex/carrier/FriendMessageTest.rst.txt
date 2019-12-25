@@ -1,0 +1,64 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+FriendMessageTest
+=================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: @RunWith public class FriendMessageTest
+
+Methods
+-------
+setUp
+^^^^^
+
+.. java:method:: @BeforeClass public static void setUp()
+   :outertype: FriendMessageTest
+
+tearDown
+^^^^^^^^
+
+.. java:method:: @AfterClass public static void tearDown()
+   :outertype: FriendMessageTest
+
+testSendFriendMessage
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testSendFriendMessage()
+   :outertype: FriendMessageTest
+
+testSendMeMessage
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testSendMeMessage()
+   :outertype: FriendMessageTest
+
+testSendStrangeAMessage
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testSendStrangeAMessage()
+   :outertype: FriendMessageTest
+

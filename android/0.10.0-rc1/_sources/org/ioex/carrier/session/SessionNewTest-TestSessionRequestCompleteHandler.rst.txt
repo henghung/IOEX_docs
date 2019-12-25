@@ -1,0 +1,69 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+SessionNewTest.TestSessionRequestCompleteHandler
+================================================
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: static class TestSessionRequestCompleteHandler implements SessionRequestCompleteHandler
+   :outertype: SessionNewTest
+
+Fields
+------
+reason
+^^^^^^
+
+.. java:field::  String reason
+   :outertype: SessionNewTest.TestSessionRequestCompleteHandler
+
+sdp
+^^^
+
+.. java:field::  String sdp
+   :outertype: SessionNewTest.TestSessionRequestCompleteHandler
+
+session
+^^^^^^^
+
+.. java:field::  Session session
+   :outertype: SessionNewTest.TestSessionRequestCompleteHandler
+
+status
+^^^^^^
+
+.. java:field::  int status
+   :outertype: SessionNewTest.TestSessionRequestCompleteHandler
+
+synch
+^^^^^
+
+.. java:field::  Synchronizer synch
+   :outertype: SessionNewTest.TestSessionRequestCompleteHandler
+
+Methods
+-------
+onCompletion
+^^^^^^^^^^^^
+
+.. java:method:: public void onCompletion(Session session, int status, String reason, String sdp)
+   :outertype: SessionNewTest.TestSessionRequestCompleteHandler
+

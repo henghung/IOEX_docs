@@ -1,0 +1,69 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+SessionNewTest.TestStreamHandler
+================================
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: static class TestStreamHandler extends AbstractStreamHandler
+   :outertype: SessionNewTest
+
+Fields
+------
+receivedData
+^^^^^^^^^^^^
+
+.. java:field::  byte[] receivedData
+   :outertype: SessionNewTest.TestStreamHandler
+
+state
+^^^^^
+
+.. java:field::  StreamState state
+   :outertype: SessionNewTest.TestStreamHandler
+
+stream
+^^^^^^
+
+.. java:field::  Stream stream
+   :outertype: SessionNewTest.TestStreamHandler
+
+synch
+^^^^^
+
+.. java:field::  Synchronizer synch
+   :outertype: SessionNewTest.TestStreamHandler
+
+Methods
+-------
+onStateChanged
+^^^^^^^^^^^^^^
+
+.. java:method:: @Override public void onStateChanged(Stream stream, StreamState state)
+   :outertype: SessionNewTest.TestStreamHandler
+
+onStreamData
+^^^^^^^^^^^^
+
+.. java:method:: @Override public void onStreamData(Stream stream, byte[] data)
+   :outertype: SessionNewTest.TestStreamHandler
+

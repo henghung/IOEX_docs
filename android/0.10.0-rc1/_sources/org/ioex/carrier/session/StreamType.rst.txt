@@ -1,0 +1,97 @@
+StreamType
+==========
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public enum StreamType
+
+   Carrier stream type. Reference: https://tools.ietf.org/html/rfc4566#section-5.14 https://tools.ietf.org/html/rfc4566#section-8
+
+Enum Constants
+--------------
+Application
+^^^^^^^^^^^
+
+.. java:field:: public static final StreamType Application
+   :outertype: StreamType
+
+   Application stream.
+
+Audio
+^^^^^
+
+.. java:field:: public static final StreamType Audio
+   :outertype: StreamType
+
+   Audio stream.
+
+Message
+^^^^^^^
+
+.. java:field:: public static final StreamType Message
+   :outertype: StreamType
+
+   Message stream.
+
+Text
+^^^^
+
+.. java:field:: public static final StreamType Text
+   :outertype: StreamType
+
+   Text stream.
+
+Video
+^^^^^
+
+.. java:field:: public static final StreamType Video
+   :outertype: StreamType
+
+   Video stream.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(StreamType type)
+   :outertype: StreamType
+
+   Get description of carrier stream type.
+
+   :param type: The carrier stream type
+   :return: The description string of stream type.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: StreamType
+
+   Get description of current carrier stream type.
+
+   :return: The description string.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: StreamType
+
+   Get type value of current stream type.
+
+   :return: The stream type value
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static StreamType valueOf(int type)
+   :outertype: StreamType
+
+   Get carrier stream type from type value.
+
+   :param type: The type value
+   :throws IllegalArgumentException:
+   :return: The carrier stream type
+

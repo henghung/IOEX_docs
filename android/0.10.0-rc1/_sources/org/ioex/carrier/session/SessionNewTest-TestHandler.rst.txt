@@ -1,0 +1,51 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+SessionNewTest.TestHandler
+==========================
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: static class TestHandler extends AbstractCarrierHandler
+   :outertype: SessionNewTest
+
+Fields
+------
+synch
+^^^^^
+
+.. java:field::  Synchronizer synch
+   :outertype: SessionNewTest.TestHandler
+
+Methods
+-------
+onFriendConnection
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void onFriendConnection(Carrier carrier, String friendId, ConnectionStatus status)
+   :outertype: SessionNewTest.TestHandler
+
+onReady
+^^^^^^^
+
+.. java:method:: public void onReady(Carrier carrier)
+   :outertype: SessionNewTest.TestHandler
+

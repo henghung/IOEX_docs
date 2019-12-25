@@ -1,0 +1,48 @@
+.. java:import:: java.net InetSocketAddress
+
+TransportInfo
+=============
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public class TransportInfo
+
+Methods
+-------
+getLocalAddressInfo
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AddressInfo getLocalAddressInfo()
+   :outertype: TransportInfo
+
+getRemoteAddressInfo
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AddressInfo getRemoteAddressInfo()
+   :outertype: TransportInfo
+
+getTopology
+^^^^^^^^^^^
+
+.. java:method:: public NetworkTopology getTopology()
+   :outertype: TransportInfo
+
+setLocalAddressInfo
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void setLocalAddressInfo(AddressInfo addrInfo)
+   :outertype: TransportInfo
+
+setRemoteAddressInfo
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void setRemoteAddressInfo(AddressInfo addrInfo)
+   :outertype: TransportInfo
+
+setTopology
+^^^^^^^^^^^
+
+.. java:method::  void setTopology(int topology)
+   :outertype: TransportInfo
+

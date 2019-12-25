@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Session &mdash; IOEX Carrier Android Developer Documents 0.10.0-rc1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="SessionNewTest" href="SessionNewTest.html" />
+    <link rel="prev" title="PortForwardingProtocol" href="PortForwardingProtocol.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.14.0-rc1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-index.html">org.ioex.carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/package-index.html">org.ioex.carrier.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/package-index.html">org.ioex.carrier.robot</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier.session</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractStreamHandler.html">AbstractStreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AddressInfo.html">AddressInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CandidateType.html">CandidateType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CloseReason.html">CloseReason</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Manager.html">Manager</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ManagerHandler.html">ManagerHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ManagerTest.html">ManagerTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ManagerTest-TestHandler.html">ManagerTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="NetworkTopology.html">NetworkTopology</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PortForwardingProtocol.html">PortForwardingProtocol</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Session</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="SessionNewTest.html">SessionNewTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SessionNewTest-TestHandler.html">SessionNewTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SessionNewTest-TestReceiver.html">SessionNewTest.TestReceiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SessionNewTest-TestSessionRequestCompleteHandler.html">SessionNewTest.TestSessionRequestCompleteHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SessionNewTest-TestStreamHandler.html">SessionNewTest.TestStreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="SessionRequestCompleteHandler.html">SessionRequestCompleteHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Stream.html">Stream</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StreamHandler.html">StreamHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StreamState.html">StreamState</a></li>
+<li class="toctree-l3"><a class="reference internal" href="StreamType.html">StreamType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TransportInfo.html">TransportInfo</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier.session</a> &raquo;</li>
+        
+      <li>Session</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="session">
+<h1>Session<a class="headerlink" href="#session" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.session.Session">
+public class <code class="sig-name descname">Session</code><a class="headerlink" href="#org.ioex.carrier.session.Session" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class representing Carrier session conversion with friends.</p>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addservice">
+<h3>addService<a class="headerlink" href="#addservice" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.addService(String, PortForwardingProtocol, String, String)">
+public void <code class="sig-name descname">addService</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> service</em>, <a class="reference internal" href="PortForwardingProtocol.html#org.ioex.carrier.session.PortForwardingProtocol" title="org.ioex.carrier.session.PortForwardingProtocol">PortForwardingProtocol</a><em> protocol</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> host</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> port</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.addService(String, PortForwardingProtocol, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new portforwarding service to session. The registered services can be used by remote peer in portforwarding request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – The new service name, should be unique in session scope</p></li>
+<li><p><strong>protocol</strong> – The protocol of the service</p></li>
+<li><p><strong>host</strong> – The host name or ip of the service</p></li>
+<li><p><strong>port</strong> – The port of the service</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="addstream">
+<h3>addStream<a class="headerlink" href="#addstream" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.addStream(StreamType, int, StreamHandler)">
+public <a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a> <code class="sig-name descname">addStream</code><span class="sig-paren">(</span><a class="reference internal" href="StreamType.html#org.ioex.carrier.session.StreamType" title="org.ioex.carrier.session.StreamType">StreamType</a><em> type</em>, int<em> options</em>, <a class="reference internal" href="StreamHandler.html#org.ioex.carrier.session.StreamHandler" title="org.ioex.carrier.session.StreamHandler">StreamHandler</a><em> handler</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.addStream(StreamType, int, StreamHandler)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a new stream to session. Carrier stream supports several underlying transport mechanisms: - Plain/encrypted UDP data gram protocol - Plain/encrypted TCP like reliable stream protocol - Multiplexing over UDP - Multiplexing over TCP like reliable protocol Application can use options to specify the new stream mode. Multiplexing over UDP can not provide reliable transport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – The stream type defined in StreamType</p></li>
+<li><p><strong>options</strong> – The stream mode options. options are constructed by a bitwise-inclusive OR of flags</p></li>
+<li><p><strong>handler</strong> – The Application defined inerface to StreamHandler</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The new added carrier stream</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="close">
+<h3>close<a class="headerlink" href="#close" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.close()">
+public synchronized void <code class="sig-name descname">close</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.close()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close a session to friend. All resources include streams, channels, portforwardings associated with current session will be destroyed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="finalize">
+<h3>finalize<a class="headerlink" href="#finalize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.finalize()">
+protected void <code class="sig-name descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.finalize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getpeer">
+<h3>getPeer<a class="headerlink" href="#getpeer" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.getPeer()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getPeer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.getPeer()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get remote peer id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The remote peer userid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removeservice">
+<h3>removeService<a class="headerlink" href="#removeservice" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.removeService(String)">
+public void <code class="sig-name descname">removeService</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> service</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.removeService(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a portforwarding server to session. This function has not effect on existing portforwarings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – The service name.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removestream">
+<h3>removeStream<a class="headerlink" href="#removestream" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.removeStream(Stream)">
+public void <code class="sig-name descname">removeStream</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.removeStream(Stream)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a stream from session.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The Stream to be removed</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="replyrequest">
+<h3>replyRequest<a class="headerlink" href="#replyrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.replyRequest(int, String)">
+public void <code class="sig-name descname">replyRequest</code><span class="sig-paren">(</span>int<em> status</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> reason</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.replyRequest(int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reply the session request from friend. This function will send a session response to friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – The status code of the response. 0 is success, otherwise is error</p></li>
+<li><p><strong>reason</strong> – The error message if status is error, or null if success</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="request">
+<h3>request<a class="headerlink" href="#request" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.request(SessionRequestCompleteHandler)">
+public void <code class="sig-name descname">request</code><span class="sig-paren">(</span><a class="reference internal" href="SessionRequestCompleteHandler.html#org.ioex.carrier.session.SessionRequestCompleteHandler" title="org.ioex.carrier.session.SessionRequestCompleteHandler">SessionRequestCompleteHandler</a><em> handler</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.request(SessionRequestCompleteHandler)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send session request to the friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>handler</strong> – A handler to the SessionRequestCompleteHandler to receive the session response</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="start">
+<h3>start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Session.start(String)">
+public void <code class="sig-name descname">start</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> sdp</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Session.start(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Begin to start a session. All streams in current session will try to connect with remote friend, The stream status will update to application by stream’s StreamHandler.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sdp</strong> – The remote user’s SDP. Reference: <a class="reference external" href="https://tools.ietf.org/html/rfc4566">https://tools.ietf.org/html/rfc4566</a></p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="SessionNewTest.html" class="btn btn-neutral float-right" title="SessionNewTest" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PortForwardingProtocol.html" class="btn btn-neutral float-left" title="PortForwardingProtocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

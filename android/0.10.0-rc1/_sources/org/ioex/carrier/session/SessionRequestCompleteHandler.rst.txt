@@ -1,0 +1,25 @@
+SessionRequestCompleteHandler
+=============================
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public interface SessionRequestCompleteHandler
+
+   The interface to carrier session.
+
+Methods
+-------
+onCompletion
+^^^^^^^^^^^^
+
+.. java:method::  void onCompletion(Session session, int status, String reason, String sdp)
+   :outertype: SessionRequestCompleteHandler
+
+   The callback function to receive session request complete event.
+
+   :param session: The carrier session instance.
+   :param status: The status code of the response. 0 is success, otherwise is error.
+   :param reason: The error message if status is error, or nil if session request error happened
+   :param sdp: The remote users SDP. Reference: https://tools.ietf.org/html/rfc4566
+

@@ -1,0 +1,89 @@
+CandidateType
+=============
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public enum CandidateType
+
+   Carrier Stream's candidate type.
+
+Enum Constants
+--------------
+Host
+^^^^
+
+.. java:field:: public static final CandidateType Host
+   :outertype: CandidateType
+
+   Host candidate.
+
+PeerReflexive
+^^^^^^^^^^^^^
+
+.. java:field:: public static final CandidateType PeerReflexive
+   :outertype: CandidateType
+
+   Peer reflexive, only valid to ICE transport.
+
+Relayed
+^^^^^^^
+
+.. java:field:: public static final CandidateType Relayed
+   :outertype: CandidateType
+
+   Relayed Candidate, only valid to ICE tranport.
+
+ServerReflexive
+^^^^^^^^^^^^^^^
+
+.. java:field:: public static final CandidateType ServerReflexive
+   :outertype: CandidateType
+
+   Server reflexive, only valid to ICE transport.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(CandidateType type)
+   :outertype: CandidateType
+
+   Get the fully formatized string of candidate type.
+
+   :param type: The candidate type instance.
+   :return: The formatized string of candidate type.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: CandidateType
+
+   Get fully formatized string.
+
+   :return: The fully formatized string.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: CandidateType
+
+   Get candidate type.
+
+   :return: The candidate value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static CandidateType valueOf(int type)
+   :outertype: CandidateType
+
+   Get candidate type
+
+   :param type: The value of candidate type.
+   :throws IllegalArgumentException:
+   :return: The close reason instance.
+

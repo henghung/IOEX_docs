@@ -1,0 +1,67 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+FriendInviteTest.InviteResponseHandler
+======================================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: static class InviteResponseHandler implements FriendInviteResponseHandler
+   :outertype: FriendInviteTest
+
+Fields
+------
+data
+^^^^
+
+.. java:field::  String data
+   :outertype: FriendInviteTest.InviteResponseHandler
+
+from
+^^^^
+
+.. java:field::  String from
+   :outertype: FriendInviteTest.InviteResponseHandler
+
+status
+^^^^^^
+
+.. java:field::  int status
+   :outertype: FriendInviteTest.InviteResponseHandler
+
+synch
+^^^^^
+
+.. java:field::  Synchronizer synch
+   :outertype: FriendInviteTest.InviteResponseHandler
+
+Methods
+-------
+onReceived
+^^^^^^^^^^
+
+.. java:method:: public void onReceived(String from, int status, String reason, String data)
+   :outertype: FriendInviteTest.InviteResponseHandler
+
