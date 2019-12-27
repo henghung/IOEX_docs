@@ -1,0 +1,775 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Send Messages and Files to Friend &mdash; IOEX Carrier Developer Documents 0.14.0-rc2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.14.0-rc2 documentation" href="index.html"/>
+        <link rel="next" title="IOEX Carrier core APIs" href="carrier-api.html"/>
+        <link rel="prev" title="Become a Friend With Other Nodes" href="tutorial-friend.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.14.0-rc2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Send Messages and Files to Friend</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#send-message-to-and-receive-message-from-a-friend">Send Message to and Receive Message From a Friend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#no-offline-messages">No offline messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#send-file-to-and-receive-file-from-a-friend">Send File to and Receive File From a Friend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#file-transmission-flow">File transmission flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-filesend-command">Implement filesend command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-file-request-callback">Implement file request callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-fileaccept-command">Implement fileaccept command</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implement-file-completed-callback">Implement file completed callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#verify-our-implementation">Verify our implementation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-example">Complete Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">(Experimental) IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Send Messages and Files to Friend</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="send-messages-and-files-to-friend">
+<h1>Send Messages and Files to Friend<a class="headerlink" href="#send-messages-and-files-to-friend" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we will build an application to send messages and files to the friend.</p>
+<p>This application will base on the one in <a class="reference internal" href="tutorial-friend.html#become-a-friend-with-other-nodes"><span class="std std-ref">Become a Friend With Other Nodes</span></a>. If you haven’t finish the previous tutorial, we highly recommanded you to check the <a class="reference internal" href="tutorial-friend.html#become-a-friend-with-other-nodes"><span class="std std-ref">Become a Friend With Other Nodes</span></a> tutorial first.</p>
+</div>
+<div class="section" id="send-message-to-and-receive-message-from-a-friend">
+<h2>Send Message to and Receive Message From a Friend<a class="headerlink" href="#send-message-to-and-receive-message-from-a-friend" title="Permalink to this headline">¶</a></h2>
+<p>We are going to implement a command <code class="docutils literal notranslate"><span class="pre">msg</span></code> to send text message to a friend. This command will take friend’s ID and a message string as its arguments. For example, <code class="docutils literal notranslate"><span class="pre">msg</span> <span class="pre">FRIEND_ID</span> <span class="pre">hello</span></code>. First, we add the following code blocks:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_send_friend_message</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Send message success.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Send message failed(0x%08X).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And don’t forget to add it in <code class="docutils literal notranslate"><span class="pre">do_command</span></code> function:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+        <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// Add the follows:</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;msg&quot;</span><span class="p">)){</span>
+        <span class="n">send_message</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="carrier-api.html#ioex-send-friend-message"><span class="std std-ref">IOEX_send_friend_message</span></a> will send our message to a friend. It takes 4 arguments: IOEX Carrier handler, friend’s ID, message, and the length of the message. If and error occurred, an error code is set automatically, and you can use <a class="reference internal" href="carrier-api.html#ioex-get-error"><span class="std std-ref">IOEX_get_error</span></a> to retrieve it.</p>
+<p>When we receive a message from a friend, we would like to display the friend’s ID and the message on the screen. You can use <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">friend_message</span></a> callback to achieve this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_message_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span>
+        <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">msg</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Message from friend[%s]: %.*s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">len</span><span class="p">,</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>You will need to add this callback in main function:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">friend_message</span> <span class="o">=</span> <span class="n">friend_message_callback</span><span class="p">;</span>  <span class="c1">// Add this</span>
+</pre></div>
+</div>
+<p>It’s done. You can rebuild and execute the application. Use IOEXshell as a friend and try to send/receive message.</p>
+<div class="section" id="no-offline-messages">
+<h3>No offline messages<a class="headerlink" href="#no-offline-messages" title="Permalink to this headline">¶</a></h3>
+<p>IOEX Carrier network does not support offline messages. That is, you can only send a message to a friend if the friend is online.</p>
+<p>This is because that IOEX Carrier is designed for a secure peer-to-peer network, and we want to keep the message secure between the friends. No other nodes or servers should store or cache the messages.</p>
+<p>To support offline messages, the sender must send the message to a server first. And the server will keep tracking if the receiver is back online, and then send the message to the receiver. Or, when the receiver is online, it ask the server if there are messages for it. Either way, a server is required to implement offline message feature, and it violate the principle of IOEX Carrier network.</p>
+<p>The <em>“no offline”</em> rule applies to other IOEX Carrier features as well. For example, a node can only send a file to an online friend.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can implement a “pseudo-offline messaging” mechanism in your application. If the message receiver is offline, the sender can keep the message in a local database, and send it when the receiver is online. It still needs both sender and receiver be online at the same time.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Friend request can be considered as an exception to “no offline” rule, because the target node is always “offline” to the sender. The sender just hope the target node is actually online at the moment.</p>
+</div>
+</div>
+</div>
+<div class="section" id="send-file-to-and-receive-file-from-a-friend">
+<h2>Send File to and Receive File From a Friend<a class="headerlink" href="#send-file-to-and-receive-file-from-a-friend" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="file-transmission-flow">
+<h3>File transmission flow<a class="headerlink" href="#file-transmission-flow" title="Permalink to this headline">¶</a></h3>
+<p>An IOEX Carrier node can send a local file to its friend. The basic flow is as follows:</p>
+<ol class="arabic simple">
+<li><p>Node A send a request to its friend Node B by using <a class="reference internal" href="carrier-api.html#ioex-send-file-request"><span class="std std-ref">IOEX_send_file_request</span></a> API</p></li>
+<li><p>When Node B received the request, the <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">file_request</span></a> callback will be called</p></li>
+<li><p>Node B accept the request by using <a class="reference internal" href="carrier-api.html#ioex-send-file-accept"><span class="std std-ref">IOEX_send_file_accept</span></a> API, which will send a message to the sender</p></li>
+<li><p>When Node A receive the control message, the file transmission starts automatically. Also, <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">file_accepted</span></a> will be called.</p></li>
+<li><p>During the transmission, <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">file_progress</span></a> will be called on both Node A and Node B. Application can use this callback to track progress of the file transmission.</p></li>
+<li><p>When file transmission completed, <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">file_completed</span></a> will be called on both Node A and Node B.</p></li>
+</ol>
+</div>
+<div class="section" id="implement-filesend-command">
+<h3>Implement filesend command<a class="headerlink" href="#implement-filesend-command" title="Permalink to this headline">¶</a></h3>
+<p>So basically, first thing we need to do is to implement a <code class="docutils literal notranslate"><span class="pre">filesend</span></code> command to send a local file to the friend, which should take the friend’s ID and the local path of the file as arguments like <code class="docutils literal notranslate"><span class="pre">filesend</span> <span class="pre">FRIEND_ID</span> <span class="pre">A_LOCAL_FILE</span></code>. Add the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">file_send_request</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">fileid</span><span class="p">[</span><span class="n">IOEX_MAX_FILE_ID_LEN</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_send_file_request</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">fileid</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fileid</span><span class="p">),</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid request.(0x%08X)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File request sent. File id = %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileid</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And add this command in <code class="docutils literal notranslate"><span class="pre">do_command</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+        <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;msg&quot;</span><span class="p">)){</span>
+        <span class="n">send_message</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// Add this</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;filesend&quot;</span><span class="p">)){</span>
+        <span class="n">file_send_request</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="carrier-api.html#ioex-send-file-request"><span class="std std-ref">IOEX_send_file_request</span></a> API will take friend ID and local file path as its arguements. It will also randomly generates a <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">ID</span></code> to track this file transmission. The file ID is unique and will be used to identify a file transmission.</p>
+<p>File ID is wildly used in other IOEX Carrier file transmission APIs and callbacks. For example, you can use API <a class="reference internal" href="carrier-api.html#ioex-get-file-info"><span class="std std-ref">IOEX_get_file_info</span></a> with certain file ID to get current status of a file transmission. The API will return <a class="reference internal" href="carrier-api.html#ioexfiletrackerinfo"><span class="std std-ref">IOEXFileTrackerInfo</span></a> to tell user the friend ID, transmission progress, local file path and other useful information. This file ID is send to the friend with the request.</p>
+</div>
+<div class="section" id="implement-file-request-callback">
+<h3>Implement file request callback<a class="headerlink" href="#implement-file-request-callback" title="Permalink to this headline">¶</a></h3>
+<p>Next, when the friend receive file request, <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">file_request</span></a> callback is called. We can implement our file request callback like this:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">file_request_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fileid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span>
+        <span class="kt">size_t</span> <span class="n">filesize</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File request from friend[%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File name %s with size %zu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filesize</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Reply use following commands:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  fileaccept %s &lt;new file name&gt; &lt;file path&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileid</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And add this callback in main:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="c1">// ...</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">file_request</span> <span class="o">=</span> <span class="n">file_request_callback</span><span class="p">;</span>  <span class="c1">// Add this</span>
+</pre></div>
+</div>
+<p>The file_request callback have some information about this transmission. It tells you who send this request, the name and size of the file, and a unique file ID to identify this transmission. Application or user can use these information to decide whether it should accept this file or not.</p>
+</div>
+<div class="section" id="implement-fileaccept-command">
+<h3>Implement fileaccept command<a class="headerlink" href="#implement-fileaccept-command" title="Permalink to this headline">¶</a></h3>
+<p>Now that’s add the <code class="docutils literal notranslate"><span class="pre">fileaccept</span></code> command. Note that we need to decide where we should store the received file when use this command. So, the command should look like this: <code class="docutils literal notranslate"><span class="pre">fileaccept</span> <span class="pre">FILE_ID</span> <span class="pre">file_name</span> <span class="pre">file_path</span></code>. For example, <code class="docutils literal notranslate"><span class="pre">fileaccept</span> <span class="pre">FILE_ID</span> <span class="pre">aaa</span> <span class="pre">.</span></code> will rename the file to aaa and store under current working directory.</p>
+<p>Add the following code:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">file_send_accept</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_send_file_accept</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid request.(0x%08X)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accepted file request.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And add the command in do_command:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+        <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="c1">// ...</span>
+
+    <span class="c1">// Add this:</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fileaccept&quot;</span><span class="p">)){</span>
+        <span class="n">file_send_accept</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="carrier-api.html#ioex-send-file-accept"><span class="std std-ref">IOEX_send_file_accept</span></a> will take IOEXCarrier handler, file ID, name and path for the file as the input. It will then send a control message back to the sender so it can start sending us the file.</p>
+<p>Note that we are start using file ID in our API now. As discussed earlier, we use file ID in most of the file transmission APIs and callbacks. In this example, the file ID came from <code class="docutils literal notranslate"><span class="pre">file_send_request</span></code> callback we implemented earlier, and is displayed on the screen. User can simply copy the ID from the screen and paste it in our <code class="docutils literal notranslate"><span class="pre">fileaccept</span></code> command. But in some cases, you may need to keep a record of the file IDs in your application in order to use them later.</p>
+</div>
+<div class="section" id="implement-file-completed-callback">
+<h3>Implement file completed callback<a class="headerlink" href="#implement-file-completed-callback" title="Permalink to this headline">¶</a></h3>
+<p>Finally, we need a way to know if a file transmission is completed. The implementation of our <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">file_completed</span></a> callback is as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">file_completed_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fileid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+        <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fullpath</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File %s transmission [id:%s] with friend [%s] has completed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fullpath</span><span class="p">,</span> <span class="n">fileid</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Don’t forget to add it in main:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="c1">// ...</span>
+<span class="c1">// Add this:</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">file_completed</span> <span class="o">=</span> <span class="n">file_completed_callback</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>The file completed callback will have the information like the local file path, ID of the friend who we sent file to or received file from, and the file ID.</p>
+</div>
+<div class="section" id="verify-our-implementation">
+<h3>Verify our implementation<a class="headerlink" href="#verify-our-implementation" title="Permalink to this headline">¶</a></h3>
+<p>Now we can test the file transmission implementation of our application. First, we create a simple text file by using:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>touch aaa.txt
+<span class="nb">echo</span> <span class="s2">&quot;hello&quot;</span> &gt;&gt; aaa.txt
+</pre></div>
+</div>
+<p>Start IOEXshell and our application in different terminals. Make them friends if they haven’t, and wait until the both of them are online. Now, enter the command in main application to start file transmission:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">filesend SHELL_NODE_ID aaa.txt</span>
+</pre></div>
+</div>
+<p>Replace SHELL_NODE_ID with the ID of your IOEXshell. A message should pop up to tell you that the request is sent:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">File request sent. File id = 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D</span>
+</pre></div>
+</div>
+<p>Then, go to IOEXshell terminal, you should receive a message like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Send file request from friend[&lt;MAIN_NODE_ID&gt;]</span>
+<span class="go">File name aaa.txt with size 6</span>
+<span class="go">Reply use following commands:</span>
+<span class="go">  fileaccept 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D &lt;new file name&gt; &lt;file path&gt;</span>
+<span class="go">  filereject 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D</span>
+</pre></div>
+</div>
+<p>Next, we will accept the request by enter the command in IOEXshell. Here, we can try to rename the file to bbb.txt and save to /tmp folder by using the command:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fileaccept 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D bbb.txt /tmp</span>
+</pre></div>
+</div>
+<p>Your file ID will be different, so do not copy the above one. By entering the command, IOEXshell accepts the request and the file transmission will begin. Since it is a very small file, it should be completed immediately.</p>
+<p>Finally, go back to main application and you should see a message indicates that file transmission is completed:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">File aaa.txt transmission [id:4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D] with friend [&lt;SHELL_NODE_ID&gt;] has completed</span>
+</pre></div>
+</div>
+<p>Congratulations! You have successfully write an application that is able to transmit a file with other nodes. You can verify if the file /tmp/bbb.txt existed, and if it contains a single line of text “hello” like the original aaa.txt.</p>
+<p>Also, you can try to send a file from IOEXshell to main application. With the implementation of <code class="docutils literal notranslate"><span class="pre">fileaccept</span></code> command and <code class="docutils literal notranslate"><span class="pre">file_request</span></code> callback, your application should be able to receive the request and accept file.</p>
+</div>
+</div>
+<div class="section" id="complete-example">
+<h2>Complete Example<a class="headerlink" href="#complete-example" title="Permalink to this headline">¶</a></h2>
+<p>Here is the complete example of this tutorial:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ctype.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;IOEX_carrier.h&quot;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_connection_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+                                       <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be offline.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!!! Got unknown connection status %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_message_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">from</span><span class="p">,</span>
+                             <span class="k">const</span> <span class="kt">void</span> <span class="o">*</span><span class="n">msg</span><span class="p">,</span> <span class="kt">size_t</span> <span class="n">len</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Message from friend[%s]: %.*s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">from</span><span class="p">,</span> <span class="p">(</span><span class="kt">int</span><span class="p">)</span><span class="n">len</span><span class="p">,</span> <span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="p">)</span><span class="n">msg</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">file_request_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fileid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">filename</span><span class="p">,</span>
+                                  <span class="kt">size_t</span> <span class="n">filesize</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File request from friend[%s]</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File name %s with size %zu</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">filesize</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Reply use following commands:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  fileaccept %s &lt;new file name&gt; &lt;file path&gt;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileid</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">file_completed_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fileid</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">fullpath</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File %s transmission [id:%s] with friend [%s] has completed</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fullpath</span><span class="p">,</span> <span class="n">fileid</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">add_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend succeess.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend failed(0x%08X).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">send_message</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_send_friend_message</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">strlen</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Send message success.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Send message failed(0x%08X).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">file_send_request</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">fileid</span><span class="p">[</span><span class="n">IOEX_MAX_FILE_ID_LEN</span> <span class="o">+</span> <span class="mi">1</span><span class="p">];</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_send_file_request</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">fileid</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">fileid</span><span class="p">),</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid request.(0x%8X)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;File request sent. File id = %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">fileid</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">file_send_accept</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_send_file_accept</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid request.(0x%08X)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="p">}</span>
+    <span class="k">else</span><span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accepted file request.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">read_command</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">command_line</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+
+    <span class="c1">// Failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Printable ASCII charactors</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="n">command_len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Enter is pressed</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\r&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">command_line</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">do_command</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">argc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">command</span><span class="p">;</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)){</span>
+            <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_word</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">argc</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+            <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;msg&quot;</span><span class="p">)){</span>
+            <span class="n">send_message</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;filesend&quot;</span><span class="p">)){</span>
+            <span class="n">file_send_request</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fileaccept&quot;</span><span class="p">)){</span>
+            <span class="n">file_send_accept</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">idle_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">read_command</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">command</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">do_command</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+
+    <span class="c1">// Set options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Randomize</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Set stdin non-block</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to set stdin non-blocking.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Set callbacks</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">friend_message</span> <span class="o">=</span> <span class="n">friend_message_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">file_request</span> <span class="o">=</span> <span class="n">file_request_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">file_completed</span> <span class="o">=</span> <span class="n">file_completed_callback</span><span class="p">;</span>
+
+    <span class="c1">// Initialize carrier instance</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Display carrier node information</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Run carrier loop</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we have discussed basic file transmission flow, and how we can implement the commands to send a file to friends by using IOEX Carrier APIs and callbacks.</p>
+<p>You should check the other file transmission APIs in <a class="reference internal" href="carrier-api.html#file-transmission-functions"><span class="std std-ref">core API documents</span></a> and callbacks like <code class="docutils literal notranslate"><span class="pre">file_progress</span></code> in <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a>. You might want to utilize some of them to meet your requirements.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-api.html" class="btn btn-neutral float-right" title="IOEX Carrier core APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial-friend.html" class="btn btn-neutral" title="Become a Friend With Other Nodes" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.14.0-rc2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
