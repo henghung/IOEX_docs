@@ -1,0 +1,48 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+SessionNewTest
+==============
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public class SessionNewTest
+
+Methods
+-------
+setUp
+^^^^^
+
+.. java:method:: @BeforeClass public static void setUp()
+   :outertype: SessionNewTest
+
+tearDown
+^^^^^^^^
+
+.. java:method:: @AfterClass public static void tearDown()
+   :outertype: SessionNewTest
+
+testSession
+^^^^^^^^^^^
+
+.. java:method:: @Test public void testSession()
+   :outertype: SessionNewTest
+

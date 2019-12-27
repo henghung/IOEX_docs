@@ -1,0 +1,81 @@
+NetworkTopology
+===============
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public enum NetworkTopology
+
+   Carrier network topology for session peers related to each other.
+
+Enum Constants
+--------------
+LAN
+^^^
+
+.. java:field:: public static final NetworkTopology LAN
+   :outertype: NetworkTopology
+
+   LAN network topology.
+
+P2P
+^^^
+
+.. java:field:: public static final NetworkTopology P2P
+   :outertype: NetworkTopology
+
+   P2P network topology,
+
+Relayed
+^^^^^^^
+
+.. java:field:: public static final NetworkTopology Relayed
+   :outertype: NetworkTopology
+
+   Relayed netowrk topology.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(NetworkTopology type)
+   :outertype: NetworkTopology
+
+   Get the fully formatized string of network topology type.
+
+   :param type: The network topology instance.
+   :return: The formatized string of network topology.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: NetworkTopology
+
+   Get fully formatized string.
+
+   :return: The fully formatized string.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: NetworkTopology
+
+   Get netowrk topology type.
+
+   :return: The topology value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static NetworkTopology valueOf(int type)
+   :outertype: NetworkTopology
+
+   Get network topolgoy.
+
+   :param type: The value of topolgoy.
+   :throws IllegalArgumentException:
+   :return: The network topology instance.
+

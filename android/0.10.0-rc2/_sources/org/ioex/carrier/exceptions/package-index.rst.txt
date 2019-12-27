@@ -1,0 +1,12 @@
+org.ioex.carrier.exceptions
+===========================
+
+.. java:package:: org.ioex.carrier.exceptions
+
+.. toctree::
+   :maxdepth: 1
+
+   IOEXException
+   IOEXExceptionCode
+   IOEXExceptionFacility
+

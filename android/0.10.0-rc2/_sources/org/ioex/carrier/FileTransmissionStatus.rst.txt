@@ -1,0 +1,85 @@
+FileTransmissionStatus
+======================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum FileTransmissionStatus
+
+Enum Constants
+--------------
+Aborted
+^^^^^^^
+
+.. java:field:: public static final FileTransmissionStatus Aborted
+   :outertype: FileTransmissionStatus
+
+Finished
+^^^^^^^^
+
+.. java:field:: public static final FileTransmissionStatus Finished
+   :outertype: FileTransmissionStatus
+
+None
+^^^^
+
+.. java:field:: public static final FileTransmissionStatus None
+   :outertype: FileTransmissionStatus
+
+Pending
+^^^^^^^
+
+.. java:field:: public static final FileTransmissionStatus Pending
+   :outertype: FileTransmissionStatus
+
+Running
+^^^^^^^
+
+.. java:field:: public static final FileTransmissionStatus Running
+   :outertype: FileTransmissionStatus
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(FileTransmissionStatus status)
+   :outertype: FileTransmissionStatus
+
+   Get the debug description of the FileTransmissionStatus object.
+
+   :param status: The file transmission status
+   :return: The debug description of FileTransmissionStatus object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: FileTransmissionStatus
+
+   Get the debug description of current FileTransmissionStatus object.
+
+   :return: The debug description of current FileTransmissionStatus object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: FileTransmissionStatus
+
+   Get the status value of current FileTransmissionStatus object.
+
+   :return: The file transmission status value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static FileTransmissionStatus valueOf(int status)
+   :outertype: FileTransmissionStatus
+
+   Get FileTransmissionStatus object from staus integter value.
+
+   :param status: The status value
+   :throws IllegalArgumentException:
+   :return: The FileTransmissionStatus object
+

@@ -1,0 +1,254 @@
+UserInfo
+========
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class UserInfo
+
+   A class representing the Carrier user information. In carrier SDK, self and each friend also is Carrier user, and has same user attributes.
+
+Fields
+------
+MAX_EMAIL_LEN
+^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_EMAIL_LEN
+   :outertype: UserInfo
+
+   Carrier user email address max length.
+
+MAX_GENDER_LEN
+^^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_GENDER_LEN
+   :outertype: UserInfo
+
+   Carrier user gender max length.
+
+MAX_ID_LEN
+^^^^^^^^^^
+
+.. java:field:: public static final int MAX_ID_LEN
+   :outertype: UserInfo
+
+   Carrier User ID max length.
+
+MAX_PHONE_LEN
+^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_PHONE_LEN
+   :outertype: UserInfo
+
+   Carrier user phone number max length.
+
+MAX_REGION_LEN
+^^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_REGION_LEN
+   :outertype: UserInfo
+
+   Carrier user region max length.
+
+MAX_USER_DESCRIPTION_LEN
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_USER_DESCRIPTION_LEN
+   :outertype: UserInfo
+
+   Carrier user description max length.
+
+MAX_USER_NAME_LEN
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_USER_NAME_LEN
+   :outertype: UserInfo
+
+   Carrier user name max length.
+
+Constructors
+------------
+UserInfo
+^^^^^^^^
+
+.. java:constructor:: protected UserInfo()
+   :outertype: UserInfo
+
+Methods
+-------
+getDescription
+^^^^^^^^^^^^^^
+
+.. java:method:: public String getDescription()
+   :outertype: UserInfo
+
+   Get user's description, also as what's up
+
+   :return: The brief description of user
+
+getEmail
+^^^^^^^^
+
+.. java:method:: public String getEmail()
+   :outertype: UserInfo
+
+   Get user's email address.
+
+   :return: The email address
+
+getGender
+^^^^^^^^^
+
+.. java:method:: public String getGender()
+   :outertype: UserInfo
+
+   Get user's gender.
+
+   :return: The user's gender.
+
+getName
+^^^^^^^
+
+.. java:method:: public String getName()
+   :outertype: UserInfo
+
+   Get nickname, also as display name.
+
+   :return: The nickname.
+
+getPhone
+^^^^^^^^
+
+.. java:method:: public String getPhone()
+   :outertype: UserInfo
+
+   Get user's phone number.
+
+   :return: The phone number of user
+
+getRegion
+^^^^^^^^^
+
+.. java:method:: public String getRegion()
+   :outertype: UserInfo
+
+   Get user's region.
+
+   :return: The region.
+
+getUserId
+^^^^^^^^^
+
+.. java:method:: public String getUserId()
+   :outertype: UserInfo
+
+   Get user ID
+
+   :return: The user ID
+
+hasAvatar
+^^^^^^^^^
+
+.. java:method:: public boolean hasAvatar()
+   :outertype: UserInfo
+
+   Check user have avatar.
+
+   :return: True if have avatar, otherwise is not
+
+setDescription
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setDescription(String description)
+   :outertype: UserInfo
+
+   Set user's brief description, also as what's up.
+
+   :param description: the brief description to set
+   :throws IllegalArgumentException:
+
+setEmail
+^^^^^^^^
+
+.. java:method:: public void setEmail(String email)
+   :outertype: UserInfo
+
+   Set user's email address.
+
+   :param email: The email address to set
+   :throws IllegalArgumentException:
+
+setGender
+^^^^^^^^^
+
+.. java:method:: public void setGender(String gender)
+   :outertype: UserInfo
+
+   Set user's gender.
+
+   :param gender: The gender to set
+   :throws IllegalArgumentException:
+
+setHasAvatar
+^^^^^^^^^^^^
+
+.. java:method:: public void setHasAvatar(boolean hasAvatar)
+   :outertype: UserInfo
+
+   Set user to have avatar.
+
+   :param hasAvatar: Has avatar or not
+
+setName
+^^^^^^^
+
+.. java:method:: public void setName(String name)
+   :outertype: UserInfo
+
+   Set nickname, also as display name.
+
+   :param name: The nickname to set
+   :throws IllegalArgumentException:
+
+setPhone
+^^^^^^^^
+
+.. java:method:: public void setPhone(String phone)
+   :outertype: UserInfo
+
+   Set usr's phone number.
+
+   :param phone: The phone number to set
+   :throws IllegalArgumentException:
+
+setRegion
+^^^^^^^^^
+
+.. java:method:: public void setRegion(String region)
+   :outertype: UserInfo
+
+   Set user's region
+
+   :param region: The region to set
+   :throws IllegalArgumentException:
+
+setUserId
+^^^^^^^^^
+
+.. java:method::  void setUserId(String userId)
+   :outertype: UserInfo
+
+   Set user ID. This function only be called in JNI.
+
+   :param userId: The user ID to set
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: UserInfo
+
+   Get debug description of current UserInfo object.
+
+   :return: The debug description of UserInfo object.
+

@@ -1,0 +1,349 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>StreamHandler &mdash; IOEX Carrier Android Developer Documents 0.10.0-rc2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0-rc2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Javadoc</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>StreamHandler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="streamhandler">
+<h1>StreamHandler<a class="headerlink" href="#streamhandler" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.session.StreamHandler">
+public interface <code class="sig-name descname">StreamHandler</code><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>The interface to carrier stream instance. Include stream status callback, stream data callback, and channel callbacks.</p>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="onchannelclose">
+<h3>onChannelClose<a class="headerlink" href="#onchannelclose" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onChannelClose(Stream, int, CloseReason)">
+ void <code class="sig-name descname">onChannelClose</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, int<em> channel</em>, <a class="reference internal" href="CloseReason.html#org.ioex.carrier.session.CloseReason" title="org.ioex.carrier.session.CloseReason">CloseReason</a><em> reason</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onChannelClose(Stream, int, CloseReason)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to be called when channel close.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>channel</strong> – The current channel ID.</p></li>
+<li><p><strong>reason</strong> – Channel close reason code, defined in CloseReason.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onchanneldata">
+<h3>onChannelData<a class="headerlink" href="#onchanneldata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onChannelData(Stream, int, byte[])">
+ boolean <code class="sig-name descname">onChannelData</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, int<em> channel</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onChannelData(Stream, int, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback functiont to be called when channel received incoming data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>channel</strong> – The current channel ID</p></li>
+<li><p><strong>data</strong> – The received data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, or false if an error occurred. If this callback return false, the channel will be closed with CloseReason_Error.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onchannelopen">
+<h3>onChannelOpen<a class="headerlink" href="#onchannelopen" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onChannelOpen(Stream, int, String)">
+ boolean <code class="sig-name descname">onChannelOpen</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, int<em> channel</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> cookie</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onChannelOpen(Stream, int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to be called when new multiplexing channel request to open.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>channel</strong> – The current channel ID.</p></li>
+<li><p><strong>cookie</strong> – Application defined string data send from remote peer.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, or false if an error occurred. The channel will continue to open only this callback return true, otherwise the channel will be closed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onchannelopened">
+<h3>onChannelOpened<a class="headerlink" href="#onchannelopened" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onChannelOpened(Stream, int)">
+ void <code class="sig-name descname">onChannelOpened</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, int<em> channel</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onChannelOpened(Stream, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to be called when new multiplexing channel opened.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>channel</strong> – The current channel ID</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onchannelpending">
+<h3>onChannelPending<a class="headerlink" href="#onchannelpending" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onChannelPending(Stream, int)">
+ void <code class="sig-name descname">onChannelPending</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, int<em> channel</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onChannelPending(Stream, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to be called when remote peer ask to pend data sending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>channel</strong> – The current channel ID</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onchannelresume">
+<h3>onChannelResume<a class="headerlink" href="#onchannelresume" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onChannelResume(Stream, int)">
+ void <code class="sig-name descname">onChannelResume</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, int<em> channel</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onChannelResume(Stream, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to be called when remote peer ask to resume data sending.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>channel</strong> – The current channel ID</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onstatechanged">
+<h3>onStateChanged<a class="headerlink" href="#onstatechanged" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onStateChanged(Stream, StreamState)">
+ void <code class="sig-name descname">onStateChanged</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, <a class="reference internal" href="StreamState.html#org.ioex.carrier.session.StreamState" title="org.ioex.carrier.session.StreamState">StreamState</a><em> state</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onStateChanged(Stream, StreamState)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to report state of stream when it’s state changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>state</strong> – Stream state defined in StreamState</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onstreamdata">
+<h3>onStreamData<a class="headerlink" href="#onstreamdata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.StreamHandler.onStreamData(Stream, byte[])">
+ void <code class="sig-name descname">onStreamData</code><span class="sig-paren">(</span><a class="reference internal" href="Stream.html#org.ioex.carrier.session.Stream" title="org.ioex.carrier.session.Stream">Stream</a><em> stream</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.StreamHandler.onStreamData(Stream, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback will be called when the stream receives incoming packet. If the stream enabled multiplexing mode, application will not receive stream-layered data callback any more. All data will reported as multiplexing channel data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The carrier stream instance</p></li>
+<li><p><strong>data</strong> – The received packet data</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

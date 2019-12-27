@@ -1,0 +1,48 @@
+.. java:import:: java.net InetSocketAddress
+
+AddressInfo
+===========
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public class AddressInfo
+
+Methods
+-------
+getAddress
+^^^^^^^^^^
+
+.. java:method:: public InetSocketAddress getAddress()
+   :outertype: AddressInfo
+
+getCandidateType
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public CandidateType getCandidateType()
+   :outertype: AddressInfo
+
+getRelatedAddress
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public InetSocketAddress getRelatedAddress()
+   :outertype: AddressInfo
+
+setAddress
+^^^^^^^^^^
+
+.. java:method::  void setAddress(InetSocketAddress addr)
+   :outertype: AddressInfo
+
+setCandidateType
+^^^^^^^^^^^^^^^^
+
+.. java:method::  void setCandidateType(int type)
+   :outertype: AddressInfo
+
+setRelatedAddress
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  void setRelatedAddress(InetSocketAddress addr)
+   :outertype: AddressInfo
+

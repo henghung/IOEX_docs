@@ -1,0 +1,79 @@
+.. java:import:: org.ioex.carrier Carrier
+
+.. java:import:: org.ioex.carrier Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+Manager
+=======
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public class Manager
+
+   The class representing Carrier session manager.
+
+Methods
+-------
+cleanup
+^^^^^^^
+
+.. java:method:: public synchronized void cleanup()
+   :outertype: Manager
+
+   Clean up carrier session manager.
+
+finalize
+^^^^^^^^
+
+.. java:method:: @Override protected void finalize() throws Throwable
+   :outertype: Manager
+
+getInstance
+^^^^^^^^^^^
+
+.. java:method:: public static Manager getInstance(Carrier carrier) throws IOEXException
+   :outertype: Manager
+
+   Get a carrier session manager instance. This function is convinience way to get instance without interest to session request from friends.
+
+   :param carrier: Carrier node instance
+   :throws IOEXException:
+   :return: A carrier session manager
+
+getInstance
+^^^^^^^^^^^
+
+.. java:method:: public static Manager getInstance(Carrier carrier, ManagerHandler handler) throws IOEXException
+   :outertype: Manager
+
+   Get a carrier session manager instance.
+
+   :param carrier: Carrier node instance
+   :param handler: The interface handler for carrier session manager to comply with
+   :throws IOEXException:
+   :return: A carrier session manager
+
+getInstance
+^^^^^^^^^^^
+
+.. java:method:: public static Manager getInstance()
+   :outertype: Manager
+
+   Get a carrier session manager instance.
+
+   :return: A carrier session manager or null
+
+newSession
+^^^^^^^^^^
+
+.. java:method:: public Session newSession(String to) throws IOEXException
+   :outertype: Manager
+
+   Create a new session to a friend. The session object represent a conversation handle to a friend.
+
+   :param to: The target id(userid or userid@nodeid).
+   :throws IllegalArgumentException: IOEXException
+   :return: The new Session object
+

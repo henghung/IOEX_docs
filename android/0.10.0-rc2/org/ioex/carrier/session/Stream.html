@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Stream &mdash; IOEX Carrier Android Developer Documents 0.10.0-rc2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0-rc2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../packages.html">Javadoc</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li>Stream</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="stream">
+<h1>Stream<a class="headerlink" href="#stream" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.session.Stream">
+public class <code class="sig-name descname">Stream</code><a class="headerlink" href="#org.ioex.carrier.session.Stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class representing Carrier stream.</p>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="property-compress">
+<h3>PROPERTY_COMPRESS<a class="headerlink" href="#property-compress" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.session.Stream.PROPERTY_COMPRESS">
+public static int <code class="sig-name descname">PROPERTY_COMPRESS</code><a class="headerlink" href="#org.ioex.carrier.session.Stream.PROPERTY_COMPRESS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="property-multiplexing">
+<h3>PROPERTY_MULTIPLEXING<a class="headerlink" href="#property-multiplexing" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.session.Stream.PROPERTY_MULTIPLEXING">
+public static int <code class="sig-name descname">PROPERTY_MULTIPLEXING</code><a class="headerlink" href="#org.ioex.carrier.session.Stream.PROPERTY_MULTIPLEXING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="property-plain">
+<h3>PROPERTY_PLAIN<a class="headerlink" href="#property-plain" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.session.Stream.PROPERTY_PLAIN">
+public static int <code class="sig-name descname">PROPERTY_PLAIN</code><a class="headerlink" href="#org.ioex.carrier.session.Stream.PROPERTY_PLAIN" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="property-port-forwarding">
+<h3>PROPERTY_PORT_FORWARDING<a class="headerlink" href="#property-port-forwarding" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.session.Stream.PROPERTY_PORT_FORWARDING">
+public static int <code class="sig-name descname">PROPERTY_PORT_FORWARDING</code><a class="headerlink" href="#org.ioex.carrier.session.Stream.PROPERTY_PORT_FORWARDING" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="property-reliable">
+<h3>PROPERTY_RELIABLE<a class="headerlink" href="#property-reliable" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.session.Stream.PROPERTY_RELIABLE">
+public static int <code class="sig-name descname">PROPERTY_RELIABLE</code><a class="headerlink" href="#org.ioex.carrier.session.Stream.PROPERTY_RELIABLE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="closechannel">
+<h3>closeChannel<a class="headerlink" href="#closechannel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.closeChannel(int)">
+public void <code class="sig-name descname">closeChannel</code><span class="sig-paren">(</span>int<em> channel</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.closeChannel(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close a new channel on multiplexing stream. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – The channel ID to close</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="closeportforwarding">
+<h3>closePortForwarding<a class="headerlink" href="#closeportforwarding" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.closePortForwarding(int)">
+public void <code class="sig-name descname">closePortForwarding</code><span class="sig-paren">(</span>int<em> portForwarding</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.closePortForwarding(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Close a port forwarding. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>portForwarding</strong> – The portforwarding ID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getstreamid">
+<h3>getStreamId<a class="headerlink" href="#getstreamid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.getStreamId()">
+public int <code class="sig-name descname">getStreamId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.getStreamId()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="gettransportinfo">
+<h3>getTransportInfo<a class="headerlink" href="#gettransportinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.getTransportInfo()">
+public <a class="reference internal" href="TransportInfo.html#org.ioex.carrier.session.TransportInfo" title="org.ioex.carrier.session.TransportInfo">TransportInfo</a> <code class="sig-name descname">getTransportInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.getTransportInfo()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get tranport info of carrier stream.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The transport info of this stream.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="gettype">
+<h3>getType<a class="headerlink" href="#gettype" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.getType()">
+public <a class="reference internal" href="StreamType.html#org.ioex.carrier.session.StreamType" title="org.ioex.carrier.session.StreamType">StreamType</a> <code class="sig-name descname">getType</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.getType()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the carrier stream type.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The stream type defined in StreamType.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="openchannel">
+<h3>openChannel<a class="headerlink" href="#openchannel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.openChannel(String)">
+public int <code class="sig-name descname">openChannel</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> cookie</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.openChannel(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a new channel on multiplexing stream. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cookie</strong> – The application defined data passed to remote peer</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>New channel ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="openportfowarding">
+<h3>openPortFowarding<a class="headerlink" href="#openportfowarding" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.openPortFowarding(String, PortForwardingProtocol, String, String)">
+public int <code class="sig-name descname">openPortFowarding</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> service</em>, <a class="reference internal" href="PortForwardingProtocol.html#org.ioex.carrier.session.PortForwardingProtocol" title="org.ioex.carrier.session.PortForwardingProtocol">PortForwardingProtocol</a><em> protocol</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> host</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> port</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.openPortFowarding(String, PortForwardingProtocol, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Open a port forwarding to remote service over multiplexing. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>service</strong> – The remote service name</p></li>
+<li><p><strong>protocol</strong> – Port forwarding protocol</p></li>
+<li><p><strong>host</strong> – Local host or ip to binding If host is null, port forwarding will bind to localhost</p></li>
+<li><p><strong>port</strong> – Local port to binding, can not be nil.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Port forwarding ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="pendchannel">
+<h3>pendChannel<a class="headerlink" href="#pendchannel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.pendChannel(int)">
+public void <code class="sig-name descname">pendChannel</code><span class="sig-paren">(</span>int<em> channel</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.pendChannel(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request remote peer to pend channel data sending. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – The channel ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="resumechannel">
+<h3>resumeChannel<a class="headerlink" href="#resumechannel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.resumeChannel(int)">
+public void <code class="sig-name descname">resumeChannel</code><span class="sig-paren">(</span>int<em> channel</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.resumeChannel(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Request remote peer to resume channel data sending. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – The channel ID</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writedata">
+<h3>writeData<a class="headerlink" href="#writedata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.writeData(byte[], int, int)">
+public int <code class="sig-name descname">writeData</code><span class="sig-paren">(</span>byte[]<em> data</em>, int<em> offset</em>, int<em> len</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.writeData(byte[], int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send outgoing data to remote peer. If the stream is in multiplexing mode, application can not call this function to send data. If this function is called on multiplexing mode stream, it will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – The outgoing data offset The start offset len The bytes to write</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Bytes of data sent on success</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>writeData<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.writeData(byte[])">
+public int <code class="sig-name descname">writeData</code><span class="sig-paren">(</span>byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.writeData(byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send outgoing data to remote peer. If the stream is in multiplexing mode, application can not call this function to send data. If this function is called on multiplexing mode stream, it will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – The outgoing data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Bytes of data sent on success</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>writeData<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.writeData(byte)">
+public int <code class="sig-name descname">writeData</code><span class="sig-paren">(</span>byte<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.writeData(byte)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send outgoing data to remote peer. If the stream is in multiplexing mode, application can not call this function to send data. If this function is called on multiplexing mode stream, it will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – The outgoing data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="../exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Bytes of data sent on success</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>writeData<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.writeData(int, byte[], int, int)">
+public int <code class="sig-name descname">writeData</code><span class="sig-paren">(</span>int<em> channel</em>, byte[]<em> data</em>, int<em> offset</em>, int<em> len</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.writeData(int, byte[], int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send outgoing data to remote peer. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – [in] The channel ID</p></li>
+<li><p><strong>data</strong> – [in] The outgoing data offset [in] The start offset len [in] The bytes to write</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bytes of data sent on success.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>writeData<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.writeData(int, byte[])">
+public int <code class="sig-name descname">writeData</code><span class="sig-paren">(</span>int<em> channel</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.writeData(int, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send outgoing data to remote peer. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – [in] The channel ID</p></li>
+<li><p><strong>data</strong> – [in] The outgoing data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bytes of data sent on success.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>writeData<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.session.Stream.writeData(int, byte)">
+public int <code class="sig-name descname">writeData</code><span class="sig-paren">(</span>int<em> channel</em>, byte<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.session.Stream.writeData(int, byte)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send outgoing data to remote peer. If the stream is not multiplexing this function will throw exception.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel</strong> – [in] The channel ID</p></li>
+<li><p><strong>data</strong> – [in] The outgoing data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Bytes of data sent on success.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

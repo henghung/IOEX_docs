@@ -1,0 +1,79 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+FriendMessageTest.TestHandler
+=============================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: static class TestHandler extends AbstractCarrierHandler
+   :outertype: FriendMessageTest
+
+Fields
+------
+friendStatus
+^^^^^^^^^^^^
+
+.. java:field::  ConnectionStatus friendStatus
+   :outertype: FriendMessageTest.TestHandler
+
+from
+^^^^
+
+.. java:field::  String from
+   :outertype: FriendMessageTest.TestHandler
+
+msgBody
+^^^^^^^
+
+.. java:field::  String msgBody
+   :outertype: FriendMessageTest.TestHandler
+
+synch
+^^^^^
+
+.. java:field::  Synchronizer synch
+   :outertype: FriendMessageTest.TestHandler
+
+Methods
+-------
+onFriendConnection
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void onFriendConnection(Carrier carrier, String friendId, ConnectionStatus status)
+   :outertype: FriendMessageTest.TestHandler
+
+onFriendMessage
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void onFriendMessage(Carrier whisper, String friendId, String message)
+   :outertype: FriendMessageTest.TestHandler
+
+onReady
+^^^^^^^
+
+.. java:method:: public void onReady(Carrier carrier)
+   :outertype: FriendMessageTest.TestHandler
+

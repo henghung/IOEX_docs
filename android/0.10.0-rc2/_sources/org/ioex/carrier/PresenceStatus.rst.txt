@@ -1,0 +1,81 @@
+PresenceStatus
+==============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum PresenceStatus
+
+   Carrier node presence status.
+
+Enum Constants
+--------------
+Away
+^^^^
+
+.. java:field:: public static final PresenceStatus Away
+   :outertype: PresenceStatus
+
+   Carrier node is being away.
+
+Busy
+^^^^
+
+.. java:field:: public static final PresenceStatus Busy
+   :outertype: PresenceStatus
+
+   Carrier node is being busy.
+
+None
+^^^^
+
+.. java:field:: public static final PresenceStatus None
+   :outertype: PresenceStatus
+
+   Carrier node is online and available.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(PresenceStatus status)
+   :outertype: PresenceStatus
+
+   Get debug description of carrier node presence.
+
+   :param status: The carrier node presense status.
+   :return: The debug description of presence
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: PresenceStatus
+
+   Get debug description of current node presence.
+
+   :return: The debug description of current node presence.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: PresenceStatus
+
+   Get carrier node presence status value.
+
+   :return: The carrier node presence status value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static PresenceStatus valueOf(int status)
+   :outertype: PresenceStatus
+
+   Get PresenceStatus object from status value.
+
+   :param status: The presence status value.
+   :throws IllegalArgumentException:
+   :return: The Carrier node status object.
+

@@ -1,0 +1,65 @@
+PortForwardingProtocol
+======================
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public enum PortForwardingProtocol
+
+   Port forwarding supported protocols.
+
+Enum Constants
+--------------
+TCP
+^^^
+
+.. java:field:: public static final PortForwardingProtocol TCP
+   :outertype: PortForwardingProtocol
+
+   TCP protocol.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(PortForwardingProtocol protocol)
+   :outertype: PortForwardingProtocol
+
+   Get the debug description of port forwarding protocol
+
+   :param protocol: The port forwarding protocol
+   :return: The deubg description of port forwarding protocol
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: PortForwardingProtocol
+
+   Get the debug description
+
+   :return: The debug description of current port forwarding protocol
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: PortForwardingProtocol
+
+   Get value of port forwarding protocol.
+
+   :return: The value of port forwarding protocol
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static PortForwardingProtocol valueOf(int protocol)
+   :outertype: PortForwardingProtocol
+
+   Get port forwarding protocol from protocol value.
+
+   :param protocol: The protocol value
+   :throws IllegalArgumentException:
+   :return: The port forwarding protocol
+

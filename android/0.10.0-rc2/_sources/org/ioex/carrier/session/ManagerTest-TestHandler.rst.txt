@@ -1,0 +1,47 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.util Log
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier AbstractCarrierHandler
+
+.. java:import:: org.ioex.carrier Carrier
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+ManagerTest.TestHandler
+=======================
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: static class TestHandler extends AbstractCarrierHandler
+   :outertype: ManagerTest
+
+Fields
+------
+synch
+^^^^^
+
+.. java:field::  Synchronizer synch
+   :outertype: ManagerTest.TestHandler
+
+Methods
+-------
+onReady
+^^^^^^^
+
+.. java:method:: public void onReady(Carrier carrier)
+   :outertype: ManagerTest.TestHandler
+

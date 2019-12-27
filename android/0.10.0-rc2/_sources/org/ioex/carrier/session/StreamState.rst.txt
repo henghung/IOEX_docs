@@ -1,0 +1,113 @@
+StreamState
+===========
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public enum StreamState
+
+   Carrier stream state The stream state will be changed according to the phase of the stream.
+
+Enum Constants
+--------------
+Closed
+^^^^^^
+
+.. java:field:: public static final StreamState Closed
+   :outertype: StreamState
+
+   The stream closed gracefully.
+
+Connected
+^^^^^^^^^
+
+.. java:field:: public static final StreamState Connected
+   :outertype: StreamState
+
+   The stream connected with remove peer.
+
+Connecting
+^^^^^^^^^^
+
+.. java:field:: public static final StreamState Connecting
+   :outertype: StreamState
+
+   The stream is trying to connect the remote.
+
+Deactivated
+^^^^^^^^^^^
+
+.. java:field:: public static final StreamState Deactivated
+   :outertype: StreamState
+
+   The stream is deactived.
+
+Error
+^^^^^
+
+.. java:field:: public static final StreamState Error
+   :outertype: StreamState
+
+   The stream is on error, cannot to continue.
+
+Initialized
+^^^^^^^^^^^
+
+.. java:field:: public static final StreamState Initialized
+   :outertype: StreamState
+
+   Initialized stream.
+
+TransportReady
+^^^^^^^^^^^^^^
+
+.. java:field:: public static final StreamState TransportReady
+   :outertype: StreamState
+
+   The underlying transport is ready for the stream to start.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(StreamState state)
+   :outertype: StreamState
+
+   Get description of carrier stream state.
+
+   :param state: The carrier stream state.
+   :return: The description of carrier stream state.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: StreamState
+
+   Get description of current carrier stream state.
+
+   :return: The human readable description.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: StreamState
+
+   Get state value.
+
+   :return: The state value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static StreamState valueOf(int state)
+   :outertype: StreamState
+
+   Get carrier stream state from state value.
+
+   :param state: The state value.
+   :throws IllegalArgumentException:
+   :return: The carrier stream state.
+

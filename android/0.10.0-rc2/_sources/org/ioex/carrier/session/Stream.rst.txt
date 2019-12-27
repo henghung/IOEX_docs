@@ -1,0 +1,217 @@
+.. java:import:: org.ioex.carrier Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+Stream
+======
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public class Stream
+
+   The class representing Carrier stream.
+
+Fields
+------
+PROPERTY_COMPRESS
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static int PROPERTY_COMPRESS
+   :outertype: Stream
+
+PROPERTY_MULTIPLEXING
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static int PROPERTY_MULTIPLEXING
+   :outertype: Stream
+
+PROPERTY_PLAIN
+^^^^^^^^^^^^^^
+
+.. java:field:: public static int PROPERTY_PLAIN
+   :outertype: Stream
+
+PROPERTY_PORT_FORWARDING
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static int PROPERTY_PORT_FORWARDING
+   :outertype: Stream
+
+PROPERTY_RELIABLE
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static int PROPERTY_RELIABLE
+   :outertype: Stream
+
+Methods
+-------
+closeChannel
+^^^^^^^^^^^^
+
+.. java:method:: public void closeChannel(int channel) throws IOEXException
+   :outertype: Stream
+
+   Close a new channel on multiplexing stream. If the stream is not multiplexing this function will throw exception.
+
+   :param channel: The channel ID to close
+   :throws IOEXException:
+
+closePortForwarding
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void closePortForwarding(int portForwarding) throws IOEXException
+   :outertype: Stream
+
+   Close a port forwarding. If the stream is not multiplexing this function will throw exception.
+
+   :param portForwarding: The portforwarding ID.
+   :throws IOEXException:
+
+getStreamId
+^^^^^^^^^^^
+
+.. java:method:: public int getStreamId()
+   :outertype: Stream
+
+getTransportInfo
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public TransportInfo getTransportInfo() throws IOEXException
+   :outertype: Stream
+
+   Get tranport info of carrier stream.
+
+   :return: The transport info of this stream.
+
+getType
+^^^^^^^
+
+.. java:method:: public StreamType getType()
+   :outertype: Stream
+
+   Get the carrier stream type.
+
+   :return: The stream type defined in StreamType.
+
+openChannel
+^^^^^^^^^^^
+
+.. java:method:: public int openChannel(String cookie) throws IOEXException
+   :outertype: Stream
+
+   Open a new channel on multiplexing stream. If the stream is not multiplexing this function will throw exception.
+
+   :param cookie: The application defined data passed to remote peer
+   :throws IOEXException:
+   :return: New channel ID
+
+openPortFowarding
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int openPortFowarding(String service, PortForwardingProtocol protocol, String host, String port) throws IOEXException
+   :outertype: Stream
+
+   Open a port forwarding to remote service over multiplexing. If the stream is not multiplexing this function will throw exception.
+
+   :param service: The remote service name
+   :param protocol: Port forwarding protocol
+   :param host: Local host or ip to binding If host is null, port forwarding will bind to localhost
+   :param port: Local port to binding, can not be nil.
+   :throws IOEXException:
+   :return: Port forwarding ID
+
+pendChannel
+^^^^^^^^^^^
+
+.. java:method:: public void pendChannel(int channel) throws IOEXException
+   :outertype: Stream
+
+   Request remote peer to pend channel data sending. If the stream is not multiplexing this function will throw exception.
+
+   :param channel: The channel ID
+   :throws IOEXException:
+
+resumeChannel
+^^^^^^^^^^^^^
+
+.. java:method:: public void resumeChannel(int channel) throws IOEXException
+   :outertype: Stream
+
+   Request remote peer to resume channel data sending. If the stream is not multiplexing this function will throw exception.
+
+   :param channel: The channel ID
+   :throws IOEXException:
+
+writeData
+^^^^^^^^^
+
+.. java:method:: public int writeData(byte[] data, int offset, int len) throws IOEXException
+   :outertype: Stream
+
+   Send outgoing data to remote peer. If the stream is in multiplexing mode, application can not call this function to send data. If this function is called on multiplexing mode stream, it will throw exception.
+
+   :param data: The outgoing data offset The start offset len The bytes to write
+   :throws IOEXException:
+   :return: Bytes of data sent on success
+
+writeData
+^^^^^^^^^
+
+.. java:method:: public int writeData(byte[] data) throws IOEXException
+   :outertype: Stream
+
+   Send outgoing data to remote peer. If the stream is in multiplexing mode, application can not call this function to send data. If this function is called on multiplexing mode stream, it will throw exception.
+
+   :param data: The outgoing data
+   :throws IOEXException:
+   :return: Bytes of data sent on success
+
+writeData
+^^^^^^^^^
+
+.. java:method:: public int writeData(byte data) throws IOEXException
+   :outertype: Stream
+
+   Send outgoing data to remote peer. If the stream is in multiplexing mode, application can not call this function to send data. If this function is called on multiplexing mode stream, it will throw exception.
+
+   :param data: The outgoing data
+   :throws IOEXException:
+   :return: Bytes of data sent on success
+
+writeData
+^^^^^^^^^
+
+.. java:method:: public int writeData(int channel, byte[] data, int offset, int len) throws IOEXException
+   :outertype: Stream
+
+   Send outgoing data to remote peer. If the stream is not multiplexing this function will throw exception.
+
+   :param channel: [in] The channel ID
+   :param data: [in] The outgoing data offset [in] The start offset len [in] The bytes to write
+   :return: Bytes of data sent on success.
+
+writeData
+^^^^^^^^^
+
+.. java:method:: public int writeData(int channel, byte[] data) throws IOEXException
+   :outertype: Stream
+
+   Send outgoing data to remote peer. If the stream is not multiplexing this function will throw exception.
+
+   :param channel: [in] The channel ID
+   :param data: [in] The outgoing data
+   :return: Bytes of data sent on success.
+
+writeData
+^^^^^^^^^
+
+.. java:method:: public int writeData(int channel, byte data) throws IOEXException
+   :outertype: Stream
+
+   Send outgoing data to remote peer. If the stream is not multiplexing this function will throw exception.
+
+   :param channel: [in] The channel ID
+   :param data: [in] The outgoing data
+   :return: Bytes of data sent on success.
+

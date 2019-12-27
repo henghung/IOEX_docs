@@ -1,0 +1,60 @@
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+UserLoginTest
+=============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: @RunWith public class UserLoginTest
+
+Methods
+-------
+getNodeId
+^^^^^^^^^
+
+.. java:method:: @Test public void getNodeId()
+   :outertype: UserLoginTest
+
+getUserId
+^^^^^^^^^
+
+.. java:method:: @Test public void getUserId()
+   :outertype: UserLoginTest
+
+setUp
+^^^^^
+
+.. java:method:: @BeforeClass public static void setUp()
+   :outertype: UserLoginTest
+
+tearDown
+^^^^^^^^
+
+.. java:method:: @AfterClass public static void tearDown()
+   :outertype: UserLoginTest
+
+testSelfInfo
+^^^^^^^^^^^^
+
+.. java:method:: @Test public void testSelfInfo()
+   :outertype: UserLoginTest
+

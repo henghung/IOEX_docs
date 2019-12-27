@@ -1,0 +1,105 @@
+AvCallStatus
+============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum AvCallStatus
+
+   Status of an AV call.
+
+Enum Constants
+--------------
+Finished
+^^^^^^^^
+
+.. java:field:: public static final AvCallStatus Finished
+   :outertype: AvCallStatus
+
+   \~English The call is finished or canceled.
+
+None
+^^^^
+
+.. java:field:: public static final AvCallStatus None
+   :outertype: AvCallStatus
+
+   The call is not setup or status unknown.
+
+Paused
+^^^^^^
+
+.. java:field:: public static final AvCallStatus Paused
+   :outertype: AvCallStatus
+
+   The call is paused.
+
+Pending
+^^^^^^^
+
+.. java:field:: public static final AvCallStatus Pending
+   :outertype: AvCallStatus
+
+   The call is waiting for user's approval.
+
+Running
+^^^^^^^
+
+.. java:field:: public static final AvCallStatus Running
+   :outertype: AvCallStatus
+
+   The call is running.
+
+Waiting
+^^^^^^^
+
+.. java:field:: public static final AvCallStatus Waiting
+   :outertype: AvCallStatus
+
+   The call is waiting for response from the other peer.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(AvCallStatus status)
+   :outertype: AvCallStatus
+
+   Get the debug description of the AvCallStatus object.
+
+   :param status: The Av Call status
+   :return: The debug description of AvCallStatus object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: AvCallStatus
+
+   Get the debug description of current AvCallStatus object.
+
+   :return: The debug description of current AvCallStatus object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: AvCallStatus
+
+   Get the status value of current AvCallStatus object.
+
+   :return: The AV call status value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static AvCallStatus valueOf(int status)
+   :outertype: AvCallStatus
+
+   Get AvCallStatus object from status integer value.
+
+   :param status: The status value
+   :throws IllegalArgumentException:
+   :return: The ConnectionStatus object
+

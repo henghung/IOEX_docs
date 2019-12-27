@@ -1,0 +1,117 @@
+.. java:import:: android.graphics ImageFormat
+
+.. java:import:: android.media Image
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util List
+
+Carrier.Options
+===============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public static class Options
+   :outertype: Carrier
+
+   Options defines several settings that control the way the Carrier node connects to the carrier network. Default values are not defined for bootstraps options, so application should be set bootstrap nodes clearly.
+
+Methods
+-------
+getBootstrapNodes
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public List<BootstrapNode> getBootstrapNodes()
+   :outertype: Carrier.Options
+
+getKeyFile
+^^^^^^^^^^
+
+.. java:method:: public String getKeyFile()
+   :outertype: Carrier.Options
+
+getLocalDiscoveryEnabled
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public boolean getLocalDiscoveryEnabled()
+   :outertype: Carrier.Options
+
+getPersistentLocation
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public String getPersistentLocation()
+   :outertype: Carrier.Options
+
+   Get the persistent data location.
+
+   :return: The persistent data location
+
+getStorageLocation
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public String getStorageLocation()
+   :outertype: Carrier.Options
+
+getUdpEnabled
+^^^^^^^^^^^^^
+
+.. java:method:: public boolean getUdpEnabled()
+   :outertype: Carrier.Options
+
+   Get the udp transport used or not.
+
+   :return: The value of enable/dsiable udp transport.
+
+setBootstrapNodes
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Options setBootstrapNodes(List<BootstrapNode> bootstrapNodes)
+   :outertype: Carrier.Options
+
+setKeyFile
+^^^^^^^^^^
+
+.. java:method:: public Options setKeyFile(String keyFile)
+   :outertype: Carrier.Options
+
+setLocalDiscoveryEnabled
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Options setLocalDiscoveryEnabled(boolean localDiscoveryEnabled)
+   :outertype: Carrier.Options
+
+setPersistentLocation
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Options setPersistentLocation(String persistentLocation)
+   :outertype: Carrier.Options
+
+   Set the persistent data location. The location must be set.
+
+   :param persistentLocation: The persistent data location to set
+   :return: The current Options object reference.
+
+setStorageLocation
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public Options setStorageLocation(String storageLocation)
+   :outertype: Carrier.Options
+
+setUdpEnabled
+^^^^^^^^^^^^^
+
+.. java:method:: public Options setUdpEnabled(boolean udpEnabled)
+   :outertype: Carrier.Options
+
+   Set to use udp transport or not. Setting this value to false will force carrier node to TCP only, which will potentially slow down the message to run through.
+
+   :param udpEnabled: flag to enable or disable udp transport.
+   :return: The current options object reference.
+

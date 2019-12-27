@@ -1,0 +1,41 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.support.test.runner AndroidJUnit4
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+FriendMessageTest.TestReceiver
+==============================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: static class TestReceiver implements RobotProxy.RobotIdReceiver
+   :outertype: FriendMessageTest
+
+Methods
+-------
+onReceived
+^^^^^^^^^^
+
+.. java:method:: @Override public void onReceived(String address, String userId)
+   :outertype: FriendMessageTest.TestReceiver
+

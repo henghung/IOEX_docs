@@ -1,0 +1,81 @@
+CloseReason
+===========
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public enum CloseReason
+
+   Multiplexing channel close reason mode.
+
+Enum Constants
+--------------
+Error
+^^^^^
+
+.. java:field:: public static final CloseReason Error
+   :outertype: CloseReason
+
+   Channel closed because error occured.
+
+Normal
+^^^^^^
+
+.. java:field:: public static final CloseReason Normal
+   :outertype: CloseReason
+
+   Channel closed normaly.
+
+Timeout
+^^^^^^^
+
+.. java:field:: public static final CloseReason Timeout
+   :outertype: CloseReason
+
+   Channel closed because of timeout.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(CloseReason reason)
+   :outertype: CloseReason
+
+   Get the fully formatized string of close reason instance.
+
+   :param reason: The close reason instance.
+   :return: The formatized string of close reason.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: CloseReason
+
+   Get fully formatized string.
+
+   :return: The fully formatized string.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: CloseReason
+
+   Get reason value.
+
+   :return: The reason value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static CloseReason valueOf(int reason)
+   :outertype: CloseReason
+
+   Get CloseReason instance from reason value.
+
+   :param reason: The value of reason mode.
+   :throws IllegalArgumentException:
+   :return: The close reason instance.
+

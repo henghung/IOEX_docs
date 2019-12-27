@@ -1,0 +1,56 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.support.test InstrumentationRegistry
+
+.. java:import:: android.util Log
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier AbstractCarrierHandler
+
+.. java:import:: org.ioex.carrier Carrier
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+ManagerTest
+===========
+
+.. java:package:: org.ioex.carrier.session
+   :noindex:
+
+.. java:type:: public class ManagerTest
+
+Methods
+-------
+getInstanceWithRequestHandler
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void getInstanceWithRequestHandler()
+   :outertype: ManagerTest
+
+getInstanceWithoutRequestHandler
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void getInstanceWithoutRequestHandler()
+   :outertype: ManagerTest
+
+setUp
+^^^^^
+
+.. java:method:: @BeforeClass public static void setUp()
+   :outertype: ManagerTest
+
+tearDown
+^^^^^^^^
+
+.. java:method:: @AfterClass public static void tearDown()
+   :outertype: ManagerTest
+
