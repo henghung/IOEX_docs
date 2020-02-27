@@ -1,0 +1,597 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEX Carrier AV APIs &mdash; IOEX Carrier Developer Documents 0.14.1-demo documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.14.1-demo documentation" href="index.html"/>
+        <link rel="next" title="IOEX Carrier error number" href="carrier-error-number.html"/>
+        <link rel="prev" title="(Experimental) IOEX Carrier Tunnel APIs" href="carrier-tunnel-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.14.1-demo
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">(Experimental) IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOEX Carrier AV APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ioexavcallstatus">IOEXAvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexavcallinfo">IOEXAvCallInfo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#av-functions">AV Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-call">IOEX_av_call</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-answer">IOEX_av_answer</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-get-info">IOEX_av_get_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-hangup">IOEX_av_hangup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-pause">IOEX_av_pause</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-resume">IOEX_av_resume</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-set-friend-audio-enable">IOEX_av_set_friend_audio_enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-set-friend-video-enable">IOEX_av_set_friend_video_enable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-set-audio-bitrate">IOEX_av_set_audio_bitrate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-set-video-bitrate">IOEX_av_set_video_bitrate</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-send-audio">IOEX_av_send_audio</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-av-send-video">IOEX_av_send_video</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>IOEX Carrier AV APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioex-carrier-av-apis">
+<h1>IOEX Carrier AV APIs<a class="headerlink" href="#ioex-carrier-av-apis" title="Permalink to this headline">¶</a></h1>
+<p>These APIs are used to setup video and/or audio streaming with a friend.</p>
+<div class="section" id="data-types">
+<h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ioexavcallstatus">
+<h3>IOEXAvCallStatus<a class="headerlink" href="#ioexavcallstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="enum">
+<dt id="_CPPv416IOEXAvCallStatus">
+<span id="_CPPv316IOEXAvCallStatus"></span><span id="_CPPv216IOEXAvCallStatus"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddf"></span><em class="property">enum </em><code class="sig-name descname">IOEXAvCallStatus</code><a class="headerlink" href="#_CPPv416IOEXAvCallStatus" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status of an AV call. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv421IOEXAvCallStatus_None">
+<span id="_CPPv321IOEXAvCallStatus_None"></span><span id="_CPPv221IOEXAvCallStatus_None"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddfac1b6044648d0c81f9ae9a292d15576e5"></span><code class="sig-name descname">IOEXAvCallStatus_None</code><a class="headerlink" href="#_CPPv421IOEXAvCallStatus_None" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The call is not setup or status unknown. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv424IOEXAvCallStatus_Pending">
+<span id="_CPPv324IOEXAvCallStatus_Pending"></span><span id="_CPPv224IOEXAvCallStatus_Pending"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddfa252ab0d25323d1890f78c8aa38f94883"></span><code class="sig-name descname">IOEXAvCallStatus_Pending</code><a class="headerlink" href="#_CPPv424IOEXAvCallStatus_Pending" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The call is waiting for user’s approval. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv424IOEXAvCallStatus_Waiting">
+<span id="_CPPv324IOEXAvCallStatus_Waiting"></span><span id="_CPPv224IOEXAvCallStatus_Waiting"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddfa2256df3f0574b6903e9aec6e6be2ae82"></span><code class="sig-name descname">IOEXAvCallStatus_Waiting</code><a class="headerlink" href="#_CPPv424IOEXAvCallStatus_Waiting" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The call is waiting for response from the other peer. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv424IOEXAvCallStatus_Running">
+<span id="_CPPv324IOEXAvCallStatus_Running"></span><span id="_CPPv224IOEXAvCallStatus_Running"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddfa31daea33bf7851e5aebfd86d22708b7c"></span><code class="sig-name descname">IOEXAvCallStatus_Running</code><a class="headerlink" href="#_CPPv424IOEXAvCallStatus_Running" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The call is running. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv423IOEXAvCallStatus_Paused">
+<span id="_CPPv323IOEXAvCallStatus_Paused"></span><span id="_CPPv223IOEXAvCallStatus_Paused"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddfa795d53629d3bcaddc3224c3830d95c6e"></span><code class="sig-name descname">IOEXAvCallStatus_Paused</code><a class="headerlink" href="#_CPPv423IOEXAvCallStatus_Paused" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The call is paused. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv425IOEXAvCallStatus_Finished">
+<span id="_CPPv325IOEXAvCallStatus_Finished"></span><span id="_CPPv225IOEXAvCallStatus_Finished"></span><span class="target" id="_i_o_e_x__carrier_8h_1aaec591a0b2c251ea2d34f5f7aef9cddfad80a970da08777363e5091cd53220bf9"></span><code class="sig-name descname">IOEXAvCallStatus_Finished</code><a class="headerlink" href="#_CPPv425IOEXAvCallStatus_Finished" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The call is finished or canceled. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ioexavcallinfo">
+<h3>IOEXAvCallInfo<a class="headerlink" href="#ioexavcallinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="_CPPv414IOEXAvCallInfo">
+<span id="_CPPv314IOEXAvCallInfo"></span><span id="_CPPv214IOEXAvCallInfo"></span><span id="IOEXAvCallInfo"></span><span class="target" id="struct_i_o_e_x_av_call_info"></span><em class="property">struct </em><code class="sig-name descname">IOEXAvCallInfo</code><a class="headerlink" href="#_CPPv414IOEXAvCallInfo" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>AV call information is used to track current AV call status with a friends. </p>
+<p>A client can only have one AV call at a time. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N14IOEXAvCallInfo9friend_idE">
+<span id="_CPPv3N14IOEXAvCallInfo9friend_idE"></span><span id="_CPPv2N14IOEXAvCallInfo9friend_idE"></span><span id="IOEXAvCallInfo::friend_id__cA"></span><span class="target" id="struct_i_o_e_x_av_call_info_1ae8e2a3f3c0c373593adb712e378e9d56"></span>char <code class="sig-name descname">friend_id</code>[<code class="sig-name descname">IOEX_MAX_ID_LEN</code> + 1]<a class="headerlink" href="#_CPPv4N14IOEXAvCallInfo9friend_idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The ID of the friend we are calling. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14IOEXAvCallInfo6statusE">
+<span id="_CPPv3N14IOEXAvCallInfo6statusE"></span><span id="_CPPv2N14IOEXAvCallInfo6statusE"></span><span id="IOEXAvCallInfo::status__IOEXAvCallStatus"></span><span class="target" id="struct_i_o_e_x_av_call_info_1ab416b432259577b8b5c66f1b8efc8f2d"></span><a class="reference internal" href="#_CPPv416IOEXAvCallStatus" title="IOEXAvCallStatus">IOEXAvCallStatus</a> <code class="sig-name descname">status</code><a class="headerlink" href="#_CPPv4N14IOEXAvCallInfo6statusE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status of the call. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="av-functions">
+<h3>AV Functions<a class="headerlink" href="#av-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-av-call">
+<h4>IOEX_av_call<a class="headerlink" href="#ioex-av-call" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv412IOEX_av_callP11IOEXCarrierPKc8uint32_t8uint32_t">
+<span id="_CPPv312IOEX_av_callP11IOEXCarrierPKc8uint32_t8uint32_t"></span><span id="_CPPv212IOEX_av_callP11IOEXCarrierPKc8uint32_t8uint32_t"></span><span id="IOEX_av_call__IOEXCarrierP.cCP.uint32_t.uint32_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1ab59795c902659694706b7855e4c0d73a"></span>int <code class="sig-name descname">IOEX_av_call</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, uint32_t <em>audio_bitrate</em>, uint32_t <em>video_bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv412IOEX_av_callP11IOEXCarrierPKc8uint32_t8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send a av request to friend. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">audio_bitrate</span></code>: [in] Our audio transmitting bitrate in kbps. Set 0 to disable audio. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">video_bitrate</span></code>: [in] Our video transmitting bitrate in kbps. Set 0 to disable video. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-answer">
+<h4>IOEX_av_answer<a class="headerlink" href="#ioex-av-answer" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv414IOEX_av_answerP11IOEXCarrierPKc8uint32_t8uint32_t">
+<span id="_CPPv314IOEX_av_answerP11IOEXCarrierPKc8uint32_t8uint32_t"></span><span id="_CPPv214IOEX_av_answerP11IOEXCarrierPKc8uint32_t8uint32_t"></span><span id="IOEX_av_answer__IOEXCarrierP.cCP.uint32_t.uint32_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1a80b24fb32de87e454f27caabc2297a4e"></span>int <code class="sig-name descname">IOEX_av_answer</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, uint32_t <em>audio_bitrate</em>, uint32_t <em>video_bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414IOEX_av_answerP11IOEXCarrierPKc8uint32_t8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that answers a previous AV call from a friend. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">audio_bitrate</span></code>: [in] Our audio transmitting bitrate in kbps. Set 0 to disable audio. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">video_bitrate</span></code>: [in] Our video transmitting bitrate in kbps. Set 0 to disable video. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-get-info">
+<h4>IOEX_av_get_info<a class="headerlink" href="#ioex-av-get-info" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv416IOEX_av_get_infoP11IOEXCarrierP14IOEXAvCallInfo">
+<span id="_CPPv316IOEX_av_get_infoP11IOEXCarrierP14IOEXAvCallInfo"></span><span id="_CPPv216IOEX_av_get_infoP11IOEXCarrierP14IOEXAvCallInfo"></span><span id="IOEX_av_get_info__IOEXCarrierP.IOEXAvCallInfoP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a7ac1c68a894f5bf68ff22f5ff72b9f8f"></span>int <code class="sig-name descname">IOEX_av_get_info</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <a class="reference internal" href="#_CPPv414IOEXAvCallInfo" title="IOEXAvCallInfo">IOEXAvCallInfo</a> *<em>info</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416IOEX_av_get_infoP11IOEXCarrierP14IOEXAvCallInfo" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that retrieves current AV call status;. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">info</span></code>: [out] Buffer to store the status data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-hangup">
+<h4>IOEX_av_hangup<a class="headerlink" href="#ioex-av-hangup" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv414IOEX_av_hangupP11IOEXCarrierPKc">
+<span id="_CPPv314IOEX_av_hangupP11IOEXCarrierPKc"></span><span id="_CPPv214IOEX_av_hangupP11IOEXCarrierPKc"></span><span id="IOEX_av_hangup__IOEXCarrierP.cCP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a9bb5692bf09659790b53047d9b2ed692"></span>int <code class="sig-name descname">IOEX_av_hangup</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414IOEX_av_hangupP11IOEXCarrierPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that hangs up an existing AV call, or reject the friend’s call request. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-pause">
+<h4>IOEX_av_pause<a class="headerlink" href="#ioex-av-pause" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv413IOEX_av_pauseP11IOEXCarrierPKc">
+<span id="_CPPv313IOEX_av_pauseP11IOEXCarrierPKc"></span><span id="_CPPv213IOEX_av_pauseP11IOEXCarrierPKc"></span><span id="IOEX_av_pause__IOEXCarrierP.cCP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a7c4a146cf84158b0799a11c0f1ab533c"></span>int <code class="sig-name descname">IOEX_av_pause</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413IOEX_av_pauseP11IOEXCarrierPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that pauses an existing AV call. </p>
+<p>When paused, we will stop sending our video/audio data, and stop receiving video/audio data from the friend as well.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-resume">
+<h4>IOEX_av_resume<a class="headerlink" href="#ioex-av-resume" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv414IOEX_av_resumeP11IOEXCarrierPKc">
+<span id="_CPPv314IOEX_av_resumeP11IOEXCarrierPKc"></span><span id="_CPPv214IOEX_av_resumeP11IOEXCarrierPKc"></span><span id="IOEX_av_resume__IOEXCarrierP.cCP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a6dccaf822c3094573a560953ac42fc44"></span>int <code class="sig-name descname">IOEX_av_resume</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414IOEX_av_resumeP11IOEXCarrierPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that resumes a previously paused AV call. </p>
+<p>Only the side who paused the call can resume it.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-set-friend-audio-enable">
+<h4>IOEX_av_set_friend_audio_enable<a class="headerlink" href="#ioex-av-set-friend-audio-enable" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv431IOEX_av_set_friend_audio_enableP11IOEXCarrierPKcb">
+<span id="_CPPv331IOEX_av_set_friend_audio_enableP11IOEXCarrierPKcb"></span><span id="_CPPv231IOEX_av_set_friend_audio_enableP11IOEXCarrierPKcb"></span><span id="IOEX_av_set_friend_audio_enable__IOEXCarrierP.cCP.b"></span><span class="target" id="_i_o_e_x__carrier_8h_1a38a7cff3f23f91ef61839c148ceaa591"></span>int <code class="sig-name descname">IOEX_av_set_friend_audio_enable</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv431IOEX_av_set_friend_audio_enableP11IOEXCarrierPKcb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that can used to enable or disable receiving audio from a friend in an AV call. </p>
+<p>Note that this API will not change our transmitting state, which means we could keep transmitting our AV data event if we disabled the friend’s.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: [in] Set true to receive friend’s audio data. False otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-set-friend-video-enable">
+<h4>IOEX_av_set_friend_video_enable<a class="headerlink" href="#ioex-av-set-friend-video-enable" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv431IOEX_av_set_friend_video_enableP11IOEXCarrierPKcb">
+<span id="_CPPv331IOEX_av_set_friend_video_enableP11IOEXCarrierPKcb"></span><span id="_CPPv231IOEX_av_set_friend_video_enableP11IOEXCarrierPKcb"></span><span id="IOEX_av_set_friend_video_enable__IOEXCarrierP.cCP.b"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3ce13aae6b116114c68dbbaf809f73cc"></span>int <code class="sig-name descname">IOEX_av_set_friend_video_enable</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, bool <em>enable</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv431IOEX_av_set_friend_video_enableP11IOEXCarrierPKcb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that can used to enable or disable receiving video from a friend in an AV call. </p>
+<p>Note that this API will not change our transmitting state, which means we could keep transmitting our AV data event if we disabled the friend’s.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">enable</span></code>: [in] Set true to receive friend’s video data. False otherwise. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-set-audio-bitrate">
+<h4>IOEX_av_set_audio_bitrate<a class="headerlink" href="#ioex-av-set-audio-bitrate" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv425IOEX_av_set_audio_bitrateP11IOEXCarrierPKc8uint32_t">
+<span id="_CPPv325IOEX_av_set_audio_bitrateP11IOEXCarrierPKc8uint32_t"></span><span id="_CPPv225IOEX_av_set_audio_bitrateP11IOEXCarrierPKc8uint32_t"></span><span id="IOEX_av_set_audio_bitrate__IOEXCarrierP.cCP.uint32_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1a04413cb1257c8fdbf444e3d5ba5b8639"></span>int <code class="sig-name descname">IOEX_av_set_audio_bitrate</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, uint32_t <em>bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEX_av_set_audio_bitrateP11IOEXCarrierPKc8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that set audio bit rate (in kbps) in an AV call. </p>
+<p>Usually numbers are 64, 96, 128 and 192, and the valid range is 6 ~ 510. Set 0 will disable audio transmitting.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bitrate</span></code>: [in] Bit rate of the audio. Set 0 will disable audio transmitting. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-set-video-bitrate">
+<h4>IOEX_av_set_video_bitrate<a class="headerlink" href="#ioex-av-set-video-bitrate" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv425IOEX_av_set_video_bitrateP11IOEXCarrierPKc8uint32_t">
+<span id="_CPPv325IOEX_av_set_video_bitrateP11IOEXCarrierPKc8uint32_t"></span><span id="_CPPv225IOEX_av_set_video_bitrateP11IOEXCarrierPKc8uint32_t"></span><span id="IOEX_av_set_video_bitrate__IOEXCarrierP.cCP.uint32_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1a20ed7a527a3c88c247cbd8bb64ba91ff"></span>int <code class="sig-name descname">IOEX_av_set_video_bitrate</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, uint32_t <em>bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEX_av_set_video_bitrateP11IOEXCarrierPKc8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that set video bit rate (in kbps) in an AV call. </p>
+<p>Usually numbers are 400 ~ 14000, but any number can be considered valid. Set 0 will disable video transmitting.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">bitrate</span></code>: [in] Bit rate of the video. Set 0 will disable video transmitting. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-send-audio">
+<h4>IOEX_av_send_audio<a class="headerlink" href="#ioex-av-send-audio" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_av_send_audioP11IOEXCarrierPKcPK7int16_t6size_t7uint8_t8uint32_t">
+<span id="_CPPv318IOEX_av_send_audioP11IOEXCarrierPKcPK7int16_t6size_t7uint8_t8uint32_t"></span><span id="_CPPv218IOEX_av_send_audioP11IOEXCarrierPKcPK7int16_t6size_t7uint8_t8uint32_t"></span><span id="IOEX_av_send_audio__IOEXCarrierP.cCP.int16_tCP.s.uint8_t.uint32_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1a737b9a1431f54d9191d5318f96521ba4"></span>int <code class="sig-name descname">IOEX_av_send_audio</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> int16_t *<em>pcm</em>, size_t <em>sample_count</em>, uint8_t <em>channels</em>, uint32_t <em>sampling_rate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_av_send_audioP11IOEXCarrierPKcPK7int16_t6size_t7uint8_t8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that sends an audio frame to a friend. </p>
+<p>The expected format of the PCM data is: [s1c1][s1c2][…][s2c1][s2c2][…]… Meaning: sample 1 for channel 1, sample 1 for channel 2, … For mono audio, this has no meaning, every sample is subsequent. For stereo, this means the expected format is LRLRLR… with samples for left and right alternating.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pcm</span></code>: [in] An array of audio samples. The size of this array must be sample_count * channels. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sample_count</span></code>: [in] Number of samples in this frame. Valid numbers here are ((sample rate) * (audio length) / 1000), where audio length can be 2.5, 5, 10, 20, 40 or 60 millseconds. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">channels</span></code>: [in] Number of audio channels. Supported values are 1 and 2. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampling_rate</span></code>: [in] Audio sampling rate used in this frame. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-av-send-video">
+<h4>IOEX_av_send_video<a class="headerlink" href="#ioex-av-send-video" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_av_send_videoP11IOEXCarrierPKc8uint16_t8uint16_tPK7uint8_tPK7uint8_tPK7uint8_t">
+<span id="_CPPv318IOEX_av_send_videoP11IOEXCarrierPKc8uint16_t8uint16_tPK7uint8_tPK7uint8_tPK7uint8_t"></span><span id="_CPPv218IOEX_av_send_videoP11IOEXCarrierPKc8uint16_t8uint16_tPK7uint8_tPK7uint8_tPK7uint8_t"></span><span id="IOEX_av_send_video__IOEXCarrierP.cCP.uint16_t.uint16_t.uint8_tCP.uint8_tCP.uint8_tCP"></span><span class="target" id="_i_o_e_x__carrier_8h_1af06966ef3a38e7f13a77dcc3112d1aea"></span>int <code class="sig-name descname">IOEX_av_send_video</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, uint16_t <em>width</em>, uint16_t <em>height</em>, <em class="property">const</em> uint8_t *<em>y</em>, <em class="property">const</em> uint8_t *<em>u</em>, <em class="property">const</em> uint8_t *<em>v</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_av_send_videoP11IOEXCarrierPKc8uint16_t8uint16_tPK7uint8_tPK7uint8_tPK7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that sends a video frame to a friend. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">width</span></code>: [in] Width of the frame in pixels. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">height</span></code>: [in] Height of the frame in pixels. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code>: [in] Y (Luminance) plane data. Size must be height * width. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code>: [in] U (Chroma) plane data. Size must be (height/2) * (width/2). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">v</span></code>: [in] V (Chroma) plane data. Size must be (height/2) * (width/2).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-error-number.html" class="btn btn-neutral float-right" title="IOEX Carrier error number" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="carrier-tunnel-api.html" class="btn btn-neutral" title="(Experimental) IOEX Carrier Tunnel APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.14.1-demo',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

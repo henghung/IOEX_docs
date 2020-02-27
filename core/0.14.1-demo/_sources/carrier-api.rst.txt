@@ -1,0 +1,657 @@
+IOEX Carrier core APIs
+=========================
+
+Constants
+---------
+
+IOEX_MAX_ADDRESS_LEN
+####################
+
+.. doxygendefine:: IOEX_MAX_ADDRESS_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_ID_LEN
+###############
+
+.. doxygendefine:: IOEX_MAX_ID_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_USER_NAME_LEN
+######################
+
+.. doxygendefine:: IOEX_MAX_USER_NAME_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_USER_DESCRIPTION_LEN
+#############################
+
+.. doxygendefine:: IOEX_MAX_USER_DESCRIPTION_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_PHONE_LEN
+##################
+
+.. doxygendefine:: IOEX_MAX_PHONE_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_EMAIL_LEN
+##################
+
+.. doxygendefine:: IOEX_MAX_EMAIL_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_REGION_LEN
+###################
+
+.. doxygendefine:: IOEX_MAX_REGION_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_GENDER_LEN
+###################
+
+.. doxygendefine:: IOEX_MAX_GENDER_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_NODE_NAME_LEN
+######################
+
+.. doxygendefine:: IOEX_MAX_NODE_NAME_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_NODE_DESCRIPTION_LEN
+#############################
+
+.. doxygendefine:: IOEX_MAX_NODE_DESCRIPTION_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_APP_MESSAGE_LEN
+########################
+
+.. doxygendefine:: IOEX_MAX_APP_MESSAGE_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_FILE_KEY_LEN
+#####################
+
+.. doxygendefine:: IOEX_MAX_FILE_KEY_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_DATA_KEY_LEN
+#####################
+
+.. doxygendefine:: IOEX_MAX_DATA_KEY_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_FILE_ID_LEN
+####################
+
+.. doxygendefine:: IOEX_MAX_FILE_ID_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_DATA_ID_LEN
+####################
+
+.. doxygendefine:: IOEX_MAX_DATA_ID_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_JOB_ID_LEN
+#####################
+
+.. doxygendefine:: IOEX_MAX_JOB_ID_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_DIGEST_BYTE
+####################
+
+.. doxygendefine:: IOEX_MAX_DIGEST_BYTE
+   :project: CarrierAPI
+
+IOEX_MAX_DIGEST_LEN
+###################
+
+.. doxygendefine:: IOEX_MAX_DIGEST_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_FILE_NAME_LEN
+######################
+
+.. doxygendefine:: IOEX_MAX_FILE_NAME_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_FILE_PATH_LEN
+######################
+
+.. doxygendefine:: IOEX_MAX_FILE_PATH_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_FULL_PATH_LEN
+######################
+
+.. doxygendefine:: IOEX_MAX_FULL_PATH_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_OTA_PARTS_COUNT
+########################
+
+.. doxygendefine:: IOEX_MAX_OTA_PARTS_COUNT
+   :project: CarrierAPI
+
+IOEX_MAX_OTA_DATA_ID_COUNT
+##########################
+
+.. doxygendefine:: IOEX_MAX_OTA_DATA_ID_COUNT
+   :project: CarrierAPI
+
+Data types
+----------
+
+Bootstrap
+#########
+
+.. doxygenstruct:: BootstrapNode
+   :project: CarrierAPI
+   :members:
+
+IOEXOptions
+###########
+
+.. doxygenstruct:: IOEXOptions
+   :project: CarrierAPI
+   :members:
+
+IOEXConnectionStatus
+####################
+
+.. doxygenenum:: IOEXConnectionStatus
+   :project: CarrierAPI
+
+IOEXPresenceStatus
+##################
+
+.. doxygenenum:: IOEXPresenceStatus
+   :project: CarrierAPI
+
+IOEXLogLevel
+############
+
+.. doxygenenum:: IOEXLogLevel
+   :project: CarrierAPI
+
+IOEXUserInfo
+############
+
+.. doxygenstruct:: IOEXUserInfo
+   :project: CarrierAPI
+   :members:
+
+IOEXFriendInfo
+##############
+
+.. doxygenstruct:: IOEXFriendInfo
+   :project: CarrierAPI
+   :members:
+
+IOEXFileTrackerInfo
+###################
+
+.. doxygenstruct:: IOEXFileTrackerInfo
+   :project: CarrierAPI
+   :members:
+
+IOEXFileTrackerDataExtra
+########################
+
+.. doxygenstruct:: IOEXFileTrackerDataExtra
+   :project: CarrierAPI
+   :members:
+
+IOEXDataInfo
+############
+
+.. doxygenstruct:: IOEXDataInfo
+   :project: CarrierAPI
+   :members:
+
+IOEXFileTransmissionStatus
+##########################
+
+.. doxygenenum:: IOEXFileTransmissionStatus
+   :project: CarrierAPI
+
+IOEXFileTransmissionPausedStatus
+################################
+
+.. doxygenenum:: IOEXFileTransmissionPausedStatus
+   :project: CarrierAPI
+
+IOEXFileTransmissionDirection
+#############################
+
+.. doxygenenum:: IOEXFileTransmissionDirection
+   :project: CarrierAPI
+
+IOEXFileTransmissionType
+########################
+
+.. doxygenenum:: IOEXFileTransmissionType
+   :project: CarrierAPI
+
+IOEXFileAutoRetransmissionStatus
+################################
+
+.. doxygenenum:: IOEXFileAutoRetransmissionStatus
+   :project: CarrierAPI
+
+IOEXPartListEntry
+#################
+
+.. doxygenstruct:: IOEXPartListEntry
+   :project: CarrierAPI
+   :members:
+
+IOEXOtaList
+###########
+
+.. doxygenstruct:: IOEXOtaList
+   :project: CarrierAPI
+   :members:
+
+IOEXCallbacks
+#############
+
+.. doxygenstruct:: IOEXCallbacks
+   :project: CarrierAPI
+   :members:
+
+IOEXFriendsIterateCallback
+##########################
+
+.. doxygentypedef:: IOEXFriendsIterateCallback
+   :project: CarrierAPI
+
+IOEXFriendInviteResponseCallback
+################################
+
+.. doxygentypedef:: IOEXFriendInviteResponseCallback
+   :project: CarrierAPI
+
+IOEXFilesIterateCallback
+########################
+
+.. doxygentypedef:: IOEXFilesIterateCallback
+   :project: CarrierAPI
+
+IOEXDataIterateCallback
+#######################
+
+.. doxygentypedef:: IOEXDataIterateCallback
+   :project: CarrierAPI
+
+Functions
+---------
+
+Carrier instance
+################
+
+IOEX_new
+~~~~~~~~
+
+.. doxygenfunction:: IOEX_new
+   :project: CarrierAPI
+
+IOEX_run
+~~~~~~~~
+
+.. doxygenfunction:: IOEX_run
+   :project: CarrierAPI
+
+IOEX_kill
+~~~~~~~~~
+
+.. doxygenfunction:: IOEX_kill
+   :project: CarrierAPI
+
+IOEX_is_ready
+~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_is_ready
+   :project: CarrierAPI
+
+Node Information
+################
+
+IOEX_get_address
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_address
+   :project: CarrierAPI
+
+IOEX_get_nodeid
+~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_nodeid
+   :project: CarrierAPI
+
+IOEX_get_userid
+~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_userid
+   :project: CarrierAPI
+
+IOEX_get_id_by_address
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_id_by_address
+   :project: CarrierAPI
+
+IOEX_set_self_nospam
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_set_self_nospam
+   :project: CarrierAPI
+
+IOEX_get_self_nospam
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_self_nospam
+   :project: CarrierAPI
+
+IOEX_set_self_info
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_set_self_info
+   :project: CarrierAPI
+
+IOEX_get_self_info
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_self_info
+   :project: CarrierAPI
+
+IOEX_set_self_presence
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_set_self_presence
+   :project: CarrierAPI
+
+IOEX_get_self_presence
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_self_presence
+   :project: CarrierAPI
+
+IOEX_get_self_dht_id
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_self_dht_id
+   :project: CarrierAPI
+
+Friend & interaction
+####################
+
+IOEX_get_friends
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_friends
+   :project: CarrierAPI
+
+IOEX_get_friend_info
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_friend_info
+   :project: CarrierAPI
+
+IOEX_set_friend_label
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_set_friend_label
+   :project: CarrierAPI
+
+IOEX_is_friend
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_is_friend
+   :project: CarrierAPI
+
+IOEX_add_friend
+~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_add_friend
+   :project: CarrierAPI
+
+IOEX_accept_friend
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_accept_friend
+   :project: CarrierAPI
+
+IOEX_remove_friend
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_remove_friend
+   :project: CarrierAPI
+
+IOEX_send_friend_message
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_friend_message
+   :project: CarrierAPI
+
+IOEX_invite_friend
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_invite_friend
+   :project: CarrierAPI
+
+IOEX_reply_friend_invite
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_reply_friend_invite
+   :project: CarrierAPI
+
+File transmission functions
+###########################
+
+IOEX_send_file_query
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_query
+   :project: CarrierAPI
+
+IOEX_send_file_request
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_request
+   :project: CarrierAPI
+
+IOEX_send_file_accept
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_accept
+   :project: CarrierAPI
+
+IOEX_send_file_seek
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_seek
+   :project: CarrierAPI
+
+IOEX_send_file_reject
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_reject
+   :project: CarrierAPI
+
+IOEX_send_file_pause
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_pause
+   :project: CarrierAPI
+
+IOEX_send_file_resume
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_resume
+   :project: CarrierAPI
+
+IOEX_send_file_cancel
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_file_cancel
+   :project: CarrierAPI
+
+IOEX_get_files
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_files
+   :project: CarrierAPI
+
+IOEX_get_file_info
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_file_info
+   :project: CarrierAPI
+
+IOEX_set_auto_retransmission
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_set_auto_retransmission
+   :project: CarrierAPI
+
+IOEX_get_auto_retransmission_status
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_auto_retransmission_status
+   :project: CarrierAPI
+
+Data transmission functions
+###########################
+
+IOEX_get_data
+~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_data
+   :project: CarrierAPI
+
+IOEX_put_data_local
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_put_data_local
+   :project: CarrierAPI
+
+IOEX_lookup_data_local
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_lookup_data_local
+   :project: CarrierAPI
+
+IOEX_remove_data_local
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_remove_data_local
+   :project: CarrierAPI
+
+IOEX_clear_data_local
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_clear_data_local
+   :project: CarrierAPI
+
+IOEX_get_data_local_path
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_data_local_path
+   :project: CarrierAPI
+
+IOEX_should_put_data_local
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+.. doxygenfunction:: IOEX_should_put_data_local
+   :project: CarrierAPI
+
+IOEX_put_data
+~~~~~~~~~~~~~
+.. doxygenfunction:: IOEX_put_data
+   :project: CarrierAPI
+
+IOEX_put_data_with_id
+~~~~~~~~~~~~~~~~~~~~~
+.. doxygenfunction:: IOEX_put_data_with_id
+   :project: CarrierAPI
+
+IOEX_lookup_data
+~~~~~~~~~~~~~~~~
+.. doxygenfunction:: IOEX_lookup_data
+   :project: CarrierAPI
+
+IOEX_forward_data
+~~~~~~~~~~~~~~~~~
+.. doxygenfunction:: IOEX_forward_data
+   :project: CarrierAPI
+
+IOEX_accept_data
+~~~~~~~~~~~~~~~~
+.. doxygenfunction:: IOEX_accept_data
+   :project: CarrierAPI
+
+Utility functions
+#################
+
+IOEX_get_version
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_version
+   :project: CarrierAPI
+
+IOEX_get_last_commit
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_last_commit
+   :project: CarrierAPI
+
+IOEX_get_build_time
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_build_time
+   :project: CarrierAPI
+
+IOEX_log_init
+~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_log_init
+   :project: CarrierAPI
+
+IOEX_address_is_valid
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_address_is_valid
+   :project: CarrierAPI
+
+IOEX_id_is_valid
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_id_is_valid
+   :project: CarrierAPI
+
+IOEX_get_error
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_error
+   :project: CarrierAPI
+
+IOEX_clear_error
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_clear_error
+   :project: CarrierAPI
+
+IOEX_get_digest_sync
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_get_digest_sync
+   :project: CarrierAPI
+
+IOEX_gen_random_id
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_gen_random_id
+   :project: CarrierAPI
