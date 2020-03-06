@@ -1,0 +1,845 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEX Carrier error number &mdash; IOEX Carrier Developer Documents 0.15.2 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.15.2 documentation" href="index.html"/>
+        <link rel="prev" title="IOEX Carrier AV APIs" href="carrier-av-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">IOEX Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOEX Carrier error number</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#error-number-format">Error number format</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#format-details">Format details</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#error-codes">Error codes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-args">IOEXERR_INVALID_ARGS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-out-of-memory">IOEXERR_OUT_OF_MEMORY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-buffer-too-small">IOEXERR_BUFFER_TOO_SMALL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-persistent-data">IOEXERR_BAD_PERSISTENT_DATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-persistence-file">IOEXERR_INVALID_PERSISTENCE_FILE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-control-packet">IOEXERR_INVALID_CONTROL_PACKET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-credential">IOEXERR_INVALID_CREDENTIAL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-server-failed">IOEXERR_SERVER_FAILED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-already-run">IOEXERR_ALREADY_RUN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-not-ready">IOEXERR_NOT_READY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-not-exist">IOEXERR_NOT_EXIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-already-exist">IOEXERR_ALREADY_EXIST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-no-matched-request">IOEXERR_NO_MATCHED_REQUEST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-userid">IOEXERR_INVALID_USERID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-nodeid">IOEXERR_INVALID_NODEID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-appid">IOEXERR_INVALID_APPID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-descriptor">IOEXERR_INVALID_DESCRIPTOR</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-wrong-state">IOEXERR_WRONG_STATE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-busy">IOEXERR_BUSY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-language-binding">IOEXERR_LANGUAGE_BINDING</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-encrypt">IOEXERR_ENCRYPT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-sdp-too-long">IOEXERR_SDP_TOO_LONG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-sdp">IOEXERR_INVALID_SDP</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-not-implemented">IOEXERR_NOT_IMPLEMENTED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-limit-exceeded">IOEXERR_LIMIT_EXCEEDED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-port-alloc">IOEXERR_PORT_ALLOC</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-proxy-type">IOEXERR_BAD_PROXY_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-proxy-host">IOEXERR_BAD_PROXY_HOST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-proxy-port">IOEXERR_BAD_PROXY_PORT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-proxy-not-available">IOEXERR_PROXY_NOT_AVAILABLE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-encrypted-persistent-data">IOEXERR_ENCRYPTED_PERSISTENT_DATA</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-bootstrap-host">IOEXERR_BAD_BOOTSTRAP_HOST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-bootstrap-port">IOEXERR_BAD_BOOTSTRAP_PORT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-too-long">IOEXERR_TOO_LONG</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-add-self">IOEXERR_ADD_SELF</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-bad-address">IOEXERR_BAD_ADDRESS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-friend-offline">IOEXERR_FRIEND_OFFLINE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-file-deny">IOEXERR_FILE_DENY</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-file-invalid">IOEXERR_FILE_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-file-existed">IOEXERR_FILE_EXISTED</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-file-tracker-invalid">IOEXERR_FILE_TRACKER_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-dataid">IOEXERR_INVALID_DATAID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-data-tracker-invalid">IOEXERR_DATA_TRACKER_INVALID</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-data-not-found">IOEXERR_DATA_NOT_FOUND</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-json-parse">IOEXERR_JSON_PARSE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-json-construct">IOEXERR_JSON_CONSTRUCT</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-invalid-digest">IOEXERR_INVALID_DIGEST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-compress">IOEXERR_COMPRESS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-uncompress">IOEXERR_UNCOMPRESS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-curl">IOEXERR_CURL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-http-get">IOEXERR_HTTP_GET</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-http-post">IOEXERR_HTTP_POST</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-thread">IOEXERR_THREAD</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexerr-unknown">IOEXERR_UNKNOWN</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>IOEX Carrier error number</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioex-carrier-error-number">
+<h1>IOEX Carrier error number<a class="headerlink" href="#ioex-carrier-error-number" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="error-number-format">
+<h2>Error number format<a class="headerlink" href="#error-number-format" title="Permalink to this headline">¶</a></h2>
+<p>The Carrier error numbering space is extensible. The numbering space has the following internal structure.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 38%" />
+<col style="width: 28%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>0</p></th>
+<th class="head"><p>1 ~ 7</p></th>
+<th class="head"><p>8 ~ 31</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Severity</p></td>
+<td><p>Facility</p></td>
+<td><p>Code</p></td>
+</tr>
+</tbody>
+</table>
+<p>An error number value has 32 bits divided into three fields: a severity code, a facility code, and an error code. The severity code indicates whether the return value represents information, warning, or error. The facility code identifies the area of the system responsible for the error. The error code is a unique number that is assigned to represent the exception.</p>
+<div class="section" id="format-details">
+<h3>Format details<a class="headerlink" href="#format-details" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Severity - indicates an error</p>
+<ul>
+<li><p>1 - Failure</p></li>
+</ul>
+</li>
+<li><p>Facility - indicates the Carrier module that is responsible for the error. Available facility codes are shown below:</p>
+<ul>
+<li><p>1 - General</p></li>
+<li><p>2 - System</p></li>
+<li><p>3 - HTTP</p></li>
+<li><p>4 - Reserved/not used</p></li>
+<li><p>5 - ICE</p></li>
+<li><p>6 - DHT</p></li>
+<li><p>7 - AV</p></li>
+</ul>
+</li>
+<li><p>Code - is the facility’s error code</p></li>
+</ul>
+</div>
+<div class="section" id="example">
+<h3>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h3>
+<p>0x86000021</p>
+<ul class="simple">
+<li><p>0x8 - Error</p></li>
+<li><p>0x6 - DHT</p></li>
+<li><p>0x21 - The error number(IOEXERR_BAD_BOOTSTRAP_PORT)</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="error-codes">
+<h2>Error codes<a class="headerlink" href="#error-codes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ioexerr-invalid-args">
+<h3>IOEXERR_INVALID_ARGS<a class="headerlink" href="#ioexerr-invalid-args" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_ARGS">
+<span class="target" id="_i_o_e_x__carrier_8h_1a45747a3bf72f584b8ae18a60eb4263dd"></span><code class="sig-name descname">IOEXERR_INVALID_ARGS</code> 0x01<a class="headerlink" href="#c.IOEXERR_INVALID_ARGS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Argument(s) is(are) invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-out-of-memory">
+<h3>IOEXERR_OUT_OF_MEMORY<a class="headerlink" href="#ioexerr-out-of-memory" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_OUT_OF_MEMORY">
+<span class="target" id="_i_o_e_x__carrier_8h_1a36a84856716ae55a7b7abd2fdab25ae9"></span><code class="sig-name descname">IOEXERR_OUT_OF_MEMORY</code> 0x02<a class="headerlink" href="#c.IOEXERR_OUT_OF_MEMORY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs out of memory. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-buffer-too-small">
+<h3>IOEXERR_BUFFER_TOO_SMALL<a class="headerlink" href="#ioexerr-buffer-too-small" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BUFFER_TOO_SMALL">
+<span class="target" id="_i_o_e_x__carrier_8h_1a147bfbf17ad79420f8ba2f13c2c614ab"></span><code class="sig-name descname">IOEXERR_BUFFER_TOO_SMALL</code> 0x03<a class="headerlink" href="#c.IOEXERR_BUFFER_TOO_SMALL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Buffer size is too small. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-persistent-data">
+<h3>IOEXERR_BAD_PERSISTENT_DATA<a class="headerlink" href="#ioexerr-bad-persistent-data" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_PERSISTENT_DATA">
+<span class="target" id="_i_o_e_x__carrier_8h_1a045da62edd6fed7e7ddbf08d14c7d5e6"></span><code class="sig-name descname">IOEXERR_BAD_PERSISTENT_DATA</code> 0x04<a class="headerlink" href="#c.IOEXERR_BAD_PERSISTENT_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Persistent data is corrupted. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-persistence-file">
+<h3>IOEXERR_INVALID_PERSISTENCE_FILE<a class="headerlink" href="#ioexerr-invalid-persistence-file" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_PERSISTENCE_FILE">
+<span class="target" id="_i_o_e_x__carrier_8h_1a6030bae0b055d43379976795bb5d1870"></span><code class="sig-name descname">IOEXERR_INVALID_PERSISTENCE_FILE</code> 0x05<a class="headerlink" href="#c.IOEXERR_INVALID_PERSISTENCE_FILE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Persistent file is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-control-packet">
+<h3>IOEXERR_INVALID_CONTROL_PACKET<a class="headerlink" href="#ioexerr-invalid-control-packet" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_CONTROL_PACKET">
+<span class="target" id="_i_o_e_x__carrier_8h_1a53c34fc80dbcda6ada0ee3dd16364b60"></span><code class="sig-name descname">IOEXERR_INVALID_CONTROL_PACKET</code> 0x06<a class="headerlink" href="#c.IOEXERR_INVALID_CONTROL_PACKET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Control packet is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-credential">
+<h3>IOEXERR_INVALID_CREDENTIAL<a class="headerlink" href="#ioexerr-invalid-credential" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_CREDENTIAL">
+<span class="target" id="_i_o_e_x__carrier_8h_1abbb3593b8dcf7dfe33e0c96f784086d0"></span><code class="sig-name descname">IOEXERR_INVALID_CREDENTIAL</code> 0x07<a class="headerlink" href="#c.IOEXERR_INVALID_CREDENTIAL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Credential is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-server-failed">
+<h3>IOEXERR_SERVER_FAILED<a class="headerlink" href="#ioexerr-server-failed" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_SERVER_FAILED">
+<span class="target" id="_i_o_e_x__carrier_8h_1a46b80c6a90cc960d60725211921255b9"></span><code class="sig-name descname">IOEXERR_SERVER_FAILED</code> 0x08<a class="headerlink" href="#c.IOEXERR_SERVER_FAILED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Server failed. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-already-run">
+<h3>IOEXERR_ALREADY_RUN<a class="headerlink" href="#ioexerr-already-run" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_ALREADY_RUN">
+<span class="target" id="_i_o_e_x__carrier_8h_1a4472538d43228bdea54996e7b34de015"></span><code class="sig-name descname">IOEXERR_ALREADY_RUN</code> 0x09<a class="headerlink" href="#c.IOEXERR_ALREADY_RUN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier ran already. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-not-ready">
+<h3>IOEXERR_NOT_READY<a class="headerlink" href="#ioexerr-not-ready" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_NOT_READY">
+<span class="target" id="_i_o_e_x__carrier_8h_1abc9cd4baa68e843e6289471991e9501a"></span><code class="sig-name descname">IOEXERR_NOT_READY</code> 0x0A<a class="headerlink" href="#c.IOEXERR_NOT_READY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier not ready. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-not-exist">
+<h3>IOEXERR_NOT_EXIST<a class="headerlink" href="#ioexerr-not-exist" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_NOT_EXIST">
+<span class="target" id="_i_o_e_x__carrier_8h_1afe867e086b7a740db1db8f064b9dba11"></span><code class="sig-name descname">IOEXERR_NOT_EXIST</code> 0x0B<a class="headerlink" href="#c.IOEXERR_NOT_EXIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>The requested entity does not exist. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-already-exist">
+<h3>IOEXERR_ALREADY_EXIST<a class="headerlink" href="#ioexerr-already-exist" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_ALREADY_EXIST">
+<span class="target" id="_i_o_e_x__carrier_8h_1ac40980bd350186abea91c35cd38ad429"></span><code class="sig-name descname">IOEXERR_ALREADY_EXIST</code> 0x0C<a class="headerlink" href="#c.IOEXERR_ALREADY_EXIST" title="Permalink to this definition">¶</a></dt>
+<dd><p>The entity exists already. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-no-matched-request">
+<h3>IOEXERR_NO_MATCHED_REQUEST<a class="headerlink" href="#ioexerr-no-matched-request" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_NO_MATCHED_REQUEST">
+<span class="target" id="_i_o_e_x__carrier_8h_1ac351b32f1c422a9f2180e2062723d4d4"></span><code class="sig-name descname">IOEXERR_NO_MATCHED_REQUEST</code> 0x0D<a class="headerlink" href="#c.IOEXERR_NO_MATCHED_REQUEST" title="Permalink to this definition">¶</a></dt>
+<dd><p>There are no matched requests. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-userid">
+<h3>IOEXERR_INVALID_USERID<a class="headerlink" href="#ioexerr-invalid-userid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_USERID">
+<span class="target" id="_i_o_e_x__carrier_8h_1a05882ef7a31765f212c0eb7cff4f9ccb"></span><code class="sig-name descname">IOEXERR_INVALID_USERID</code> 0x0E<a class="headerlink" href="#c.IOEXERR_INVALID_USERID" title="Permalink to this definition">¶</a></dt>
+<dd><p>User ID is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-nodeid">
+<h3>IOEXERR_INVALID_NODEID<a class="headerlink" href="#ioexerr-invalid-nodeid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_NODEID">
+<span class="target" id="_i_o_e_x__carrier_8h_1a12784078c015e77f9ed58d150372adef"></span><code class="sig-name descname">IOEXERR_INVALID_NODEID</code> 0x0F<a class="headerlink" href="#c.IOEXERR_INVALID_NODEID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Node ID is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-appid">
+<h3>IOEXERR_INVALID_APPID<a class="headerlink" href="#ioexerr-invalid-appid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_APPID">
+<span class="target" id="_i_o_e_x__carrier_8h_1abd25f324e16473badb6e7d088ea18c11"></span><code class="sig-name descname">IOEXERR_INVALID_APPID</code> 0x10<a class="headerlink" href="#c.IOEXERR_INVALID_APPID" title="Permalink to this definition">¶</a></dt>
+<dd><p>APP ID is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-descriptor">
+<h3>IOEXERR_INVALID_DESCRIPTOR<a class="headerlink" href="#ioexerr-invalid-descriptor" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_DESCRIPTOR">
+<span class="target" id="_i_o_e_x__carrier_8h_1a24209e7e2f9948c6b32beb02219a2f22"></span><code class="sig-name descname">IOEXERR_INVALID_DESCRIPTOR</code> 0x11<a class="headerlink" href="#c.IOEXERR_INVALID_DESCRIPTOR" title="Permalink to this definition">¶</a></dt>
+<dd><p>Descriptor is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-wrong-state">
+<h3>IOEXERR_WRONG_STATE<a class="headerlink" href="#ioexerr-wrong-state" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_WRONG_STATE">
+<span class="target" id="_i_o_e_x__carrier_8h_1a01c6cba6738f2ba8dc4713f940caec9f"></span><code class="sig-name descname">IOEXERR_WRONG_STATE</code> 0x12<a class="headerlink" href="#c.IOEXERR_WRONG_STATE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Failed because wrong state. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-busy">
+<h3>IOEXERR_BUSY<a class="headerlink" href="#ioexerr-busy" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BUSY">
+<span class="target" id="_i_o_e_x__carrier_8h_1ab5b957cfb79c9223030ac1fee3f97d27"></span><code class="sig-name descname">IOEXERR_BUSY</code> 0x13<a class="headerlink" href="#c.IOEXERR_BUSY" title="Permalink to this definition">¶</a></dt>
+<dd><p>Stream busy. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-language-binding">
+<h3>IOEXERR_LANGUAGE_BINDING<a class="headerlink" href="#ioexerr-language-binding" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_LANGUAGE_BINDING">
+<span class="target" id="_i_o_e_x__carrier_8h_1ac9143d872d36af8f20349c80e6280459"></span><code class="sig-name descname">IOEXERR_LANGUAGE_BINDING</code> 0x14<a class="headerlink" href="#c.IOEXERR_LANGUAGE_BINDING" title="Permalink to this definition">¶</a></dt>
+<dd><p>Language binding error. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-encrypt">
+<h3>IOEXERR_ENCRYPT<a class="headerlink" href="#ioexerr-encrypt" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_ENCRYPT">
+<span class="target" id="_i_o_e_x__carrier_8h_1a72518a89da064cb7085b9dcf2b94a367"></span><code class="sig-name descname">IOEXERR_ENCRYPT</code> 0x15<a class="headerlink" href="#c.IOEXERR_ENCRYPT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encryption failed. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-sdp-too-long">
+<h3>IOEXERR_SDP_TOO_LONG<a class="headerlink" href="#ioexerr-sdp-too-long" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_SDP_TOO_LONG">
+<span class="target" id="_i_o_e_x__carrier_8h_1a1cf9797b307d98e0e6a0539c41e2690d"></span><code class="sig-name descname">IOEXERR_SDP_TOO_LONG</code> 0x16<a class="headerlink" href="#c.IOEXERR_SDP_TOO_LONG" title="Permalink to this definition">¶</a></dt>
+<dd><p>The content size of SDP is too long. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-sdp">
+<h3>IOEXERR_INVALID_SDP<a class="headerlink" href="#ioexerr-invalid-sdp" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_SDP">
+<span class="target" id="_i_o_e_x__carrier_8h_1adb130256054f7472a97bc39c93875350"></span><code class="sig-name descname">IOEXERR_INVALID_SDP</code> 0x17<a class="headerlink" href="#c.IOEXERR_INVALID_SDP" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bad SDP information format. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-not-implemented">
+<h3>IOEXERR_NOT_IMPLEMENTED<a class="headerlink" href="#ioexerr-not-implemented" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_NOT_IMPLEMENTED">
+<span class="target" id="_i_o_e_x__carrier_8h_1a6a2a595abb654c2a57d6dd16af03d6a5"></span><code class="sig-name descname">IOEXERR_NOT_IMPLEMENTED</code> 0x18<a class="headerlink" href="#c.IOEXERR_NOT_IMPLEMENTED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Not implemented yet. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-limit-exceeded">
+<h3>IOEXERR_LIMIT_EXCEEDED<a class="headerlink" href="#ioexerr-limit-exceeded" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_LIMIT_EXCEEDED">
+<span class="target" id="_i_o_e_x__carrier_8h_1a5863524d41739c684790be30fd1f2a19"></span><code class="sig-name descname">IOEXERR_LIMIT_EXCEEDED</code> 0x19<a class="headerlink" href="#c.IOEXERR_LIMIT_EXCEEDED" title="Permalink to this definition">¶</a></dt>
+<dd><p>Limits are exceeded. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-port-alloc">
+<h3>IOEXERR_PORT_ALLOC<a class="headerlink" href="#ioexerr-port-alloc" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_PORT_ALLOC">
+<span class="target" id="_i_o_e_x__carrier_8h_1abd748f6d02118d645632b36367fb6d5c"></span><code class="sig-name descname">IOEXERR_PORT_ALLOC</code> 0x1A<a class="headerlink" href="#c.IOEXERR_PORT_ALLOC" title="Permalink to this definition">¶</a></dt>
+<dd><p>Allocate port unsuccessfully. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-proxy-type">
+<h3>IOEXERR_BAD_PROXY_TYPE<a class="headerlink" href="#ioexerr-bad-proxy-type" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_PROXY_TYPE">
+<span class="target" id="_i_o_e_x__carrier_8h_1acf4b99d1bc39f76991207d97962fd633"></span><code class="sig-name descname">IOEXERR_BAD_PROXY_TYPE</code> 0x1B<a class="headerlink" href="#c.IOEXERR_BAD_PROXY_TYPE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid proxy type. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-proxy-host">
+<h3>IOEXERR_BAD_PROXY_HOST<a class="headerlink" href="#ioexerr-bad-proxy-host" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_PROXY_HOST">
+<span class="target" id="_i_o_e_x__carrier_8h_1ade774478388fab2b47a4fcd8608712e3"></span><code class="sig-name descname">IOEXERR_BAD_PROXY_HOST</code> 0x1C<a class="headerlink" href="#c.IOEXERR_BAD_PROXY_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid proxy host. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-proxy-port">
+<h3>IOEXERR_BAD_PROXY_PORT<a class="headerlink" href="#ioexerr-bad-proxy-port" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_PROXY_PORT">
+<span class="target" id="_i_o_e_x__carrier_8h_1a23d658bacd85b17b93d2293d80df43db"></span><code class="sig-name descname">IOEXERR_BAD_PROXY_PORT</code> 0x1D<a class="headerlink" href="#c.IOEXERR_BAD_PROXY_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid proxy port. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-proxy-not-available">
+<h3>IOEXERR_PROXY_NOT_AVAILABLE<a class="headerlink" href="#ioexerr-proxy-not-available" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_PROXY_NOT_AVAILABLE">
+<span class="target" id="_i_o_e_x__carrier_8h_1a71efc65c6bd6b703eaade2cb9c758107"></span><code class="sig-name descname">IOEXERR_PROXY_NOT_AVAILABLE</code> 0x1E<a class="headerlink" href="#c.IOEXERR_PROXY_NOT_AVAILABLE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Proxy is not available. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-encrypted-persistent-data">
+<h3>IOEXERR_ENCRYPTED_PERSISTENT_DATA<a class="headerlink" href="#ioexerr-encrypted-persistent-data" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_ENCRYPTED_PERSISTENT_DATA">
+<span class="target" id="_i_o_e_x__carrier_8h_1a569d70afe951ba7abde54663c3927038"></span><code class="sig-name descname">IOEXERR_ENCRYPTED_PERSISTENT_DATA</code> 0x1F<a class="headerlink" href="#c.IOEXERR_ENCRYPTED_PERSISTENT_DATA" title="Permalink to this definition">¶</a></dt>
+<dd><p>Persistent data is encrypted, load failed. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-bootstrap-host">
+<h3>IOEXERR_BAD_BOOTSTRAP_HOST<a class="headerlink" href="#ioexerr-bad-bootstrap-host" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_BOOTSTRAP_HOST">
+<span class="target" id="_i_o_e_x__carrier_8h_1acc5cd8c22b96a17178d35b4fa72dbd90"></span><code class="sig-name descname">IOEXERR_BAD_BOOTSTRAP_HOST</code> 0x20<a class="headerlink" href="#c.IOEXERR_BAD_BOOTSTRAP_HOST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid bootstrap host. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-bootstrap-port">
+<h3>IOEXERR_BAD_BOOTSTRAP_PORT<a class="headerlink" href="#ioexerr-bad-bootstrap-port" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_BOOTSTRAP_PORT">
+<span class="target" id="_i_o_e_x__carrier_8h_1aa57b54e40224e998172f34bbc0177140"></span><code class="sig-name descname">IOEXERR_BAD_BOOTSTRAP_PORT</code> 0x21<a class="headerlink" href="#c.IOEXERR_BAD_BOOTSTRAP_PORT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid bootstrap port. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-too-long">
+<h3>IOEXERR_TOO_LONG<a class="headerlink" href="#ioexerr-too-long" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_TOO_LONG">
+<span class="target" id="_i_o_e_x__carrier_8h_1a82504695c72337a83a906388d1192665"></span><code class="sig-name descname">IOEXERR_TOO_LONG</code> 0x22<a class="headerlink" href="#c.IOEXERR_TOO_LONG" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data is too long. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-add-self">
+<h3>IOEXERR_ADD_SELF<a class="headerlink" href="#ioexerr-add-self" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_ADD_SELF">
+<span class="target" id="_i_o_e_x__carrier_8h_1a23d2e771eba1ea2b70a3a175c27d0663"></span><code class="sig-name descname">IOEXERR_ADD_SELF</code> 0x23<a class="headerlink" href="#c.IOEXERR_ADD_SELF" title="Permalink to this definition">¶</a></dt>
+<dd><p>Could not friend yourself. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-bad-address">
+<h3>IOEXERR_BAD_ADDRESS<a class="headerlink" href="#ioexerr-bad-address" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_BAD_ADDRESS">
+<span class="target" id="_i_o_e_x__carrier_8h_1ad34e6e37675f63b99b677b3ebccd3658"></span><code class="sig-name descname">IOEXERR_BAD_ADDRESS</code> 0x24<a class="headerlink" href="#c.IOEXERR_BAD_ADDRESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invalid address. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-friend-offline">
+<h3>IOEXERR_FRIEND_OFFLINE<a class="headerlink" href="#ioexerr-friend-offline" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_FRIEND_OFFLINE">
+<span class="target" id="_i_o_e_x__carrier_8h_1a73b5ed8c868b4852b657e194de7efa74"></span><code class="sig-name descname">IOEXERR_FRIEND_OFFLINE</code> 0x25<a class="headerlink" href="#c.IOEXERR_FRIEND_OFFLINE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Friend is offline. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-file-deny">
+<h3>IOEXERR_FILE_DENY<a class="headerlink" href="#ioexerr-file-deny" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_FILE_DENY">
+<span class="target" id="_i_o_e_x__carrier_8h_1a073d2ba56263f777c402ba6f7763020b"></span><code class="sig-name descname">IOEXERR_FILE_DENY</code> 0x26<a class="headerlink" href="#c.IOEXERR_FILE_DENY" title="Permalink to this definition">¶</a></dt>
+<dd><p>File cannot be stored. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-file-invalid">
+<h3>IOEXERR_FILE_INVALID<a class="headerlink" href="#ioexerr-file-invalid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_FILE_INVALID">
+<span class="target" id="_i_o_e_x__carrier_8h_1adc0fbf2bca35e60046c4d60e74baa833"></span><code class="sig-name descname">IOEXERR_FILE_INVALID</code> 0x27<a class="headerlink" href="#c.IOEXERR_FILE_INVALID" title="Permalink to this definition">¶</a></dt>
+<dd><p>File cannot be read. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-file-existed">
+<h3>IOEXERR_FILE_EXISTED<a class="headerlink" href="#ioexerr-file-existed" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_FILE_EXISTED">
+<span class="target" id="_i_o_e_x__carrier_8h_1aa792c925dc2db4115b0c51f1feeb3db3"></span><code class="sig-name descname">IOEXERR_FILE_EXISTED</code> 0x28<a class="headerlink" href="#c.IOEXERR_FILE_EXISTED" title="Permalink to this definition">¶</a></dt>
+<dd><p>File already existed. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-file-tracker-invalid">
+<h3>IOEXERR_FILE_TRACKER_INVALID<a class="headerlink" href="#ioexerr-file-tracker-invalid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_FILE_TRACKER_INVALID">
+<span class="target" id="_i_o_e_x__carrier_8h_1a2b5e65cf3859ba601188b527993b9541"></span><code class="sig-name descname">IOEXERR_FILE_TRACKER_INVALID</code> 0x29<a class="headerlink" href="#c.IOEXERR_FILE_TRACKER_INVALID" title="Permalink to this definition">¶</a></dt>
+<dd><p>File tracker is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-dataid">
+<h3>IOEXERR_INVALID_DATAID<a class="headerlink" href="#ioexerr-invalid-dataid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_DATAID">
+<span class="target" id="_i_o_e_x__carrier_8h_1a8378ad217b6f5e9747d8350a618c49f9"></span><code class="sig-name descname">IOEXERR_INVALID_DATAID</code> 0x2A<a class="headerlink" href="#c.IOEXERR_INVALID_DATAID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data ID is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-data-tracker-invalid">
+<h3>IOEXERR_DATA_TRACKER_INVALID<a class="headerlink" href="#ioexerr-data-tracker-invalid" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_DATA_TRACKER_INVALID">
+<span class="target" id="_i_o_e_x__carrier_8h_1a776f3a953dfaa690b04456c2ff826e3f"></span><code class="sig-name descname">IOEXERR_DATA_TRACKER_INVALID</code> 0x2B<a class="headerlink" href="#c.IOEXERR_DATA_TRACKER_INVALID" title="Permalink to this definition">¶</a></dt>
+<dd><p>Data tracker is invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-data-not-found">
+<h3>IOEXERR_DATA_NOT_FOUND<a class="headerlink" href="#ioexerr-data-not-found" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_DATA_NOT_FOUND">
+<span class="target" id="_i_o_e_x__carrier_8h_1a5e366d3f5c1b4b3f3f577c0ce3b15a21"></span><code class="sig-name descname">IOEXERR_DATA_NOT_FOUND</code> 0x2C<a class="headerlink" href="#c.IOEXERR_DATA_NOT_FOUND" title="Permalink to this definition">¶</a></dt>
+<dd><p>The requested data cannot be found. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-json-parse">
+<h3>IOEXERR_JSON_PARSE<a class="headerlink" href="#ioexerr-json-parse" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_JSON_PARSE">
+<span class="target" id="_i_o_e_x__carrier_8h_1a479452a6f23cb1a71fd49a7a5ef9cb3a"></span><code class="sig-name descname">IOEXERR_JSON_PARSE</code> 0x2D<a class="headerlink" href="#c.IOEXERR_JSON_PARSE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Failed to parse JSON string. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-json-construct">
+<h3>IOEXERR_JSON_CONSTRUCT<a class="headerlink" href="#ioexerr-json-construct" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_JSON_CONSTRUCT">
+<span class="target" id="_i_o_e_x__carrier_8h_1a974e010976f6ef441d46236f717188bf"></span><code class="sig-name descname">IOEXERR_JSON_CONSTRUCT</code> 0x2E<a class="headerlink" href="#c.IOEXERR_JSON_CONSTRUCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>Failed to construct JSON objects. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-invalid-digest">
+<h3>IOEXERR_INVALID_DIGEST<a class="headerlink" href="#ioexerr-invalid-digest" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_INVALID_DIGEST">
+<span class="target" id="_i_o_e_x__carrier_8h_1ad97240eabdb35a5a5f3a201a297252c8"></span><code class="sig-name descname">IOEXERR_INVALID_DIGEST</code> 0x2F<a class="headerlink" href="#c.IOEXERR_INVALID_DIGEST" title="Permalink to this definition">¶</a></dt>
+<dd><p>File digest invalid. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-compress">
+<h3>IOEXERR_COMPRESS<a class="headerlink" href="#ioexerr-compress" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_COMPRESS">
+<span class="target" id="_i_o_e_x__carrier_8h_1a2003358f93aeb5358b6db67820bf9a9c"></span><code class="sig-name descname">IOEXERR_COMPRESS</code> 0x30<a class="headerlink" href="#c.IOEXERR_COMPRESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error while compressing file. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-uncompress">
+<h3>IOEXERR_UNCOMPRESS<a class="headerlink" href="#ioexerr-uncompress" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_UNCOMPRESS">
+<span class="target" id="_i_o_e_x__carrier_8h_1a92aba1256c6c45de5eb8bace08449bdc"></span><code class="sig-name descname">IOEXERR_UNCOMPRESS</code> 0x31<a class="headerlink" href="#c.IOEXERR_UNCOMPRESS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error while uncompressing file. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-curl">
+<h3>IOEXERR_CURL<a class="headerlink" href="#ioexerr-curl" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_CURL">
+<span class="target" id="_i_o_e_x__carrier_8h_1a2d24af78620dbf8ab926952b96ce08c6"></span><code class="sig-name descname">IOEXERR_CURL</code> 0x32<a class="headerlink" href="#c.IOEXERR_CURL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error while using curl library. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-http-get">
+<h3>IOEXERR_HTTP_GET<a class="headerlink" href="#ioexerr-http-get" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_HTTP_GET">
+<span class="target" id="_i_o_e_x__carrier_8h_1a79a4b696c126d648be859822838c383f"></span><code class="sig-name descname">IOEXERR_HTTP_GET</code> 0x33<a class="headerlink" href="#c.IOEXERR_HTTP_GET" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error while HTTP GET. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-http-post">
+<h3>IOEXERR_HTTP_POST<a class="headerlink" href="#ioexerr-http-post" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_HTTP_POST">
+<span class="target" id="_i_o_e_x__carrier_8h_1a4933ffaadfc5a92d5359f9eeae532755"></span><code class="sig-name descname">IOEXERR_HTTP_POST</code> 0x34<a class="headerlink" href="#c.IOEXERR_HTTP_POST" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error while HTTP POST. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-thread">
+<h3>IOEXERR_THREAD<a class="headerlink" href="#ioexerr-thread" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_THREAD">
+<span class="target" id="_i_o_e_x__carrier_8h_1a2913fe0d531777ec195fcf822962193d"></span><code class="sig-name descname">IOEXERR_THREAD</code> 0x35<a class="headerlink" href="#c.IOEXERR_THREAD" title="Permalink to this definition">¶</a></dt>
+<dd><p>Error while creating thread. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexerr-unknown">
+<h3>IOEXERR_UNKNOWN<a class="headerlink" href="#ioexerr-unknown" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEXERR_UNKNOWN">
+<span class="target" id="_i_o_e_x__carrier_8h_1a7d4a2b7b8c7be1e319b35c414dfef118"></span><code class="sig-name descname">IOEXERR_UNKNOWN</code> 0xFF<a class="headerlink" href="#c.IOEXERR_UNKNOWN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unknown error. </p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="carrier-av-api.html" class="btn btn-neutral" title="IOEX Carrier AV APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.15.2',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
