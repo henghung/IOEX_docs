@@ -1,0 +1,105 @@
+IOEXExceptionFacility
+=====================
+
+.. java:package:: org.ioex.carrier.exceptions
+   :noindex:
+
+.. java:type:: public enum IOEXExceptionFacility
+
+   Facility of an IOEXException error
+
+Enum Constants
+--------------
+Av
+^^
+
+.. java:field:: public static final IOEXExceptionFacility Av
+   :outertype: IOEXExceptionFacility
+
+   \~English Audio / Video con-call related error
+
+Dht
+^^^
+
+.. java:field:: public static final IOEXExceptionFacility Dht
+   :outertype: IOEXExceptionFacility
+
+   \~English DHT protocol related error
+
+General
+^^^^^^^
+
+.. java:field:: public static final IOEXExceptionFacility General
+   :outertype: IOEXExceptionFacility
+
+   \~English General error generated in IOEX carrier.
+
+Http
+^^^^
+
+.. java:field:: public static final IOEXExceptionFacility Http
+   :outertype: IOEXExceptionFacility
+
+   \~English Http protocol related error
+
+Ice
+^^^
+
+.. java:field:: public static final IOEXExceptionFacility Ice
+   :outertype: IOEXExceptionFacility
+
+   \~English ICE protocol related error
+
+System
+^^^^^^
+
+.. java:field:: public static final IOEXExceptionFacility System
+   :outertype: IOEXExceptionFacility
+
+   \~English OS related error.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(IOEXExceptionFacility code)
+   :outertype: IOEXExceptionFacility
+
+   Get the debug description of the IOEXExceptionFacility object.
+
+   :param code: The IOEXExceptionFacility
+   :return: The debug description of IOEXExceptionFacility object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: IOEXExceptionFacility
+
+   Get the debug description of current IOEXExceptionFacility object.
+
+   :return: The debug description of current IOEXExceptionFacility object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: IOEXExceptionFacility
+
+   Get the code value of current IOEXExceptionFacility object.
+
+   :return: The error value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static IOEXExceptionFacility valueOf(int facility)
+   :outertype: IOEXExceptionFacility
+
+   Get IOEXExceptionFacility object from facility integer value.
+
+   :param facility: The facility value
+   :throws IllegalArgumentException:
+   :return: The IOEXExceptionFacility object
+

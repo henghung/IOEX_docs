@@ -1,0 +1,293 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>TestErrorCodeFacility &mdash; IOEX Carrier Android Developer Documents 0.10.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="TestOptions" href="TestOptions.html" />
+    <link rel="prev" title="TestErrorCode" href="TestErrorCode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-index.html">org.ioex.carrier</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier.common</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="Synchronizer.html">Synchronizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="TestErrorCode.html">TestErrorCode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">TestErrorCodeFacility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enum-constants">Enum Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="TestOptions.html">TestOptions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/package-index.html">org.ioex.carrier.robot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier.common</a> &raquo;</li>
+        
+      <li>TestErrorCodeFacility</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="testerrorcodefacility">
+<h1>TestErrorCodeFacility<a class="headerlink" href="#testerrorcodefacility" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility">
+public enum <code class="sig-name descname">TestErrorCodeFacility</code><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="enum-constants">
+<h2>Enum Constants<a class="headerlink" href="#enum-constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general">
+<h3>GENERAL<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.GENERAL">
+public static final <a class="reference internal" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="org.ioex.carrier.common.TestErrorCodeFacility">TestErrorCodeFacility</a> <code class="sig-name descname">GENERAL</code><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.GENERAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="http">
+<h3>HTTP<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.HTTP">
+public static final <a class="reference internal" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="org.ioex.carrier.common.TestErrorCodeFacility">TestErrorCodeFacility</a> <code class="sig-name descname">HTTP</code><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.HTTP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="ice">
+<h3>ICE<a class="headerlink" href="#ice" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.ICE">
+public static final <a class="reference internal" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="org.ioex.carrier.common.TestErrorCodeFacility">TestErrorCodeFacility</a> <code class="sig-name descname">ICE</code><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.ICE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="mqtt">
+<h3>MQTT<a class="headerlink" href="#mqtt" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.MQTT">
+public static final <a class="reference internal" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="org.ioex.carrier.common.TestErrorCodeFacility">TestErrorCodeFacility</a> <code class="sig-name descname">MQTT</code><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.MQTT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="sys">
+<h3>SYS<a class="headerlink" href="#sys" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.SYS">
+public static final <a class="reference internal" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="org.ioex.carrier.common.TestErrorCodeFacility">TestErrorCodeFacility</a> <code class="sig-name descname">SYS</code><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.SYS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.value()">
+public int <code class="sig-name descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.value()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="valueof">
+<h3>valueOf<a class="headerlink" href="#valueof" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.common.TestErrorCodeFacility.valueOf(int)">
+public static <a class="reference internal" href="#org.ioex.carrier.common.TestErrorCodeFacility" title="org.ioex.carrier.common.TestErrorCodeFacility">TestErrorCodeFacility</a> <code class="sig-name descname">valueOf</code><span class="sig-paren">(</span>int<em> facility</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.common.TestErrorCodeFacility.valueOf(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="TestOptions.html" class="btn btn-neutral float-right" title="TestOptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="TestErrorCode.html" class="btn btn-neutral float-left" title="TestErrorCode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+.. java:import:: android.content Context
+
+.. java:import:: android.util Log
+
+.. java:import:: androidx.test.ext.junit.runners AndroidJUnit4
+
+.. java:import:: androidx.test.platform.app InstrumentationRegistry
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: org.ioex.carrier.robot RobotProxy
+
+.. java:import:: org.junit AfterClass
+
+.. java:import:: org.junit BeforeClass
+
+.. java:import:: org.junit Test
+
+.. java:import:: org.junit.runner RunWith
+
+.. java:import:: java.util List
+
+FriendAddTest
+=============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: @RunWith public class FriendAddTest
+
+Methods
+-------
+setUp
+^^^^^
+
+.. java:method:: @BeforeClass public static void setUp()
+   :outertype: FriendAddTest
+
+tearDown
+^^^^^^^^
+
+.. java:method:: @AfterClass public static void tearDown()
+   :outertype: FriendAddTest
+
+testAddedFriendAndAccepted
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testAddedFriendAndAccepted()
+   :outertype: FriendAddTest
+
+testAlreadyBeFriend
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testAlreadyBeFriend()
+   :outertype: FriendAddTest
+
+testGetFriends
+^^^^^^^^^^^^^^
+
+.. java:method:: @Test public void testGetFriends()
+   :outertype: FriendAddTest
+

@@ -1,0 +1,60 @@
+TestErrorCode
+=============
+
+.. java:package:: org.ioex.carrier.common
+   :noindex:
+
+.. java:type:: public class TestErrorCode
+
+Constructors
+------------
+TestErrorCode
+^^^^^^^^^^^^^
+
+.. java:constructor:: public TestErrorCode(int facility, int code)
+   :outertype: TestErrorCode
+
+TestErrorCode
+^^^^^^^^^^^^^
+
+.. java:constructor:: public TestErrorCode(TestErrorCodeFacility facility, int code)
+   :outertype: TestErrorCode
+
+Methods
+-------
+generalError
+^^^^^^^^^^^^
+
+.. java:method:: public static TestErrorCode generalError(int code)
+   :outertype: TestErrorCode
+
+getErrorCode
+^^^^^^^^^^^^
+
+.. java:method:: public int getErrorCode()
+   :outertype: TestErrorCode
+
+httpError
+^^^^^^^^^
+
+.. java:method:: public static TestErrorCode httpError(int code)
+   :outertype: TestErrorCode
+
+iceError
+^^^^^^^^
+
+.. java:method:: public static TestErrorCode iceError(int code)
+   :outertype: TestErrorCode
+
+mqttError
+^^^^^^^^^
+
+.. java:method:: public static TestErrorCode mqttError(int code)
+   :outertype: TestErrorCode
+
+sysError
+^^^^^^^^
+
+.. java:method:: public static TestErrorCode sysError(int code)
+   :outertype: TestErrorCode
+

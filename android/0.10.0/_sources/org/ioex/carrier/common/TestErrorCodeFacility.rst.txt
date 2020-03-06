@@ -1,0 +1,54 @@
+TestErrorCodeFacility
+=====================
+
+.. java:package:: org.ioex.carrier.common
+   :noindex:
+
+.. java:type:: public enum TestErrorCodeFacility
+
+Enum Constants
+--------------
+GENERAL
+^^^^^^^
+
+.. java:field:: public static final TestErrorCodeFacility GENERAL
+   :outertype: TestErrorCodeFacility
+
+HTTP
+^^^^
+
+.. java:field:: public static final TestErrorCodeFacility HTTP
+   :outertype: TestErrorCodeFacility
+
+ICE
+^^^
+
+.. java:field:: public static final TestErrorCodeFacility ICE
+   :outertype: TestErrorCodeFacility
+
+MQTT
+^^^^
+
+.. java:field:: public static final TestErrorCodeFacility MQTT
+   :outertype: TestErrorCodeFacility
+
+SYS
+^^^
+
+.. java:field:: public static final TestErrorCodeFacility SYS
+   :outertype: TestErrorCodeFacility
+
+Methods
+-------
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: TestErrorCodeFacility
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static TestErrorCodeFacility valueOf(int facility)
+   :outertype: TestErrorCodeFacility
+

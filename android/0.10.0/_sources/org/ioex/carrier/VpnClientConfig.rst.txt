@@ -1,0 +1,140 @@
+.. java:import:: android.os Parcel
+
+.. java:import:: android.os Parcelable
+
+VpnClientConfig
+===============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class VpnClientConfig implements Parcelable
+
+   A data class represent VPN client configuration. Usually it is sent from the server when the VPN connection is setup.
+
+Fields
+------
+CREATOR
+^^^^^^^
+
+.. java:field:: public static final Creator<VpnClientConfig> CREATOR
+   :outertype: VpnClientConfig
+
+dns1
+^^^^
+
+.. java:field::  String dns1
+   :outertype: VpnClientConfig
+
+dns2
+^^^^
+
+.. java:field::  String dns2
+   :outertype: VpnClientConfig
+
+ip
+^^
+
+.. java:field::  String ip
+   :outertype: VpnClientConfig
+
+mtu
+^^^
+
+.. java:field::  int mtu
+   :outertype: VpnClientConfig
+
+prefix
+^^^^^^
+
+.. java:field::  int prefix
+   :outertype: VpnClientConfig
+
+Constructors
+------------
+VpnClientConfig
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected VpnClientConfig()
+   :outertype: VpnClientConfig
+
+VpnClientConfig
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected VpnClientConfig(Parcel in)
+   :outertype: VpnClientConfig
+
+Methods
+-------
+describeContents
+^^^^^^^^^^^^^^^^
+
+.. java:method:: @Override public int describeContents()
+   :outertype: VpnClientConfig
+
+getDns1
+^^^^^^^
+
+.. java:method:: public String getDns1()
+   :outertype: VpnClientConfig
+
+getDns2
+^^^^^^^
+
+.. java:method:: public String getDns2()
+   :outertype: VpnClientConfig
+
+getIp
+^^^^^
+
+.. java:method:: public String getIp()
+   :outertype: VpnClientConfig
+
+getMtu
+^^^^^^
+
+.. java:method:: public int getMtu()
+   :outertype: VpnClientConfig
+
+getPrefix
+^^^^^^^^^
+
+.. java:method:: public int getPrefix()
+   :outertype: VpnClientConfig
+
+setDns1
+^^^^^^^
+
+.. java:method:: public void setDns1(String dns1)
+   :outertype: VpnClientConfig
+
+setDns2
+^^^^^^^
+
+.. java:method:: public void setDns2(String dns2)
+   :outertype: VpnClientConfig
+
+setIp
+^^^^^
+
+.. java:method:: public void setIp(String ip)
+   :outertype: VpnClientConfig
+
+setMtu
+^^^^^^
+
+.. java:method:: public void setMtu(int mtu)
+   :outertype: VpnClientConfig
+
+setPrefix
+^^^^^^^^^
+
+.. java:method:: public void setPrefix(int prefix)
+   :outertype: VpnClientConfig
+
+writeToParcel
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public void writeToParcel(Parcel dest, int flags)
+   :outertype: VpnClientConfig
+

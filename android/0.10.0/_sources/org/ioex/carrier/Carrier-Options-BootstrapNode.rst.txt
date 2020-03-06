@@ -1,0 +1,83 @@
+.. java:import:: android.graphics ImageFormat
+
+.. java:import:: android.media Image
+
+.. java:import:: androidx.annotation NonNull
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util List
+
+Carrier.Options.BootstrapNode
+=============================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public static class BootstrapNode
+   :outertype: Carrier.Options
+
+Constructors
+------------
+BootstrapNode
+^^^^^^^^^^^^^
+
+.. java:constructor:: public BootstrapNode(String ipv4, String ipv6, String port, String publicKey)
+   :outertype: Carrier.Options.BootstrapNode
+
+Methods
+-------
+getIpv4
+^^^^^^^
+
+.. java:method:: public String getIpv4()
+   :outertype: Carrier.Options.BootstrapNode
+
+getIpv6
+^^^^^^^
+
+.. java:method:: public String getIpv6()
+   :outertype: Carrier.Options.BootstrapNode
+
+getPort
+^^^^^^^
+
+.. java:method:: public String getPort()
+   :outertype: Carrier.Options.BootstrapNode
+
+getPublicKey
+^^^^^^^^^^^^
+
+.. java:method:: public String getPublicKey()
+   :outertype: Carrier.Options.BootstrapNode
+
+setIpv4
+^^^^^^^
+
+.. java:method:: public BootstrapNode setIpv4(String ipv4)
+   :outertype: Carrier.Options.BootstrapNode
+
+setIpv6
+^^^^^^^
+
+.. java:method:: public BootstrapNode setIpv6(String ipv6)
+   :outertype: Carrier.Options.BootstrapNode
+
+setPort
+^^^^^^^
+
+.. java:method:: public BootstrapNode setPort(String port)
+   :outertype: Carrier.Options.BootstrapNode
+
+setPublicKey
+^^^^^^^^^^^^
+
+.. java:method:: public BootstrapNode setPublicKey(String publicKey)
+   :outertype: Carrier.Options.BootstrapNode
+
