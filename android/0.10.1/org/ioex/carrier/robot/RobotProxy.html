@@ -1,0 +1,355 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RobotProxy &mdash; IOEX Carrier Android Developer Documents 0.10.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="RobotProxy.IncomingHandler" href="RobotProxy-IncomingHandler.html" />
+    <link rel="prev" title="org.ioex.carrier.robot" href="package-index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-index.html">org.ioex.carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/package-index.html">org.ioex.carrier.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier.robot</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RobotProxy</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="RobotProxy-IncomingHandler.html">RobotProxy.IncomingHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotProxy-RobotIdReceiver.html">RobotProxy.RobotIdReceiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotService.html">RobotService</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotService-IncomingHandler.html">RobotService.IncomingHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotService-TestHandler.html">RobotService.TestHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier.robot</a> &raquo;</li>
+        
+      <li>RobotProxy</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="robotproxy">
+<h1>RobotProxy<a class="headerlink" href="#robotproxy" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.robot.RobotProxy">
+public class <code class="sig-name descname">RobotProxy</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bindrobot">
+<h3>bindRobot<a class="headerlink" href="#bindrobot" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.bindRobot(RobotIdReceiver)">
+public void <code class="sig-name descname">bindRobot</code><span class="sig-paren">(</span><a class="reference internal" href="RobotProxy-RobotIdReceiver.html#org.ioex.carrier.robot.RobotProxy.RobotIdReceiver" title="org.ioex.carrier.robot.RobotProxy.RobotIdReceiver">RobotIdReceiver</a><em> receiver</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.bindRobot(RobotIdReceiver)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getrobot">
+<h3>getRobot<a class="headerlink" href="#getrobot" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.getRobot(Context)">
+public static <a class="reference internal" href="#org.ioex.carrier.robot.RobotProxy" title="org.ioex.carrier.robot.RobotProxy">RobotProxy</a> <code class="sig-name descname">getRobot</code><span class="sig-paren">(</span>Context<em> context</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.getRobot(Context)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tellrobotacceptfriend">
+<h3>tellRobotAcceptFriend<a class="headerlink" href="#tellrobotacceptfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.tellRobotAcceptFriend(String)">
+public void <code class="sig-name descname">tellRobotAcceptFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> me</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.tellRobotAcceptFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tellrobotcleanupsessionmanager">
+<h3>tellRobotCleanupSessionManager<a class="headerlink" href="#tellrobotcleanupsessionmanager" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.tellRobotCleanupSessionManager()">
+public void <code class="sig-name descname">tellRobotCleanupSessionManager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.tellRobotCleanupSessionManager()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tellrobotinitsessionmanager">
+<h3>tellRobotInitSessionManager<a class="headerlink" href="#tellrobotinitsessionmanager" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.tellRobotInitSessionManager()">
+public void <code class="sig-name descname">tellRobotInitSessionManager</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.tellRobotInitSessionManager()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tellrobotremovefriend">
+<h3>tellRobotRemoveFriend<a class="headerlink" href="#tellrobotremovefriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.tellRobotRemoveFriend(String)">
+public void <code class="sig-name descname">tellRobotRemoveFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> me</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.tellRobotRemoveFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tellrobotreplysessionrequestandstart">
+<h3>tellRobotReplySessionRequestAndStart<a class="headerlink" href="#tellrobotreplysessionrequestandstart" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.tellRobotReplySessionRequestAndStart()">
+public void <code class="sig-name descname">tellRobotReplySessionRequestAndStart</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.tellRobotReplySessionRequestAndStart()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="tellrobotsendmessage">
+<h3>tellRobotSendMessage<a class="headerlink" href="#tellrobotsendmessage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.tellRobotSendMessage(String, String)">
+public void <code class="sig-name descname">tellRobotSendMessage</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> me</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.tellRobotSendMessage(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="testhello">
+<h3>testHello<a class="headerlink" href="#testhello" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.testHello()">
+public void <code class="sig-name descname">testHello</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.testHello()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="unbindrobot">
+<h3>unbindRobot<a class="headerlink" href="#unbindrobot" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.unbindRobot()">
+public void <code class="sig-name descname">unbindRobot</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.unbindRobot()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="waitformessagearrival">
+<h3>waitForMessageArrival<a class="headerlink" href="#waitformessagearrival" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.waitForMessageArrival()">
+public void <code class="sig-name descname">waitForMessageArrival</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.waitForMessageArrival()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="waitforrequestarrival">
+<h3>waitForRequestArrival<a class="headerlink" href="#waitforrequestarrival" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.waitForRequestArrival()">
+public void <code class="sig-name descname">waitForRequestArrival</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.waitForRequestArrival()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="waitforsesionmanagerinitialzed">
+<h3>waitForSesionManagerInitialzed<a class="headerlink" href="#waitforsesionmanagerinitialzed" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.waitForSesionManagerInitialzed()">
+public void <code class="sig-name descname">waitForSesionManagerInitialzed</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.waitForSesionManagerInitialzed()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="waitforsessionconnected">
+<h3>waitForSessionConnected<a class="headerlink" href="#waitforsessionconnected" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.waitForSessionConnected()">
+public void <code class="sig-name descname">waitForSessionConnected</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.waitForSessionConnected()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="waitforsessionrequestarrival">
+<h3>waitForSessionRequestArrival<a class="headerlink" href="#waitforsessionrequestarrival" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotProxy.waitForSessionRequestArrival()">
+public void <code class="sig-name descname">waitForSessionRequestArrival</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotProxy.waitForSessionRequestArrival()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RobotProxy-IncomingHandler.html" class="btn btn-neutral float-right" title="RobotProxy.IncomingHandler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="package-index.html" class="btn btn-neutral float-left" title="org.ioex.carrier.robot" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

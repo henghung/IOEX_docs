@@ -1,0 +1,40 @@
+Log
+===
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class Log
+
+Methods
+-------
+d
+^
+
+.. java:method:: public static void d(String tag, String msg)
+   :outertype: Log
+
+e
+^
+
+.. java:method:: public static void e(String tag, String msg)
+   :outertype: Log
+
+i
+^
+
+.. java:method:: public static void i(String tag, String msg)
+   :outertype: Log
+
+v
+^
+
+.. java:method:: public static void v(String tag, String msg)
+   :outertype: Log
+
+w
+^
+
+.. java:method:: public static void w(String tag, String msg)
+   :outertype: Log
+

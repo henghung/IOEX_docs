@@ -1,0 +1,510 @@
+.. java:import:: java.util List
+
+CarrierHandler
+==============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public interface CarrierHandler
+
+   The interface to Carrier node.
+
+Methods
+-------
+onAudioReceived
+^^^^^^^^^^^^^^^
+
+.. java:method::  void onAudioReceived(Carrier carrier, String friendid, short[] pcm, int sampleCount, int channels, int sampleRate)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when received audio frame from a friend.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who sent the audio.
+   :param pcm: [in] Array of audio sample. Its size is sample_count * channels.
+   :param sampleCount: [in] Number of samples in the frames.
+   :param channels: [in] Number of audio channels. Can only be 1 or 2.
+   :param sampleRate: [in] Sample rate of the audio. Valid values are 8000, 12000, 16000, 24000, 48000.
+
+onCallBitrateStatus
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onCallBitrateStatus(Carrier carrier, String friendid, int audiobitrate, int videobitrate)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when AV core suggest new bit rates due to network status changes.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who sent the video.
+   :param audiobitrate: [in] Suggested maximum audio bit rate in Kb/sec.
+   :param videobitrate: [in] Suggested maximum video bit rate in Kb/sec.
+
+onConnection
+^^^^^^^^^^^^
+
+.. java:method::  void onConnection(Carrier carrier, ConnectionStatus status)
+   :outertype: CarrierHandler
+
+   The callback function to process the self connection status.
+
+   :param carrier: Carrier node instance
+   :param status: Current connection status. @see ConnectionStatus
+
+onFriendAdded
+^^^^^^^^^^^^^
+
+.. java:method::  void onFriendAdded(Carrier carrier, FriendInfo friendInfo)
+   :outertype: CarrierHandler
+
+   The callback function to process the new friend added event.
+
+   :param carrier: Carrier node instance
+   :param friendInfo: The added friend's information
+
+onFriendCallAnswered
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendCallAnswered(Carrier carrier, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when friend answered our call request.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who answered the call.
+
+onFriendCallHangup
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendCallHangup(Carrier carrier, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when friend hang up the call.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who hang up the call.
+
+onFriendCallPaused
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendCallPaused(Carrier carrier, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when friend paused a call.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who paused the call.
+
+onFriendCallResumed
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendCallResumed(Carrier carrier, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when friend resumed a paused call.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who resumed the call.
+
+onFriendCalled
+^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendCalled(Carrier carrier, String friendid, boolean isAudioEnabled, boolean isVideoEnabled)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when received a AV request from friends.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who sent the request.
+   :param isAudioEnabled: [in] If this call requires audio.
+   :param isVideoEnabled: [in] If this call requires video.
+
+onFriendConnection
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendConnection(Carrier carrier, String friendId, ConnectionStatus status)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend connections status changed event.
+
+   :param carrier: carrier node instance.
+   :param friendId: The friend's user id.
+   :param status: The connection status of friend. @see ConnectionStatus
+
+onFriendFileAborted
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileAborted(Carrier carrier, String friendid, String filename, String fileid, long totalsize, long transferredsize)
+   :outertype: CarrierHandler
+
+   The callback function to notify the friend file aborted.
+
+   :param carrier: Carrier node instance
+   :param friendid: The user id
+   :param filename: The transferred file name
+   :param fileid: The file id
+   :param totalsize: The total file size
+   :param transferredsize: The transferred file size
+
+onFriendFileAccepted
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileAccepted(Carrier carrier, String receiver, String fileid, String filepath, long filesize)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend file accepted.
+
+   :param carrier: Carrier node instance
+   :param receiver: The user id who accepts the file sending request
+   :param fileid: The file id accepted by receiver
+   :param filepath: The full file path accepted by receiver
+   :param filesize: The file size accepts by receiver
+
+onFriendFileCanceled
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileCanceled(Carrier carrier, String friendid, String fileid, String filepath)
+   :outertype: CarrierHandler
+
+   The callback function to notify the file is canceled.
+
+   :param carrier: Carrier node instance
+   :param friendid: The friend id
+   :param fileid: The fileid
+
+onFriendFileCompleted
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileCompleted(Carrier carrier, String friendid, String fileid, String filepath)
+   :outertype: CarrierHandler
+
+   The callback function to notify the file is completed.
+
+   :param carrier: Carrier node instance
+   :param friendid: The friend id
+   :param fileid: The fileid
+   :param filepath: The full path of the completed file including file name
+
+onFriendFilePaused
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFilePaused(Carrier carrier, String friendid, String fileid, String filepath)
+   :outertype: CarrierHandler
+
+   The callback function to notify the file is paused.
+
+   :param carrier: Carrier node instance
+   :param friendid: The friend id
+   :param fileid: The file id
+
+onFriendFileProgress
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileProgress(Carrier carrier, String friendid, String filepath, String fileid, long totalsize, long transferredsize)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend file transferred.
+
+   :param carrier: Carrier node instance
+   :param friendid: The user id
+   :param filepath: The full path of the transferred file
+   :param fileid: The file id
+   :param totalsize: The total file size
+   :param transferredsize: The transferred file size
+
+onFriendFileQueried
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileQueried(Carrier carrier, String userid, String filename, String message)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend file queried.
+
+   :param carrier: Carrier node instance
+   :param userid: The user id who queries the file
+   :param filename: The queried file name
+   :param message: The extra message from friend
+
+onFriendFileRequest
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileRequest(Carrier carrier, String from, String fileid, String filename, long filesize)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend file request.
+
+   :param carrier: Carrier node instance
+   :param from: The user id from who send the file request
+   :param fileid: The file id of the sending file
+   :param filename: The file name sent from friend
+   :param filesize: The file size sent from friend
+
+onFriendFileResumed
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendFileResumed(Carrier carrier, String friendid, String fileid, String filepath)
+   :outertype: CarrierHandler
+
+   The callback function to notify the file is resumed.
+
+   :param carrier: Carrier node instance
+   :param friendid: The friend id
+   :param fileid: The fileid
+
+onFriendInfoChanged
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendInfoChanged(Carrier carrier, String friendId, FriendInfo info)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend information changed event.
+
+   :param carrier: Carrier node instance
+   :param friendId: The friend's user id
+   :param info: The update friend information
+
+onFriendInviteRequest
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendInviteRequest(Carrier carrier, String from, String data)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend invite request.
+
+   :param carrier: Carrier node instance
+   :param from: The user id from who send the invite request
+   :param data: The application defined data sent from friend
+
+onFriendMessage
+^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendMessage(Carrier carrier, String from, String message)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend message.
+
+   :param carrier: Carrier node instance
+   :param from: The id from who send the message
+   :param message: The message content
+
+onFriendPresence
+^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendPresence(Carrier carrier, String friendId, PresenceStatus presence)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend presence changed event.
+
+   :param carrier: Carrier node instance
+   :param friendId: The friend's user id
+   :param presence: The presence status of the friend
+
+onFriendRemoved
+^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendRemoved(Carrier carrier, String friendId)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend removed event.
+
+   :param carrier: Carrier node instance
+   :param friendId: The friend's user id
+
+onFriendRequest
+^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendRequest(Carrier carrier, String userId, UserInfo info, String hello)
+   :outertype: CarrierHandler
+
+   The callback function to process the friend request.
+
+   :param carrier: Carrier node instance
+   :param userId: The user id who want be friend with current user
+   :param info: The user information to `userId`
+   :param hello: The PIN for target user, or any application defined content
+
+onFriendTunnelAccept
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendTunnelAccept(Carrier carrier, int tunnelid, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when a friend accepted our previous tunnel request.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param tunnelid: [in] ID to uniquely identify this tunnel.
+   :param friendid: [in] The friend who sent the request.
+
+onFriendTunnelCancel
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendTunnelCancel(Carrier carrier, int tunnelid, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when an existing tunnel is canceled or shutdown.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param tunnelid: [in] ID to uniquely identify this tunnel.
+   :param friendid: [in] The friend who canceled the tunnel.
+
+onFriendTunnelData
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendTunnelData(Carrier carrier, int tunnelid, String friendid, byte[] data, int length)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when we received data from a tunnel.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param tunnelid: [in] ID to uniquely identify this tunnel.
+   :param friendid: [in] The friend who sent the data.
+   :param data: [in] The data received.
+   :param length: [in] Size of the data in bytes.
+
+onFriendTunnelRequest
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendTunnelRequest(Carrier carrier, int tunnelid, String friendid, String password)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when a friend sent us a tunnel request.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param tunnelid: [in] ID to uniquely identify this tunnel.
+   :param friendid: [in] The friend who sent the request.
+   :param password: [in] A shared secret sent by friend for authentication purpose.
+
+onFriendVpnAccept
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendVpnAccept(Carrier carrier, String friendid, VpnClientConfig config)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when a friend accepted our previous vpn request.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] The friend who accepted our VPN request.
+   :param config: [in] Server provided configuration like IP address, DNS server and MTU.
+
+onFriendVpnCancel
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendVpnCancel(Carrier carrier, String friendid)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when an existing VPN connection is canceled or shutdown.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] The friend who canceled the tunnel.
+
+onFriendVpnData
+^^^^^^^^^^^^^^^
+
+.. java:method::  void onFriendVpnData(Carrier carrier, String friendid, byte[] data)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when we received data from a VPN connection.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] The friend who sent the data.
+   :param data: [in] The data received.
+
+onFriends
+^^^^^^^^^
+
+.. java:method::  void onFriends(Carrier carrier, List<FriendInfo> friends)
+   :outertype: CarrierHandler
+
+   The callback function to iterate the each friend item in friend list.
+
+   :param carrier: Carrier node instance
+   :param friends: The friends list.
+
+onIdle
+^^^^^^
+
+.. java:method::  void onIdle(Carrier carrier)
+   :outertype: CarrierHandler
+
+   The callback function that perform idle work.
+
+   :param carrier: Carrier node instance
+
+onReady
+^^^^^^^
+
+.. java:method::  void onReady(Carrier carrier)
+   :outertype: CarrierHandler
+
+   The callback function to process the ready notification. Application should wait this callback invoked before calling any function to interact with friends.
+
+   :param carrier: Carrier node instance
+
+onScDownloadCompleted
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onScDownloadCompleted(Carrier carrier, String fileid, String fullpath, int totalCount)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when content search and download is completed.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param fileid: [in] The completed download file id.
+   :param fullpath: [in] The full downloaded file path
+
+onScDownloadFailed
+^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onScDownloadFailed(Carrier carrier, String fileid, int errorCode)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when content search and download is failed.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param fileid: [in] The completed failed file id.
+   :param errorCode: [in] The error code
+
+onScDownloadProgress
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onScDownloadProgress(Carrier carrier, String fileid, String filename, int count, int totalCount)
+   :outertype: CarrierHandler
+
+   \~English Callback function when downloading progress event occurred. This callback is triggered when a part of the file is downloaded.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param fileid: [in] The downloading file id.
+   :param filename: [in] The downloading file name.
+   :param count: [in] Current finished number of parts.
+   :param totalCount: [in] Total number of parts.
+
+onSelfInfoChanged
+^^^^^^^^^^^^^^^^^
+
+.. java:method::  void onSelfInfoChanged(Carrier carrier, UserInfo userInfo)
+   :outertype: CarrierHandler
+
+   The callback function to process the self info changed event.
+
+   :param carrier: Carrier node instance
+   :param userInfo: The updated user information
+
+onVideoReceived
+^^^^^^^^^^^^^^^
+
+.. java:method::  void onVideoReceived(Carrier carrier, String friendid, int width, int height, byte[] y, byte[] u, byte[] v, int ystride, int ustride, int vstride)
+   :outertype: CarrierHandler
+
+   \~English An application-defined function that is called when received video frame from a friend. The size of plane data is derived from width and height as documented below. Strides represent padding for each plane that may or may not be present. You must handle strides in your image processing code. Strides are negative if the image is bottom-up hence why you MUST abs() it when calculating plane buffer size.
+
+   :param carrier: [in] A handle to the Carrier node instance.
+   :param friendid: [in] Friend who sent the video.
+   :param width: [in] Width of the frame in pixels.
+   :param height: [in] Height of the frame in pixels.
+   :param y: [in] Luminosity plane. Size = MAX(width, abs(ystride)) * height.
+   :param u: [in] U chroma plane. Size = MAX(width/2, abs(ustride)) * (height/2).
+   :param v: [in] V chroma plane. Size = MAX(width/2, abs(vstride)) * (height/2).
+   :param ystride: [in] Luminosity plane stride.
+   :param ustride: [in] U chroma plane stride.
+   :param vstride: [in] V chroma plane stride.
+

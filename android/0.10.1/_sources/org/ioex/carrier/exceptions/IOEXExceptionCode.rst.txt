@@ -1,0 +1,489 @@
+IOEXExceptionCode
+=================
+
+.. java:package:: org.ioex.carrier.exceptions
+   :noindex:
+
+.. java:type:: public enum IOEXExceptionCode
+
+   Code of an IOEXException error
+
+Enum Constants
+--------------
+AddSelf
+^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode AddSelf
+   :outertype: IOEXExceptionCode
+
+   \~English Could not friend yourself.
+
+AlreadyExist
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode AlreadyExist
+   :outertype: IOEXExceptionCode
+
+   \~English The entity exists already.
+
+AlreadyRun
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode AlreadyRun
+   :outertype: IOEXExceptionCode
+
+   \~English Carrier ran already.
+
+BadAddress
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadAddress
+   :outertype: IOEXExceptionCode
+
+   \~English Invalid address.
+
+BadBootstrapHost
+^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadBootstrapHost
+   :outertype: IOEXExceptionCode
+
+   \~English Invalid bootstrap host.
+
+BadBootstrapPort
+^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadBootstrapPort
+   :outertype: IOEXExceptionCode
+
+   \~English Invalid bootstrap port.
+
+BadPersistentData
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadPersistentData
+   :outertype: IOEXExceptionCode
+
+   \~English Persistent data is corrupted.
+
+BadProxyHost
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadProxyHost
+   :outertype: IOEXExceptionCode
+
+   \~English Invalid proxy host.
+
+BadProxyPort
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadProxyPort
+   :outertype: IOEXExceptionCode
+
+   \~English Invalid proxy port.
+
+BadProxyType
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BadProxyType
+   :outertype: IOEXExceptionCode
+
+   \~English Invalid proxy type.
+
+BufferTooSmall
+^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode BufferTooSmall
+   :outertype: IOEXExceptionCode
+
+   \~English Buffer size is too small.
+
+Busy
+^^^^
+
+.. java:field:: public static final IOEXExceptionCode Busy
+   :outertype: IOEXExceptionCode
+
+   \~English Stream busy.
+
+Compress
+^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode Compress
+   :outertype: IOEXExceptionCode
+
+   \~English Error while compressing file.
+
+Curl
+^^^^
+
+.. java:field:: public static final IOEXExceptionCode Curl
+   :outertype: IOEXExceptionCode
+
+   \~English Error while using curl library.
+
+DataNotFound
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode DataNotFound
+   :outertype: IOEXExceptionCode
+
+   \~English The requested data cannot be found.
+
+EncryptedPersistentData
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode EncryptedPersistentData
+   :outertype: IOEXExceptionCode
+
+   \~English Persistent data is encrypted, load failed.
+
+Encryption
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode Encryption
+   :outertype: IOEXExceptionCode
+
+   \~English Encryption failed.
+
+FileDeny
+^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode FileDeny
+   :outertype: IOEXExceptionCode
+
+   \~English File cannot be stored.
+
+FileExisted
+^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode FileExisted
+   :outertype: IOEXExceptionCode
+
+   \~English File already existed.
+
+FileInvalid
+^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode FileInvalid
+   :outertype: IOEXExceptionCode
+
+   \~English File cannot be read.
+
+FriendOffline
+^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode FriendOffline
+   :outertype: IOEXExceptionCode
+
+   \~English Friend is offline.
+
+HttpGet
+^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode HttpGet
+   :outertype: IOEXExceptionCode
+
+   \~English Error while HTTP GET.
+
+HttpPost
+^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode HttpPost
+   :outertype: IOEXExceptionCode
+
+   \~English Error while HTTP POST.
+
+InvalidAppId
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidAppId
+   :outertype: IOEXExceptionCode
+
+   \~English APP ID is invalid.
+
+InvalidArguments
+^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidArguments
+   :outertype: IOEXExceptionCode
+
+   \~English Argument(s) is(are) invalid.
+
+InvalidControlPacket
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidControlPacket
+   :outertype: IOEXExceptionCode
+
+   \~English Control packet is invalid.
+
+InvalidCredential
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidCredential
+   :outertype: IOEXExceptionCode
+
+   \~English Credential is invalid.
+
+InvalidDataId
+^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidDataId
+   :outertype: IOEXExceptionCode
+
+   \~English Data ID is invalid.
+
+InvalidDataTracker
+^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidDataTracker
+   :outertype: IOEXExceptionCode
+
+   \~English Data tracker is invalid.
+
+InvalidDescriptor
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidDescriptor
+   :outertype: IOEXExceptionCode
+
+   \~English Descriptor is invalid.
+
+InvalidDigest
+^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidDigest
+   :outertype: IOEXExceptionCode
+
+   \~English File digest invalid.
+
+InvalidFileTracker
+^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidFileTracker
+   :outertype: IOEXExceptionCode
+
+   \~English File tracker is invalid.
+
+InvalidNodeId
+^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidNodeId
+   :outertype: IOEXExceptionCode
+
+   \~English Node ID is invalid.
+
+InvalidPersistentFile
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidPersistentFile
+   :outertype: IOEXExceptionCode
+
+   \~English Persistent file is invalid.
+
+InvalidSdp
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidSdp
+   :outertype: IOEXExceptionCode
+
+   \~English Bad SDP information format.
+
+InvalidUserId
+^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode InvalidUserId
+   :outertype: IOEXExceptionCode
+
+   \~English User ID is invalid.
+
+JsonConstruct
+^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode JsonConstruct
+   :outertype: IOEXExceptionCode
+
+   \~English Failed to construct JSON objects
+
+JsonParse
+^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode JsonParse
+   :outertype: IOEXExceptionCode
+
+   \~English Failed to parse JSON string
+
+LanguageBinding
+^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode LanguageBinding
+   :outertype: IOEXExceptionCode
+
+   \~English Language binding error.
+
+LimitExceed
+^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode LimitExceed
+   :outertype: IOEXExceptionCode
+
+   \~English Limits are exceeded.
+
+NoMatchedRequest
+^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode NoMatchedRequest
+   :outertype: IOEXExceptionCode
+
+   \~English There are no matched requests.
+
+NotExist
+^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode NotExist
+   :outertype: IOEXExceptionCode
+
+   \~English The requested entity does not exist.
+
+NotImplemented
+^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode NotImplemented
+   :outertype: IOEXExceptionCode
+
+   \~English Not implemented yet.
+
+NotReady
+^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode NotReady
+   :outertype: IOEXExceptionCode
+
+   \~English Carrier not ready.
+
+OutOfMemory
+^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode OutOfMemory
+   :outertype: IOEXExceptionCode
+
+   \~English Runs out of memory.
+
+PortAllocate
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode PortAllocate
+   :outertype: IOEXExceptionCode
+
+   \~English Allocate port unsuccessfully.
+
+ProxyNotAvailable
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode ProxyNotAvailable
+   :outertype: IOEXExceptionCode
+
+   \~English Proxy is not available.
+
+SdpTooLong
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode SdpTooLong
+   :outertype: IOEXExceptionCode
+
+   \~English The content size of SDP is too long.
+
+ServerFailed
+^^^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode ServerFailed
+   :outertype: IOEXExceptionCode
+
+   \~English Server failed.
+
+Thread
+^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode Thread
+   :outertype: IOEXExceptionCode
+
+   \~English Error while creating thread.
+
+TooLong
+^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode TooLong
+   :outertype: IOEXExceptionCode
+
+   \~English Data is too long.
+
+Uncompress
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode Uncompress
+   :outertype: IOEXExceptionCode
+
+   \~English Error while uncompressing file.
+
+Unknown
+^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode Unknown
+   :outertype: IOEXExceptionCode
+
+   \~English Unknown error.
+
+WrongState
+^^^^^^^^^^
+
+.. java:field:: public static final IOEXExceptionCode WrongState
+   :outertype: IOEXExceptionCode
+
+   \~English Failed because wrong state.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(IOEXExceptionCode code)
+   :outertype: IOEXExceptionCode
+
+   Get the debug description of the IOEXExceptionCode object.
+
+   :param code: The IOEXExceptionCode
+   :return: The debug description of IOEXExceptionCode object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: IOEXExceptionCode
+
+   Get the debug description of current IOEXExceptionCode object.
+
+   :return: The debug description of current IOEXExceptionCode object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: IOEXExceptionCode
+
+   Get the code value of current IOEXExceptionCode object.
+
+   :return: The error value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static IOEXExceptionCode valueOf(int code)
+   :outertype: IOEXExceptionCode
+
+   Get IOEXExceptionCode object from code integer value.
+
+   :param code: The code value
+   :throws IllegalArgumentException:
+   :return: The IOEXExceptionFacility object
+

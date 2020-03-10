@@ -1,0 +1,60 @@
+AvCallInfo
+==========
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class AvCallInfo
+
+Fields
+------
+friendId
+^^^^^^^^
+
+.. java:field::  String friendId
+   :outertype: AvCallInfo
+
+   The ID of the friend we are calling.
+
+status
+^^^^^^
+
+.. java:field::  AvCallStatus status
+   :outertype: AvCallInfo
+
+   Status of the call.
+
+Constructors
+------------
+AvCallInfo
+^^^^^^^^^^
+
+.. java:constructor:: protected AvCallInfo()
+   :outertype: AvCallInfo
+
+Methods
+-------
+getFriendId
+^^^^^^^^^^^
+
+.. java:method:: public String getFriendId()
+   :outertype: AvCallInfo
+
+getStatus
+^^^^^^^^^
+
+.. java:method:: public AvCallStatus getStatus()
+   :outertype: AvCallInfo
+
+setFriendId
+^^^^^^^^^^^
+
+.. java:method:: public void setFriendId(String friendId)
+   :outertype: AvCallInfo
+
+setStatus
+^^^^^^^^^
+
+.. java:method:: public void setStatus(AvCallStatus status)
+   :outertype: AvCallInfo
+
