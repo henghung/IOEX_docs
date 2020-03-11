@@ -1,0 +1,312 @@
+Send Messages and Files to Friend
+=================================
+
+Overview
+--------
+
+In this tutorial, we will build an application to send messages and files to the friend.
+
+This application will base on the one in :ref:`tutorial-friend:Become a Friend With Other Nodes`. If you haven't finish the previous tutorial, we highly recommanded you to check the :ref:`tutorial-friend:Become a Friend With Other Nodes` tutorial first.
+
+Send Message to and Receive Message From a Friend
+-------------------------------------------------
+
+We are going to implement a command ``msg`` to send text message to a friend. This command will take friend's ID and a message string as its arguments. For example, ``msg FRIEND_ID hello``. First, we add the following code blocks:
+
+.. code-block:: c
+
+    static void send_message(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+
+        if (argc != 3) {
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_send_friend_message(w, argv[1], argv[2], strlen(argv[2]) + 1);
+        if (rc == 0)
+            printf("Send message success.\n");
+        else
+            printf("Send message failed(0x%08X).\n", IOEX_get_error());
+    }
+
+And don't forget to add it in ``do_command`` function:
+
+.. code-block:: c
+
+    if(argc > 0){
+        if(!strcmp(argv[0], "fadd")){
+            add_friend(w, argc, argv);
+        }
+        // Add the follows:
+        else if(!strcmp(argv[0], "msg")){
+            send_message(w, argc, argv);
+        }
+    }
+
+The :ref:`carrier-api:IOEX_send_friend_message` will send our message to a friend. It takes 4 arguments: IOEX Carrier handler, friend's ID, message, and the length of the message. If and error occurred, an error code is set automatically, and you can use :ref:`carrier-api:IOEX_get_error` to retrieve it.
+
+When we receive a message from a friend, we would like to display the friend's ID and the message on the screen. You can use :ref:`friend_message <carrier-api:IOEXCallbacks>` callback to achieve this:
+
+.. code-block:: c
+
+    static void friend_message_callback(IOEXCarrier *w, const char *from,
+            const void *msg, size_t len, void *context)
+    {
+        printf("Message from friend[%s]: %.*s\n", from, (int)len, (const char *)msg);
+    }
+
+You will need to add this callback in main function:
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    callbacks.connection_status = connection_status_callback;
+    callbacks.idle = idle_callback;
+    callbacks.friend_connection = friend_connection_callback;
+    callbacks.friend_message = friend_message_callback;  // Add this
+
+It's done. You can rebuild and execute the application. Use IOEXshell as a friend and try to send/receive message.
+
+No offline messages
+###################
+
+IOEX Carrier network does not support offline messages. That is, you can only send a message to a friend if the friend is online.
+
+This is because that IOEX Carrier is designed for a secure peer-to-peer network, and we want to keep the message secure between the friends. No other nodes or servers should store or cache the messages.
+
+To support offline messages, the sender must send the message to a server first. And the server will keep tracking if the receiver is back online, and then send the message to the receiver. Or, when the receiver is online, it ask the server if there are messages for it. Either way, a server is required to implement offline message feature, and it violate the principle of IOEX Carrier network.
+
+The *"no offline"* rule applies to other IOEX Carrier features as well. For example, a node can only send a file to an online friend.
+
+.. note::
+    You can implement a "pseudo-offline messaging" mechanism in your application. If the message receiver is offline, the sender can keep the message in a local database, and send it when the receiver is online. It still needs both sender and receiver be online at the same time.
+
+.. note::
+    Friend request can be considered as an exception to "no offline" rule, because the target node is always "offline" to the sender. The sender just hope the target node is actually online at the moment.
+
+Send File to and Receive File From a Friend
+-------------------------------------------
+
+File transmission flow
+######################
+
+An IOEX Carrier node can send a local file to its friend. The basic flow is as follows:
+
+1. Node A send a request to its friend Node B by using :ref:`carrier-api:IOEX_send_file_request` API
+2. When Node B received the request, the :ref:`file_request <carrier-api:IOEXCallbacks>` callback will be called
+3. Node B accept the request by using :ref:`carrier-api:IOEX_send_file_accept` API, which will send a message to the sender
+4. When Node A receive the control message, the file transmission starts automatically. Also, :ref:`file_accepted <carrier-api:IOEXCallbacks>` will be called.
+5. During the transmission, :ref:`file_progress <carrier-api:IOEXCallbacks>` will be called on both Node A and Node B. Application can use this callback to track progress of the file transmission.
+6. When file transmission completed, :ref:`file_completed <carrier-api:IOEXCallbacks>` will be called on both Node A and Node B.
+
+Implement filesend command
+##########################
+
+So basically, first thing we need to do is to implement a ``filesend`` command to send a local file to the friend, which should take the friend's ID and the local path of the file as arguments like ``filesend FRIEND_ID A_LOCAL_FILE``. Add the following code:
+
+.. code-block:: c
+
+    static void file_send_request(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+        char fileid[IOEX_MAX_FILE_ID_LEN + 1];
+        if(argc != 3){
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_send_file_request(w, fileid, sizeof(fileid), argv[1], argv[2]);
+        if(rc < 0){
+            printf("Invalid request.(0x%08X)\n", IOEX_get_error());
+        }
+        else{
+            printf("File request sent. File id = %s\n", fileid);
+        }
+    }
+
+And add this command in ``do_command``:
+
+.. code-block:: c
+
+    if(argc > 0){
+        if(!strcmp(argv[0], "fadd")){
+            add_friend(w, argc, argv);
+        }
+        else if(!strcmp(argv[0], "msg")){
+            send_message(w, argc, argv);
+        }
+        // Add this
+        else if(!strcmp(argv[0], "filesend")){
+            file_send_request(w, argc, argv);
+        }
+    }
+
+The :ref:`carrier-api:IOEX_send_file_request` API will take friend ID and local file path as its arguements. It will also randomly generates a ``file ID`` to track this file transmission. The file ID is unique and will be used to identify a file transmission.
+
+File ID is wildly used in other IOEX Carrier file transmission APIs and callbacks. For example, you can use API :ref:`carrier-api:IOEX_get_file_info` with certain file ID to get current status of a file transmission. The API will return :ref:`carrier-api:IOEXFileTrackerInfo` to tell user the friend ID, transmission progress, local file path and other useful information. This file ID is send to the friend with the request.
+
+Implement file request callback
+###############################
+
+Next, when the friend receive file request, :ref:`file_request <carrier-api:IOEXCallbacks>` callback is called. We can implement our file request callback like this:
+
+.. code-block:: c
+
+    static void file_request_callback(IOEXCarrier *w, const char *fileid, const char *friendid, const char *filename,
+            size_t filesize, void *context)
+    {
+        printf("File request from friend[%s]\n", friendid);
+        printf("File name %s with size %zu\n", filename, filesize);
+        printf("Reply use following commands:\n");
+        printf("  fileaccept %s <new file name> <file path>\n", fileid);
+    }
+
+And add this callback in main:
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    // ...
+    callbacks.file_request = file_request_callback;  // Add this
+
+The file_request callback have some information about this transmission. It tells you who send this request, the name and size of the file, and a unique file ID to identify this transmission. Application or user can use these information to decide whether it should accept this file or not.
+
+Implement fileaccept command
+############################
+
+Now that's add the ``fileaccept`` command. Note that we need to decide where we should store the received file when use this command. So, the command should look like this: ``fileaccept FILE_ID file_name file_path``. For example, ``fileaccept FILE_ID aaa .`` will rename the file to aaa and store under current working directory.
+
+Add the following code:
+
+.. code-block:: c
+
+    static void file_send_accept(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+        if(argc != 4){
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_send_file_accept(w, argv[1], argv[2], argv[3]);
+        if(rc < 0){
+            printf("Invalid request.(0x%08X)\n", IOEX_get_error());
+        }
+        else{
+            printf("Accepted file request.\n");
+        }
+    }
+
+And add the command in do_command:
+
+.. code-block:: c
+
+    if(argc > 0){
+        if(!strcmp(argv[0], "fadd")){
+            add_friend(w, argc, argv);
+        }
+        // ...
+
+        // Add this:
+        else if(!strcmp(argv[0], "fileaccept")){
+            file_send_accept(w, argc, argv);
+        }
+    }
+
+The :ref:`carrier-api:IOEX_send_file_accept` will take IOEXCarrier handler, file ID, name and path for the file as the input. It will then send a control message back to the sender so it can start sending us the file.
+
+Note that we are start using file ID in our API now. As discussed earlier, we use file ID in most of the file transmission APIs and callbacks. In this example, the file ID came from ``file_send_request`` callback we implemented earlier, and is displayed on the screen. User can simply copy the ID from the screen and paste it in our ``fileaccept`` command. But in some cases, you may need to keep a record of the file IDs in your application in order to use them later.
+
+Implement file completed callback
+#################################
+
+Finally, we need a way to know if a file transmission is completed. The implementation of our :ref:`file_completed <carrier-api:IOEXCallbacks>` callback is as follows:
+
+.. code-block:: c
+
+    static void file_completed_callback(IOEXCarrier *w, const char *fileid, const char *friendid,
+            const char *fullpath, void *context)
+    {
+        printf("File %s transmission [id:%s] with friend [%s] has completed\n", fullpath, fileid, friendid);
+    }
+
+Don't forget to add it in main:
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    // ...
+    // Add this:
+    callbacks.file_completed = file_completed_callback;
+
+The file completed callback will have the information like the local file path, ID of the friend who we sent file to or received file from, and the file ID.
+
+Verify our implementation
+#########################
+
+Now we can test the file transmission implementation of our application. First, we create a simple text file by using:
+
+.. code-block:: shell
+
+    touch aaa.txt
+    echo "hello" >> aaa.txt
+
+Start IOEXshell and our application in different terminals. Make them friends if they haven't, and wait until the both of them are online. Now, enter the command in main application to start file transmission:
+
+.. code-block:: console
+
+    filesend SHELL_NODE_ID aaa.txt
+
+Replace SHELL_NODE_ID with the ID of your IOEXshell. A message should pop up to tell you that the request is sent:
+
+.. code-block:: console
+
+    File request sent. File id = 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D
+
+Then, go to IOEXshell terminal, you should receive a message like this:
+
+.. code-block:: console
+
+    Send file request from friend[<MAIN_NODE_ID>]
+    File name aaa.txt with size 6
+    Reply use following commands:
+      fileaccept 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D <new file name> <file path>
+      filereject 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D
+
+Next, we will accept the request by enter the command in IOEXshell. Here, we can try to rename the file to bbb.txt and save to /tmp folder by using the command:
+
+.. code-block:: console
+
+    fileaccept 4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D bbb.txt /tmp
+
+Your file ID will be different, so do not copy the above one. By entering the command, IOEXshell accepts the request and the file transmission will begin. Since it is a very small file, it should be completed immediately.
+
+Finally, go back to main application and you should see a message indicates that file transmission is completed:
+
+.. code-block:: console
+
+    File aaa.txt transmission [id:4FZqZpKbCA8ijXj3shS2DdSRA3vKwGUsoQSXX8Dree5D] with friend [<SHELL_NODE_ID>] has completed
+
+Congratulations! You have successfully write an application that is able to transmit a file with other nodes. You can verify if the file /tmp/bbb.txt existed, and if it contains a single line of text "hello" like the original aaa.txt.
+
+Also, you can try to send a file from IOEXshell to main application. With the implementation of ``fileaccept`` command and ``file_request`` callback, your application should be able to receive the request and accept file.
+
+Complete Example
+----------------
+
+Here is the complete example of this tutorial:
+
+.. literalinclude:: tutorial-msg-file-main.c
+    :language: c
+
+What's Next?
+------------
+
+In this tutorial, we have discussed basic file transmission flow, and how we can implement the commands to send a file to friends by using IOEX Carrier APIs and callbacks.
+
+You should check the other file transmission APIs in :ref:`core API documents <carrier-api:File transmission functions>` and callbacks like ``file_progress`` in :ref:`carrier-api:IOEXCallbacks`. You might want to utilize some of them to meet your requirements.
