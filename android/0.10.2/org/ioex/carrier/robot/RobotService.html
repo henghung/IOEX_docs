@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RobotService &mdash; IOEX Carrier Android Developer Documents 0.10.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="RobotService.IncomingHandler" href="RobotService-IncomingHandler.html" />
+    <link rel="prev" title="RobotProxy.RobotIdReceiver" href="RobotProxy-RobotIdReceiver.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-index.html">org.ioex.carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/package-index.html">org.ioex.carrier.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier.robot</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="RobotProxy.html">RobotProxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotProxy-IncomingHandler.html">RobotProxy.IncomingHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotProxy-RobotIdReceiver.html">RobotProxy.RobotIdReceiver</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">RobotService</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="RobotService-IncomingHandler.html">RobotService.IncomingHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="RobotService-TestHandler.html">RobotService.TestHandler</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier.robot</a> &raquo;</li>
+        
+      <li>RobotService</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="robotservice">
+<h1>RobotService<a class="headerlink" href="#robotservice" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.robot.RobotService">
+public class <code class="sig-name descname">RobotService</code> extends Service<a class="headerlink" href="#org.ioex.carrier.robot.RobotService" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="msg-accept-friend">
+<h3>MSG_ACCEPT_FRIEND<a class="headerlink" href="#msg-accept-friend" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_ACCEPT_FRIEND">
+static final int <code class="sig-name descname">MSG_ACCEPT_FRIEND</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_ACCEPT_FRIEND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-message-arrival">
+<h3>MSG_MESSAGE_ARRIVAL<a class="headerlink" href="#msg-message-arrival" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_MESSAGE_ARRIVAL">
+static final int <code class="sig-name descname">MSG_MESSAGE_ARRIVAL</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_MESSAGE_ARRIVAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-remove-friend">
+<h3>MSG_REMOVE_FRIEND<a class="headerlink" href="#msg-remove-friend" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_REMOVE_FRIEND">
+static final int <code class="sig-name descname">MSG_REMOVE_FRIEND</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_REMOVE_FRIEND" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-reply-session-requst-and-start">
+<h3>MSG_REPLY_SESSION_REQUST_AND_START<a class="headerlink" href="#msg-reply-session-requst-and-start" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_REPLY_SESSION_REQUST_AND_START">
+static final int <code class="sig-name descname">MSG_REPLY_SESSION_REQUST_AND_START</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_REPLY_SESSION_REQUST_AND_START" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-req-friend-arrival">
+<h3>MSG_REQ_FRIEND_ARRIVAL<a class="headerlink" href="#msg-req-friend-arrival" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_REQ_FRIEND_ARRIVAL">
+static final int <code class="sig-name descname">MSG_REQ_FRIEND_ARRIVAL</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_REQ_FRIEND_ARRIVAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-req-robot-id">
+<h3>MSG_REQ_ROBOT_ID<a class="headerlink" href="#msg-req-robot-id" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_REQ_ROBOT_ID">
+static final int <code class="sig-name descname">MSG_REQ_ROBOT_ID</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_REQ_ROBOT_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-rsp-robot-id">
+<h3>MSG_RSP_ROBOT_ID<a class="headerlink" href="#msg-rsp-robot-id" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_RSP_ROBOT_ID">
+static final int <code class="sig-name descname">MSG_RSP_ROBOT_ID</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_RSP_ROBOT_ID" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-send-message">
+<h3>MSG_SEND_MESSAGE<a class="headerlink" href="#msg-send-message" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_SEND_MESSAGE">
+static final int <code class="sig-name descname">MSG_SEND_MESSAGE</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_SEND_MESSAGE" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-session-connected">
+<h3>MSG_SESSION_CONNECTED<a class="headerlink" href="#msg-session-connected" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_SESSION_CONNECTED">
+static final int <code class="sig-name descname">MSG_SESSION_CONNECTED</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_SESSION_CONNECTED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-session-manager-cleanup">
+<h3>MSG_SESSION_MANAGER_CLEANUP<a class="headerlink" href="#msg-session-manager-cleanup" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_SESSION_MANAGER_CLEANUP">
+static final int <code class="sig-name descname">MSG_SESSION_MANAGER_CLEANUP</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_SESSION_MANAGER_CLEANUP" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-session-manager-init">
+<h3>MSG_SESSION_MANAGER_INIT<a class="headerlink" href="#msg-session-manager-init" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_SESSION_MANAGER_INIT">
+static final int <code class="sig-name descname">MSG_SESSION_MANAGER_INIT</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_SESSION_MANAGER_INIT" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-session-manager-initialized">
+<h3>MSG_SESSION_MANAGER_INITIALIZED<a class="headerlink" href="#msg-session-manager-initialized" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_SESSION_MANAGER_INITIALIZED">
+static final int <code class="sig-name descname">MSG_SESSION_MANAGER_INITIALIZED</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_SESSION_MANAGER_INITIALIZED" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-session-request-arrival">
+<h3>MSG_SESSION_REQUEST_ARRIVAL<a class="headerlink" href="#msg-session-request-arrival" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_SESSION_REQUEST_ARRIVAL">
+static final int <code class="sig-name descname">MSG_SESSION_REQUEST_ARRIVAL</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_SESSION_REQUEST_ARRIVAL" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="msg-test">
+<h3>MSG_TEST<a class="headerlink" href="#msg-test" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.robot.RobotService.MSG_TEST">
+static final int <code class="sig-name descname">MSG_TEST</code><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.MSG_TEST" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="acceptfriend">
+<h3>acceptFriend<a class="headerlink" href="#acceptfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.acceptFriend(Message)">
+ void <code class="sig-name descname">acceptFriend</code><span class="sig-paren">(</span>Message<em> msg</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.acceptFriend(Message)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="onbind">
+<h3>onBind<a class="headerlink" href="#onbind" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.onBind(Intent)">
+public IBinder <code class="sig-name descname">onBind</code><span class="sig-paren">(</span>Intent<em> intent</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.onBind(Intent)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="oncreate">
+<h3>onCreate<a class="headerlink" href="#oncreate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.onCreate()">
+public void <code class="sig-name descname">onCreate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.onCreate()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="ondestroy">
+<h3>onDestroy<a class="headerlink" href="#ondestroy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.onDestroy()">
+public void <code class="sig-name descname">onDestroy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.onDestroy()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="removefriend">
+<h3>removeFriend<a class="headerlink" href="#removefriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.removeFriend(Message)">
+ void <code class="sig-name descname">removeFriend</code><span class="sig-paren">(</span>Message<em> msg</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.removeFriend(Message)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="replyrobotid">
+<h3>replyRobotId<a class="headerlink" href="#replyrobotid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.replyRobotId(Message)">
+ void <code class="sig-name descname">replyRobotId</code><span class="sig-paren">(</span>Message<em> msg</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.replyRobotId(Message)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="sendtestmessage">
+<h3>sendTestMessage<a class="headerlink" href="#sendtestmessage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.robot.RobotService.sendTestMessage(Message)">
+ void <code class="sig-name descname">sendTestMessage</code><span class="sig-paren">(</span>Message<em> msg</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.robot.RobotService.sendTestMessage(Message)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="RobotService-IncomingHandler.html" class="btn btn-neutral float-right" title="RobotService.IncomingHandler" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="RobotProxy-RobotIdReceiver.html" class="btn btn-neutral float-left" title="RobotProxy.RobotIdReceiver" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

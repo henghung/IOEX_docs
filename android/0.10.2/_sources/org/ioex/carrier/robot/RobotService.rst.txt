@@ -1,0 +1,168 @@
+.. java:import:: android.app Service
+
+.. java:import:: android.content Intent
+
+.. java:import:: android.os Bundle
+
+.. java:import:: android.os Handler
+
+.. java:import:: android.os IBinder
+
+.. java:import:: android.os Looper
+
+.. java:import:: android.os Message
+
+.. java:import:: android.os Messenger
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier AbstractCarrierHandler
+
+.. java:import:: org.ioex.carrier Carrier
+
+.. java:import:: org.ioex.carrier UserInfo
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+RobotService
+============
+
+.. java:package:: org.ioex.carrier.robot
+   :noindex:
+
+.. java:type:: public class RobotService extends Service
+
+Fields
+------
+MSG_ACCEPT_FRIEND
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_ACCEPT_FRIEND
+   :outertype: RobotService
+
+MSG_MESSAGE_ARRIVAL
+^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_MESSAGE_ARRIVAL
+   :outertype: RobotService
+
+MSG_REMOVE_FRIEND
+^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_REMOVE_FRIEND
+   :outertype: RobotService
+
+MSG_REPLY_SESSION_REQUST_AND_START
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_REPLY_SESSION_REQUST_AND_START
+   :outertype: RobotService
+
+MSG_REQ_FRIEND_ARRIVAL
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_REQ_FRIEND_ARRIVAL
+   :outertype: RobotService
+
+MSG_REQ_ROBOT_ID
+^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_REQ_ROBOT_ID
+   :outertype: RobotService
+
+MSG_RSP_ROBOT_ID
+^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_RSP_ROBOT_ID
+   :outertype: RobotService
+
+MSG_SEND_MESSAGE
+^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_SEND_MESSAGE
+   :outertype: RobotService
+
+MSG_SESSION_CONNECTED
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_SESSION_CONNECTED
+   :outertype: RobotService
+
+MSG_SESSION_MANAGER_CLEANUP
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_SESSION_MANAGER_CLEANUP
+   :outertype: RobotService
+
+MSG_SESSION_MANAGER_INIT
+^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_SESSION_MANAGER_INIT
+   :outertype: RobotService
+
+MSG_SESSION_MANAGER_INITIALIZED
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_SESSION_MANAGER_INITIALIZED
+   :outertype: RobotService
+
+MSG_SESSION_REQUEST_ARRIVAL
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:field:: static final int MSG_SESSION_REQUEST_ARRIVAL
+   :outertype: RobotService
+
+MSG_TEST
+^^^^^^^^
+
+.. java:field:: static final int MSG_TEST
+   :outertype: RobotService
+
+Methods
+-------
+acceptFriend
+^^^^^^^^^^^^
+
+.. java:method::  void acceptFriend(Message msg)
+   :outertype: RobotService
+
+onBind
+^^^^^^
+
+.. java:method:: @Override public IBinder onBind(Intent intent)
+   :outertype: RobotService
+
+onCreate
+^^^^^^^^
+
+.. java:method:: @Override public void onCreate()
+   :outertype: RobotService
+
+onDestroy
+^^^^^^^^^
+
+.. java:method:: @Override public void onDestroy()
+   :outertype: RobotService
+
+removeFriend
+^^^^^^^^^^^^
+
+.. java:method::  void removeFriend(Message msg)
+   :outertype: RobotService
+
+replyRobotId
+^^^^^^^^^^^^
+
+.. java:method::  void replyRobotId(Message msg)
+   :outertype: RobotService
+
+sendTestMessage
+^^^^^^^^^^^^^^^
+
+.. java:method::  void sendTestMessage(Message msg)
+   :outertype: RobotService
+

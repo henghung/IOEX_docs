@@ -27,3 +27,4 @@ https://henghung.github.io/core/0.14.0-rc1
 * [v0.10.0-rc2](https://henghung.github.io/android/0.10.0-rc2/)
 * [v0.10.0](https://henghung.github.io/android/0.10.0/)
 * [v0.10.1](https://henghung.github.io/android/0.10.1/)
+* [v0.10.2](https://henghung.github.io/android/0.10.2/)

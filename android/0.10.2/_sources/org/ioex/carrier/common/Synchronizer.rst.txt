@@ -1,0 +1,40 @@
+.. java:import:: java.util.concurrent Semaphore
+
+Synchronizer
+============
+
+.. java:package:: org.ioex.carrier.common
+   :noindex:
+
+.. java:type:: public class Synchronizer
+
+Fields
+------
+sema
+^^^^
+
+.. java:field::  Semaphore sema
+   :outertype: Synchronizer
+
+Constructors
+------------
+Synchronizer
+^^^^^^^^^^^^
+
+.. java:constructor:: public Synchronizer()
+   :outertype: Synchronizer
+
+Methods
+-------
+await
+^^^^^
+
+.. java:method:: public void await()
+   :outertype: Synchronizer
+
+wakeup
+^^^^^^
+
+.. java:method:: public void wakeup()
+   :outertype: Synchronizer
+

@@ -1,0 +1,55 @@
+.. java:import:: android.app Service
+
+.. java:import:: android.content Intent
+
+.. java:import:: android.os Bundle
+
+.. java:import:: android.os Handler
+
+.. java:import:: android.os IBinder
+
+.. java:import:: android.os Looper
+
+.. java:import:: android.os Message
+
+.. java:import:: android.os Messenger
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier AbstractCarrierHandler
+
+.. java:import:: org.ioex.carrier Carrier
+
+.. java:import:: org.ioex.carrier UserInfo
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+RobotService.IncomingHandler
+============================
+
+.. java:package:: org.ioex.carrier.robot
+   :noindex:
+
+.. java:type::  class IncomingHandler extends Handler
+   :outertype: RobotService
+
+Constructors
+------------
+IncomingHandler
+^^^^^^^^^^^^^^^
+
+.. java:constructor::  IncomingHandler()
+   :outertype: RobotService.IncomingHandler
+
+Methods
+-------
+handleMessage
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public void handleMessage(Message msg)
+   :outertype: RobotService.IncomingHandler
+

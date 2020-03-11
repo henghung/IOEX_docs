@@ -1,0 +1,22 @@
+Base58
+======
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type::  class Base58
+
+Methods
+-------
+decode
+^^^^^^
+
+.. java:method:: public static byte[] decode(String input)
+   :outertype: Base58
+
+encode
+^^^^^^
+
+.. java:method:: public static String encode(byte[] input)
+   :outertype: Base58
+

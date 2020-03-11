@@ -1,0 +1,100 @@
+FriendInfo
+==========
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class FriendInfo extends UserInfo
+
+   A class representing the Carrier friend information. Include the basic user information and the extra friend information.
+
+Fields
+------
+MAX_LABEL_LEN
+^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_LABEL_LEN
+   :outertype: FriendInfo
+
+   Friend label name max length.
+
+Constructors
+------------
+FriendInfo
+^^^^^^^^^^
+
+.. java:constructor:: protected FriendInfo()
+   :outertype: FriendInfo
+
+Methods
+-------
+getConnectionStatus
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public ConnectionStatus getConnectionStatus()
+   :outertype: FriendInfo
+
+   Get friend's connection status.
+
+   :return: The ConnectionStatus object.
+
+getLabel
+^^^^^^^^
+
+.. java:method:: public String getLabel()
+   :outertype: FriendInfo
+
+   Get friend's label name.
+
+   :return: The friend's label name.
+
+getPresence
+^^^^^^^^^^^
+
+.. java:method:: public PresenceStatus getPresence()
+   :outertype: FriendInfo
+
+   Get friend's presence.
+
+   :return: The presence of friend.
+
+setConnectionStatus
+^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setConnectionStatus(ConnectionStatus status)
+   :outertype: FriendInfo
+
+   Set friend's connection status. This function will be called in Java JNI only.
+
+   :param status: The ConnectionStatus object.
+
+setLabel
+^^^^^^^^
+
+.. java:method:: public void setLabel(String label)
+   :outertype: FriendInfo
+
+   Set friend's label name. This function will be called in Java JNI only.
+
+   :param label: The new label to set.
+
+setPresence
+^^^^^^^^^^^
+
+.. java:method:: public void setPresence(PresenceStatus status)
+   :outertype: FriendInfo
+
+   Set friend's presence. This function will be called in Java JNI only.
+
+   :param status: The presence status.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: FriendInfo
+
+   Get formatted debug description of current FriendInfo object.
+
+   :return: The debug description of current FriendInfo object.
+

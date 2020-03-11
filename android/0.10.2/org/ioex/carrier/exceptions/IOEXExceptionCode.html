@@ -1,0 +1,794 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEXExceptionCode &mdash; IOEX Carrier Android Developer Documents 0.10.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="IOEXExceptionFacility" href="IOEXExceptionFacility.html" />
+    <link rel="prev" title="IOEXException" href="IOEXException.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-index.html">org.ioex.carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/package-index.html">org.ioex.carrier.common</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier.exceptions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="IOEXException.html">IOEXException</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IOEXExceptionCode</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enum-constants">Enum Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="IOEXExceptionFacility.html">IOEXExceptionFacility</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/package-index.html">org.ioex.carrier.robot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier.exceptions</a> &raquo;</li>
+        
+      <li>IOEXExceptionCode</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioexexceptioncode">
+<h1>IOEXExceptionCode<a class="headerlink" href="#ioexexceptioncode" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode">
+public enum <code class="sig-name descname">IOEXExceptionCode</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Code of an IOEXException error</p>
+</dd></dl>
+
+<div class="section" id="enum-constants">
+<h2>Enum Constants<a class="headerlink" href="#enum-constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="addself">
+<h3>AddSelf<a class="headerlink" href="#addself" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.AddSelf">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">AddSelf</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.AddSelf" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Could not friend yourself.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="alreadyexist">
+<h3>AlreadyExist<a class="headerlink" href="#alreadyexist" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.AlreadyExist">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">AlreadyExist</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.AlreadyExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The entity exists already.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="alreadyrun">
+<h3>AlreadyRun<a class="headerlink" href="#alreadyrun" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.AlreadyRun">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">AlreadyRun</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.AlreadyRun" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Carrier ran already.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badaddress">
+<h3>BadAddress<a class="headerlink" href="#badaddress" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadAddress">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadAddress</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadAddress" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Invalid address.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badbootstraphost">
+<h3>BadBootstrapHost<a class="headerlink" href="#badbootstraphost" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadBootstrapHost">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadBootstrapHost</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadBootstrapHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Invalid bootstrap host.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badbootstrapport">
+<h3>BadBootstrapPort<a class="headerlink" href="#badbootstrapport" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadBootstrapPort">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadBootstrapPort</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadBootstrapPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Invalid bootstrap port.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badpersistentdata">
+<h3>BadPersistentData<a class="headerlink" href="#badpersistentdata" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadPersistentData">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadPersistentData</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadPersistentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Persistent data is corrupted.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badproxyhost">
+<h3>BadProxyHost<a class="headerlink" href="#badproxyhost" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadProxyHost">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadProxyHost</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadProxyHost" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Invalid proxy host.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badproxyport">
+<h3>BadProxyPort<a class="headerlink" href="#badproxyport" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadProxyPort">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadProxyPort</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadProxyPort" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Invalid proxy port.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="badproxytype">
+<h3>BadProxyType<a class="headerlink" href="#badproxytype" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BadProxyType">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BadProxyType</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BadProxyType" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Invalid proxy type.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="buffertoosmall">
+<h3>BufferTooSmall<a class="headerlink" href="#buffertoosmall" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.BufferTooSmall">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">BufferTooSmall</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.BufferTooSmall" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Buffer size is too small.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="busy">
+<h3>Busy<a class="headerlink" href="#busy" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Busy">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Busy</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Busy" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Stream busy.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="compress">
+<h3>Compress<a class="headerlink" href="#compress" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Compress">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Compress</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Compress" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Error while compressing file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="curl">
+<h3>Curl<a class="headerlink" href="#curl" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Curl">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Curl</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Curl" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Error while using curl library.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="datanotfound">
+<h3>DataNotFound<a class="headerlink" href="#datanotfound" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.DataNotFound">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">DataNotFound</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.DataNotFound" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The requested data cannot be found.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="encryptedpersistentdata">
+<h3>EncryptedPersistentData<a class="headerlink" href="#encryptedpersistentdata" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.EncryptedPersistentData">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">EncryptedPersistentData</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.EncryptedPersistentData" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Persistent data is encrypted, load failed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="encryption">
+<h3>Encryption<a class="headerlink" href="#encryption" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Encryption">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Encryption</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Encryption" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Encryption failed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="filedeny">
+<h3>FileDeny<a class="headerlink" href="#filedeny" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.FileDeny">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">FileDeny</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.FileDeny" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English File cannot be stored.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fileexisted">
+<h3>FileExisted<a class="headerlink" href="#fileexisted" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.FileExisted">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">FileExisted</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.FileExisted" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English File already existed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fileinvalid">
+<h3>FileInvalid<a class="headerlink" href="#fileinvalid" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.FileInvalid">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">FileInvalid</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.FileInvalid" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English File cannot be read.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="friendoffline">
+<h3>FriendOffline<a class="headerlink" href="#friendoffline" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.FriendOffline">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">FriendOffline</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.FriendOffline" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Friend is offline.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="httpget">
+<h3>HttpGet<a class="headerlink" href="#httpget" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.HttpGet">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">HttpGet</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.HttpGet" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Error while HTTP GET.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="httppost">
+<h3>HttpPost<a class="headerlink" href="#httppost" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.HttpPost">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">HttpPost</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.HttpPost" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Error while HTTP POST.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidappid">
+<h3>InvalidAppId<a class="headerlink" href="#invalidappid" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidAppId">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidAppId</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidAppId" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English APP ID is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidarguments">
+<h3>InvalidArguments<a class="headerlink" href="#invalidarguments" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidArguments">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidArguments</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidArguments" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Argument(s) is(are) invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidcontrolpacket">
+<h3>InvalidControlPacket<a class="headerlink" href="#invalidcontrolpacket" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidControlPacket">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidControlPacket</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidControlPacket" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Control packet is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidcredential">
+<h3>InvalidCredential<a class="headerlink" href="#invalidcredential" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidCredential">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidCredential</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidCredential" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Credential is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invaliddataid">
+<h3>InvalidDataId<a class="headerlink" href="#invaliddataid" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDataId">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidDataId</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDataId" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Data ID is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invaliddatatracker">
+<h3>InvalidDataTracker<a class="headerlink" href="#invaliddatatracker" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDataTracker">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidDataTracker</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDataTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Data tracker is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invaliddescriptor">
+<h3>InvalidDescriptor<a class="headerlink" href="#invaliddescriptor" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDescriptor">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidDescriptor</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDescriptor" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Descriptor is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invaliddigest">
+<h3>InvalidDigest<a class="headerlink" href="#invaliddigest" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDigest">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidDigest</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidDigest" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English File digest invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidfiletracker">
+<h3>InvalidFileTracker<a class="headerlink" href="#invalidfiletracker" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidFileTracker">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidFileTracker</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidFileTracker" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English File tracker is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidnodeid">
+<h3>InvalidNodeId<a class="headerlink" href="#invalidnodeid" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidNodeId">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidNodeId</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidNodeId" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Node ID is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidpersistentfile">
+<h3>InvalidPersistentFile<a class="headerlink" href="#invalidpersistentfile" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidPersistentFile">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidPersistentFile</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidPersistentFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Persistent file is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invalidsdp">
+<h3>InvalidSdp<a class="headerlink" href="#invalidsdp" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidSdp">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidSdp</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidSdp" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Bad SDP information format.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="invaliduserid">
+<h3>InvalidUserId<a class="headerlink" href="#invaliduserid" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidUserId">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">InvalidUserId</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.InvalidUserId" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English User ID is invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="jsonconstruct">
+<h3>JsonConstruct<a class="headerlink" href="#jsonconstruct" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.JsonConstruct">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">JsonConstruct</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.JsonConstruct" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Failed to construct JSON objects</p>
+</dd></dl>
+
+</div>
+<div class="section" id="jsonparse">
+<h3>JsonParse<a class="headerlink" href="#jsonparse" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.JsonParse">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">JsonParse</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.JsonParse" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Failed to parse JSON string</p>
+</dd></dl>
+
+</div>
+<div class="section" id="languagebinding">
+<h3>LanguageBinding<a class="headerlink" href="#languagebinding" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.LanguageBinding">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">LanguageBinding</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.LanguageBinding" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Language binding error.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="limitexceed">
+<h3>LimitExceed<a class="headerlink" href="#limitexceed" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.LimitExceed">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">LimitExceed</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.LimitExceed" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Limits are exceeded.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="nomatchedrequest">
+<h3>NoMatchedRequest<a class="headerlink" href="#nomatchedrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.NoMatchedRequest">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">NoMatchedRequest</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.NoMatchedRequest" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English There are no matched requests.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="notexist">
+<h3>NotExist<a class="headerlink" href="#notexist" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.NotExist">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">NotExist</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.NotExist" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The requested entity does not exist.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="notimplemented">
+<h3>NotImplemented<a class="headerlink" href="#notimplemented" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.NotImplemented">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">NotImplemented</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.NotImplemented" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Not implemented yet.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="notready">
+<h3>NotReady<a class="headerlink" href="#notready" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.NotReady">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">NotReady</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.NotReady" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Carrier not ready.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="outofmemory">
+<h3>OutOfMemory<a class="headerlink" href="#outofmemory" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.OutOfMemory">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">OutOfMemory</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.OutOfMemory" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Runs out of memory.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="portallocate">
+<h3>PortAllocate<a class="headerlink" href="#portallocate" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.PortAllocate">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">PortAllocate</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.PortAllocate" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Allocate port unsuccessfully.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="proxynotavailable">
+<h3>ProxyNotAvailable<a class="headerlink" href="#proxynotavailable" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.ProxyNotAvailable">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">ProxyNotAvailable</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.ProxyNotAvailable" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Proxy is not available.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="sdptoolong">
+<h3>SdpTooLong<a class="headerlink" href="#sdptoolong" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.SdpTooLong">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">SdpTooLong</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.SdpTooLong" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The content size of SDP is too long.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="serverfailed">
+<h3>ServerFailed<a class="headerlink" href="#serverfailed" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.ServerFailed">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">ServerFailed</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.ServerFailed" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Server failed.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="thread">
+<h3>Thread<a class="headerlink" href="#thread" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Thread">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Thread</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Thread" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Error while creating thread.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="toolong">
+<h3>TooLong<a class="headerlink" href="#toolong" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.TooLong">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">TooLong</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.TooLong" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Data is too long.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="uncompress">
+<h3>Uncompress<a class="headerlink" href="#uncompress" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Uncompress">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Uncompress</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Uncompress" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Error while uncompressing file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="unknown">
+<h3>Unknown<a class="headerlink" href="#unknown" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.Unknown">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">Unknown</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.Unknown" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Unknown error.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="wrongstate">
+<h3>WrongState<a class="headerlink" href="#wrongstate" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.WrongState">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">WrongState</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.WrongState" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Failed because wrong state.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="format">
+<h3>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.format(IOEXExceptionCode)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">format</code><span class="sig-paren">(</span><a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a><em> code</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.format(IOEXExceptionCode)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the debug description of the IOEXExceptionCode object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – The IOEXExceptionCode</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The debug description of IOEXExceptionCode object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.toString()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the debug description of current IOEXExceptionCode object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The debug description of current IOEXExceptionCode object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.value()">
+public int <code class="sig-name descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.value()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the code value of current IOEXExceptionCode object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The error value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="valueof">
+<h3>valueOf<a class="headerlink" href="#valueof" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionCode.valueOf(int)">
+public static <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionCode" title="org.ioex.carrier.exceptions.IOEXExceptionCode">IOEXExceptionCode</a> <code class="sig-name descname">valueOf</code><span class="sig-paren">(</span>int<em> code</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionCode.valueOf(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get IOEXExceptionCode object from code integer value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – The code value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The IOEXExceptionFacility object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="IOEXExceptionFacility.html" class="btn btn-neutral float-right" title="IOEXExceptionFacility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="IOEXException.html" class="btn btn-neutral float-left" title="IOEXException" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

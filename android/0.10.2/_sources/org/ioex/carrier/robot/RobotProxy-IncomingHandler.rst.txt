@@ -1,0 +1,51 @@
+.. java:import:: android.os Looper
+
+.. java:import:: android.os RemoteException
+
+.. java:import:: android.util Log
+
+.. java:import:: android.content ComponentName
+
+.. java:import:: android.content Intent
+
+.. java:import:: android.content Context
+
+.. java:import:: android.content ServiceConnection
+
+.. java:import:: android.os IBinder
+
+.. java:import:: android.os Handler
+
+.. java:import:: android.os Messenger
+
+.. java:import:: android.os Message
+
+.. java:import:: android.os Bundle
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+RobotProxy.IncomingHandler
+==========================
+
+.. java:package:: org.ioex.carrier.robot
+   :noindex:
+
+.. java:type::  class IncomingHandler extends Handler
+   :outertype: RobotProxy
+
+Constructors
+------------
+IncomingHandler
+^^^^^^^^^^^^^^^
+
+.. java:constructor::  IncomingHandler()
+   :outertype: RobotProxy.IncomingHandler
+
+Methods
+-------
+handleMessage
+^^^^^^^^^^^^^
+
+.. java:method:: @Override public void handleMessage(Message msg)
+   :outertype: RobotProxy.IncomingHandler
+

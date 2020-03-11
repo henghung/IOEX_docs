@@ -1,0 +1,629 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>UserInfo &mdash; IOEX Carrier Android Developer Documents 0.10.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="UserLoginTest" href="UserLoginTest.html" />
+    <link rel="prev" title="PresenceStatus" href="PresenceStatus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractCarrierHandler.html">AbstractCarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier.html">Carrier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CheckIDTest.html">CheckIDTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ExampleUnitTest.html">ExampleUnitTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileInfo.html">FileInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionStatus.html">FileTransmissionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendAddTest.html">FriendAddTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendAddTest-TestHandler.html">FriendAddTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendAddTest-TestReceiver.html">FriendAddTest.TestReceiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInviteResponseHandler.html">FriendInviteResponseHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInviteTest.html">FriendInviteTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInviteTest-InviteResponseHandler.html">FriendInviteTest.InviteResponseHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInviteTest-TestHandler.html">FriendInviteTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInviteTest-TestReceiver.html">FriendInviteTest.TestReceiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendMessageTest.html">FriendMessageTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendMessageTest-TestHandler.html">FriendMessageTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendMessageTest-TestReceiver.html">FriendMessageTest.TestReceiver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GetInstanceTest.html">GetInstanceTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GetInstanceTest-TestHandler.html">GetInstanceTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">UserInfo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="UserLoginTest.html">UserLoginTest</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserLoginTest-TestHandler.html">UserLoginTest.TestHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="common/package-index.html">org.ioex.carrier.common</a></li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="robot/package-index.html">org.ioex.carrier.robot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>UserInfo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="userinfo">
+<h1>UserInfo<a class="headerlink" href="#userinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.UserInfo">
+public class <code class="sig-name descname">UserInfo</code><a class="headerlink" href="#org.ioex.carrier.UserInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>A class representing the Carrier user information. In carrier SDK, self and each friend also is Carrier user, and has same user attributes.</p>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="max-email-len">
+<h3>MAX_EMAIL_LEN<a class="headerlink" href="#max-email-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_EMAIL_LEN">
+public static final int <code class="sig-name descname">MAX_EMAIL_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_EMAIL_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier user email address max length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-gender-len">
+<h3>MAX_GENDER_LEN<a class="headerlink" href="#max-gender-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_GENDER_LEN">
+public static final int <code class="sig-name descname">MAX_GENDER_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_GENDER_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier user gender max length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-id-len">
+<h3>MAX_ID_LEN<a class="headerlink" href="#max-id-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_ID_LEN">
+public static final int <code class="sig-name descname">MAX_ID_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_ID_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier User ID max length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-phone-len">
+<h3>MAX_PHONE_LEN<a class="headerlink" href="#max-phone-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_PHONE_LEN">
+public static final int <code class="sig-name descname">MAX_PHONE_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_PHONE_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier user phone number max length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-region-len">
+<h3>MAX_REGION_LEN<a class="headerlink" href="#max-region-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_REGION_LEN">
+public static final int <code class="sig-name descname">MAX_REGION_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_REGION_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier user region max length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-user-description-len">
+<h3>MAX_USER_DESCRIPTION_LEN<a class="headerlink" href="#max-user-description-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_USER_DESCRIPTION_LEN">
+public static final int <code class="sig-name descname">MAX_USER_DESCRIPTION_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_USER_DESCRIPTION_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier user description max length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-user-name-len">
+<h3>MAX_USER_NAME_LEN<a class="headerlink" href="#max-user-name-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.UserInfo.MAX_USER_NAME_LEN">
+public static final int <code class="sig-name descname">MAX_USER_NAME_LEN</code><a class="headerlink" href="#org.ioex.carrier.UserInfo.MAX_USER_NAME_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Carrier user name max length.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>UserInfo<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="org.ioex.carrier.UserInfo.UserInfo()">
+protected <code class="sig-name descname">UserInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.UserInfo()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getdescription">
+<h3>getDescription<a class="headerlink" href="#getdescription" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getDescription()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getDescription</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getDescription()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user’s description, also as what’s up</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The brief description of user</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getemail">
+<h3>getEmail<a class="headerlink" href="#getemail" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getEmail()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getEmail</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getEmail()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user’s email address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The email address</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getgender">
+<h3>getGender<a class="headerlink" href="#getgender" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getGender()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getGender</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getGender()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user’s gender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The user’s gender.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getname">
+<h3>getName<a class="headerlink" href="#getname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getName()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get nickname, also as display name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The nickname.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getphone">
+<h3>getPhone<a class="headerlink" href="#getphone" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getPhone()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getPhone</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getPhone()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user’s phone number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The phone number of user</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getregion">
+<h3>getRegion<a class="headerlink" href="#getregion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getRegion()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getRegion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getRegion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user’s region.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The region.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getuserid">
+<h3>getUserId<a class="headerlink" href="#getuserid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.getUserId()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getUserId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.getUserId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get user ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The user ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hasavatar">
+<h3>hasAvatar<a class="headerlink" href="#hasavatar" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.hasAvatar()">
+public boolean <code class="sig-name descname">hasAvatar</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.hasAvatar()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check user have avatar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if have avatar, otherwise is not</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdescription">
+<h3>setDescription<a class="headerlink" href="#setdescription" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setDescription(String)">
+public void <code class="sig-name descname">setDescription</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> description</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setDescription(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set user’s brief description, also as what’s up.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>description</strong> – the brief description to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setemail">
+<h3>setEmail<a class="headerlink" href="#setemail" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setEmail(String)">
+public void <code class="sig-name descname">setEmail</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> email</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setEmail(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set user’s email address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>email</strong> – The email address to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setgender">
+<h3>setGender<a class="headerlink" href="#setgender" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setGender(String)">
+public void <code class="sig-name descname">setGender</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> gender</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setGender(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set user’s gender.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>gender</strong> – The gender to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sethasavatar">
+<h3>setHasAvatar<a class="headerlink" href="#sethasavatar" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setHasAvatar(boolean)">
+public void <code class="sig-name descname">setHasAvatar</code><span class="sig-paren">(</span>boolean<em> hasAvatar</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setHasAvatar(boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set user to have avatar.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>hasAvatar</strong> – Has avatar or not</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setname">
+<h3>setName<a class="headerlink" href="#setname" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setName(String)">
+public void <code class="sig-name descname">setName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setName(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set nickname, also as display name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The nickname to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setphone">
+<h3>setPhone<a class="headerlink" href="#setphone" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setPhone(String)">
+public void <code class="sig-name descname">setPhone</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> phone</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setPhone(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set usr’s phone number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>phone</strong> – The phone number to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setregion">
+<h3>setRegion<a class="headerlink" href="#setregion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setRegion(String)">
+public void <code class="sig-name descname">setRegion</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> region</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setRegion(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set user’s region</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>region</strong> – The region to set</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setuserid">
+<h3>setUserId<a class="headerlink" href="#setuserid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.setUserId(String)">
+ void <code class="sig-name descname">setUserId</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.setUserId(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set user ID. This function only be called in JNI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userId</strong> – The user ID to set</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.UserInfo.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.UserInfo.toString()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get debug description of current UserInfo object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The debug description of UserInfo object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="UserLoginTest.html" class="btn btn-neutral float-right" title="UserLoginTest" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="PresenceStatus.html" class="btn btn-neutral float-left" title="PresenceStatus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

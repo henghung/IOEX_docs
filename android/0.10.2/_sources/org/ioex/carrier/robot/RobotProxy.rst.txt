@@ -1,0 +1,126 @@
+.. java:import:: android.os Looper
+
+.. java:import:: android.os RemoteException
+
+.. java:import:: android.util Log
+
+.. java:import:: android.content ComponentName
+
+.. java:import:: android.content Intent
+
+.. java:import:: android.content Context
+
+.. java:import:: android.content ServiceConnection
+
+.. java:import:: android.os IBinder
+
+.. java:import:: android.os Handler
+
+.. java:import:: android.os Messenger
+
+.. java:import:: android.os Message
+
+.. java:import:: android.os Bundle
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+RobotProxy
+==========
+
+.. java:package:: org.ioex.carrier.robot
+   :noindex:
+
+.. java:type:: public class RobotProxy
+
+Methods
+-------
+bindRobot
+^^^^^^^^^
+
+.. java:method:: public void bindRobot(RobotIdReceiver receiver)
+   :outertype: RobotProxy
+
+getRobot
+^^^^^^^^
+
+.. java:method:: public static RobotProxy getRobot(Context context)
+   :outertype: RobotProxy
+
+tellRobotAcceptFriend
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void tellRobotAcceptFriend(String me)
+   :outertype: RobotProxy
+
+tellRobotCleanupSessionManager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void tellRobotCleanupSessionManager()
+   :outertype: RobotProxy
+
+tellRobotInitSessionManager
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void tellRobotInitSessionManager()
+   :outertype: RobotProxy
+
+tellRobotRemoveFriend
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void tellRobotRemoveFriend(String me)
+   :outertype: RobotProxy
+
+tellRobotReplySessionRequestAndStart
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void tellRobotReplySessionRequestAndStart()
+   :outertype: RobotProxy
+
+tellRobotSendMessage
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void tellRobotSendMessage(String me, String message)
+   :outertype: RobotProxy
+
+testHello
+^^^^^^^^^
+
+.. java:method:: public void testHello()
+   :outertype: RobotProxy
+
+unbindRobot
+^^^^^^^^^^^
+
+.. java:method:: public void unbindRobot()
+   :outertype: RobotProxy
+
+waitForMessageArrival
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void waitForMessageArrival()
+   :outertype: RobotProxy
+
+waitForRequestArrival
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void waitForRequestArrival()
+   :outertype: RobotProxy
+
+waitForSesionManagerInitialzed
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void waitForSesionManagerInitialzed()
+   :outertype: RobotProxy
+
+waitForSessionConnected
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void waitForSessionConnected()
+   :outertype: RobotProxy
+
+waitForSessionRequestArrival
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void waitForSessionRequestArrival()
+   :outertype: RobotProxy
+

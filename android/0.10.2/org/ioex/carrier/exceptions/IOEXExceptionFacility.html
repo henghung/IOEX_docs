@@ -1,0 +1,362 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEXExceptionFacility &mdash; IOEX Carrier Android Developer Documents 0.10.2 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="org.ioex.carrier.robot" href="../robot/package-index.html" />
+    <link rel="prev" title="IOEXExceptionCode" href="IOEXExceptionCode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> IOEX Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.10.2
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../package-index.html">org.ioex.carrier</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../common/package-index.html">org.ioex.carrier.common</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier.exceptions</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="IOEXException.html">IOEXException</a></li>
+<li class="toctree-l3"><a class="reference internal" href="IOEXExceptionCode.html">IOEXExceptionCode</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">IOEXExceptionFacility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enum-constants">Enum Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../robot/package-index.html">org.ioex.carrier.robot</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">IOEX Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier.exceptions</a> &raquo;</li>
+        
+      <li>IOEXExceptionFacility</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioexexceptionfacility">
+<h1>IOEXExceptionFacility<a class="headerlink" href="#ioexexceptionfacility" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility">
+public enum <code class="sig-name descname">IOEXExceptionFacility</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="Permalink to this definition">¶</a></dt>
+<dd><p>Facility of an IOEXException error</p>
+</dd></dl>
+
+<div class="section" id="enum-constants">
+<h2>Enum Constants<a class="headerlink" href="#enum-constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="av">
+<h3>Av<a class="headerlink" href="#av" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.Av">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">Av</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.Av" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Audio / Video con-call related error</p>
+</dd></dl>
+
+</div>
+<div class="section" id="dht">
+<h3>Dht<a class="headerlink" href="#dht" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.Dht">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">Dht</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.Dht" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English DHT protocol related error</p>
+</dd></dl>
+
+</div>
+<div class="section" id="general">
+<h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.General">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">General</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.General" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English General error generated in IOEX carrier.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="http">
+<h3>Http<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.Http">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">Http</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.Http" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Http protocol related error</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ice">
+<h3>Ice<a class="headerlink" href="#ice" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.Ice">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">Ice</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.Ice" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English ICE protocol related error</p>
+</dd></dl>
+
+</div>
+<div class="section" id="system">
+<h3>System<a class="headerlink" href="#system" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.System">
+public static final <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">System</code><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.System" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English OS related error.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="format">
+<h3>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.format(IOEXExceptionFacility)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">format</code><span class="sig-paren">(</span><a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a><em> code</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.format(IOEXExceptionFacility)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the debug description of the IOEXExceptionFacility object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> – The IOEXExceptionFacility</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The debug description of IOEXExceptionFacility object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.toString()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the debug description of current IOEXExceptionFacility object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The debug description of current IOEXExceptionFacility object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.value()">
+public int <code class="sig-name descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.value()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the code value of current IOEXExceptionFacility object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The error value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="valueof">
+<h3>valueOf<a class="headerlink" href="#valueof" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.exceptions.IOEXExceptionFacility.valueOf(int)">
+public static <a class="reference internal" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility" title="org.ioex.carrier.exceptions.IOEXExceptionFacility">IOEXExceptionFacility</a> <code class="sig-name descname">valueOf</code><span class="sig-paren">(</span>int<em> facility</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.exceptions.IOEXExceptionFacility.valueOf(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get IOEXExceptionFacility object from facility integer value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>facility</strong> – The facility value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The IOEXExceptionFacility object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../robot/package-index.html" class="btn btn-neutral float-right" title="org.ioex.carrier.robot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="IOEXExceptionCode.html" class="btn btn-neutral float-left" title="IOEXExceptionCode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, IOEX Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,65 @@
+.. java:import:: android.app Service
+
+.. java:import:: android.content Intent
+
+.. java:import:: android.os Bundle
+
+.. java:import:: android.os Handler
+
+.. java:import:: android.os IBinder
+
+.. java:import:: android.os Looper
+
+.. java:import:: android.os Message
+
+.. java:import:: android.os Messenger
+
+.. java:import:: android.util Log
+
+.. java:import:: org.ioex.carrier AbstractCarrierHandler
+
+.. java:import:: org.ioex.carrier Carrier
+
+.. java:import:: org.ioex.carrier UserInfo
+
+.. java:import:: org.ioex.carrier.common Synchronizer
+
+.. java:import:: org.ioex.carrier.common TestOptions
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+RobotService.TestHandler
+========================
+
+.. java:package:: org.ioex.carrier.robot
+   :noindex:
+
+.. java:type::  class TestHandler extends AbstractCarrierHandler
+   :outertype: RobotService
+
+Methods
+-------
+onFriendInviteRequest
+^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void onFriendInviteRequest(Carrier carrier, String from, String data)
+   :outertype: RobotService.TestHandler
+
+onFriendMessage
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void onFriendMessage(Carrier carrier, String from, String message)
+   :outertype: RobotService.TestHandler
+
+onFriendRequest
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void onFriendRequest(Carrier carrier, String userId, UserInfo info, String hello)
+   :outertype: RobotService.TestHandler
+
+onReady
+^^^^^^^
+
+.. java:method:: public void onReady(Carrier carrier)
+   :outertype: RobotService.TestHandler
+

@@ -1,0 +1,79 @@
+FileTransmissionPausedStatus
+============================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum FileTransmissionPausedStatus
+
+Enum Constants
+--------------
+Both
+^^^^
+
+.. java:field:: public static final FileTransmissionPausedStatus Both
+   :outertype: FileTransmissionPausedStatus
+
+None
+^^^^
+
+.. java:field:: public static final FileTransmissionPausedStatus None
+   :outertype: FileTransmissionPausedStatus
+
+Other
+^^^^^
+
+.. java:field:: public static final FileTransmissionPausedStatus Other
+   :outertype: FileTransmissionPausedStatus
+
+Us
+^^
+
+.. java:field:: public static final FileTransmissionPausedStatus Us
+   :outertype: FileTransmissionPausedStatus
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(FileTransmissionPausedStatus status)
+   :outertype: FileTransmissionPausedStatus
+
+   Get the debug description of the FileTransmissionPausedStatus object.
+
+   :param status: The file transmission status
+   :return: The debug description of FileTransmissionPausedStatus object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: FileTransmissionPausedStatus
+
+   Get the debug description of current FileTransmissionPausedStatus object.
+
+   :return: The debug description of current FileTransmissionPausedStatus object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: FileTransmissionPausedStatus
+
+   Get the status value of current FileTransmissionPausedStatus object.
+
+   :return: The file transmission status value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static FileTransmissionPausedStatus valueOf(int status)
+   :outertype: FileTransmissionPausedStatus
+
+   Get FileTransmissionPausedStatus object from staus integter value.
+
+   :param status: The status value
+   :throws IllegalArgumentException:
+   :return: The FileTransmissionPausedStatus object
+
