@@ -1,0 +1,661 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Become a Friend With Other Nodes &mdash; IOEX Carrier Developer Documents 0.15.4 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.15.4 documentation" href="index.html"/>
+        <link rel="next" title="Send Messages and Files to Friend" href="tutorial-msg-file.html"/>
+        <link rel="prev" title="Quick Start" href="tutorial-quickstart.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Become a Friend With Other Nodes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#receive-commands-from-standard-input">Receive Commands From Standard Input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#add-friend-commands-and-apis">Add Friend Commands and APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implement-friend-connection-status-callback">Implement Friend Connection Status Callback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#test-with-ioexshell">Test with IOEXshell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#restore-ioexshell-to-defalt-state">Restore IOEXshell to defalt state</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#friend-callbacks-and-apis-flow">Friend Callbacks and APIs Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#complete-example">Complete Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s Next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">IOEX Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Become a Friend With Other Nodes</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="become-a-friend-with-other-nodes">
+<h1>Become a Friend With Other Nodes<a class="headerlink" href="#become-a-friend-with-other-nodes" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we will build an application which can become a friend with other nodes. The application will have the ability to receive commands from standard input, thus allow users to enter the message to a friend via command line.</p>
+<p>This application will base on the one in <a class="reference internal" href="tutorial-quickstart.html#quick-start"><span class="std std-ref">Quick Start</span></a>. If you haven’t finish the previous tutorial, we highly recommanded you to check the <a class="reference internal" href="tutorial-quickstart.html#quick-start"><span class="std std-ref">Quick Start</span></a> tutorial first.</p>
+</div>
+<div class="section" id="receive-commands-from-standard-input">
+<h2>Receive Commands From Standard Input<a class="headerlink" href="#receive-commands-from-standard-input" title="Permalink to this headline">¶</a></h2>
+<p>Our goal is to take user’s input, parse it to commands and data, and run corresponding APIs under command line. We can utilize the <cite>idle</cite> callback in <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a> as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">idle_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">read_command</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">command</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">do_command</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The idle callback is called when IOEXCarrier is not performing its core functions, like processing packets, nodes lookup, etc. We will read input from users and perform the corresponding actions in idle callback. The <code class="docutils literal notranslate"><span class="pre">read_command()</span></code> function in the callback is defined as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">read_command</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">command_line</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="c1">// By default, fgetc from stdin will be blocked until a input is received</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+
+    <span class="c1">// Failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Printable ASCII charactors</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="n">command_len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Enter is pressed</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\r&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">command_line</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This function will keep receiving a character from standard input until user presses enter. Notes that <code class="docutils literal notranslate"><span class="pre">fgetc(stdin)</span></code> will not return until an user input is received. This make <code class="docutils literal notranslate"><span class="pre">idle_callback</span></code> block as well, and hence affect other IOEXCarrier core functions and callbacks.</p>
+<p>To resolve this problem, we will make <code class="docutils literal notranslate"><span class="pre">stdin</span></code> non-block:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// #include&lt;fcntl.h&gt;</span>
+
+<span class="c1">// ...</span>
+
+<span class="c1">// Add the codes below to main() function</span>
+
+<span class="c1">// Set stdin non-block.</span>
+<span class="c1">// The first argument 0 is the file descriptor of stdin</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to set stdin non-blocking.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now we can write our <code class="docutils literal notranslate"><span class="pre">do_command</span></code> functions:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">do_command</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">argc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">command</span><span class="p">;</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)){</span>
+            <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_word</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">argc</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// TODO: Execute the commands ...</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="c1">// Demo debug message like this:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The command is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">do_command</span></code> function will parse the string input into commands and arguments, which was separated by space. For example, an input string <em>“sendmsg raymond hello”</em> will be parsed into 3 arguments (argc = 3), where:</p>
+<ul class="simple">
+<li><p>argv[0] = “sendmsg”</p></li>
+<li><p>argv[1] = “raymond”</p></li>
+<li><p>argv[2] = “hello”</p></li>
+</ul>
+<p>You can try to <a class="reference internal" href="tutorial-quickstart.html#compile-the-ioex-carrier-application"><span class="std std-ref">compile</span></a> and <a class="reference internal" href="tutorial-quickstart.html#execute-the-application"><span class="std std-ref">run</span></a> our main application now. Try to type any sentence and see if the debug message “The command is …” can be display correctly. Since <code class="docutils literal notranslate"><span class="pre">stdin</span></code> is non-block, the <code class="docutils literal notranslate"><span class="pre">connection_status_callback</span></code> should be invoked correctly and displays the message “Connected to carrier network” regardless to user’s input.</p>
+<p>If everything works as expected, we can proceed to design and implement our commands.</p>
+</div>
+<div class="section" id="add-friend-commands-and-apis">
+<h2>Add Friend Commands and APIs<a class="headerlink" href="#add-friend-commands-and-apis" title="Permalink to this headline">¶</a></h2>
+<p>An IOEX Carrier node must become a friend with another node before they can exchange messages, files or data in a peer-to-peer connection. To become a friend with a node, you need to acquire <code class="docutils literal notranslate"><span class="pre">address</span></code> of the node first.</p>
+<p>The IOEX Carrier node address is a human readable string with max length <a class="reference internal" href="carrier-api.html#ioex-max-address-len"><span class="std std-ref">IOEX_MAX_ADDRESS_LEN</span></a>. It is randomly generated when the node start first time, and will not change afterward. The node can use <a class="reference internal" href="carrier-api.html#ioex-get-address"><span class="std std-ref">IOEX_get_address</span></a> API to retrieve its address.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The exchange of the address is not part of IOEX Carrier protocol. You should acquire node address from a friend in a face-to-face activities so it is guaranteed that the address is valid and belongs to your friend.</p>
+<p>In some applications, you can also hard-code a existed node’s address in your source code.</p>
+</div>
+<p>Now we will implement a <code class="docutils literal notranslate"><span class="pre">fadd</span></code> command to become a friend with a node. It will take a node address and a custom message as arguments. Add the code block as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">add_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend succeess.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend failed(0x%08X).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And make the following changes in <code class="docutils literal notranslate"><span class="pre">do_command</span></code>:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Execute the commands</span>
+<span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+        <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The <a class="reference internal" href="carrier-api.html#ioex-add-friend"><span class="std std-ref">IOEX_add_friend</span></a> API in <code class="docutils literal notranslate"><span class="pre">add_friend</span></code> will try to send a friend request to the specific address with a custom message. It will return 0 if the request is sent succefully. If not, it will return -1 and an error code is set automatically. You can use <a class="reference internal" href="carrier-api.html#ioex-get-error"><span class="std std-ref">IOEX_get_error</span></a> to retrieve the error code. Refer to <a class="reference internal" href="carrier-error-number.html#ioex-carrier-error-number"><span class="std std-ref">IOEX Carrier error number</span></a> for the definition of the error.</p>
+</div>
+<div class="section" id="implement-friend-connection-status-callback">
+<h2>Implement Friend Connection Status Callback<a class="headerlink" href="#implement-friend-connection-status-callback" title="Permalink to this headline">¶</a></h2>
+<p>A <cite>friend_connection</cite> callback in <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a> is used to tell the user if a friend went online or offline. We can add the following code to our application:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_connection_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+                                       <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be offline.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!!! Got unknown connection status %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And remember to add it to callback list in main function:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>  <span class="c1">// Add this!</span>
+</pre></div>
+</div>
+<p>Once we become a friend with other nodes, this callback will trigger when the friend goes online or offline.</p>
+</div>
+<div class="section" id="test-with-ioexshell">
+<h2>Test with IOEXshell<a class="headerlink" href="#test-with-ioexshell" title="Permalink to this headline">¶</a></h2>
+<p>You need to find another node before you can become a friend with it. Luckily, there is a pre-built command-line tool IOEXshell shipped in IOEX Carrier SDK. The tool will start another IOEX Carrier node instance and have implemented many commands and callbacks, which make it very suitable to serve as a testing tool. You can find IOEXshell under <code class="docutils literal notranslate"><span class="pre">bin</span></code> folder, and it can be executed with <code class="docutils literal notranslate"><span class="pre">IOEXshell.sh</span></code> shell script.</p>
+<p>Now, run IOEXshell.sh in a terminal. Address of IOEXshell will be displayed on the up-left corner of screen. Copy the address and keep the terminal running.</p>
+<p>Open another terminal and execute our main application. Wait until the <em>Connected to carrier network</em> message pop up, and then enter the <code class="docutils literal notranslate"><span class="pre">fadd</span></code> command as follows:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fadd SHELL_NODE_ADDRESS hello</span>
+</pre></div>
+</div>
+<p>Replace the SHELL_NODE_ADDRESS with the one you copied from IOEXshell screen.</p>
+<p>If you see <em>“Request to add a new friend succeess.”</em> message pop up, you have successfully sent the request to IOEXshell. Now, go back to IOEXshell screen, you should be able to see a message after a while (the ID in the message might be different):</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Friend request from user[ MAIN_NODE_ID ] with HELLO: hello.</span>
+<span class="go">Reply use following commands:</span>
+<span class="go">  faccept MAIN_NODE_ID</span>
+</pre></div>
+</div>
+<p>These messages indicate that IOEXshell have successfully received your friend request. It is generated by IOEXshell’s :ref:<code class="docutils literal notranslate"><span class="pre">friend_request</span> <span class="pre">&lt;carrier-api:IOEXCallbacks&gt;</span></code> callback implementation. We simply copy the entire <code class="docutils literal notranslate"><span class="pre">faccept</span></code> line and paste into IOEXshell input screen, and press enter to send the command. What IOEXshell do is to call :ref:<code class="docutils literal notranslate"><span class="pre">carrier-api:IOEX_accept_friend</span></code> to accept the friend request from our main application.</p>
+<p>Now switch back to the main application, you should be able to see a message:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Friend[ SHELL_NODE_ID ] connection changed to be online</span>
+</pre></div>
+</div>
+<p>This implies that the friend has accepted our request and became a friend with us. Now you will be able to recieve the friend’s online/offline status update.</p>
+<div class="section" id="restore-ioexshell-to-defalt-state">
+<h3>Restore IOEXshell to defalt state<a class="headerlink" href="#restore-ioexshell-to-defalt-state" title="Permalink to this headline">¶</a></h3>
+<p>Sometimes you will need to restore the state of IOEXshell to default for testing purpose. For example, if you have became a friend with a node, you cannot be friend with it again afterward. This might cause some problem for developing and testing and you wants to restore everything to default.</p>
+<p>To restore to default state, you will need to remove the persistence data and key of IOEXshell. By default, the persistence data is stored in your project folder under <code class="docutils literal notranslate"><span class="pre">etc/carrier/.data</span></code>, and the key is located as <code class="docutils literal notranslate"><span class="pre">etc/carrier/shellkey</span></code>. So you can simply remove the entire .data folder and shellkey file to restore IOEXshell to default state.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can restore your application to default by removing the persist data and key file as well. For the main application in this tutorial, the persist data is stored in project folder under <code class="docutils literal notranslate"><span class="pre">persistent</span></code> folder, and the key file is called <code class="docutils literal notranslate"><span class="pre">key</span></code>.</p>
+</div>
+</div>
+</div>
+<div class="section" id="friend-callbacks-and-apis-flow">
+<h2>Friend Callbacks and APIs Flow<a class="headerlink" href="#friend-callbacks-and-apis-flow" title="Permalink to this headline">¶</a></h2>
+<p>We have demostrated the basic flow on how to become a friend with other nodes. To sum up, it can be described as follows:</p>
+<ol class="arabic simple">
+<li><p>Node A acquires <code class="docutils literal notranslate"><span class="pre">address</span></code> of Node B</p></li>
+<li><p>Node A send a friend request by using <a class="reference internal" href="carrier-api.html#ioex-add-friend"><span class="std std-ref">IOEX_add_friend</span></a> API and Node B’s <code class="docutils literal notranslate"><span class="pre">address</span></code></p></li>
+<li><p>Node B will received the message and <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">friend_request</span></a> is called</p></li>
+<li><p>Node B accept the friend request by using <a class="reference internal" href="carrier-api.html#ioex-accept-friend"><span class="std std-ref">IOEX_accept_friend</span></a> API</p></li>
+<li><p>Node A will receive Node B’s online message and <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">friend_connection</span></a> is called</p></li>
+</ol>
+<p>If Node B do not want to befriend with Node A, simply ignore the friend request in Step 4.</p>
+<p>You can see that Node B never explicitly tells Node A if it has accepted or rejected the friend request. Node A only knows Node B has accepted the request and became a friend when it sees Node B is online. This behavior is similar to other messaging applications, and maintained certain level of privacy for the owner of Node B.</p>
+<p>There are other APIs and callbacks you should implement in the main application. For example, you should implement a command to accept a friend request from other nodes, like what implemented in IOEXshell. Please refer to <a class="reference internal" href="carrier-api.html#friend-interaction"><span class="std std-ref">the list of friend APIs</span></a> and the callbacks begin with <code class="docutils literal notranslate"><span class="pre">friend</span></code> in <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a>.</p>
+</div>
+<div class="section" id="complete-example">
+<h2>Complete Example<a class="headerlink" href="#complete-example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ctype.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;IOEX_carrier.h&quot;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_connection_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+                                       <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be offline.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!!! Got unknown connection status %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">add_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend succeess.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend failed(0x%x).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">read_command</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">command_line</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+
+    <span class="c1">// Failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Printable ASCII charactors</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="n">command_len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Enter is pressed</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\r&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">command_line</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">do_command</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">argc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">command</span><span class="p">;</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)){</span>
+            <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_word</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">argc</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+            <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">idle_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">read_command</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">command</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">do_command</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+
+    <span class="c1">// Set options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Randomize</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Set stdin non-block</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to set stdin non-blocking.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Set callbacks</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>
+
+    <span class="c1">// Initialize carrier instance</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Display carrier node information</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Run carrier loop</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s Next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we implemented some commands and callbacks to give you the idea about how IOEX Carrier nodes became friends.</p>
+<p>Next, we will try to send messages and files to the friend.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial-msg-file.html" class="btn btn-neutral float-right" title="Send Messages and Files to Friend" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial-quickstart.html" class="btn btn-neutral" title="Quick Start" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.15.4',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

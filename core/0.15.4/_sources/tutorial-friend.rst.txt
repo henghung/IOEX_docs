@@ -1,0 +1,272 @@
+Become a Friend With Other Nodes
+================================
+
+Overview
+--------
+
+In this tutorial, we will build an application which can become a friend with other nodes. The application will have the ability to receive commands from standard input, thus allow users to enter the message to a friend via command line.
+
+This application will base on the one in :ref:`tutorial-quickstart:Quick Start`. If you haven't finish the previous tutorial, we highly recommanded you to check the :ref:`tutorial-quickstart:Quick Start` tutorial first.
+
+Receive Commands From Standard Input
+------------------------------------
+
+Our goal is to take user's input, parse it to commands and data, and run corresponding APIs under command line. We can utilize the `idle` callback in :ref:`carrier-api:IOEXCallbacks` as follows:
+
+.. code-block:: c
+
+    static void idle_callback(IOEXCarrier *w, void *context)
+    {
+        char *command;
+        command = read_command();
+        if(command != NULL){
+            do_command(w, command);
+        }
+    }
+
+The idle callback is called when IOEXCarrier is not performing its core functions, like processing packets, nodes lookup, etc. We will read input from users and perform the corresponding actions in idle callback. The ``read_command()`` function in the callback is defined as follows:
+
+.. code-block:: c
+
+    static char *read_command(void)
+    {
+        static int command_len = 0;
+        static char command_line[1024];
+        int ch;
+
+        // By default, fgetc from stdin will be blocked until a input is received
+        ch = fgetc(stdin);
+
+        // Failed
+        if(ch == EOF){
+            return NULL;
+        }
+
+        // Printable ASCII charactors
+        if(isprint(ch)){
+            command_line[command_len] = ch;
+            command_len++;
+        }
+        // Enter is pressed
+        else if(ch == '\r' || ch == '\n'){
+            command_line[command_len] = '\0';
+            command_len = 0;
+
+            if(strlen(command_line) > 0){
+                return command_line;
+            }
+        }
+        return NULL;
+    }
+
+This function will keep receiving a character from standard input until user presses enter. Notes that ``fgetc(stdin)`` will not return until an user input is received. This make ``idle_callback`` block as well, and hence affect other IOEXCarrier core functions and callbacks.
+
+To resolve this problem, we will make ``stdin`` non-block:
+
+.. code-block:: c
+
+    // #include<fcntl.h>
+
+    // ...
+
+    // Add the codes below to main() function
+
+    // Set stdin non-block.
+    // The first argument 0 is the file descriptor of stdin
+    rc = fcntl(0, F_SETFL, O_NONBLOCK);
+    if (rc < 0) {
+         printf("Failed to set stdin non-blocking.\n");
+         return -1;
+    }
+
+Now we can write our ``do_command`` functions:
+
+.. code-block:: c
+
+    static void do_command(IOEXCarrier *w, char *command)
+    {
+        char *argv[256], *p;
+        int argc = 0, is_word = 0;
+
+        for(p = command; *p != 0; p++){
+            if(isspace(*p)){
+                *p = 0;
+                is_word = 0;
+            }
+            else{
+                if(is_word == 0){
+                    argv[argc] = p;
+                    argc++;
+                }
+                is_word = 1;
+            }
+        }
+
+        // TODO: Execute the commands ...
+        if(argc > 0){
+            // Demo debug message like this:
+            printf("The command is %s\n", argv[0]);
+        }
+    }
+
+The ``do_command`` function will parse the string input into commands and arguments, which was separated by space. For example, an input string *"sendmsg raymond hello"* will be parsed into 3 arguments (argc = 3), where:
+
+- argv[0] = "sendmsg"
+- argv[1] = "raymond"
+- argv[2] = "hello"
+
+You can try to :ref:`compile <tutorial-quickstart:Compile the IOEX Carrier Application>` and :ref:`run <tutorial-quickstart:Execute the Application>` our main application now. Try to type any sentence and see if the debug message "The command is ..." can be display correctly. Since ``stdin`` is non-block, the ``connection_status_callback`` should be invoked correctly and displays the message "Connected to carrier network" regardless to user's input.
+
+If everything works as expected, we can proceed to design and implement our commands.
+
+Add Friend Commands and APIs
+----------------------------
+
+An IOEX Carrier node must become a friend with another node before they can exchange messages, files or data in a peer-to-peer connection. To become a friend with a node, you need to acquire ``address`` of the node first.
+
+The IOEX Carrier node address is a human readable string with max length :ref:`carrier-api:IOEX_MAX_ADDRESS_LEN`. It is randomly generated when the node start first time, and will not change afterward. The node can use :ref:`carrier-api:IOEX_get_address` API to retrieve its address.
+
+.. note::
+    The exchange of the address is not part of IOEX Carrier protocol. You should acquire node address from a friend in a face-to-face activities so it is guaranteed that the address is valid and belongs to your friend.
+
+    In some applications, you can also hard-code a existed node's address in your source code.
+
+Now we will implement a ``fadd`` command to become a friend with a node. It will take a node address and a custom message as arguments. Add the code block as follows:
+
+.. code-block:: c
+
+    static void add_friend(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+
+        if (argc != 3) {
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_add_friend(w, argv[1], argv[2]);
+        if (rc == 0)
+            printf("Request to add a new friend succeess.\n");
+        else
+            printf("Request to add a new friend failed(0x%08X).\n", IOEX_get_error());
+    }
+
+And make the following changes in ``do_command``:
+
+.. code-block:: c
+
+    // Execute the commands
+    if(argc > 0){
+        if(!strcmp(argv[0], "fadd")){
+            add_friend(w, argc, argv);
+        }
+    }
+
+The :ref:`carrier-api:IOEX_add_friend` API in ``add_friend`` will try to send a friend request to the specific address with a custom message. It will return 0 if the request is sent succefully. If not, it will return -1 and an error code is set automatically. You can use :ref:`carrier-api:IOEX_get_error` to retrieve the error code. Refer to :ref:`carrier-error-number:IOEX Carrier error number` for the definition of the error.
+
+Implement Friend Connection Status Callback
+-------------------------------------------
+
+A `friend_connection` callback in :ref:`carrier-api:IOEXCallbacks` is used to tell the user if a friend went online or offline. We can add the following code to our application:
+
+.. code-block:: c
+
+    static void friend_connection_callback(IOEXCarrier *w, const char *friendid,
+                                           IOEXConnectionStatus status, void *context)
+    {
+        switch (status) {
+            case IOEXConnectionStatus_Connected:
+                printf("Friend[%s] connection changed to be online\n", friendid);
+                break;
+            case IOEXConnectionStatus_Disconnected:
+                printf("Friend[%s] connection changed to be offline.\n", friendid);
+                break;
+            default:
+                printf("Error!!! Got unknown connection status %d.\n", status);
+        }
+    }
+
+And remember to add it to callback list in main function:
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    callbacks.connection_status = connection_status_callback;
+    callbacks.idle = idle_callback;
+    callbacks.friend_connection = friend_connection_callback;  // Add this!
+
+Once we become a friend with other nodes, this callback will trigger when the friend goes online or offline.
+
+Test with IOEXshell
+-------------------
+
+You need to find another node before you can become a friend with it. Luckily, there is a pre-built command-line tool IOEXshell shipped in IOEX Carrier SDK. The tool will start another IOEX Carrier node instance and have implemented many commands and callbacks, which make it very suitable to serve as a testing tool. You can find IOEXshell under ``bin`` folder, and it can be executed with ``IOEXshell.sh`` shell script.
+
+Now, run IOEXshell.sh in a terminal. Address of IOEXshell will be displayed on the up-left corner of screen. Copy the address and keep the terminal running.
+
+Open another terminal and execute our main application. Wait until the *Connected to carrier network* message pop up, and then enter the ``fadd`` command as follows:
+
+.. code-block:: console
+
+    fadd SHELL_NODE_ADDRESS hello
+
+Replace the SHELL_NODE_ADDRESS with the one you copied from IOEXshell screen.
+
+If you see *"Request to add a new friend succeess."* message pop up, you have successfully sent the request to IOEXshell. Now, go back to IOEXshell screen, you should be able to see a message after a while (the ID in the message might be different):
+
+.. code-block:: console
+
+    Friend request from user[ MAIN_NODE_ID ] with HELLO: hello.
+    Reply use following commands:
+      faccept MAIN_NODE_ID
+
+These messages indicate that IOEXshell have successfully received your friend request. It is generated by IOEXshell's :ref:``friend_request <carrier-api:IOEXCallbacks>`` callback implementation. We simply copy the entire ``faccept`` line and paste into IOEXshell input screen, and press enter to send the command. What IOEXshell do is to call :ref:``carrier-api:IOEX_accept_friend`` to accept the friend request from our main application.
+
+Now switch back to the main application, you should be able to see a message:
+
+.. code-block:: console
+
+    Friend[ SHELL_NODE_ID ] connection changed to be online
+
+This implies that the friend has accepted our request and became a friend with us. Now you will be able to recieve the friend's online/offline status update.
+
+Restore IOEXshell to defalt state
+#################################
+
+Sometimes you will need to restore the state of IOEXshell to default for testing purpose. For example, if you have became a friend with a node, you cannot be friend with it again afterward. This might cause some problem for developing and testing and you wants to restore everything to default.
+
+To restore to default state, you will need to remove the persistence data and key of IOEXshell. By default, the persistence data is stored in your project folder under ``etc/carrier/.data``, and the key is located as ``etc/carrier/shellkey``. So you can simply remove the entire .data folder and shellkey file to restore IOEXshell to default state.
+
+.. note::
+    You can restore your application to default by removing the persist data and key file as well. For the main application in this tutorial, the persist data is stored in project folder under ``persistent`` folder, and the key file is called ``key``.
+
+Friend Callbacks and APIs Flow
+------------------------------
+
+We have demostrated the basic flow on how to become a friend with other nodes. To sum up, it can be described as follows:
+
+1. Node A acquires ``address`` of Node B
+2. Node A send a friend request by using :ref:`carrier-api:IOEX_add_friend` API and Node B's ``address``
+3. Node B will received the message and :ref:`friend_request <carrier-api:IOEXCallbacks>` is called
+4. Node B accept the friend request by using :ref:`carrier-api:IOEX_accept_friend` API
+5. Node A will receive Node B's online message and :ref:`friend_connection <carrier-api:IOEXCallbacks>` is called
+
+If Node B do not want to befriend with Node A, simply ignore the friend request in Step 4.
+
+You can see that Node B never explicitly tells Node A if it has accepted or rejected the friend request. Node A only knows Node B has accepted the request and became a friend when it sees Node B is online. This behavior is similar to other messaging applications, and maintained certain level of privacy for the owner of Node B.
+
+There are other APIs and callbacks you should implement in the main application. For example, you should implement a command to accept a friend request from other nodes, like what implemented in IOEXshell. Please refer to :ref:`the list of friend APIs <carrier-api:Friend & interaction>` and the callbacks begin with ``friend`` in :ref:`carrier-api:IOEXCallbacks`.
+
+Complete Example
+----------------
+
+.. literalinclude:: tutorial-friend-main.c
+    :language: c
+
+What's Next?
+------------
+
+In this tutorial, we implemented some commands and callbacks to give you the idea about how IOEX Carrier nodes became friends.
+
+Next, we will try to send messages and files to the friend.
