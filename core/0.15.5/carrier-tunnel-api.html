@@ -1,0 +1,466 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEX Carrier Tunnel APIs &mdash; IOEX Carrier Developer Documents 0.15.5 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.15.5 documentation" href="index.html"/>
+        <link rel="next" title="IOEX Carrier VPN APIs" href="carrier-vpn-api.html"/>
+        <link rel="prev" title="IOEX Carrier OTA APIs" href="carrier-ota-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOEX Carrier Tunnel APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ioextunnelstatus">IOEXTunnelStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioextunnelinfo">IOEXTunnelInfo</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#tunnel-functions">Tunnel Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-tunnel-request">IOEX_tunnel_request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-tunnel-accept">IOEX_tunnel_accept</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-tunnel-cancel">IOEX_tunnel_cancel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-tunnel-info">IOEX_tunnel_info</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-tunnel-send-data-lossless">IOEX_tunnel_send_data_lossless</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-tunnel-send-data-lossy">IOEX_tunnel_send_data_lossy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">IOEX Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>IOEX Carrier Tunnel APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioex-carrier-tunnel-apis">
+<h1>IOEX Carrier Tunnel APIs<a class="headerlink" href="#ioex-carrier-tunnel-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="data-types">
+<h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ioextunnelstatus">
+<h3>IOEXTunnelStatus<a class="headerlink" href="#ioextunnelstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="enum">
+<dt id="_CPPv416IOEXTunnelStatus">
+<span id="_CPPv316IOEXTunnelStatus"></span><span id="_CPPv216IOEXTunnelStatus"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3bc92df61bb1ecc37c7390d32273e72a"></span><em class="property">enum </em><code class="sig-name descname">IOEXTunnelStatus</code><a class="headerlink" href="#_CPPv416IOEXTunnelStatus" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Status of a tunnel. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv421IOEXTunnelStatus_None">
+<span id="_CPPv321IOEXTunnelStatus_None"></span><span id="_CPPv221IOEXTunnelStatus_None"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3bc92df61bb1ecc37c7390d32273e72aabc93f98a5eee9b69ce01c505833708ce"></span><code class="sig-name descname">IOEXTunnelStatus_None</code><a class="headerlink" href="#_CPPv421IOEXTunnelStatus_None" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The tunnel is not setup or status unknown. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv424IOEXTunnelStatus_Pending">
+<span id="_CPPv324IOEXTunnelStatus_Pending"></span><span id="_CPPv224IOEXTunnelStatus_Pending"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3bc92df61bb1ecc37c7390d32273e72aa02c5a5c8473e631450d1d57f847010bc"></span><code class="sig-name descname">IOEXTunnelStatus_Pending</code><a class="headerlink" href="#_CPPv424IOEXTunnelStatus_Pending" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The tunnel is waiting for user’s approval. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv424IOEXTunnelStatus_Waiting">
+<span id="_CPPv324IOEXTunnelStatus_Waiting"></span><span id="_CPPv224IOEXTunnelStatus_Waiting"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3bc92df61bb1ecc37c7390d32273e72aa13a16130efd0f28db5e8211aead3782a"></span><code class="sig-name descname">IOEXTunnelStatus_Waiting</code><a class="headerlink" href="#_CPPv424IOEXTunnelStatus_Waiting" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The tunnel is waiting for response from the other peer. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv424IOEXTunnelStatus_Running">
+<span id="_CPPv324IOEXTunnelStatus_Running"></span><span id="_CPPv224IOEXTunnelStatus_Running"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3bc92df61bb1ecc37c7390d32273e72aaa9a26b4f154b75a1bb3268a9b67e2902"></span><code class="sig-name descname">IOEXTunnelStatus_Running</code><a class="headerlink" href="#_CPPv424IOEXTunnelStatus_Running" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The tunnel is running. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv425IOEXTunnelStatus_Finished">
+<span id="_CPPv325IOEXTunnelStatus_Finished"></span><span id="_CPPv225IOEXTunnelStatus_Finished"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3bc92df61bb1ecc37c7390d32273e72aa90264095ee8afdf05226ef840ae45974"></span><code class="sig-name descname">IOEXTunnelStatus_Finished</code><a class="headerlink" href="#_CPPv425IOEXTunnelStatus_Finished" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The tunnel is finished or canceled. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ioextunnelinfo">
+<h3>IOEXTunnelInfo<a class="headerlink" href="#ioextunnelinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="_CPPv414IOEXTunnelInfo">
+<span id="_CPPv314IOEXTunnelInfo"></span><span id="_CPPv214IOEXTunnelInfo"></span><span id="IOEXTunnelInfo"></span><span class="target" id="struct_i_o_e_x_tunnel_info"></span><em class="property">struct </em><code class="sig-name descname">IOEXTunnelInfo</code><a class="headerlink" href="#_CPPv414IOEXTunnelInfo" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Tunnel information is used to track opened tunnel with friends. </p>
+<p>Each tunnel is uniquely identified by randomly generated tunnel_id, which is between 1~65535. The id is generated by each side so the friend is very likely using different id (remote id). During the transmission, we need to include the remote id in the packet. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N14IOEXTunnelInfo9tunnel_idE">
+<span id="_CPPv3N14IOEXTunnelInfo9tunnel_idE"></span><span id="_CPPv2N14IOEXTunnelInfo9tunnel_idE"></span><span id="IOEXTunnelInfo::tunnel_id__uint16_t"></span><span class="target" id="struct_i_o_e_x_tunnel_info_1aa3e209ac72554200105b3eb45c15fdbc"></span>uint16_t <code class="sig-name descname">tunnel_id</code><a class="headerlink" href="#_CPPv4N14IOEXTunnelInfo9tunnel_idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The ID of the tunnel. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14IOEXTunnelInfo9remote_idE">
+<span id="_CPPv3N14IOEXTunnelInfo9remote_idE"></span><span id="_CPPv2N14IOEXTunnelInfo9remote_idE"></span><span id="IOEXTunnelInfo::remote_id__uint16_t"></span><span class="target" id="struct_i_o_e_x_tunnel_info_1a7a9a38d50ded98e66ab7d1cdbe39aa2e"></span>uint16_t <code class="sig-name descname">remote_id</code><a class="headerlink" href="#_CPPv4N14IOEXTunnelInfo9remote_idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The ID to identify this tunnel in the remote side. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14IOEXTunnelInfo9friend_idE">
+<span id="_CPPv3N14IOEXTunnelInfo9friend_idE"></span><span id="_CPPv2N14IOEXTunnelInfo9friend_idE"></span><span id="IOEXTunnelInfo::friend_id__cA"></span><span class="target" id="struct_i_o_e_x_tunnel_info_1a572848c99be272badc5f98c2f7b2e96f"></span>char <code class="sig-name descname">friend_id</code>[<code class="sig-name descname">IOEX_MAX_ID_LEN</code> + 1]<a class="headerlink" href="#_CPPv4N14IOEXTunnelInfo9friend_idE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>The ID of the friend who setup the tunnel with us. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N14IOEXTunnelInfo6statusE">
+<span id="_CPPv3N14IOEXTunnelInfo6statusE"></span><span id="_CPPv2N14IOEXTunnelInfo6statusE"></span><span id="IOEXTunnelInfo::status__IOEXTunnelStatus"></span><span class="target" id="struct_i_o_e_x_tunnel_info_1a6bc35a2e9a174222d859e853effd097a"></span><a class="reference internal" href="#_CPPv416IOEXTunnelStatus" title="IOEXTunnelStatus">IOEXTunnelStatus</a> <code class="sig-name descname">status</code><a class="headerlink" href="#_CPPv4N14IOEXTunnelInfo6statusE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Current status of this tunnel. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tunnel-functions">
+<h3>Tunnel Functions<a class="headerlink" href="#tunnel-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-tunnel-request">
+<h4>IOEX_tunnel_request<a class="headerlink" href="#ioex-tunnel-request" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv419IOEX_tunnel_requestP11IOEXCarrierP8uint16_tPKcPKc">
+<span id="_CPPv319IOEX_tunnel_requestP11IOEXCarrierP8uint16_tPKcPKc"></span><span id="_CPPv219IOEX_tunnel_requestP11IOEXCarrierP8uint16_tPKcPKc"></span><span id="IOEX_tunnel_request__IOEXCarrierP.uint16_tP.cCP.cCP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a8eb1bf0f3716b45f90215026fcb370da"></span>int <code class="sig-name descname">IOEX_tunnel_request</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, uint16_t *<em>tunnel_id</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> char *<em>password</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419IOEX_tunnel_requestP11IOEXCarrierP8uint16_tPKcPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send tunnel request to a friend. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tunnel_id</span></code>: [out] A randomly generated ID to uniquely identify this tunnel. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to setup tunnel with. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">password</span></code>: [in] A pre-shared string for the friend to authenticate us. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-tunnel-accept">
+<h4>IOEX_tunnel_accept<a class="headerlink" href="#ioex-tunnel-accept" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_tunnel_acceptP11IOEXCarrier8uint16_t">
+<span id="_CPPv318IOEX_tunnel_acceptP11IOEXCarrier8uint16_t"></span><span id="_CPPv218IOEX_tunnel_acceptP11IOEXCarrier8uint16_t"></span><span id="IOEX_tunnel_accept__IOEXCarrierP.uint16_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1aca35172bd211fc5cf738028de6cc2b7e"></span>int <code class="sig-name descname">IOEX_tunnel_accept</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, uint16_t <em>tunnel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_tunnel_acceptP11IOEXCarrier8uint16_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that accepts tunnel request. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tunnel_id</span></code>: [in] An ID to uniquely identify this tunnel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-tunnel-cancel">
+<h4>IOEX_tunnel_cancel<a class="headerlink" href="#ioex-tunnel-cancel" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_tunnel_cancelP11IOEXCarrier8uint16_t">
+<span id="_CPPv318IOEX_tunnel_cancelP11IOEXCarrier8uint16_t"></span><span id="_CPPv218IOEX_tunnel_cancelP11IOEXCarrier8uint16_t"></span><span id="IOEX_tunnel_cancel__IOEXCarrierP.uint16_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1aee358465cf89ddabf2466939103a46ad"></span>int <code class="sig-name descname">IOEX_tunnel_cancel</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, uint16_t <em>tunnel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_tunnel_cancelP11IOEXCarrier8uint16_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that cancels tunnel. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tunnel_id</span></code>: [in] An ID to uniquely identify this tunnel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-tunnel-info">
+<h4>IOEX_tunnel_info<a class="headerlink" href="#ioex-tunnel-info" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv416IOEX_tunnel_infoP11IOEXCarrierP14IOEXTunnelInfo8uint16_t">
+<span id="_CPPv316IOEX_tunnel_infoP11IOEXCarrierP14IOEXTunnelInfo8uint16_t"></span><span id="_CPPv216IOEX_tunnel_infoP11IOEXCarrierP14IOEXTunnelInfo8uint16_t"></span><span id="IOEX_tunnel_info__IOEXCarrierP.IOEXTunnelInfoP.uint16_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1af9a9add5c80d07f286a2e37975da82f5"></span>int <code class="sig-name descname">IOEX_tunnel_info</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <a class="reference internal" href="#_CPPv414IOEXTunnelInfo" title="IOEXTunnelInfo">IOEXTunnelInfo</a> *<em>info</em>, uint16_t <em>tunnel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416IOEX_tunnel_infoP11IOEXCarrierP14IOEXTunnelInfo8uint16_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that retrieves information of a tunnel. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the info successfully retrieve. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">info</span></code>: [out] The buffer to store the tunnel information. Will be NULL if the tunnel cannot be found. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tunnel_id</span></code>: [in] An ID to uniquely identify this tunnel. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-tunnel-send-data-lossless">
+<h4>IOEX_tunnel_send_data_lossless<a class="headerlink" href="#ioex-tunnel-send-data-lossless" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv430IOEX_tunnel_send_data_losslessP11IOEXCarrier8uint16_tPK7uint8_t6size_t">
+<span id="_CPPv330IOEX_tunnel_send_data_losslessP11IOEXCarrier8uint16_tPK7uint8_t6size_t"></span><span id="_CPPv230IOEX_tunnel_send_data_losslessP11IOEXCarrier8uint16_tPK7uint8_t6size_t"></span><span id="IOEX_tunnel_send_data_lossless__IOEXCarrierP.uint16_t.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a16db63a69222126c6f7ec589f5f0987e"></span>int <code class="sig-name descname">IOEX_tunnel_send_data_lossless</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, uint16_t <em>tunnel_id</em>, <em class="property">const</em> uint8_t *<em>data</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv430IOEX_tunnel_send_data_losslessP11IOEXCarrier8uint16_tPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send a lossless data packet via a tunnel. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tunnel_id</span></code>: [in] An ID to uniquely identify this tunnel. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: [in] A buffer stored the data to be sent. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-tunnel-send-data-lossy">
+<h4>IOEX_tunnel_send_data_lossy<a class="headerlink" href="#ioex-tunnel-send-data-lossy" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv427IOEX_tunnel_send_data_lossyP11IOEXCarrier8uint16_tPK7uint8_t6size_t">
+<span id="_CPPv327IOEX_tunnel_send_data_lossyP11IOEXCarrier8uint16_tPK7uint8_t6size_t"></span><span id="_CPPv227IOEX_tunnel_send_data_lossyP11IOEXCarrier8uint16_tPK7uint8_t6size_t"></span><span id="IOEX_tunnel_send_data_lossy__IOEXCarrierP.uint16_t.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a5d9ae751909e689f92d3157e80be4455"></span>int <code class="sig-name descname">IOEX_tunnel_send_data_lossy</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, uint16_t <em>tunnel_id</em>, <em class="property">const</em> uint8_t *<em>data</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427IOEX_tunnel_send_data_lossyP11IOEXCarrier8uint16_tPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send a lossy data packet via a tunnel. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tunnel_id</span></code>: [in] An ID to uniquely identify this tunnel. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: [in] A buffer stored the data to be sent. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-vpn-api.html" class="btn btn-neutral float-right" title="IOEX Carrier VPN APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="carrier-ota-api.html" class="btn btn-neutral" title="IOEX Carrier OTA APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.15.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

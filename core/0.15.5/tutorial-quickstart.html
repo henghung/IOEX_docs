@@ -1,0 +1,504 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quick Start &mdash; IOEX Carrier Developer Documents 0.15.5 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.15.5 documentation" href="index.html"/>
+        <link rel="next" title="Become a Friend With Other Nodes" href="tutorial-friend.html"/>
+        <link rel="prev" title="Tutorials" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quick Start</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prepare-ioex-carrier-sdk">Prepare IOEX Carrier SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#write-your-first-ioex-carrier-application">Write your first IOEX Carrier Application</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-options">Set Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-callbacks">Set Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#start-ioex-carrier-instance">Start IOEX Carrier Instance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#complete-example">Complete Example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compile-the-ioex-carrier-application">Compile the IOEX Carrier Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-the-application">Execute the Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-s-next">What’s next?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">IOEX Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Quick Start</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="quick-start">
+<h1>Quick Start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>In this tutorial, we will build a simple IOEX Carrier application for Linux system. This tutorial is aimed for those who never write IOEX Carrier applications before. We will talk about basic application structure and developing flow in this very first tutorial.</p>
+</div>
+<div class="section" id="prepare-ioex-carrier-sdk">
+<h2>Prepare IOEX Carrier SDK<a class="headerlink" href="#prepare-ioex-carrier-sdk" title="Permalink to this headline">¶</a></h2>
+<p>You should have already received IOEX Carrier software development kit (SDK) from IOEX team. Unzip the SDK file to any folder you choose, and it should have the following file structure:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.</span>
+<span class="go">├── bin</span>
+<span class="go">├── etc</span>
+<span class="go">├── include</span>
+<span class="go">└── lib</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bin</span></code> folder contains some pre-built example applications for testing or developing purpose.</p>
+<p><code class="docutils literal notranslate"><span class="pre">etc</span></code> folder contains the configuration files for the example applications.</p>
+<p><code class="docutils literal notranslate"><span class="pre">include</span></code> folder contains C header files, which contains the definition of the IOEX APIs, constants and data types. For more information, please refer to <a class="reference internal" href="carrier-api.html#ioex-carrier-core-apis"><span class="std std-ref">IOEX Carrier core APIs</span></a>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">lib</span></code> folder contains pre-built Linux shared libraries for x86_64 platform.</p>
+</div>
+<div class="section" id="write-your-first-ioex-carrier-application">
+<h2>Write your first IOEX Carrier Application<a class="headerlink" href="#write-your-first-ioex-carrier-application" title="Permalink to this headline">¶</a></h2>
+<p>In the project folder, create a simple C source file <code class="docutils literal notranslate"><span class="pre">main.c</span></code> and begin with the following code blocks:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;IOEX_carrier.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>There are 3 important data types in this code block. <a class="reference internal" href="carrier-api.html#ioexoptions"><span class="std std-ref">IOEXOptions</span></a> defines setting that control the way the Carrier node connects to others. <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a> contains the definition of different callbacks which will be invoked when certain event occurred. Finally, IOEXCarrier is the main handler stored all the run-time data and information.</p>
+<p>You might also want to call <code class="docutils literal notranslate"><span class="pre">srand()</span></code> to initialize random number generator as well, since it is crucial for the underlying crytposystem.</p>
+<div class="section" id="set-options">
+<h3>Set Options<a class="headerlink" href="#set-options" title="Permalink to this headline">¶</a></h3>
+<p>We then setup the required field of IOEXOptions as follows:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set options</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+<span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Here we setup some default behavior for IOEX Carrier Node when it start running. Note that IOEX Carrier will create folders and store files to <cite>persistent_location</cite>, <cite>storage_location</cite> and <cite>key_file_location</cite>. Please make sure you have the read/write permissions of the locations.</p>
+<p>We also setup a default bootstrap node for the IOEX Carrier node. Without correct bootstrap node settings, IOEX Carrier node will not be able to join existing network and connect to other nodes. Please always specify at least one bootstrap node in the options.</p>
+<p>Refer to <a class="reference internal" href="carrier-api.html#ioexoptions"><span class="std std-ref">IOEXOptions</span></a> for more details.</p>
+</div>
+<div class="section" id="set-callbacks">
+<h3>Set Callbacks<a class="headerlink" href="#set-callbacks" title="Permalink to this headline">¶</a></h3>
+<p>The next thing we want to setup is the IOEXCallbacks. There are many different callbacks defined in this structure already, and we will implement our <cite>connection_status</cite> callback which will be invoked when the IOEX Carrier node connect to or disconnect from IOEX Carrier network.</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// The implementation of connection status callback</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>And add the following code block in the main function:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="start-ioex-carrier-instance">
+<h3>Start IOEX Carrier Instance<a class="headerlink" href="#start-ioex-carrier-instance" title="Permalink to this headline">¶</a></h3>
+<p>With IOEXOptions and IOEXCallbacks setup completed, we can create a new IOEXCarrier instance:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Initialize carrier instance</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The function <a class="reference internal" href="carrier-api.html#ioex-new"><span class="std std-ref">IOEX_new</span></a> takes 3 arguments. The first and the second are IOEXOptions and IOEXCallbacks we setup earlier. The third one is the user-defined context data, which can be safely set to NULL here.</p>
+<p>We can also display some information about the carrier instance here:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Display carrier node information</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Once the IOEXCarrier instance is initialzed, we can start running our IOEX Carrier node:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Run carrier loop</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The function <a class="reference internal" href="carrier-api.html#ioex-run"><span class="std std-ref">IOEX_run</span></a> takes 2 arguments. The first one is the previously initialized IOEXCarrier instance. The second one is the time interval between each loop in millisecond.</p>
+<p>IOEX_run will create a new thread with a loop in it, and it will regularly check for new Carrier events and messages from other nodes. Once the certain event is occurred, the corresponding callbacks in IOEXCallbacks will be invoked if they are provided. The function is blocked and will not return until an error occurred or an interrupt is received. If it return no error, the corresponding IOEXCarrier instance will be referenced automatically so you don’t need to clean it up. Otherwise, you should call <a class="reference internal" href="carrier-api.html#ioex-kill"><span class="std std-ref">IOEX_kill</span></a> in your application.</p>
+</div>
+<div class="section" id="complete-example">
+<h3>Complete Example<a class="headerlink" href="#complete-example" title="Permalink to this headline">¶</a></h3>
+<p>Here is the complete example:</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;IOEX_carrier.h&quot;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+
+    <span class="c1">// Set options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.ioex.world&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Set callbacks</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+
+    <span class="c1">// Randomize</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Initialize carrier instance</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Display carrier node information</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Run carrier loop</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="compile-the-ioex-carrier-application">
+<h2>Compile the IOEX Carrier Application<a class="headerlink" href="#compile-the-ioex-carrier-application" title="Permalink to this headline">¶</a></h2>
+<p>Suppose that you follow the above steps and store the source code as <code class="docutils literal notranslate"><span class="pre">main.c</span></code> in the project folder. You should have your working directory like this:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.</span>
+<span class="go">├── bin</span>
+<span class="go">├── etc</span>
+<span class="go">├── include</span>
+<span class="go">├── lib</span>
+<span class="go">└── main.c</span>
+</pre></div>
+</div>
+<p>We can use <a class="reference external" href="https://gcc.gnu.org/">gcc</a> to compile the code with the following command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc main.c -Iinclude -Llib -lIOEXcarrier -lIOEXcommon -o main
+</pre></div>
+</div>
+<p>In the above command, we add header file folder (include) and library folder (lib), and link to two libraries libIOEXcarrier and libIOEXcommon. These two libraries contains most of IOEX Carrier core APIs.</p>
+<p>Once compilation is completed, an excutable binary file <code class="docutils literal notranslate"><span class="pre">main</span></code> is generated.</p>
+</div>
+<div class="section" id="execute-the-application">
+<h2>Execute the Application<a class="headerlink" href="#execute-the-application" title="Permalink to this headline">¶</a></h2>
+<p>Finally, we execute the application with the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>lib <span class="o">&amp;&amp;</span> ./main
+</pre></div>
+</div>
+<p>We first assign a run time enviornment variable LD_LIBRARY_PATH to the path store the IOEX Carrier libraries, and then execute the application. LD_LIBRARY_PATH is a Linux enviornment variable which is used to tell OS the path of library it should search for. For more information, please see <a class="reference external" href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html">here</a>.</p>
+<p>After execute the application, the result and output should looks like below (The log timestamp, IDs and address might be different:)</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2019-08-20 10:58:11 - INFO    : Carrier: Carrier node created.</span>
+<span class="go">Carrier node identities:</span>
+<span class="go">   Node ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U</span>
+<span class="go">   User ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U</span>
+<span class="go">   Address: 7VQg2hnusj2ExMSSc2Q3b8G81nUov6dZNrUSUohX7eNe5VYRNTHu</span>
+<span class="go">    DHT ID: FiPw6c6xm1j8G2UqZfwhwD25stEi631YZr3DddYB5iJD</span>
+
+
+<span class="go">Connected to carrier network.</span>
+</pre></div>
+</div>
+<p>First part of the result is that it successfully initialized IOEX Carrier node and print some information we want. The second part is the message <code class="docutils literal notranslate"><span class="pre">Connected</span> <span class="pre">to</span> <span class="pre">carrier</span> <span class="pre">network.</span></code> which is printed by connection status callback. This message indicates that your application is connected to IOEX Carrier network correctly.</p>
+<p>Congratulations! You have successfully write your first IOEX Carrier application and complete the first tutorial.</p>
+</div>
+<div class="section" id="what-s-next">
+<h2>What’s next?<a class="headerlink" href="#what-s-next" title="Permalink to this headline">¶</a></h2>
+<p>The first application didn’t do much interesting as it only connects to IOEX Carrier network and displays some messages. But this tutorial should give you a rough idea on how the application should be structed, and the flow to develop your application.</p>
+<p>Next, we will try to become friends with other nodes, and discuss some important friend APIs and callbacks.</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial-friend.html" class="btn btn-neutral float-right" title="Become a Friend With Other Nodes" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Tutorials" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.15.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

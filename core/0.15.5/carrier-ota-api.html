@@ -1,0 +1,660 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEX Carrier OTA APIs &mdash; IOEX Carrier Developer Documents 0.15.5 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.15.5 documentation" href="index.html"/>
+        <link rel="next" title="IOEX Carrier Tunnel APIs" href="carrier-tunnel-api.html"/>
+        <link rel="prev" title="IOEX Carrier core APIs" href="carrier-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.15.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOEX Carrier OTA APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#split-extension-name">SPLIT_EXTENSION_NAME</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#http-functions">HTTP Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-conf">IOEX_http_conf</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-get-list">IOEX_http_get_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-post-list">IOEX_http_post_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-get-data-count">IOEX_http_get_data_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-report">IOEX_http_report</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-update-id">IOEX_http_update_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-report-task-ongoing">IOEX_http_report_task_ongoing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-report-task-completed">IOEX_http_report_task_completed</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-register-supernode">IOEX_http_register_supernode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-query-task">IOEX_http_query_task</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-http-download-file">IOEX_http_download_file</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#compress-split">Compress &amp; Split</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-compress">IOEX_compress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-uncompress">IOEX_uncompress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-split">IOEX_split</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-merge">IOEX_merge</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#upload-download">Upload &amp; Download</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-upload-with-id">IOEX_upload_with_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-download">IOEX_download</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">IOEX Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>IOEX Carrier OTA APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioex-carrier-ota-apis">
+<h1>IOEX Carrier OTA APIs<a class="headerlink" href="#ioex-carrier-ota-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="split-extension-name">
+<h3>SPLIT_EXTENSION_NAME<a class="headerlink" href="#split-extension-name" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.SPLIT_EXTENSION_NAME">
+<span class="target" id="_i_o_e_x___s_c_file_8h_1a5bbb69b53493fdd76aed6a64fc72c703"></span><code class="sig-name descname">SPLIT_EXTENSION_NAME</code> “.Xtmp”<a class="headerlink" href="#c.SPLIT_EXTENSION_NAME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extension file name of split file. </p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="http-functions">
+<h3>HTTP Functions<a class="headerlink" href="#http-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-http-conf">
+<h4>IOEX_http_conf<a class="headerlink" href="#ioex-http-conf" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv414IOEX_http_confP11IOEXCarrierPKc">
+<span id="_CPPv314IOEX_http_confP11IOEXCarrierPKc"></span><span id="_CPPv214IOEX_http_confP11IOEXCarrierPKc"></span><span id="IOEX_http_conf__IOEXCarrierP.cCP"></span><span class="target" id="_i_o_e_x__http_8h_1a0bc386fda30031fab2a99c0309242946"></span>int <code class="sig-name descname">IOEX_http_conf</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>url</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv414IOEX_http_confP11IOEXCarrierPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that set the url to IOEX server. </p>
+<p>By default, the URL is set to IOEX_CARRIER_API_URL</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the url is set successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">url</span></code>: [in] The url of the IOEX server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-get-list">
+<h4>IOEX_http_get_list<a class="headerlink" href="#ioex-http-get-list" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_http_get_listP11IOEXCarrierPKcP11IOEXOtaListPi">
+<span id="_CPPv318IOEX_http_get_listP11IOEXCarrierPKcP11IOEXOtaListPi"></span><span id="_CPPv218IOEX_http_get_listP11IOEXCarrierPKcP11IOEXOtaListPi"></span><span id="IOEX_http_get_list__IOEXCarrierP.cCP.IOEXOtaListP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1acaf3fb36ecf8c0fc2958c482e7c50451"></span>int <code class="sig-name descname">IOEX_http_get_list</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>fileid</em>, <a class="reference internal" href="carrier-api.html#_CPPv411IOEXOtaList" title="IOEXOtaList">IOEXOtaList</a> *<em>list</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_http_get_listP11IOEXCarrierPKcP11IOEXOtaListPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that download the id list from IOEX server. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the list is downloaded successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileid</span></code>: [in] The id of the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: [out] The id list for the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-post-list">
+<h4>IOEX_http_post_list<a class="headerlink" href="#ioex-http-post-list" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv419IOEX_http_post_listP11IOEXCarrierPK11IOEXOtaListPi">
+<span id="_CPPv319IOEX_http_post_listP11IOEXCarrierPK11IOEXOtaListPi"></span><span id="_CPPv219IOEX_http_post_listP11IOEXCarrierPK11IOEXOtaListPi"></span><span id="IOEX_http_post_list__IOEXCarrierP.IOEXOtaListCP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1abd5d0f1f70afd8b7dff8f3d803a37545"></span>int <code class="sig-name descname">IOEX_http_post_list</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> <a class="reference internal" href="carrier-api.html#_CPPv411IOEXOtaList" title="IOEXOtaList">IOEXOtaList</a> *<em>list</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419IOEX_http_post_listP11IOEXCarrierPK11IOEXOtaListPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that upload the id list to IOEX server. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the list is uploaded successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">list</span></code>: [in] The id list to be uploaded. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-get-data-count">
+<h4>IOEX_http_get_data_count<a class="headerlink" href="#ioex-http-get-data-count" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv424IOEX_http_get_data_countP11IOEXCarrierPKcPKcPiPi">
+<span id="_CPPv324IOEX_http_get_data_countP11IOEXCarrierPKcPKcPiPi"></span><span id="_CPPv224IOEX_http_get_data_countP11IOEXCarrierPKcPKcPiPi"></span><span id="IOEX_http_get_data_count__IOEXCarrierP.cCP.cCP.iP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1a8eb8e9b37b62690b4661cccaf1995f46"></span>int <code class="sig-name descname">IOEX_http_get_data_count</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>file_id</em>, <em class="property">const</em> char *<em>partname</em>, int *<em>count</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424IOEX_http_get_data_countP11IOEXCarrierPKcPKcPiPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that retrieve the total count of the specific fileid and data file name set stored in the IOEX network. </p>
+<p>We need to determine if the desired amount of data is spread in the network by using the API. The count is retrieved from IOEX server directly, rather than from IOEX network.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the count is retrieved successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_id</span></code>: [in] Id of the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partname</span></code>: [in] Name of a data part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">count</span></code>: [out] Total count of the id/name pair stored in the network. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-report">
+<h4>IOEX_http_report<a class="headerlink" href="#ioex-http-report" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv416IOEX_http_reportP11IOEXCarrierPKciPi">
+<span id="_CPPv316IOEX_http_reportP11IOEXCarrierPKciPi"></span><span id="_CPPv216IOEX_http_reportP11IOEXCarrierPKciPi"></span><span id="IOEX_http_report__IOEXCarrierP.cCP.i.iP"></span><span class="target" id="_i_o_e_x__http_8h_1a53125be8c966ce316c9e33869c762c8a"></span>int <code class="sig-name descname">IOEX_http_report</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>id</em>, int <em>result</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416IOEX_http_reportP11IOEXCarrierPKciPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that report to IOEX server. </p>
+<p>It is usually used to report to server that this node have successfully store the data of the id.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the report is post successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: [in] The ID of the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">result</span></code>: [in] The result code to be reported. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-update-id">
+<h4>IOEX_http_update_id<a class="headerlink" href="#ioex-http-update-id" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv419IOEX_http_update_idP11IOEXCarrierPKcPKcPKcPi">
+<span id="_CPPv319IOEX_http_update_idP11IOEXCarrierPKcPKcPKcPi"></span><span id="_CPPv219IOEX_http_update_idP11IOEXCarrierPKcPKcPKcPi"></span><span id="IOEX_http_update_id__IOEXCarrierP.cCP.cCP.cCP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1ae2197332c5d0c9bcd4cc87aedbe7ce2c"></span>int <code class="sig-name descname">IOEX_http_update_id</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>fileid</em>, <em class="property">const</em> char *<em>partname</em>, <em class="property">const</em> char *<em>id</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419IOEX_http_update_idP11IOEXCarrierPKcPKcPKcPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that add an id to the given fileid and partname. </p>
+<p>This function report the ID to IOEX server.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the url is set successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileid</span></code>: [in] Id of the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partname</span></code>: [in] Name of a data part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: [in] The Id to be added. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-report-task-ongoing">
+<h4>IOEX_http_report_task_ongoing<a class="headerlink" href="#ioex-http-report-task-ongoing" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv429IOEX_http_report_task_ongoingP11IOEXCarrierPKcPi">
+<span id="_CPPv329IOEX_http_report_task_ongoingP11IOEXCarrierPKcPi"></span><span id="_CPPv229IOEX_http_report_task_ongoingP11IOEXCarrierPKcPi"></span><span id="IOEX_http_report_task_ongoing__IOEXCarrierP.cCP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1abfef597db9a960c051c8e92fdd4cee7d"></span>int <code class="sig-name descname">IOEX_http_report_task_ongoing</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>fileid</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv429IOEX_http_report_task_ongoingP11IOEXCarrierPKcPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that report an upload task is proceeding. </p>
+<p>Usually called by supernode.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request is made successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileid</span></code>: [in] Id of the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-report-task-completed">
+<h4>IOEX_http_report_task_completed<a class="headerlink" href="#ioex-http-report-task-completed" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv431IOEX_http_report_task_completedP11IOEXCarrierPKcPi">
+<span id="_CPPv331IOEX_http_report_task_completedP11IOEXCarrierPKcPi"></span><span id="_CPPv231IOEX_http_report_task_completedP11IOEXCarrierPKcPi"></span><span id="IOEX_http_report_task_completed__IOEXCarrierP.cCP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1a003a33bc0ff1c691b8ca8e521075a390"></span>int <code class="sig-name descname">IOEX_http_report_task_completed</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>fileid</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv431IOEX_http_report_task_completedP11IOEXCarrierPKcPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that report an upload task is completed. </p>
+<p>Usually called by supernode.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request is made successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileid</span></code>: [in] Id of the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-register-supernode">
+<h4>IOEX_http_register_supernode<a class="headerlink" href="#ioex-http-register-supernode" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv428IOEX_http_register_supernodeP11IOEXCarrierPi">
+<span id="_CPPv328IOEX_http_register_supernodeP11IOEXCarrierPi"></span><span id="_CPPv228IOEX_http_register_supernodeP11IOEXCarrierPi"></span><span id="IOEX_http_register_supernode__IOEXCarrierP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1a2daee44bac72e91baa683f41ad42aa07"></span>int <code class="sig-name descname">IOEX_http_register_supernode</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428IOEX_http_register_supernodeP11IOEXCarrierPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that register a supernode. </p>
+<p>The IOEX server can be awared of the existence of a supernode.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request is made successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-query-task">
+<h4>IOEX_http_query_task<a class="headerlink" href="#ioex-http-query-task" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv420IOEX_http_query_taskP11IOEXCarrierPc6size_tP6size_tP6size_tPi">
+<span id="_CPPv320IOEX_http_query_taskP11IOEXCarrierPc6size_tP6size_tP6size_tPi"></span><span id="_CPPv220IOEX_http_query_taskP11IOEXCarrierPc6size_tP6size_tP6size_tPi"></span><span id="IOEX_http_query_task__IOEXCarrierP.cP.s.sP.sP.iP"></span><span class="target" id="_i_o_e_x__http_8h_1a5721702916aca3cdc89be25a2282571f"></span>int <code class="sig-name descname">IOEX_http_query_task</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, char *<em>fileurl</em>, size_t <em>len</em>, size_t *<em>partcount</em>, size_t *<em>backupcount</em>, int *<em>status</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420IOEX_http_query_taskP11IOEXCarrierPc6size_tP6size_tP6size_tPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that query for a task. </p>
+<p>Usually called by supernode.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request is made successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileurl</span></code>: [out] The url to the file that needs to be uploaded. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: [in] Length of the fileurl string. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">partcount</span></code>: [out] Total number of parts that the file needs to be split. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">backupcount</span></code>: [out] Number of backups need for each part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">status</span></code>: [out] The status return from the server. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-http-download-file">
+<h4>IOEX_http_download_file<a class="headerlink" href="#ioex-http-download-file" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv423IOEX_http_download_fileP11IOEXCarrierPKcPKc">
+<span id="_CPPv323IOEX_http_download_fileP11IOEXCarrierPKcPKc"></span><span id="_CPPv223IOEX_http_download_fileP11IOEXCarrierPKcPKc"></span><span id="IOEX_http_download_file__IOEXCarrierP.cCP.cCP"></span><span class="target" id="_i_o_e_x__http_8h_1a06620cf08204dc696d918981157d9087"></span>int <code class="sig-name descname">IOEX_http_download_file</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>fileurl</em>, <em class="property">const</em> char *<em>fullpath</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423IOEX_http_download_fileP11IOEXCarrierPKcPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that downloads a file from given url. </p>
+<p>Usually called by supernode.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request is made successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileurl</span></code>: [in] The url to the file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fullpath</span></code>: [in] THe local path to store the file. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="compress-split">
+<h3>Compress &amp; Split<a class="headerlink" href="#compress-split" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-compress">
+<h4>IOEX_compress<a class="headerlink" href="#ioex-compress" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv413IOEX_compressPKcPKc">
+<span id="_CPPv313IOEX_compressPKcPKc"></span><span id="_CPPv213IOEX_compressPKcPKc"></span><span id="IOEX_compress__cCP.cCP"></span><span class="target" id="_i_o_e_x___s_c_file_8h_1ab8aa8a7ec3cc0a145caf7f56135cd8f8"></span>int <code class="sig-name descname">IOEX_compress</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>source</em>, <em class="property">const</em> char *<em>dest</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413IOEX_compressPKcPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that compress file. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the file is compressed successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code>: [in] Path of the file that will be compressed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest</span></code>: [in] Path of the compressed file to be stored. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-uncompress">
+<h4>IOEX_uncompress<a class="headerlink" href="#ioex-uncompress" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv415IOEX_uncompressPKcPKc">
+<span id="_CPPv315IOEX_uncompressPKcPKc"></span><span id="_CPPv215IOEX_uncompressPKcPKc"></span><span id="IOEX_uncompress__cCP.cCP"></span><span class="target" id="_i_o_e_x___s_c_file_8h_1ab5d925cd01e9a4ed1ac402de6153f013"></span>int <code class="sig-name descname">IOEX_uncompress</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>source</em>, <em class="property">const</em> char *<em>dest</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415IOEX_uncompressPKcPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that uncompress file. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the file is uncompressed successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code>: [in] Path of the file that will be compressed. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dest</span></code>: [in] Path of the uncompressed file to be stored. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-split">
+<h4>IOEX_split<a class="headerlink" href="#ioex-split" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv410IOEX_splitPKc6size_tPKcPApl22IOEX_MAX_FULL_PATH_LENL1E_cP6size_t">
+<span id="_CPPv310IOEX_splitPKc6size_tPKcPApl22IOEX_MAX_FULL_PATH_LENL1E_cP6size_t"></span><span id="_CPPv210IOEX_splitPKc6size_tPKcPAIOEX_MAX_FULL_PATH_LEN + 1_cP6size_t"></span><span class="target" id="_i_o_e_x___s_c_file_8h_1a5ac7729531c2a74dd092852897cf74da"></span>int <code class="sig-name descname">IOEX_split</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>source</em>, size_t <em>file_count</em>, <em class="property">const</em> char *<em>store_path</em>, char (*<em>file_list</em>)[IOEX_MAX_FULL_PATH_LEN + 1], size_t *<em>actual_count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410IOEX_splitPKc6size_tPKcPApl22IOEX_MAX_FULL_PATH_LENL1E_cP6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that split file. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the file is split successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">source</span></code>: [in] Path to the file that will be split. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_count</span></code>: [in] Number of the blocks that source file should be split. Note that the final block count might &lt;= file_count. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">store_path</span></code>: [in] Path of the split files that should be stored. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_list</span></code>: [out] Fullpath of each split file blocks. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">actual_count</span></code>: [out] Number of the blocks that source file is actually split into. This value is always &lt;= file_count. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-merge">
+<h4>IOEX_merge<a class="headerlink" href="#ioex-merge" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv410IOEX_mergePKc6size_tPApl22IOEX_MAX_FULL_PATH_LENL1E_Kc">
+<span id="_CPPv310IOEX_mergePKc6size_tPApl22IOEX_MAX_FULL_PATH_LENL1E_Kc"></span><span id="_CPPv210IOEX_mergePKc6size_tPAIOEX_MAX_FULL_PATH_LEN + 1_Kc"></span><span class="target" id="_i_o_e_x___s_c_file_8h_1a8b668d01812b116d658af30164af2211"></span>int <code class="sig-name descname">IOEX_merge</code><span class="sig-paren">(</span><em class="property">const</em> char *<em>dest</em>, size_t <em>file_count</em>, <em class="property">const</em> char (*<em>file_list</em>)[IOEX_MAX_FULL_PATH_LEN + 1]<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv410IOEX_mergePKc6size_tPApl22IOEX_MAX_FULL_PATH_LENL1E_Kc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that merge file. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the file is merged successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">dest</span></code>: [in] The path of the merged file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_count</span></code>: [in] Number of file blocks. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_list</span></code>: [in] Fullpath of each split file blocks. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="upload-download">
+<h3>Upload &amp; Download<a class="headerlink" href="#upload-download" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-upload-with-id">
+<h4>IOEX_upload_with_id<a class="headerlink" href="#ioex-upload-with-id" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv419IOEX_upload_with_idP11IOEXCarrier6size_t6size_tPKcPKc">
+<span id="_CPPv319IOEX_upload_with_idP11IOEXCarrier6size_t6size_tPKcPKc"></span><span id="_CPPv219IOEX_upload_with_idP11IOEXCarrier6size_t6size_tPKcPKc"></span><span id="IOEX_upload_with_id__IOEXCarrierP.s.s.cCP.cCP"></span><span class="target" id="_i_o_e_x___s_c_file_8h_1adb20152fe463009847bcce8b5ab50718"></span>int <code class="sig-name descname">IOEX_upload_with_id</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, size_t <em>file_count</em>, size_t <em>target_count</em>, <em class="property">const</em> char *<em>fullpath</em>, <em class="property">const</em> char *<em>fileid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv419IOEX_upload_with_idP11IOEXCarrier6size_t6size_tPKcPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that upload and spread a local file to IOEX network. </p>
+<p>This function will 1. compress the file, 2. split the file into pieces, 3. generate ID for each data pieces and post the ID list to IOEX server, 4. spread the data to the network by using data put. This function returns after the final data put call, regardless to actually data transmission progress.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the file is uploaded successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">file_count</span></code>: [in] Number of file blocks. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">target_count</span></code>: [in] Desired number of copies of each file block. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fullpath</span></code>: [in] The path of the local file. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileid</span></code>: [in] The file id for the uploaded file. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-download">
+<h4>IOEX_download<a class="headerlink" href="#ioex-download" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv413IOEX_downloadP11IOEXCarrierPKcPKcPKc">
+<span id="_CPPv313IOEX_downloadP11IOEXCarrierPKcPKcPKc"></span><span id="_CPPv213IOEX_downloadP11IOEXCarrierPKcPKcPKc"></span><span id="IOEX_download__IOEXCarrierP.cCP.cCP.cCP"></span><span class="target" id="_i_o_e_x___s_c_file_8h_1a75ee5204b9ef654199ba9455c8813f91"></span>int <code class="sig-name descname">IOEX_download</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>fileid</em>, <em class="property">const</em> char *<em>filename</em>, <em class="property">const</em> char *<em>filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv413IOEX_downloadP11IOEXCarrierPKcPKcPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that download a file from IOEX network by ID and store it locally. </p>
+<p>This function will 1. get id list from IOEX server, 2. download each data pieces by calling data lookup. This function returns after the final data lookup call, regardless to actually data transmission progress.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the file is download successfully. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fileid</span></code>: [in] The id of the file to be downloaded. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filename</span></code>: [in] The name of the file used to store the downloaded file locally. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">filepath</span></code>: [in] Path to store the downloaded file. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-tunnel-api.html" class="btn btn-neutral float-right" title="IOEX Carrier Tunnel APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="carrier-api.html" class="btn btn-neutral" title="IOEX Carrier core APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.15.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
