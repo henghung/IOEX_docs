@@ -1,0 +1,979 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEX Carrier Group APIs &mdash; IOEX Carrier Developer Documents 0.16. documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.16. documentation" href="index.html"/>
+        <link rel="next" title="IOEX Carrier error number" href="carrier-error-number.html"/>
+        <link rel="prev" title="IOEX Carrier AV APIs" href="carrier-av-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">IOEX Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOEX Carrier Group APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-group-type">IOEX_GROUP_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-group-message-type">IOEX_GROUP_MESSAGE_TYPE</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-max-group-name-len">IOEX_MAX_GROUP_NAME_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-max-group-description-len">IOEX_MAX_GROUP_DESCRIPTION_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-max-group-peer-name-len">IOEX_MAX_GROUP_PEER_NAME_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-group-peer-pk-len">IOEX_GROUP_PEER_PK_LEN</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioex-group-inviting-id-len">IOEX_GROUP_INVITING_ID_LEN</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#data-types">Data types</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ioexgroupinfo">IOEXGroupInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexgrouppeerinfo">IOEXGroupPeerInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexgrouppeerlistcallback">IOEXGroupPeerListCallback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ioexgrouplistcallback">IOEXGroupListCallback</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#group-functions">Group Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-create">IOEX_group_chat_create</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-delete">IOEX_group_chat_delete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-existing">IOEX_group_chat_existing</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-by-id">IOEX_group_chat_by_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-id">IOEX_group_chat_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-type">IOEX_group_chat_type</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-title">IOEX_group_chat_title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-set-title">IOEX_group_chat_set_title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-invite">IOEX_group_chat_invite</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-join">IOEX_group_chat_join</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-send-group-chat-message">IOEX_send_group_chat_message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-peer-count">IOEX_group_chat_peer_count</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-peer-number-is-ours">IOEX_group_chat_peer_number_is_ours</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-peer-name">IOEX_group_chat_peer_name</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-peer-user-id">IOEX_group_chat_peer_user_id</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-peer-pk">IOEX_group_chat_peer_pk</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-offline-peer-get-last-active">IOEX_group_offline_peer_get_last_active</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-list">IOEX_group_chat_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-peer-list">IOEX_group_chat_peer_list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-enable-av">IOEX_group_chat_enable_av</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-disable-av">IOEX_group_chat_disable_av</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-av-enabled">IOEX_group_chat_av_enabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-group-chat-send-audio">IOEX_group_chat_send_audio</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>IOEX Carrier Group APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioex-carrier-group-apis">
+<h1>IOEX Carrier Group APIs<a class="headerlink" href="#ioex-carrier-group-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ioex-group-type">
+<h3>IOEX_GROUP_TYPE<a class="headerlink" href="#ioex-group-type" title="Permalink to this headline">¶</a></h3>
+<dl class="enum">
+<dt id="_CPPv415IOEX_GROUP_TYPE">
+<span id="_CPPv315IOEX_GROUP_TYPE"></span><span id="_CPPv215IOEX_GROUP_TYPE"></span><span class="target" id="_i_o_e_x__carrier_8h_1ab026a89ac34e3ff0b1460b08a72d6c09"></span><em class="property">enum </em><code class="sig-name descname">IOEX_GROUP_TYPE</code><a class="headerlink" href="#_CPPv415IOEX_GROUP_TYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Carrier group type. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv420IOEX_GROUP_TYPE_TEXT">
+<span id="_CPPv320IOEX_GROUP_TYPE_TEXT"></span><span id="_CPPv220IOEX_GROUP_TYPE_TEXT"></span><span class="target" id="_i_o_e_x__carrier_8h_1ab026a89ac34e3ff0b1460b08a72d6c09ab8393e9e29a52152841b1baaebb912a7"></span><code class="sig-name descname">IOEX_GROUP_TYPE_TEXT</code><a class="headerlink" href="#_CPPv420IOEX_GROUP_TYPE_TEXT" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A group can send text message only. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv418IOEX_GROUP_TYPE_AV">
+<span id="_CPPv318IOEX_GROUP_TYPE_AV"></span><span id="_CPPv218IOEX_GROUP_TYPE_AV"></span><span class="target" id="_i_o_e_x__carrier_8h_1ab026a89ac34e3ff0b1460b08a72d6c09a12dd7f08545b3d380b6a176f3531dfb2"></span><code class="sig-name descname">IOEX_GROUP_TYPE_AV</code><a class="headerlink" href="#_CPPv418IOEX_GROUP_TYPE_AV" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A group can send text message and audio frame. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv423IOEX_GROUP_TYPE_UNKNOWN">
+<span id="_CPPv323IOEX_GROUP_TYPE_UNKNOWN"></span><span id="_CPPv223IOEX_GROUP_TYPE_UNKNOWN"></span><span class="target" id="_i_o_e_x__carrier_8h_1ab026a89ac34e3ff0b1460b08a72d6c09a7971f35cd260fcf7e3c0ece3d98f7169"></span><code class="sig-name descname">IOEX_GROUP_TYPE_UNKNOWN</code><a class="headerlink" href="#_CPPv423IOEX_GROUP_TYPE_UNKNOWN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Other invalid group types. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-message-type">
+<h3>IOEX_GROUP_MESSAGE_TYPE<a class="headerlink" href="#ioex-group-message-type" title="Permalink to this headline">¶</a></h3>
+<dl class="enum">
+<dt id="_CPPv423IOEX_GROUP_MESSAGE_TYPE">
+<span id="_CPPv323IOEX_GROUP_MESSAGE_TYPE"></span><span id="_CPPv223IOEX_GROUP_MESSAGE_TYPE"></span><span class="target" id="_i_o_e_x__carrier_8h_1a1adfcc21793ec6d0c2a830ecfa5db9ba"></span><em class="property">enum </em><code class="sig-name descname">IOEX_GROUP_MESSAGE_TYPE</code><a class="headerlink" href="#_CPPv423IOEX_GROUP_MESSAGE_TYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Carrier group message type. </p>
+<p><em>Values:</em></p>
+<dl class="enumerator">
+<dt id="_CPPv430IOEX_GROUP_MESSAGE_TYPE_NORMAL">
+<span id="_CPPv330IOEX_GROUP_MESSAGE_TYPE_NORMAL"></span><span id="_CPPv230IOEX_GROUP_MESSAGE_TYPE_NORMAL"></span><span class="target" id="_i_o_e_x__carrier_8h_1a1adfcc21793ec6d0c2a830ecfa5db9baa17a49dfb99b55ead22393f0f3926abf5"></span><code class="sig-name descname">IOEX_GROUP_MESSAGE_TYPE_NORMAL</code><a class="headerlink" href="#_CPPv430IOEX_GROUP_MESSAGE_TYPE_NORMAL" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Normal text message. </p>
+</dd></dl>
+
+<dl class="enumerator">
+<dt id="_CPPv430IOEX_GROUP_MESSAGE_TYPE_ACTION">
+<span id="_CPPv330IOEX_GROUP_MESSAGE_TYPE_ACTION"></span><span id="_CPPv230IOEX_GROUP_MESSAGE_TYPE_ACTION"></span><span class="target" id="_i_o_e_x__carrier_8h_1a1adfcc21793ec6d0c2a830ecfa5db9baac04b2d6153086149f9d87c33a1e7f606"></span><code class="sig-name descname">IOEX_GROUP_MESSAGE_TYPE_ACTION</code><a class="headerlink" href="#_CPPv430IOEX_GROUP_MESSAGE_TYPE_ACTION" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Action message. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-max-group-name-len">
+<h3>IOEX_MAX_GROUP_NAME_LEN<a class="headerlink" href="#ioex-max-group-name-len" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEX_MAX_GROUP_NAME_LEN">
+<span class="target" id="_i_o_e_x__carrier_8h_1a76f61635d728385dc26a0e9107ba2cef"></span><code class="sig-name descname">IOEX_MAX_GROUP_NAME_LEN</code> 63<a class="headerlink" href="#c.IOEX_MAX_GROUP_NAME_LEN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group name max length. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-max-group-description-len">
+<h3>IOEX_MAX_GROUP_DESCRIPTION_LEN<a class="headerlink" href="#ioex-max-group-description-len" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEX_MAX_GROUP_DESCRIPTION_LEN">
+<span class="target" id="_i_o_e_x__carrier_8h_1a9830704ce56c675a2d4a67c2396272f4"></span><code class="sig-name descname">IOEX_MAX_GROUP_DESCRIPTION_LEN</code> 127<a class="headerlink" href="#c.IOEX_MAX_GROUP_DESCRIPTION_LEN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group description max length. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-max-group-peer-name-len">
+<h3>IOEX_MAX_GROUP_PEER_NAME_LEN<a class="headerlink" href="#ioex-max-group-peer-name-len" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEX_MAX_GROUP_PEER_NAME_LEN">
+<span class="target" id="_i_o_e_x__carrier_8h_1a7dd0eacb1aaf5111654f89a33d733931"></span><code class="sig-name descname">IOEX_MAX_GROUP_PEER_NAME_LEN</code> 63<a class="headerlink" href="#c.IOEX_MAX_GROUP_PEER_NAME_LEN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group peer name max length. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-peer-pk-len">
+<h3>IOEX_GROUP_PEER_PK_LEN<a class="headerlink" href="#ioex-group-peer-pk-len" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEX_GROUP_PEER_PK_LEN">
+<span class="target" id="_i_o_e_x__carrier_8h_1a937389ef6d28bc111608313b64d2d54e"></span><code class="sig-name descname">IOEX_GROUP_PEER_PK_LEN</code> 32<a class="headerlink" href="#c.IOEX_GROUP_PEER_PK_LEN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group peer public key length. </p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-inviting-id-len">
+<h3>IOEX_GROUP_INVITING_ID_LEN<a class="headerlink" href="#ioex-group-inviting-id-len" title="Permalink to this headline">¶</a></h3>
+<dl class="macro">
+<dt id="c.IOEX_GROUP_INVITING_ID_LEN">
+<span class="target" id="_i_o_e_x__carrier_8h_1ada4860310d50546284e59e2573154cc7"></span><code class="sig-name descname">IOEX_GROUP_INVITING_ID_LEN</code> 48<a class="headerlink" href="#c.IOEX_GROUP_INVITING_ID_LEN" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group inviting ID length. </p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="data-types">
+<h2>Data types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ioexgroupinfo">
+<h3>IOEXGroupInfo<a class="headerlink" href="#ioexgroupinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="_CPPv417IOEXGroupInfoToAp">
+<span id="_CPPv317IOEXGroupInfoToAp"></span><span id="_CPPv217IOEXGroupInfoToAp"></span><span id="IOEXGroupInfoToAp"></span><span class="target" id="struct_i_o_e_x_group_info_to_ap"></span><em class="property">struct </em><code class="sig-name descname">IOEXGroupInfoToAp</code><a class="headerlink" href="#_CPPv417IOEXGroupInfoToAp" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A structure representing the carrier group information return to application. </p>
+<p>Include the basic group information and the extra group information. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N17IOEXGroupInfoToAp6numberE">
+<span id="_CPPv3N17IOEXGroupInfoToAp6numberE"></span><span id="_CPPv2N17IOEXGroupInfoToAp6numberE"></span><span id="IOEXGroupInfoToAp::number__uint32_t"></span><span class="target" id="struct_i_o_e_x_group_info_to_ap_1a8bd449f9b60268aee4205b9d8c910b71"></span>uint32_t <code class="sig-name descname">number</code><a class="headerlink" href="#_CPPv4N17IOEXGroupInfoToAp6numberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of the group. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N17IOEXGroupInfoToAp5titleE">
+<span id="_CPPv3N17IOEXGroupInfoToAp5titleE"></span><span id="_CPPv2N17IOEXGroupInfoToAp5titleE"></span><span id="IOEXGroupInfoToAp::title__cA"></span><span class="target" id="struct_i_o_e_x_group_info_to_ap_1ad70e7083b1e15a7f8695c213b2e7ddc1"></span>char <code class="sig-name descname">title</code>[<code class="sig-name descname">IOEX_MAX_GROUP_NAME_LEN</code> + 1]<a class="headerlink" href="#_CPPv4N17IOEXGroupInfoToAp5titleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Group title, also known as display name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N17IOEXGroupInfoToAp5labelE">
+<span id="_CPPv3N17IOEXGroupInfoToAp5labelE"></span><span id="_CPPv2N17IOEXGroupInfoToAp5labelE"></span><span id="IOEXGroupInfoToAp::label__cA"></span><span class="target" id="struct_i_o_e_x_group_info_to_ap_1af9b43330e13adb8cbe6cf50ed0ec444c"></span>char <code class="sig-name descname">label</code>[<code class="sig-name descname">IOEX_MAX_GROUP_NAME_LEN</code> + 1]<a class="headerlink" href="#_CPPv4N17IOEXGroupInfoToAp5labelE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Label for the group. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexgrouppeerinfo">
+<h3>IOEXGroupPeerInfo<a class="headerlink" href="#ioexgrouppeerinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="class">
+<dt id="_CPPv421IOEXGroupPeerInfoToAp">
+<span id="_CPPv321IOEXGroupPeerInfoToAp"></span><span id="_CPPv221IOEXGroupPeerInfoToAp"></span><span id="IOEXGroupPeerInfoToAp"></span><span class="target" id="struct_i_o_e_x_group_peer_info_to_ap"></span><em class="property">struct </em><code class="sig-name descname">IOEXGroupPeerInfoToAp</code><a class="headerlink" href="#_CPPv421IOEXGroupPeerInfoToAp" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>A structure representing the peer information of carrier group return to application. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Members</p>
+<dl class="member">
+<dt id="_CPPv4N21IOEXGroupPeerInfoToAp6numberE">
+<span id="_CPPv3N21IOEXGroupPeerInfoToAp6numberE"></span><span id="_CPPv2N21IOEXGroupPeerInfoToAp6numberE"></span><span id="IOEXGroupPeerInfoToAp::number__uint32_t"></span><span class="target" id="struct_i_o_e_x_group_peer_info_to_ap_1af4324c508ecd63a651abe74b0f2dcff1"></span>uint32_t <code class="sig-name descname">number</code><a class="headerlink" href="#_CPPv4N21IOEXGroupPeerInfoToAp6numberE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Number of the peer. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21IOEXGroupPeerInfoToAp4nameE">
+<span id="_CPPv3N21IOEXGroupPeerInfoToAp4nameE"></span><span id="_CPPv2N21IOEXGroupPeerInfoToAp4nameE"></span><span id="IOEXGroupPeerInfoToAp::name__cA"></span><span class="target" id="struct_i_o_e_x_group_peer_info_to_ap_1af8e782d29af62b140f4888dc80a33782"></span>char <code class="sig-name descname">name</code>[<code class="sig-name descname">IOEX_MAX_USER_NAME_LEN</code> + 1]<a class="headerlink" href="#_CPPv4N21IOEXGroupPeerInfoToAp4nameE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Peer name , also known as display name. </p>
+</dd></dl>
+
+<dl class="member">
+<dt id="_CPPv4N21IOEXGroupPeerInfoToAp7offlineE">
+<span id="_CPPv3N21IOEXGroupPeerInfoToAp7offlineE"></span><span id="_CPPv2N21IOEXGroupPeerInfoToAp7offlineE"></span><span id="IOEXGroupPeerInfoToAp::offline__b"></span><span class="target" id="struct_i_o_e_x_group_peer_info_to_ap_1ae605ade9beb37f970b828fb67e46e580"></span>bool <code class="sig-name descname">offline</code><a class="headerlink" href="#_CPPv4N21IOEXGroupPeerInfoToAp7offlineE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>True if the peer is offline. </p>
+<p>False if the peer is online. </p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexgrouppeerlistcallback">
+<h3>IOEXGroupPeerListCallback<a class="headerlink" href="#ioexgrouppeerlistcallback" title="Permalink to this headline">¶</a></h3>
+<dl class="type">
+<dt id="_CPPv425IOEXGroupPeerListCallback">
+<span id="_CPPv325IOEXGroupPeerListCallback"></span><span id="_CPPv225IOEXGroupPeerListCallback"></span><span id="IOEXGroupPeerListCallback"></span><span class="target" id="_i_o_e_x__carrier_8h_1a9ff2a4afca41f0f10f2666dee7191b98"></span><em class="property">typedef </em>bool <code class="sig-name descname">IOEXGroupPeerListCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv421IOEXGroupPeerInfoToAp" title="IOEXGroupPeerInfoToAp">IOEXGroupPeerInfoToAp</a> *<em>peer_info</em>[], uint32_t <em>peer_count</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEXGroupPeerListCallback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that to receive a peer list of one group. </p>
+<p>IOEXGroupPeerListCallback is the callback function type.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Return true if a peer list be retrived, false if no peer list be retrived or error </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_info</span></code>: [in] A pointer to <a class="reference internal" href="#struct_i_o_e_x_group_peer_info_to_ap"><span class="std std-ref">IOEXGroupPeerInfoToAp</span></a> structure that representing a peer list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_count</span></code>: [in] The total peer count in this list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: [in] The application defined context data.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioexgrouplistcallback">
+<h3>IOEXGroupListCallback<a class="headerlink" href="#ioexgrouplistcallback" title="Permalink to this headline">¶</a></h3>
+<dl class="type">
+<dt id="_CPPv421IOEXGroupListCallback">
+<span id="_CPPv321IOEXGroupListCallback"></span><span id="_CPPv221IOEXGroupListCallback"></span><span id="IOEXGroupListCallback"></span><span class="target" id="_i_o_e_x__carrier_8h_1a23a086d8a4e014ce55254471c26eea75"></span><em class="property">typedef </em>bool <code class="sig-name descname">IOEXGroupListCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv417IOEXGroupInfoToAp" title="IOEXGroupInfoToAp">IOEXGroupInfoToAp</a> *<em>group_info</em>[], uint32_t <em>group_count</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421IOEXGroupListCallback" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that to receive a group list of one carrier user. </p>
+<p>IOEXGroupListCallback is the callback function type.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Return true if a group list be retrived, Otherwise, return false, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_info</span></code>: [in] A pointer to <a class="reference internal" href="#struct_i_o_e_x_group_info_to_ap"><span class="std std-ref">IOEXGroupInfoToAp</span></a> structure that representing a group list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_count</span></code>: [in] The total group count in this list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: [in] The application defined context data.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="group-functions">
+<h3>Group Functions<a class="headerlink" href="#group-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-group-chat-create">
+<h4>IOEX_group_chat_create<a class="headerlink" href="#ioex-group-chat-create" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv422IOEX_group_chat_createP11IOEXCarrier15IOEX_GROUP_TYPEP8uint32_t">
+<span id="_CPPv322IOEX_group_chat_createP11IOEXCarrier15IOEX_GROUP_TYPEP8uint32_t"></span><span id="_CPPv222IOEX_group_chat_createP11IOEXCarrier15IOEX_GROUP_TYPEP8uint32_t"></span><span id="IOEX_group_chat_create__IOEXCarrierP.IOEX_GROUP_TYPE.uint32_tP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a99b2976929ab12ee3df4dadb6a34e174"></span>int <code class="sig-name descname">IOEX_group_chat_create</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <a class="reference internal" href="#_CPPv415IOEX_GROUP_TYPE" title="IOEX_GROUP_TYPE">IOEX_GROUP_TYPE</a> <em>group_type</em>, uint32_t *<em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422IOEX_group_chat_createP11IOEXCarrier15IOEX_GROUP_TYPEP8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To create a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_type</span></code>: [in] IOEX_GROUP_TYPE_TEXT for generic group chat. IOEX_ IOEX_GROUP_TYPE_AV for audio group chat. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [out] A buffer to store the group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-delete">
+<h4>IOEX_group_chat_delete<a class="headerlink" href="#ioex-group-chat-delete" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv422IOEX_group_chat_deleteP11IOEXCarrierK8uint32_t">
+<span id="_CPPv322IOEX_group_chat_deleteP11IOEXCarrierK8uint32_t"></span><span id="_CPPv222IOEX_group_chat_deleteP11IOEXCarrierK8uint32_t"></span><span id="IOEX_group_chat_delete__IOEXCarrierP.uint32_tC"></span><span class="target" id="_i_o_e_x__carrier_8h_1a53beb29967e3e81e360a093337901746"></span>int <code class="sig-name descname">IOEX_group_chat_delete</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422IOEX_group_chat_deleteP11IOEXCarrierK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To delete a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-existing">
+<h4>IOEX_group_chat_existing<a class="headerlink" href="#ioex-group-chat-existing" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv424IOEX_group_chat_existingP11IOEXCarrierK8uint32_t">
+<span id="_CPPv324IOEX_group_chat_existingP11IOEXCarrierK8uint32_t"></span><span id="_CPPv224IOEX_group_chat_existingP11IOEXCarrierK8uint32_t"></span><span id="IOEX_group_chat_existing__IOEXCarrierP.uint32_tC"></span><span class="target" id="_i_o_e_x__carrier_8h_1a1f605d0802558e56423a62436966c36b"></span>int <code class="sig-name descname">IOEX_group_chat_existing</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424IOEX_group_chat_existingP11IOEXCarrierK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To check if a group existing. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if a group is not existing. 1 if a group is existing. Less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-by-id">
+<h4>IOEX_group_chat_by_id<a class="headerlink" href="#ioex-group-chat-by-id" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv421IOEX_group_chat_by_idP11IOEXCarrierPKcP8uint32_t">
+<span id="_CPPv321IOEX_group_chat_by_idP11IOEXCarrierPKcP8uint32_t"></span><span id="_CPPv221IOEX_group_chat_by_idP11IOEXCarrierPKcP8uint32_t"></span><span id="IOEX_group_chat_by_id__IOEXCarrierP.cCP.uint32_tP"></span><span class="target" id="_i_o_e_x__carrier_8h_1aa136d577fb7d274b048a7443108a9a19"></span>int <code class="sig-name descname">IOEX_group_chat_by_id</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>id</em>, uint32_t *<em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421IOEX_group_chat_by_idP11IOEXCarrierPKcP8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the group number by identifier. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Larger than 0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">id</span></code>: [in] A pointer to group identifier from caller. The length of this identifier must be (IOEX_MAX_ID_LEN + 1). </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [out] A buffer to store the group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-id">
+<h4>IOEX_group_chat_id<a class="headerlink" href="#ioex-group-chat-id" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_group_chat_idP11IOEXCarrierK8uint32_tPc">
+<span id="_CPPv318IOEX_group_chat_idP11IOEXCarrierK8uint32_tPc"></span><span id="_CPPv218IOEX_group_chat_idP11IOEXCarrierK8uint32_tPc"></span><span id="IOEX_group_chat_id__IOEXCarrierP.uint32_tC.cP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3db2fd3bbc6eef5fd105c65c48c36ba4"></span>int <code class="sig-name descname">IOEX_group_chat_id</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, char *<em>group_id</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_group_chat_idP11IOEXCarrierK8uint32_tPc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the group identifier. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Larger than 0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_id</span></code>: [out] A buffer to store the string of group identifier. The size of this buffer must be (IOEX_MAX_ID_LEN + 1).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-type">
+<h4>IOEX_group_chat_type<a class="headerlink" href="#ioex-group-chat-type" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv420IOEX_group_chat_typeP11IOEXCarrierK8uint32_tP15IOEX_GROUP_TYPE">
+<span id="_CPPv320IOEX_group_chat_typeP11IOEXCarrierK8uint32_tP15IOEX_GROUP_TYPE"></span><span id="_CPPv220IOEX_group_chat_typeP11IOEXCarrierK8uint32_tP15IOEX_GROUP_TYPE"></span><span id="IOEX_group_chat_type__IOEXCarrierP.uint32_tC.IOEX_GROUP_TYPEP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a2f26e899fc533791cda5c1cabc1a6ea5"></span>int <code class="sig-name descname">IOEX_group_chat_type</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <a class="reference internal" href="#_CPPv415IOEX_GROUP_TYPE" title="IOEX_GROUP_TYPE">IOEX_GROUP_TYPE</a> *<em>type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420IOEX_group_chat_typeP11IOEXCarrierK8uint32_tP15IOEX_GROUP_TYPE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the type of a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Larger than 0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: [out] A buffer to store the group type.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-title">
+<h4>IOEX_group_chat_title<a class="headerlink" href="#ioex-group-chat-title" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv421IOEX_group_chat_titleP11IOEXCarrierK8uint32_tPKc6size_t">
+<span id="_CPPv321IOEX_group_chat_titleP11IOEXCarrierK8uint32_tPKc6size_t"></span><span id="_CPPv221IOEX_group_chat_titleP11IOEXCarrierK8uint32_tPKc6size_t"></span><span id="IOEX_group_chat_title__IOEXCarrierP.uint32_tC.cCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a9852e1c0b6910d8959c28b1444d8ec14"></span>int <code class="sig-name descname">IOEX_group_chat_title</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> char *<em>out_buf</em>, size_t <em>out_len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421IOEX_group_chat_titleP11IOEXCarrierK8uint32_tPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the title of a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Return the length of title if the request successfully or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_buf</span></code>: [out] A buffer to store the group title. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_len</span></code>: [in] The buffer size of out_buf. This value should be at least (IOEX_MAX_GROUP_NAME_LEN + 1).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-set-title">
+<h4>IOEX_group_chat_set_title<a class="headerlink" href="#ioex-group-chat-set-title" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv425IOEX_group_chat_set_titleP11IOEXCarrierK8uint32_tPKc6size_t">
+<span id="_CPPv325IOEX_group_chat_set_titleP11IOEXCarrierK8uint32_tPKc6size_t"></span><span id="_CPPv225IOEX_group_chat_set_titleP11IOEXCarrierK8uint32_tPKc6size_t"></span><span id="IOEX_group_chat_set_title__IOEXCarrierP.uint32_tC.cCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a411044a0f18e10ed20f935e2b9801d0b"></span>int <code class="sig-name descname">IOEX_group_chat_set_title</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> char *<em>title</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEX_group_chat_set_titleP11IOEXCarrierK8uint32_tPKc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To set the title of a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">title</span></code>: [in] New title of the group. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] The string length of title.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-invite">
+<h4>IOEX_group_chat_invite<a class="headerlink" href="#ioex-group-chat-invite" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv422IOEX_group_chat_inviteP11IOEXCarrierK8uint32_tPKc">
+<span id="_CPPv322IOEX_group_chat_inviteP11IOEXCarrierK8uint32_tPKc"></span><span id="_CPPv222IOEX_group_chat_inviteP11IOEXCarrierK8uint32_tPKc"></span><span id="IOEX_group_chat_invite__IOEXCarrierP.uint32_tC.cCP"></span><span class="target" id="_i_o_e_x__carrier_8h_1ae3c3deeb8484e77d000e9ce8fef2686b"></span>int <code class="sig-name descname">IOEX_group_chat_invite</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> char *<em>userid</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv422IOEX_group_chat_inviteP11IOEXCarrierK8uint32_tPKc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To invite a friend to join a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">userid</span></code>: [in] The friend you want to invite..</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-join">
+<h4>IOEX_group_chat_join<a class="headerlink" href="#ioex-group-chat-join" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv420IOEX_group_chat_joinP11IOEXCarrierPKcPKcP8uint32_t">
+<span id="_CPPv320IOEX_group_chat_joinP11IOEXCarrierPKcPKcP8uint32_t"></span><span id="_CPPv220IOEX_group_chat_joinP11IOEXCarrierPKcPKcP8uint32_t"></span><span id="IOEX_group_chat_join__IOEXCarrierP.cCP.cCP.uint32_tP"></span><span class="target" id="_i_o_e_x__carrier_8h_1aff8cbf5dc38aec7fe9bf0f72d542f259"></span>int <code class="sig-name descname">IOEX_group_chat_join</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>inviter_uid</em>, <em class="property">const</em> char *<em>join_key</em>, uint32_t *<em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420IOEX_group_chat_joinP11IOEXCarrierPKcPKcP8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To join a group chat. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">inviter_uid</span></code>: [in] The user id of inviter. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">join_key</span></code>: [in] A key to join the group. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [out] A buffer to store the group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-send-group-chat-message">
+<h4>IOEX_send_group_chat_message<a class="headerlink" href="#ioex-send-group-chat-message" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv428IOEX_send_group_chat_messageP11IOEXCarrierK8uint32_t23IOEX_GROUP_MESSAGE_TYPEPKv6size_t">
+<span id="_CPPv328IOEX_send_group_chat_messageP11IOEXCarrierK8uint32_t23IOEX_GROUP_MESSAGE_TYPEPKv6size_t"></span><span id="_CPPv228IOEX_send_group_chat_messageP11IOEXCarrierK8uint32_t23IOEX_GROUP_MESSAGE_TYPEPKv6size_t"></span><span id="IOEX_send_group_chat_message__IOEXCarrierP.uint32_tC.IOEX_GROUP_MESSAGE_TYPE.voidCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a304cdcf43208e3831ac1451efdd6a715"></span>int <code class="sig-name descname">IOEX_send_group_chat_message</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <a class="reference internal" href="#_CPPv423IOEX_GROUP_MESSAGE_TYPE" title="IOEX_GROUP_MESSAGE_TYPE">IOEX_GROUP_MESSAGE_TYPE</a> <em>type</em>, <em class="property">const</em> void *<em>msg</em>, size_t <em>len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428IOEX_send_group_chat_messageP11IOEXCarrierK8uint32_t23IOEX_GROUP_MESSAGE_TYPEPKv6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To send a message to a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">type</span></code>: [in] Message type. Always set this argument to IOEX_GROUP_MESSAGE_TYPE_NORMAL. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">msg</span></code>: [in] The message content. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">len</span></code>: [in] The message length in bytes.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-peer-count">
+<h4>IOEX_group_chat_peer_count<a class="headerlink" href="#ioex-group-chat-peer-count" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv426IOEX_group_chat_peer_countP11IOEXCarrierK8uint32_tbP8uint32_t">
+<span id="_CPPv326IOEX_group_chat_peer_countP11IOEXCarrierK8uint32_tbP8uint32_t"></span><span id="_CPPv226IOEX_group_chat_peer_countP11IOEXCarrierK8uint32_tbP8uint32_t"></span><span id="IOEX_group_chat_peer_count__IOEXCarrierP.uint32_tC.b.uint32_tP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a199c237f8050961775f2dcbd70d8b1cb"></span>int <code class="sig-name descname">IOEX_group_chat_peer_count</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, bool <em>offline</em>, uint32_t *<em>peer_count</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426IOEX_group_chat_peer_countP11IOEXCarrierK8uint32_tbP8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the online or offline peer count of a group. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline</span></code>: [in] true to get offline peer count or false to get online peer count. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_count</span></code>: [out] A buffer to store the peer count.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-peer-number-is-ours">
+<h4>IOEX_group_chat_peer_number_is_ours<a class="headerlink" href="#ioex-group-chat-peer-number-is-ours" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv435IOEX_group_chat_peer_number_is_oursP11IOEXCarrierK8uint32_tK8uint32_t">
+<span id="_CPPv335IOEX_group_chat_peer_number_is_oursP11IOEXCarrierK8uint32_tK8uint32_t"></span><span id="_CPPv235IOEX_group_chat_peer_number_is_oursP11IOEXCarrierK8uint32_tK8uint32_t"></span><span id="IOEX_group_chat_peer_number_is_ours__IOEXCarrierP.uint32_tC.uint32_tC"></span><span class="target" id="_i_o_e_x__carrier_8h_1a288fe242faec1d1cdf4f26ebb1284f14"></span>int <code class="sig-name descname">IOEX_group_chat_peer_number_is_ours</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> uint32_t <em>peer_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv435IOEX_group_chat_peer_number_is_oursP11IOEXCarrierK8uint32_tK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To check if the peer number is ours. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>1 the the peer number is ours. 0 the the peer number is not ours. Less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_number</span></code>: [in] Peer number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-peer-name">
+<h4>IOEX_group_chat_peer_name<a class="headerlink" href="#ioex-group-chat-peer-name" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv425IOEX_group_chat_peer_nameP11IOEXCarrierK8uint32_tK8uint32_tbPc6size_t">
+<span id="_CPPv325IOEX_group_chat_peer_nameP11IOEXCarrierK8uint32_tK8uint32_tbPc6size_t"></span><span id="_CPPv225IOEX_group_chat_peer_nameP11IOEXCarrierK8uint32_tK8uint32_tbPc6size_t"></span><span id="IOEX_group_chat_peer_name__IOEXCarrierP.uint32_tC.uint32_tC.b.cP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a06e7519b96992b724dfa0450dd6d1ab0"></span>int <code class="sig-name descname">IOEX_group_chat_peer_name</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> uint32_t <em>peer_number</em>, bool <em>offline</em>, char *<em>out_buf</em>, size_t <em>out_len</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEX_group_chat_peer_nameP11IOEXCarrierK8uint32_tK8uint32_tbPc6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the name of a peer. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Return the length of peer name if the request successfully. Or, less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_number</span></code>: [in] Peer number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline</span></code>: [in] true to get offline peer name or false to get online peer name. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_buf</span></code>: [out] The buffer to store the peer name. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_len</span></code>: [in] The buffer size of out_buf. This value should be at least (IOEX_MAX_GROUP_PEER_NAME_LEN + 1).</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-peer-user-id">
+<h4>IOEX_group_chat_peer_user_id<a class="headerlink" href="#ioex-group-chat-peer-user-id" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv428IOEX_group_chat_peer_user_idP11IOEXCarrierK8uint32_tK8uint32_tbPc">
+<span id="_CPPv328IOEX_group_chat_peer_user_idP11IOEXCarrierK8uint32_tK8uint32_tbPc"></span><span id="_CPPv228IOEX_group_chat_peer_user_idP11IOEXCarrierK8uint32_tK8uint32_tbPc"></span><span id="IOEX_group_chat_peer_user_id__IOEXCarrierP.uint32_tC.uint32_tC.b.cP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a0b4777387aaed324b0fb4ec3eba170dd"></span>int <code class="sig-name descname">IOEX_group_chat_peer_user_id</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> uint32_t <em>peer_number</em>, bool <em>offline</em>, char *<em>out_buf</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv428IOEX_group_chat_peer_user_idP11IOEXCarrierK8uint32_tK8uint32_tbPc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the user id of a peer. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_number</span></code>: [in] Peer number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline</span></code>: [in] true to get offline peer user id or false to get online peer user id. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">out_buf</span></code>: [out] The buffer that will receive the user id. The buffer size should at least (IOEX_MAX_ID_LEN + 1) bytes.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-peer-pk">
+<h4>IOEX_group_chat_peer_pk<a class="headerlink" href="#ioex-group-chat-peer-pk" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv423IOEX_group_chat_peer_pkP11IOEXCarrierK8uint32_tK8uint32_tbP7uint8_t">
+<span id="_CPPv323IOEX_group_chat_peer_pkP11IOEXCarrierK8uint32_tK8uint32_tbP7uint8_t"></span><span id="_CPPv223IOEX_group_chat_peer_pkP11IOEXCarrierK8uint32_tK8uint32_tbP7uint8_t"></span><span id="IOEX_group_chat_peer_pk__IOEXCarrierP.uint32_tC.uint32_tC.b.uint8_tP"></span><span class="target" id="_i_o_e_x__carrier_8h_1af4fc4e0211e622281a2303454f31d110"></span>int <code class="sig-name descname">IOEX_group_chat_peer_pk</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> uint32_t <em>peer_number</em>, bool <em>offline</em>, uint8_t *<em>public_key</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv423IOEX_group_chat_peer_pkP11IOEXCarrierK8uint32_tK8uint32_tbP7uint8_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the user public key of a peer. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_number</span></code>: [in] Peer number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline</span></code>: [in] true to get offline peer public key or false to get online peer public key. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">public_key</span></code>: [out] The buffer to store the public key. The buffer size should at least IOEX_GROUP_PEER_PK_LEN bytes.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-offline-peer-get-last-active">
+<h4>IOEX_group_offline_peer_get_last_active<a class="headerlink" href="#ioex-group-offline-peer-get-last-active" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv439IOEX_group_offline_peer_get_last_activeP11IOEXCarrierK8uint32_tK8uint32_tP8uint64_t">
+<span id="_CPPv339IOEX_group_offline_peer_get_last_activeP11IOEXCarrierK8uint32_tK8uint32_tP8uint64_t"></span><span id="_CPPv239IOEX_group_offline_peer_get_last_activeP11IOEXCarrierK8uint32_tK8uint32_tP8uint64_t"></span><span id="IOEX_group_offline_peer_get_last_active__IOEXCarrierP.uint32_tC.uint32_tC.uint64_tP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a762ba5eb54f1fa928de97abd0af414a4"></span>int <code class="sig-name descname">IOEX_group_offline_peer_get_last_active</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, <em class="property">const</em> uint32_t <em>peer_number</em>, uint64_t *<em>last_active</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv439IOEX_group_offline_peer_get_last_activeP11IOEXCarrierK8uint32_tK8uint32_tP8uint64_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get the get the last active time of a offline peer. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_number</span></code>: [in] Peer number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">last_active</span></code>: [out] The buffer to store the last active time.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-list">
+<h4>IOEX_group_chat_list<a class="headerlink" href="#ioex-group-chat-list" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv420IOEX_group_chat_listP11IOEXCarrierP21IOEXGroupListCallbackPv">
+<span id="_CPPv320IOEX_group_chat_listP11IOEXCarrierP21IOEXGroupListCallbackPv"></span><span id="_CPPv220IOEX_group_chat_listP11IOEXCarrierP21IOEXGroupListCallbackPv"></span><span id="IOEX_group_chat_list__IOEXCarrierP.IOEXGroupListCallbackP.voidP"></span><span class="target" id="_i_o_e_x__carrier_8h_1a186c3b13a572c389700d1f9d04250b14"></span>int <code class="sig-name descname">IOEX_group_chat_list</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <a class="reference internal" href="#_CPPv421IOEXGroupListCallback" title="IOEXGroupListCallback">IOEXGroupListCallback</a> *<em>callback</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv420IOEX_group_chat_listP11IOEXCarrierP21IOEXGroupListCallbackPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get group list of a carrier user. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] a handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code>: [in] a pointer to IOEXGroupListCallback function. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: [in] the application defined context data.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-peer-list">
+<h4>IOEX_group_chat_peer_list<a class="headerlink" href="#ioex-group-chat-peer-list" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv425IOEX_group_chat_peer_listP11IOEXCarrierK8uint32_tbP25IOEXGroupPeerListCallbackPv">
+<span id="_CPPv325IOEX_group_chat_peer_listP11IOEXCarrierK8uint32_tbP25IOEXGroupPeerListCallbackPv"></span><span id="_CPPv225IOEX_group_chat_peer_listP11IOEXCarrierK8uint32_tbP25IOEXGroupPeerListCallbackPv"></span><span id="IOEX_group_chat_peer_list__IOEXCarrierP.uint32_tC.b.IOEXGroupPeerListCallbackP.voidP"></span><span class="target" id="_i_o_e_x__carrier_8h_1ae2fb630f57d8de60917a1e98c32896a0"></span>int <code class="sig-name descname">IOEX_group_chat_peer_list</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em>, bool <em>offline</em>, <a class="reference internal" href="#_CPPv425IOEXGroupPeerListCallback" title="IOEXGroupPeerListCallback">IOEXGroupPeerListCallback</a> *<em>callback</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEX_group_chat_peer_listP11IOEXCarrierK8uint32_tbP25IOEXGroupPeerListCallbackPv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To get peers list of a carrier user. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] a handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">offline</span></code>: [in] true to get offline peer list, false to get online peer list </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">callback</span></code>: [in] a pointer to IOEXGroupPeerListCallback function. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: [in] the application defined context data.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-enable-av">
+<h4>IOEX_group_chat_enable_av<a class="headerlink" href="#ioex-group-chat-enable-av" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv425IOEX_group_chat_enable_avP11IOEXCarrierK8uint32_t">
+<span id="_CPPv325IOEX_group_chat_enable_avP11IOEXCarrierK8uint32_t"></span><span id="_CPPv225IOEX_group_chat_enable_avP11IOEXCarrierK8uint32_t"></span><span id="IOEX_group_chat_enable_av__IOEXCarrierP.uint32_tC"></span><span class="target" id="_i_o_e_x__carrier_8h_1a625a837dde7137ead915e68f8d238eea"></span>int <code class="sig-name descname">IOEX_group_chat_enable_av</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEX_group_chat_enable_avP11IOEXCarrierK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Enable A/V in a groupchat. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] a handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-disable-av">
+<h4>IOEX_group_chat_disable_av<a class="headerlink" href="#ioex-group-chat-disable-av" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv426IOEX_group_chat_disable_avP11IOEXCarrierK8uint32_t">
+<span id="_CPPv326IOEX_group_chat_disable_avP11IOEXCarrierK8uint32_t"></span><span id="_CPPv226IOEX_group_chat_disable_avP11IOEXCarrierK8uint32_t"></span><span id="IOEX_group_chat_disable_av__IOEXCarrierP.uint32_tC"></span><span class="target" id="_i_o_e_x__carrier_8h_1a0f526f6a9ff25d427c22d927477c8d00"></span>int <code class="sig-name descname">IOEX_group_chat_disable_av</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426IOEX_group_chat_disable_avP11IOEXCarrierK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Disable A/V in a groupchat. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 on success, or less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] a handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-av-enabled">
+<h4>IOEX_group_chat_av_enabled<a class="headerlink" href="#ioex-group-chat-av-enabled" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv426IOEX_group_chat_av_enabledP11IOEXCarrierK8uint32_t">
+<span id="_CPPv326IOEX_group_chat_av_enabledP11IOEXCarrierK8uint32_t"></span><span id="_CPPv226IOEX_group_chat_av_enabledP11IOEXCarrierK8uint32_t"></span><span id="IOEX_group_chat_av_enabled__IOEXCarrierP.uint32_tC"></span><span class="target" id="_i_o_e_x__carrier_8h_1a1ec666350dd0f66091309e6049b52ae4"></span>int <code class="sig-name descname">IOEX_group_chat_av_enabled</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> uint32_t <em>group_number</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426IOEX_group_chat_av_enabledP11IOEXCarrierK8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>To check if A/V in a groupchat be enabled. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Return 1 if the A/V had be enabled. Return 0 if the A/V had be disabled. Return less than 0 if an error occurred. The specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] a handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-group-chat-send-audio">
+<h4>IOEX_group_chat_send_audio<a class="headerlink" href="#ioex-group-chat-send-audio" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv426IOEX_group_chat_send_audioP11IOEXCarrier8uint32_tPK7int16_tj7uint8_t8uint32_t">
+<span id="_CPPv326IOEX_group_chat_send_audioP11IOEXCarrier8uint32_tPK7int16_tj7uint8_t8uint32_t"></span><span id="_CPPv226IOEX_group_chat_send_audioP11IOEXCarrier8uint32_tPK7int16_tj7uint8_t8uint32_t"></span><span id="IOEX_group_chat_send_audio__IOEXCarrierP.uint32_t.int16_tCP.unsigned-i.uint8_t.uint32_t"></span><span class="target" id="_i_o_e_x__carrier_8h_1a3a362768cc4b965f11994e8ff42d22a5"></span>int <code class="sig-name descname">IOEX_group_chat_send_audio</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, uint32_t <em>group_number</em>, <em class="property">const</em> int16_t *<em>pcm</em>, unsigned int <em>samples</em>, uint8_t <em>channels</em>, uint32_t <em>sampling_rate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv426IOEX_group_chat_send_audioP11IOEXCarrier8uint32_tPK7int16_tj7uint8_t8uint32_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that sends a audio frame to a group. </p>
+<p>The expected format of the PCM data is: [s1c1][s1c2][…][s2c1][s2c2][…]… Meaning: sample 1 for channel 1, sample 1 for channel 2, … For mono audio, this has no meaning, every sample is subsequent. For stereo, this means the expected format is LRLRLR… with samples for left and right alternating.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_number</span></code>: [in] Group number. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pcm</span></code>: [in] An array of audio samples. The size of this array must be sample_count * channels. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">samples</span></code>: [in] Number of samples in this frame. Valid numbers here are ((sample rate) * (audio length) / 1000), where audio length can be 2.5, 5, 10, 20, 40 or 60 millseconds. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">channels</span></code>: [in] Number of audio channels. Supported values are 1 and 2. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sampling_rate</span></code>: [in] Audio sampling rate used in this frame. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.</p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-error-number.html" class="btn btn-neutral float-right" title="IOEX Carrier error number" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="carrier-av-api.html" class="btn btn-neutral" title="IOEX Carrier AV APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.16.',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
