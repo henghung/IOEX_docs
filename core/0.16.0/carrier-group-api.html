@@ -329,6 +329,12 @@
 </dd></dl>
 
 <dl class="member">
+<dt id="_CPPv4N17IOEXGroupInfoToAp4typeE">
+<span id="_CPPv3N17IOEXGroupInfoToAp4typeE"></span><span id="_CPPv2N17IOEXGroupInfoToAp4typeE"></span><span id="IOEXGroupInfoToAp::type__IOEX_GROUP_TYPE"></span><span class="target" id="struct_i_o_e_x_group_info_to_ap_1ac4234f326e1389e9ac5b3e8ee778d4bb"></span><a class="reference internal" href="#_CPPv415IOEX_GROUP_TYPE" title="IOEX_GROUP_TYPE">IOEX_GROUP_TYPE</a> <code class="sig-name descname">type</code><a class="headerlink" href="#_CPPv4N17IOEXGroupInfoToAp4typeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Type of group, IOEX_GROUP_TYPE_TEXT and IOEX_GROUP_TYPE_AV. </p>
+</dd></dl>
+
+<dl class="member">
 <dt id="_CPPv4N17IOEXGroupInfoToAp5titleE">
 <span id="_CPPv3N17IOEXGroupInfoToAp5titleE"></span><span id="_CPPv2N17IOEXGroupInfoToAp5titleE"></span><span id="IOEXGroupInfoToAp::title__cA"></span><span class="target" id="struct_i_o_e_x_group_info_to_ap_1ad70e7083b1e15a7f8695c213b2e7ddc1"></span>char <code class="sig-name descname">title</code>[<code class="sig-name descname">IOEX_MAX_GROUP_NAME_LEN</code> + 1]<a class="headerlink" href="#_CPPv4N17IOEXGroupInfoToAp5titleE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Group title, also known as display name. </p>
@@ -379,15 +385,14 @@
 <h3>IOEXGroupPeerListCallback<a class="headerlink" href="#ioexgrouppeerlistcallback" title="Permalink to this headline">¶</a></h3>
 <dl class="type">
 <dt id="_CPPv425IOEXGroupPeerListCallback">
-<span id="_CPPv325IOEXGroupPeerListCallback"></span><span id="_CPPv225IOEXGroupPeerListCallback"></span><span id="IOEXGroupPeerListCallback"></span><span class="target" id="_i_o_e_x__carrier_8h_1a9ff2a4afca41f0f10f2666dee7191b98"></span><em class="property">typedef </em>bool <code class="sig-name descname">IOEXGroupPeerListCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv421IOEXGroupPeerInfoToAp" title="IOEXGroupPeerInfoToAp">IOEXGroupPeerInfoToAp</a> *<em>peer_info</em>[], uint32_t <em>peer_count</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEXGroupPeerListCallback" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv325IOEXGroupPeerListCallback"></span><span id="_CPPv225IOEXGroupPeerListCallback"></span><span id="IOEXGroupPeerListCallback"></span><span class="target" id="_i_o_e_x__carrier_8h_1a5a483d75f324d7ec24535c09237699c9"></span><em class="property">typedef </em>bool <code class="sig-name descname">IOEXGroupPeerListCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv421IOEXGroupPeerInfoToAp" title="IOEXGroupPeerInfoToAp">IOEXGroupPeerInfoToAp</a> *<em>peer_info</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv425IOEXGroupPeerListCallback" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>An application-defined function that to receive a peer list of one group. </p>
 <p>IOEXGroupPeerListCallback is the callback function type.</p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Return true if a peer list be retrived, false if no peer list be retrived or error </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">peer_info</span></code>: [in] A pointer to <a class="reference internal" href="#struct_i_o_e_x_group_peer_info_to_ap"><span class="std std-ref">IOEXGroupPeerInfoToAp</span></a> structure that representing a peer list.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">peer_count</span></code>: [in] The total peer count in this list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">peer_info</span></code>: [in] A pointer to <a class="reference internal" href="#struct_i_o_e_x_group_peer_info_to_ap"><span class="std std-ref">IOEXGroupPeerInfoToAp</span></a> structure that representing a peer list. </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: [in] The application defined context data.</p></li>
 </ul>
 </dd>
@@ -400,15 +405,14 @@
 <h3>IOEXGroupListCallback<a class="headerlink" href="#ioexgrouplistcallback" title="Permalink to this headline">¶</a></h3>
 <dl class="type">
 <dt id="_CPPv421IOEXGroupListCallback">
-<span id="_CPPv321IOEXGroupListCallback"></span><span id="_CPPv221IOEXGroupListCallback"></span><span id="IOEXGroupListCallback"></span><span class="target" id="_i_o_e_x__carrier_8h_1a23a086d8a4e014ce55254471c26eea75"></span><em class="property">typedef </em>bool <code class="sig-name descname">IOEXGroupListCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv417IOEXGroupInfoToAp" title="IOEXGroupInfoToAp">IOEXGroupInfoToAp</a> *<em>group_info</em>[], uint32_t <em>group_count</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421IOEXGroupListCallback" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv321IOEXGroupListCallback"></span><span id="_CPPv221IOEXGroupListCallback"></span><span id="IOEXGroupListCallback"></span><span class="target" id="_i_o_e_x__carrier_8h_1ae88838db7a24e2542d0ca178c887995b"></span><em class="property">typedef </em>bool <code class="sig-name descname">IOEXGroupListCallback</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv417IOEXGroupInfoToAp" title="IOEXGroupInfoToAp">IOEXGroupInfoToAp</a> *<em>group_info</em>, void *<em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv421IOEXGroupListCallback" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>An application-defined function that to receive a group list of one carrier user. </p>
 <p>IOEXGroupListCallback is the callback function type.</p>
 <p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Return true if a group list be retrived, Otherwise, return false, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
 </dd>
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">peer_info</span></code>: [in] A pointer to <a class="reference internal" href="#struct_i_o_e_x_group_info_to_ap"><span class="std std-ref">IOEXGroupInfoToAp</span></a> structure that representing a group list.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">group_count</span></code>: [in] The total group count in this list.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">group_info</span></code>: [in] A pointer to <a class="reference internal" href="#struct_i_o_e_x_group_info_to_ap"><span class="std std-ref">IOEXGroupInfoToAp</span></a> structure that representing a group list.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">context</span></code>: [in] The application defined context data.</p></li>
 </ul>
 </dd>
