@@ -1,0 +1,224 @@
+Quick Start
+===========
+
+Overview
+--------
+
+In this tutorial, we will build a simple IOEX Carrier application for Linux system. This tutorial is aimed for those who never write IOEX Carrier applications before. We will talk about basic application structure and developing flow in this very first tutorial.
+
+Prepare IOEX Carrier SDK
+------------------------
+
+You should have already received IOEX Carrier software development kit (SDK) from IOEX team. Unzip the SDK file to any folder you choose, and it should have the following file structure:
+
+.. code-block:: console
+
+  .
+  ├── bin
+  ├── etc
+  ├── include
+  └── lib
+
+``bin`` folder contains some pre-built example applications for testing or developing purpose.
+
+``etc`` folder contains the configuration files for the example applications.
+
+``include`` folder contains C header files, which contains the definition of the IOEX APIs, constants and data types. For more information, please refer to :ref:`carrier-api:IOEX Carrier core APIs`.
+
+``lib`` folder contains pre-built Linux shared libraries for x86_64 platform.
+
+Write your first IOEX Carrier Application
+-----------------------------------------
+
+In the project folder, create a simple C source file ``main.c`` and begin with the following code blocks:
+
+.. code-block:: c
+
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <time.h>
+  #include <IOEX_carrier.h>
+
+  int main(int argc, char *argv[]){
+      IOEXOptions options;
+      IOEXCallbacks callbacks;
+      IOEXCarrier *w;
+
+      srand(time(NULL));
+
+      return 0;
+  }
+
+There are 3 important data types in this code block. :ref:`carrier-api:IOEXOptions` defines setting that control the way the Carrier node connects to others. :ref:`carrier-api:IOEXCallbacks` contains the definition of different callbacks which will be invoked when certain event occurred. Finally, IOEXCarrier is the main handler stored all the run-time data and information.
+
+You might also want to call ``srand()`` to initialize random number generator as well, since it is crucial for the underlying crytposystem.
+
+Set Options
+###########
+
+We then setup the required field of IOEXOptions as follows:
+
+.. code-block:: c
+
+    // Set options
+    memset(&options, 0, sizeof(options));
+    options.udp_enabled = true;
+    options.local_discovery_enabled = true;
+    options.persistent_location = strdup("persistent");
+    options.storage_location = strdup("storage");
+    options.key_file_location = strdup("key");
+    options.bootstraps_size = 1;
+    options.bootstraps = (BootstrapNode *) malloc(options.bootstraps_size * sizeof(BootstrapNode));
+    options.bootstraps[0].ipv4 = strdup("Bootstrap-1.ioex.world");
+    options.bootstraps[0].ipv6 = strdup("Bootstrap-1.ioex.world");
+    options.bootstraps[0].port = strdup("10310");
+    options.bootstraps[0].public_key = strdup("D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG");
+
+Here we setup some default behavior for IOEX Carrier Node when it start running. Note that IOEX Carrier will create folders and store files to `persistent_location`, `storage_location` and `key_file_location`. Please make sure you have the read/write permissions of the locations.
+
+We also setup a default bootstrap node for the IOEX Carrier node. Without correct bootstrap node settings, IOEX Carrier node will not be able to join existing network and connect to other nodes. Please always specify at least one bootstrap node in the options.
+
+Refer to :ref:`carrier-api:IOEXOptions` for more details.
+
+Set Callbacks
+#############
+
+The next thing we want to setup is the IOEXCallbacks. There are many different callbacks defined in this structure already, and we will implement our `connection_status` callback which will be invoked when the IOEX Carrier node connect to or disconnect from IOEX Carrier network.
+
+.. code-block:: c
+
+    // The implementation of connection status callback
+    static void connection_status_callback(IOEXCarrier *w, IOEXConnectionStatus status, void *context)
+    {
+        switch(status){
+            case IOEXConnectionStatus_Connected:
+                printf("Connected to carrier network.\n");
+                break;
+            case IOEXConnectionStatus_Disconnected:
+                printf("Disconnected from carrier network.\n");
+                break;
+            default:
+                printf("Unknown connection status.\n");
+        }
+    }
+
+And add the following code block in the main function:
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    callbacks.connection_status = connection_status_callback;
+
+Start IOEX Carrier Instance
+###########################
+
+With IOEXOptions and IOEXCallbacks setup completed, we can create a new IOEXCarrier instance:
+
+.. code-block:: c
+
+    // Initialize carrier instance
+    w = IOEX_new(&options, &callbacks, NULL);
+    free(options.bootstraps);
+    if(!w){
+        printf("Failed to create carrier instance: 0x%08X\n", IOEX_get_error());
+        return -1;
+    }
+
+The function :ref:`carrier-api:IOEX_new` takes 3 arguments. The first and the second are IOEXOptions and IOEXCallbacks we setup earlier. The third one is the user-defined context data, which can be safely set to NULL here.
+
+We can also display some information about the carrier instance here:
+
+.. code-block:: c
+
+        // Display carrier node information
+        printf("Carrier node identities:\n");
+        printf("   Node ID: %s\n", IOEX_get_nodeid(w, buf, sizeof(buf)));
+        printf("   User ID: %s\n", IOEX_get_userid(w, buf, sizeof(buf)));
+        printf("   Address: %s\n", IOEX_get_address(w, buf, sizeof(buf)));
+        printf("    DHT ID: %s\n\n", IOEX_get_self_dht_id(w, buf, sizeof(buf)));
+        printf("\n");
+
+Once the IOEXCarrier instance is initialzed, we can start running our IOEX Carrier node:
+
+.. code-block:: c
+
+    // Run carrier loop
+    rc = IOEX_run(w, 10);
+    if(rc != 0){
+        printf("Failed to start carrier loop: 0x%08X\n", IOEX_get_error());
+        IOEX_kill(w);
+        return -1;
+    }
+
+The function :ref:`carrier-api:IOEX_run` takes 2 arguments. The first one is the previously initialized IOEXCarrier instance. The second one is the time interval between each loop in millisecond.
+
+IOEX_run will create a new thread with a loop in it, and it will regularly check for new Carrier events and messages from other nodes. Once the certain event is occurred, the corresponding callbacks in IOEXCallbacks will be invoked if they are provided. The function is blocked and will not return until an error occurred or an interrupt is received. If it return no error, the corresponding IOEXCarrier instance will be referenced automatically so you don't need to clean it up. Otherwise, you should call :ref:`carrier-api:IOEX_kill` in your application.
+
+Complete Example
+################
+
+Here is the complete example:
+
+.. literalinclude:: tutorial-quickstart-main.c
+    :language: c
+
+Compile the IOEX Carrier Application
+------------------------------------
+
+Suppose that you follow the above steps and store the source code as ``main.c`` in the project folder. You should have your working directory like this:
+
+.. code-block:: console
+
+ .
+ ├── bin
+ ├── etc
+ ├── include
+ ├── lib
+ └── main.c
+
+We can use `gcc <https://gcc.gnu.org/>`_ to compile the code with the following command:
+
+.. code-block:: bash
+
+ gcc main.c -Iinclude -Llib -lIOEXcarrier -lIOEXcommon -o main
+
+In the above command, we add header file folder (include) and library folder (lib), and link to two libraries libIOEXcarrier and libIOEXcommon. These two libraries contains most of IOEX Carrier core APIs.
+
+Once compilation is completed, an excutable binary file ``main`` is generated.
+
+Execute the Application
+-----------------------
+
+Finally, we execute the application with the following commands:
+
+.. code-block:: bash
+
+ export LD_LIBRARY_PATH=lib && ./main
+
+We first assign a run time enviornment variable LD_LIBRARY_PATH to the path store the IOEX Carrier libraries, and then execute the application. LD_LIBRARY_PATH is a Linux enviornment variable which is used to tell OS the path of library it should search for. For more information, please see `here <http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html>`_.
+
+After execute the application, the result and output should looks like below (The log timestamp, IDs and address might be different:)
+
+.. code-block:: console
+
+    2019-08-20 10:58:11 - INFO    : Carrier: Carrier node created.
+    Carrier node identities:
+       Node ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U
+       User ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U
+       Address: 7VQg2hnusj2ExMSSc2Q3b8G81nUov6dZNrUSUohX7eNe5VYRNTHu
+        DHT ID: FiPw6c6xm1j8G2UqZfwhwD25stEi631YZr3DddYB5iJD
+
+
+    Connected to carrier network.
+
+First part of the result is that it successfully initialized IOEX Carrier node and print some information we want. The second part is the message ``Connected to carrier network.`` which is printed by connection status callback. This message indicates that your application is connected to IOEX Carrier network correctly.
+
+Congratulations! You have successfully write your first IOEX Carrier application and complete the first tutorial.
+
+What's next?
+------------
+
+The first application didn't do much interesting as it only connects to IOEX Carrier network and displays some messages. But this tutorial should give you a rough idea on how the application should be structed, and the flow to develop your application.
+
+Next, we will try to become friends with other nodes, and discuss some important friend APIs and callbacks.

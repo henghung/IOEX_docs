@@ -1,0 +1,394 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>IOEX Carrier VPN APIs &mdash; IOEX Carrier Developer Documents 0.16. documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="IOEX Carrier Developer Documents 0.16. documentation" href="index.html"/>
+        <link rel="next" title="IOEX Carrier AV APIs" href="carrier-av-api.html"/>
+        <link rel="prev" title="IOEX Carrier Tunnel APIs" href="carrier-tunnel-api.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> IOEX Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.16.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption"><span class="caption-text">Tutorials:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">Quick Start</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">Become a Friend With Other Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-msg-file.html">Send Messages and Files to Friend</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API References:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">IOEX Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">IOEX Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">IOEX Carrier Tunnel APIs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">IOEX Carrier VPN APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#vpn-functions">VPN Functions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-vpn-request">IOEX_vpn_request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-vpn-handshake">IOEX_vpn_handshake</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-vpn-accept">IOEX_vpn_accept</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-vpn-cancel">IOEX_vpn_cancel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-vpn-send-data-lossless">IOEX_vpn_send_data_lossless</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ioex-vpn-send-data-lossy">IOEX_vpn_send_data_lossy</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">IOEX Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-group-api.html">IOEX Carrier Group APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">IOEX Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">IOEX Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>IOEX Carrier VPN APIs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ioex-carrier-vpn-apis">
+<h1>IOEX Carrier VPN APIs<a class="headerlink" href="#ioex-carrier-vpn-apis" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="vpn-functions">
+<h3>VPN Functions<a class="headerlink" href="#vpn-functions" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="ioex-vpn-request">
+<h4>IOEX_vpn_request<a class="headerlink" href="#ioex-vpn-request" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv416IOEX_vpn_requestP11IOEXCarrierPKcPK7uint8_t6size_t">
+<span id="_CPPv316IOEX_vpn_requestP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="_CPPv216IOEX_vpn_requestP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="IOEX_vpn_request__IOEXCarrierP.cCP.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a813027b1eab7e8f24bc52a4b30dd4949"></span>int <code class="sig-name descname">IOEX_vpn_request</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> uint8_t *<em>extra</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv416IOEX_vpn_requestP11IOEXCarrierPKcPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send VPN request to a friend. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to setup VPN with. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra</span></code>: [in] Extra data you want to send to the friend. Useful in authentication process. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the extra data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-vpn-handshake">
+<h4>IOEX_vpn_handshake<a class="headerlink" href="#ioex-vpn-handshake" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv418IOEX_vpn_handshakeP11IOEXCarrierPKcPK7uint8_t6size_t">
+<span id="_CPPv318IOEX_vpn_handshakeP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="_CPPv218IOEX_vpn_handshakeP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="IOEX_vpn_handshake__IOEXCarrierP.cCP.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a36c569e4a1c12e98764eb6aa532e4010"></span>int <code class="sig-name descname">IOEX_vpn_handshake</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> uint8_t *<em>extra</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv418IOEX_vpn_handshakeP11IOEXCarrierPKcPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send VPN handshake to a friend. </p>
+<p>Handshake is mean to authenticate each other, and exchange information. This must be called after requested VPN, but before accepted.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to setup VPN with. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra</span></code>: [in] Extra data you want to send to the friend. Useful in authentication process. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the extra data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-vpn-accept">
+<h4>IOEX_vpn_accept<a class="headerlink" href="#ioex-vpn-accept" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv415IOEX_vpn_acceptP11IOEXCarrierPKcPK7uint8_t6size_t">
+<span id="_CPPv315IOEX_vpn_acceptP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="_CPPv215IOEX_vpn_acceptP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="IOEX_vpn_accept__IOEXCarrierP.cCP.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1aed12416525da0bc821dd50a091f0045d"></span>int <code class="sig-name descname">IOEX_vpn_accept</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> uint8_t *<em>extra</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415IOEX_vpn_acceptP11IOEXCarrierPKcPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that accept a VPN request. </p>
+<p>You can accept a VPN once received the request, or after handshaking process. Only the one received the request can accept it.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to setup VPN with. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra</span></code>: [in] Extra data you want to send to the friend. Usually some network configuration data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the extra data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-vpn-cancel">
+<h4>IOEX_vpn_cancel<a class="headerlink" href="#ioex-vpn-cancel" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv415IOEX_vpn_cancelP11IOEXCarrierPKcPK7uint8_t6size_t">
+<span id="_CPPv315IOEX_vpn_cancelP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="_CPPv215IOEX_vpn_cancelP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="IOEX_vpn_cancel__IOEXCarrierP.cCP.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a68e47fcc914a54c68689494b8d400c2e"></span>int <code class="sig-name descname">IOEX_vpn_cancel</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> uint8_t *<em>extra</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv415IOEX_vpn_cancelP11IOEXCarrierPKcPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that cancel a VPN connection, or reject a VPN request. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to setup VPN with. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra</span></code>: [in] Extra data you want to send to the friend. Usually error message or reason to reject. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the extra data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-vpn-send-data-lossless">
+<h4>IOEX_vpn_send_data_lossless<a class="headerlink" href="#ioex-vpn-send-data-lossless" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv427IOEX_vpn_send_data_losslessP11IOEXCarrierPKcPK7uint8_t6size_t">
+<span id="_CPPv327IOEX_vpn_send_data_losslessP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="_CPPv227IOEX_vpn_send_data_losslessP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="IOEX_vpn_send_data_lossless__IOEXCarrierP.cCP.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1adf71352ed51adc600b40b3337217a926"></span>int <code class="sig-name descname">IOEX_vpn_send_data_lossless</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> uint8_t *<em>data</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv427IOEX_vpn_send_data_losslessP11IOEXCarrierPKcPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send lossless VPN data to a friend. </p>
+<p>In most cases, you should use IOEX_vpn_send_data_lossy instead of this lossless API.</p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to send packets to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: [in] Data payload. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="section" id="ioex-vpn-send-data-lossy">
+<h4>IOEX_vpn_send_data_lossy<a class="headerlink" href="#ioex-vpn-send-data-lossy" title="Permalink to this headline">¶</a></h4>
+<dl class="function">
+<dt id="_CPPv424IOEX_vpn_send_data_lossyP11IOEXCarrierPKcPK7uint8_t6size_t">
+<span id="_CPPv324IOEX_vpn_send_data_lossyP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="_CPPv224IOEX_vpn_send_data_lossyP11IOEXCarrierPKcPK7uint8_t6size_t"></span><span id="IOEX_vpn_send_data_lossy__IOEXCarrierP.cCP.uint8_tCP.s"></span><span class="target" id="_i_o_e_x__carrier_8h_1a880ef875c850155664467dcc2e863b82"></span>int <code class="sig-name descname">IOEX_vpn_send_data_lossy</code><span class="sig-paren">(</span>IOEXCarrier *<em>carrier</em>, <em class="property">const</em> char *<em>friend_id</em>, <em class="property">const</em> uint8_t *<em>data</em>, size_t <em>length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv424IOEX_vpn_send_data_lossyP11IOEXCarrierPKcPK7uint8_t6size_t" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>An application-defined function that send lossy VPN data to a friend. </p>
+<p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>0 if the request successfully sent. Otherwise, return -1, and a specific error code can be retrieved by calling IOEX_get_error(). </p>
+</dd>
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">carrier</span></code>: [in] A handle to the Carrier node instance. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">friend_id</span></code>: [in] ID of the friend we want to send packets to. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: [in] Data payload. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">length</span></code>: [in] Size of the data in bytes. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="carrier-av-api.html" class="btn btn-neutral float-right" title="IOEX Carrier AV APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="carrier-tunnel-api.html" class="btn btn-neutral" title="IOEX Carrier Tunnel APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.16.',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/language_data.js"></script>
+      <script type="text/javascript" src="_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

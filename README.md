@@ -23,6 +23,7 @@ https://henghung.github.io/core/0.14.0-rc1
 * [v0.15.4](https://henghung.github.io/core/0.15.4/)
 * [v0.15.5](https://henghung.github.io/core/0.15.5/)
 * [v0.16.0](https://henghung.github.io/core/0.16.0/)
+* [v0.16.0](https://henghung.github.io/core/0.16.3/)
 
 ### Android SDK
 
