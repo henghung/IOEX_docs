@@ -1,0 +1,238 @@
+IOEX Carrier Group APIs
+=======================
+
+Constants
+---------
+
+IOEX_GROUP_TYPE
+####################
+
+.. doxygenenum:: IOEX_GROUP_TYPE
+   :project: CarrierAPI
+
+IOEX_GROUP_PEER_STATE_TYPE
+##########################
+
+.. doxygenenum:: IOEX_GROUP_PEER_STATE_TYPE
+   :project: CarrierAPI
+
+IOEX_GROUP_MESSAGE_TYPE
+#######################
+
+.. doxygenenum:: IOEX_GROUP_MESSAGE_TYPE
+   :project: CarrierAPI
+
+IOEX_GROUP_MSG_ACTION_TYPE
+##########################
+
+.. doxygenenum:: IOEX_GROUP_MSG_ACTION_TYPE
+   :project: CarrierAPI
+
+IOEX_MAX_GROUP_NAME_LEN
+#######################
+
+.. doxygendefine:: IOEX_MAX_GROUP_NAME_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_GROUP_DESCRIPTION_LEN
+##############################
+
+.. doxygendefine:: IOEX_MAX_GROUP_DESCRIPTION_LEN
+   :project: CarrierAPI
+
+IOEX_MAX_GROUP_PEER_NAME_LEN
+############################
+
+.. doxygendefine:: IOEX_MAX_GROUP_PEER_NAME_LEN
+   :project: CarrierAPI
+
+IOEX_GROUP_PEER_PK_LEN
+######################
+
+.. doxygendefine:: IOEX_GROUP_PEER_PK_LEN
+   :project: CarrierAPI
+
+IOEX_GROUP_INVITING_ID_LEN
+##########################
+
+.. doxygendefine:: IOEX_GROUP_INVITING_ID_LEN
+   :project: CarrierAPI
+
+Data types
+----------
+
+IOEXGroupInfo
+#############
+
+.. doxygenstruct:: IOEXGroupInfoToAp
+   :project: CarrierAPI
+   :members:
+
+IOEXGroupPeerInfo
+#################
+
+.. doxygenstruct:: IOEXGroupPeerInfoToAp
+   :project: CarrierAPI
+   :members:
+
+IOEXGroupPeerListCallback
+#########################
+
+.. doxygentypedef:: IOEXGroupPeerListCallback
+   :project: CarrierAPI
+
+IOEXGroupListCallback
+#####################
+
+.. doxygentypedef:: IOEXGroupListCallback
+   :project: CarrierAPI
+
+Functions
+---------
+
+Group Functions
+###############
+
+IOEX_group_chat_create
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_create
+   :project: CarrierAPI
+
+IOEX_group_chat_delete
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_delete
+   :project: CarrierAPI
+
+IOEX_group_chat_existing
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_existing
+   :project: CarrierAPI
+
+IOEX_group_chat_by_id
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_by_id
+   :project: CarrierAPI
+
+IOEX_group_chat_id
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_id
+   :project: CarrierAPI
+
+IOEX_group_chat_type
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_type
+   :project: CarrierAPI
+
+IOEX_group_chat_title
+~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_title
+   :project: CarrierAPI
+
+IOEX_group_chat_set_title
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_set_title
+   :project: CarrierAPI
+
+IOEX_group_chat_kick_out_peer_by_id
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_kick_out_peer_by_id
+   :project: CarrierAPI
+
+IOEX_group_chat_invite
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_invite
+   :project: CarrierAPI
+
+IOEX_group_chat_join
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_join
+   :project: CarrierAPI
+
+IOEX_send_group_chat_message
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_send_group_chat_message
+   :project: CarrierAPI
+
+IOEX_group_chat_peer_count
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_peer_count
+   :project: CarrierAPI
+
+IOEX_group_chat_peer_number_is_ours
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_peer_number_is_ours
+   :project: CarrierAPI
+
+IOEX_group_chat_peer_name
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_peer_name
+   :project: CarrierAPI
+
+IOEX_group_chat_peer_user_id
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_peer_user_id
+   :project: CarrierAPI
+
+IOEX_group_chat_peer_pk
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_peer_pk
+   :project: CarrierAPI
+
+IOEX_group_offline_peer_get_last_active
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_offline_peer_get_last_active
+   :project: CarrierAPI
+
+IOEX_group_chat_list
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_list
+   :project: CarrierAPI
+
+IOEX_group_chat_peer_list
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_peer_list
+   :project: CarrierAPI
+
+IOEX_group_chat_enable_av
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_enable_av
+   :project: CarrierAPI
+
+IOEX_group_chat_disable_av
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_disable_av
+   :project: CarrierAPI
+
+IOEX_group_chat_av_enabled
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_av_enabled
+   :project: CarrierAPI
+
+IOEX_group_chat_send_audio
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_group_chat_send_audio
+   :project: CarrierAPI
