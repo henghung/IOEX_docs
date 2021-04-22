@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Create A Carrier Instance &mdash; Documentation for android app developers 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+        <script type="text/javascript" src="../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Connect To Other Carrier Nodes" href="ConnectToOtherNodes.html" />
+    <link rel="prev" title="Tutorials" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #78C257" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Documentation for android app developers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">OverView:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Create A Carrier Instance</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#import-the-carrier-sdk-library">Import the Carrier SDK Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#initialize-the-carrier-instance">Initialize the carrier instance</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-options">Set Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#initialize-and-start-the-carrier">Initialize and Start the carrier</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ConnectToOtherNodes.html">Connect To Other Carrier Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="StreamingSetup.html">Streaming Setup</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation for android app developers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Create A Carrier Instance</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="create-a-carrier-instance">
+<h1>Create A Carrier Instance<a class="headerlink" href="#create-a-carrier-instance" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>This section will show you how to set up the IOEX Carrier related control and initialize the Carrier node to get the instance.</p>
+</div>
+<div class="section" id="import-the-carrier-sdk-library">
+<h2>Import the Carrier SDK Library<a class="headerlink" href="#import-the-carrier-sdk-library" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Put the <code class="docutils literal notranslate"><span class="pre">.aar</span> <span class="pre">file</span></code> of the Carrier SDK in the directory <code class="docutils literal notranslate"><span class="pre">app\libs\</span></code>.</p></li>
+<li><p>Add the Carrier SDK dependency in <strong>build.gradle</strong>, as follows：</p></li>
+</ol>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">dependencies</span> <span class="o">{</span>
+        <span class="n">implementation</span> <span class="nf">fileTree</span><span class="o">(</span><span class="nl">include:</span> <span class="o">[</span><span class="s1">&#39;*.aar&#39;</span><span class="o">],</span> <span class="nl">dir:</span> <span class="s1">&#39;libs&#39;</span><span class="o">)</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The <code class="docutils literal notranslate"><span class="pre">minSdkVersion</span></code> can’t be smaller than version 21, Check the settings in <strong>build.gradle</strong>, as follows：</p></li>
+</ol>
+<div class="highlight-groovy notranslate"><div class="highlight"><pre><span></span><span class="n">android</span> <span class="o">{</span>
+        <span class="n">defaultConfig</span> <span class="o">{</span>
+                <span class="n">minSdkVersion</span> <span class="mi">21</span> <span class="c1">// or bigger than</span>
+        <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Finally, Sync Project with Gradle Files.</p></li>
+</ol>
+</div>
+<div class="section" id="initialize-the-carrier-instance">
+<h2>Initialize the carrier instance<a class="headerlink" href="#initialize-the-carrier-instance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="set-options">
+<h3>Set Options<a class="headerlink" href="#set-options" title="Permalink to this headline">¶</a></h3>
+<p>In this step, you’ll set <code class="docutils literal notranslate"><span class="pre">Carrier.Options</span></code>, the sample code is as follows:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span> <span class="n">options</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">();</span>
+<span class="n">options</span><span class="o">.</span><span class="na">setUdpEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">options</span><span class="o">.</span><span class="na">setLocalDiscoveryEnabled</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+<span class="n">options</span><span class="o">.</span><span class="na">setPersistentLocation</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getFilesDir</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">());</span>
+<span class="n">options</span><span class="o">.</span><span class="na">setStorageLocation</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getFilesDir</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;/storage&quot;</span><span class="o">);</span>
+<span class="n">options</span><span class="o">.</span><span class="na">setKeyFile</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">getFilesDir</span><span class="o">().</span><span class="na">getAbsolutePath</span><span class="o">()</span> <span class="o">+</span> <span class="s">&quot;/key&quot;</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>IOEX Carrier has default nodes. If you don’t add default nodes, you’ll not be able to connect to other nodes. Add the following five default nodes to the <code class="docutils literal notranslate"><span class="pre">Carrier.Options</span></code>：</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span><span class="o">&gt;</span> <span class="n">arrayList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;&gt;();</span>
+<span class="c1">// 1</span>
+<span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span> <span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span><span class="o">(</span><span class="s">&quot;18.162.185.242&quot;</span><span class="o">,</span> <span class="s">&quot;null&quot;</span><span class="o">,</span> <span class="s">&quot;10310&quot;</span><span class="o">,</span> <span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="o">);</span>
+<span class="n">arrayList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+<span class="c1">// 2</span>
+<span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span><span class="o">(</span><span class="s">&quot;18.162.139.208&quot;</span><span class="o">,</span> <span class="s">&quot;null&quot;</span><span class="o">,</span> <span class="s">&quot;10310&quot;</span><span class="o">,</span> <span class="s">&quot;HuvotLiezBNqfFnzKyQsHp8Zs9pR7YJ441KjhqUUc9mq&quot;</span><span class="o">);</span>
+<span class="n">arrayList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+<span class="c1">// 3</span>
+<span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span><span class="o">(</span><span class="s">&quot;18.162.135.106&quot;</span><span class="o">,</span> <span class="s">&quot;null&quot;</span><span class="o">,</span> <span class="s">&quot;10310&quot;</span><span class="o">,</span> <span class="s">&quot;5WTT7ozhfpznsvLawf7tPEqiTRiFDBqLEDHQHUsezLLc&quot;</span><span class="o">);</span>
+<span class="n">arrayList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+<span class="c1">// 4</span>
+<span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span><span class="o">(</span><span class="s">&quot;18.162.77.187&quot;</span><span class="o">,</span> <span class="s">&quot;null&quot;</span><span class="o">,</span> <span class="s">&quot;10310&quot;</span><span class="o">,</span> <span class="s">&quot;6nYMtMGs8Ghwom5EwMRrP9Zkw6j1CuPc8VKp9g6fq4Ut&quot;</span><span class="o">);</span>
+<span class="n">arrayList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+<span class="c1">// 5</span>
+<span class="n">node</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Carrier</span><span class="o">.</span><span class="na">Options</span><span class="o">.</span><span class="na">BootstrapNode</span><span class="o">(</span><span class="s">&quot;18.162.199.223&quot;</span><span class="o">,</span> <span class="s">&quot;null&quot;</span><span class="o">,</span> <span class="s">&quot;10310&quot;</span><span class="o">,</span> <span class="s">&quot;HvLH4duMMWHqAMpwU3ZXyHSYc8axbJME3ACVDmgDHLgV&quot;</span><span class="o">);</span>
+<span class="n">arrayList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node</span><span class="o">);</span>
+
+<span class="n">options</span><span class="o">.</span><span class="na">setBootstrapNodes</span><span class="o">(</span><span class="n">arrayList</span><span class="o">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="initialize-and-start-the-carrier">
+<h3>Initialize and Start the carrier<a class="headerlink" href="#initialize-and-start-the-carrier" title="Permalink to this headline">¶</a></h3>
+<p>After setting <code class="docutils literal notranslate"><span class="pre">Carrier.Options</span></code>, initialize the Carrier instance and start it.
+After initialization, you can get the carrier instance.
+Finally, the carrier node is asynchronously started to connect to the carrier network.
+If successfully connected to the network, the carrier node starts to work.
+As follows:</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">initializeInstance</span><span class="o">(</span><span class="n">options</span><span class="o">,</span> <span class="n">handler</span><span class="o">);</span> <span class="c1">// Create a Carrier instance.</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">options</span></code> : The options to set for creating carrier node.</p>
+<p><code class="docutils literal notranslate"><span class="pre">handler</span></code> : The interface handler for carrier node.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">start</span><span class="o">(</span><span class="n">interval</span><span class="o">);</span> <span class="c1">// recommended value is 10</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">start()</span></code> : Internal loop interval, in milliseconds.</p>
+<p>Callback <code class="docutils literal notranslate"><span class="pre">onReady</span></code> will be called after running <code class="docutils literal notranslate"><span class="pre">start()</span></code>.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onReady</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">)</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must wait until callback <strong>onReady</strong> is called before you can use the carrier.</p>
+</div>
+<p>Connected to the carrier network, callback <code class="docutils literal notranslate"><span class="pre">onConnection()</span></code> will be called.</p>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onConnection</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">,</span> <span class="n">ConnectionStatus</span> <span class="n">status</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// status =</span>
+        <span class="c1">// ConnectionStatus.Connected</span>
+        <span class="c1">// or</span>
+        <span class="c1">// ConnectionStatus.Disconnected</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">status</span></code> : Current connection status.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ConnectToOtherNodes.html" class="btn btn-neutral float-right" title="Connect To Other Carrier Nodes" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, 喆立聯網股份有限公司 IOEX Co.,Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
