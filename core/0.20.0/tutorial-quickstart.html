@@ -1,0 +1,584 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>快速開始 &mdash; Arctos Carrier Developer Documents 0.18.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Arctos Carrier Developer Documents 0.18.0 documentation" href="index.html"/>
+        <link rel="next" title="和節點成為好友" href="tutorial-friend.html"/>
+        <link rel="prev" title="Tutorials" href="index.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Arctos Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.18.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption" role="heading"><span class="caption-text">Tutorials:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">快速開始</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">概觀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arctos-carrier-sdk">準備 Arctos Carrier SDK</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">撰寫應用程式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">設定節點參數</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">設定影音編解碼參數</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#callbacks">設定 Callbacks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#carrier">啟動 Carrier 節點</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">完整範例程式碼</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id7">編譯應用程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id8">執行應用程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id10">下一步</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-friend.html">和節點成為好友</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-av.html">影音傳輸功能</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">Arctos Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">Arctos Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">Arctos Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">Arctos Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">Arctos Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-group-api.html">Arctos Carrier Group APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">Arctos Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arctos Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>快速開始</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>快速開始<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>概觀<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在這份教學中，我們會在 Linux 環境中創造第一個 Arctos Carrier 應用程式。</p>
+</div>
+<div class="section" id="arctos-carrier-sdk">
+<h2>準備 Arctos Carrier SDK<a class="headerlink" href="#arctos-carrier-sdk" title="Permalink to this headline">¶</a></h2>
+<p>在開始之前，請先確定你有從 Arctos 開發團隊取得 Arctos Carrier 的軟體開發包 (SDK)。此 SDK 通常會以壓縮檔的形式發佈，可能是 .zip 檔或是 .tar.gz 檔。</p>
+<p>將此壓縮檔解壓縮至你指定的目錄下。解開後，應該包含如下的資料夾結構：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.</span>
+<span class="go">├── bin</span>
+<span class="go">├── etc</span>
+<span class="go">├── include</span>
+<span class="go">└── lib</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">bin</span></code> 資料夾包含測試與開發用的工具程式。</p>
+<p><code class="docutils literal notranslate"><span class="pre">etc</span></code> 資料夾包含了工具程式的設定檔。</p>
+<p><code class="docutils literal notranslate"><span class="pre">include</span></code> 資料夾包含了 C 語言標頭檔，其中定義了 Arctos Carrier API 與資料結構的定義。請參考 <a class="reference internal" href="carrier-api.html#arctos-carrier-core-apis"><span class="std std-ref">Arctos Carrier core APIs</span></a>。</p>
+<p><code class="docutils literal notranslate"><span class="pre">lib</span></code> 資料夾包含了已經編譯好的共用函式庫檔。</p>
+</div>
+<div class="section" id="id3">
+<h2>撰寫應用程式<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>在你自選的專案目錄下，新增一個 <code class="docutils literal notranslate"><span class="pre">main.c</span></code> 檔案，並加入以下程式碼：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;IOEX_carrier.h&gt;</span><span class="cp"></span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXAvOptions</span> <span class="n">av_options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>這段程式碼中包含 4 個重要的資料結構。 <a class="reference internal" href="carrier-api.html#ioexoptions"><span class="std std-ref">IOEXOptions</span></a> 定義了 Carrier 節點的基本設定，以及它連線到其他節點的方式。 <a class="reference internal" href="carrier-av-api.html#ioexavoptions"><span class="std std-ref">IOEXAvOptions</span></a> 定義了 Carrier 節點影音編解碼的相關參數。 <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a> 定義了 Carrier 節點的各種事件 Callback。 最後，IOEXCarrier 則是包含 Carrier 執行階段狀態紀錄的主要資料結構。</p>
+<div class="section" id="id4">
+<h3>設定節點參數<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>接著逐一設定 Carrier 節點的參數：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set options</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+<span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bs_list_sync_period</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+<span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>這些參數定義了 Carrier 節點執行時的行為。注意 Carrier 應用程式會在你指定的 <code class="docutils literal notranslate"><span class="pre">persistent_location</span></code>、<code class="docutils literal notranslate"><span class="pre">storage_location</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">key_file_location</span></code> 等路徑建立目錄與檔案，因此請確保執行應用程式時，你有讀寫這些目錄的權限。</p>
+<p>同時我們也設定了 Carrier 節點預設要連線至的座標節點 (Bootstrap Node)。若沒有設定座標節點參數，Carrier 節點就無法加入網路，也無法連線到其他節點。因此，請至少設定一個合法的座標節點參數。</p>
+<p>關於合法的座標節點列表，請跟 Arctos 開發團隊詢問。</p>
+<p>關於其他參數說明，請參考 <a class="reference internal" href="carrier-api.html#ioexoptions"><span class="std std-ref">IOEXOptions</span></a>。</p>
+</div>
+<div class="section" id="id5">
+<h3>設定影音編解碼參數<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>接著我們設定以下影音編碼參數：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set AV options</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">av_options</span><span class="p">));</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">encoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">decoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">encode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">decode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">cpu_used_value</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_mode</span> <span class="o">=</span> <span class="n">IOEXAvRateControlMode_VBR</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">max_keyframe_interval</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_target_bitrate</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">allow_lagged_encode_frames</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">dropframe</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">allow_resize</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">resize_up_threshold</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">resize_down_threshold</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_undershoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_overshoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">buffer_size</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">buffer_initial_size</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">buffer_optimal_size</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+<span class="n">av_options</span><span class="p">.</span><span class="n">initial_keyframe_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>在這份快速開始教學中，我們並沒有使用到影音功能，不過啟動 Carrier 節點時仍需要提供預設影音編解碼參數。</p>
+<p>影音編解碼功能的使用方式，會在後續教學文件中說明。</p>
+<p>關於影音編解碼參數的意義，請參考 <a class="reference internal" href="carrier-av-api.html#ioexavoptions"><span class="std std-ref">IOEXAvOptions</span></a>。</p>
+</div>
+<div class="section" id="callbacks">
+<h3>設定 Callbacks<a class="headerlink" href="#callbacks" title="Permalink to this headline">¶</a></h3>
+<p>我們接著還需要設定事件的 callback。在 <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a> 裡面已經定義了各種事件，以及該事件 callback 的介面。在建立應用程式時，只需要實作應用程式會關心的事件 callback 就好，不需要實做所有的事件。</p>
+<p>在這份教學中，我們會實作 <code class="docutils literal notranslate"><span class="pre">connection_status</span></code> 事件 callback。此事件會在 Carrier 節點成功加入網路，以及從網路中離開時觸發。</p>
+<p>此 callback 的實作如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// The implementation of connection status callback</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>接著，在 main 函式中加入以下程式碼：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>如此，我們就建立了一個 <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">IOEXCallbacks</span></a> 的實體，並且實作裡面的 connection_status callback。</p>
+</div>
+<div class="section" id="carrier">
+<h3>啟動 Carrier 節點<a class="headerlink" href="#carrier" title="Permalink to this headline">¶</a></h3>
+<p>當完成前述的設定後，我們接著就可以初始化一個新的 <cite>IOEXCarrier</cite> 實體：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Initialize carrier instance</span>
+<span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+<span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="carrier-api.html#ioex-new"><span class="std std-ref">IOEX_new</span></a> 函式接收 4 個參數。前三個參數分別是我們設定好的 <code class="docutils literal notranslate"><span class="pre">IOEXOptions</span></code>、<code class="docutils literal notranslate"><span class="pre">IOEXAvOptions</span></code> 以及 <code class="docutils literal notranslate"><span class="pre">IOEXCallbacks</span></code>。最後一個參數可以傳入應用程式定義的 context 資料，在這邊我們先設定為 NULL。</p>
+<p>若是呼叫任何 API 失敗，<a class="reference internal" href="carrier-api.html#ioex-get-error"><span class="std std-ref">IOEX_get_error</span></a> 函式會返回一個錯誤代碼，方便除錯。在此範例中，若是 IOEX_new() 返回 NULL，表示初始化失敗，此時可以透過 IOEX_get_error() 判斷失敗原因。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>關於錯誤代碼，請參考 <a class="reference internal" href="carrier-error-number.html#arctos-carrier-error-number"><span class="std std-ref">Arctos Carrier error number</span></a>。</p>
+</div>
+<p>我們也額外加入一些程式碼，可以顯示 Carrier 節點的額外資料：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Display carrier node information</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+<span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>當 <code class="docutils literal notranslate"><span class="pre">IOEXCarrier</span></code> 實例成功建立後，我們就可以啟動 Carrier 節點了：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Run carrier loop</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+<span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+    <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="carrier-api.html#ioex-run"><span class="std std-ref">IOEX_run</span></a> 函式接收 2 個參數。第一個參數是我們剛剛初始化的 <code class="docutils literal notranslate"><span class="pre">IOEXCarrier</span></code> 實體，第二個參數代表程式執行迴圈的間隔，以毫秒為單位。</p>
+<p>IOEX_run() 函式會阻塞住目前程式的執行，直到發生錯誤，或是被應用程式中斷才會返回。此函式實際上在執行一個無窮迴圈，這個迴圈每隔一段時間，會去檢查是否有來自其他節點的訊息、資料或是事件。這個迴圈的執行間隔，就是我們帶入的第二個參數。</p>
+<p>因此，如果沒有任何錯誤或中斷，此函式就會無限期執行 Carrier 節點的功能。</p>
+<p>當此函式返回時，應用程式必須檢查是否因為錯誤所引起。如果發生錯誤，必須呼叫 <a class="reference internal" href="carrier-api.html#ioex-kill"><span class="std std-ref">IOEX_kill</span></a> 函式來手動釋放 <code class="docutils literal notranslate"><span class="pre">IOEXCarrier</span></code> 占用的資源。如果 IOEX_run 正常返回，代表 Carrier 節點正常結束，它會自行釋放資源。</p>
+</div>
+<div class="section" id="id6">
+<h3>完整範例程式碼<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>將前述程式碼整理後，完整程式碼如下：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;IOEX_carrier.h&quot;</span><span class="cp"></span>
+
+<span class="c1">// The implementation of connection status callback</span>
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXAvOptions</span> <span class="n">av_options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+
+    <span class="c1">// Set options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bs_list_sync_period</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Set AV options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">av_options</span><span class="p">));</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">encoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">decoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">encode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">decode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">cpu_used_value</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_mode</span> <span class="o">=</span> <span class="n">IOEXAvRateControlMode_VBR</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">max_keyframe_interval</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_target_bitrate</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">allow_lagged_encode_frames</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">dropframe</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">allow_resize</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">resize_up_threshold</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">resize_down_threshold</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_undershoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_overshoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_size</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_initial_size</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_optimal_size</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">initial_keyframe_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Set callbacks</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+
+    <span class="c1">// Randomize</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Initialize carrier instance</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Display carrier node information</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Run carrier loop</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h2>編譯應用程式<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>假設前述程式碼全部寫在專案目錄下的 <code class="docutils literal notranslate"><span class="pre">main.c</span></code> 檔案中，你應該會有類似下面的資料夾結構：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">.</span>
+<span class="go">├── bin</span>
+<span class="go">├── etc</span>
+<span class="go">├── include</span>
+<span class="go">├── lib</span>
+<span class="go">└── main.c</span>
+</pre></div>
+</div>
+<p>我們使用 <a class="reference external" href="https://gcc.gnu.org/">gcc</a> 來編譯專案，指令如下：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gcc main.c -Iinclude -Llib -lIOEXcarrier -lIOEXcommon -o main
+</pre></div>
+</div>
+<p>這行指令會使用 gcc 來編譯 <code class="docutils literal notranslate"><span class="pre">main.c</span></code> 檔案。我們引入了 <code class="docutils literal notranslate"><span class="pre">include</span></code> 與 <code class="docutils literal notranslate"><span class="pre">lib</span></code> 兩個資料夾，並連結到 Carrier SDK 的共享函式庫 IOEXcarrier 和 IOEXcommon。</p>
+<p>若順利編譯完畢，會產生 <code class="docutils literal notranslate"><span class="pre">main</span></code> 這個執行檔。</p>
+</div>
+<div class="section" id="id8">
+<h2>執行應用程式<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>最後，我們透過下列指令來執行應用程式：</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span> <span class="nv">LD_LIBRARY_PATH</span><span class="o">=</span>lib <span class="o">&amp;&amp;</span> ./main
+</pre></div>
+</div>
+<p>這行指令首先設定了環境變數 <code class="docutils literal notranslate"><span class="pre">LD_LIBRARY_PATH</span></code>，並指向 lib 資料夾。這個環境變數是用來告訴 Linux 作業系統，要到哪個路徑去尋找共用函式庫。更多說明請參考 <a class="reference external" href="http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html">這裡</a>。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>請不要在開發環境以外的地方使用 LD_LIBRARY_PATH。在正式環境中，請將 <code class="docutils literal notranslate"><span class="pre">lib</span></code> 與 <code class="docutils literal notranslate"><span class="pre">include</span></code> 的檔案安裝到 Linux 系統中的標準位置，例如 <code class="docutils literal notranslate"><span class="pre">/usr/lib</span></code> 和 <code class="docutils literal notranslate"><span class="pre">/usr/include</span></code>。</p>
+</div>
+<p>當應用程式順利執行一段時間後，螢幕上應該會顯示如下資訊（時間戳記、各 ID 與 Address 資訊應該會不相同）：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">2019-08-20 10:58:11 - INFO    : Carrier: Carrier node created.</span>
+<span class="go">Carrier node identities:</span>
+<span class="go">   Node ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U</span>
+<span class="go">   User ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U</span>
+<span class="go">   Address: 7VQg2hnusj2ExMSSc2Q3b8G81nUov6dZNrUSUohX7eNe5VYRNTHu</span>
+<span class="go">    DHT ID: FiPw6c6xm1j8G2UqZfwhwD25stEi631YZr3DddYB5iJD</span>
+
+
+<span class="go">Connected to carrier network.</span>
+</pre></div>
+</div>
+<p>上面的訊息中，第一段是啟動 Carrier 節點後隨即印出的訊息。第二段則是 <code class="docutils literal notranslate"><span class="pre">Connected</span> <span class="pre">to</span> <span class="pre">carrier</span> <span class="pre">network.</span></code> 訊息，它是由會在應用程式啟動後過一段時間，由 connection_status callback 印出，代表我們順利連上 Carrier 網路。</p>
+<p>恭喜，到此你已經完成你的第一個 Arctos Carrier 應用程式。</p>
+</div>
+<div class="section" id="id10">
+<h2>下一步<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<p>這個應用程式展示了啟動 Carrier 節點，以及處理事件的簡單流程。雖然這個應用程式並沒有太多互動功能，但可以展示出 Carrier 節點的運作流程。</p>
+<p>在下一篇教學中，會簡介如何跟其他 Carrier 節點連線，並成為好友。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial-friend.html" class="btn btn-neutral float-right" title="和節點成為好友" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="Tutorials" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.18.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/documentation_options.js"></script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

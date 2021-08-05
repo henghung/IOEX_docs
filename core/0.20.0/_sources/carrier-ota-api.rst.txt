@@ -1,0 +1,125 @@
+Arctos Carrier OTA APIs
+=========================
+
+Constants
+---------
+
+SPLIT_EXTENSION_NAME
+####################
+
+.. doxygendefine:: SPLIT_EXTENSION_NAME
+   :project: CarrierAPI
+
+Functions
+---------
+
+HTTP Functions
+##############
+
+IOEX_http_conf
+~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_conf
+   :project: CarrierAPI
+
+IOEX_http_get_list
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_get_list
+   :project: CarrierAPI
+
+IOEX_http_post_list
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_post_list
+   :project: CarrierAPI
+
+IOEX_http_get_data_count
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_get_data_count
+   :project: CarrierAPI
+
+IOEX_http_report
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_report
+   :project: CarrierAPI
+
+IOEX_http_update_id
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_update_id
+   :project: CarrierAPI
+
+IOEX_http_report_task_ongoing
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_report_task_ongoing
+   :project: CarrierAPI
+
+IOEX_http_report_task_completed
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_report_task_completed
+   :project: CarrierAPI
+
+IOEX_http_register_supernode
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_register_supernode
+   :project: CarrierAPI
+
+IOEX_http_query_task
+~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_query_task
+   :project: CarrierAPI
+
+IOEX_http_download_file
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_http_download_file
+   :project: CarrierAPI
+
+Compress & Split
+################
+
+IOEX_compress
+~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_compress
+   :project: CarrierAPI
+
+IOEX_uncompress
+~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_uncompress
+   :project: CarrierAPI
+
+IOEX_split
+~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_split
+   :project: CarrierAPI
+
+IOEX_merge
+~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_merge
+   :project: CarrierAPI
+
+Upload & Download
+#################
+
+IOEX_upload_with_id
+~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_upload_with_id
+   :project: CarrierAPI
+
+IOEX_download
+~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_download
+   :project: CarrierAPI

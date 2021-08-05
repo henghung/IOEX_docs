@@ -1,0 +1,283 @@
+快速開始
+==================================
+
+概觀
+----------------------------------
+
+在這份教學中，我們會在 Linux 環境中創造第一個 Arctos Carrier 應用程式。
+
+準備 Arctos Carrier SDK
+----------------------------------
+
+在開始之前，請先確定你有從 Arctos 開發團隊取得 Arctos Carrier 的軟體開發包 (SDK)。此 SDK 通常會以壓縮檔的形式發佈，可能是 .zip 檔或是 .tar.gz 檔。
+
+將此壓縮檔解壓縮至你指定的目錄下。解開後，應該包含如下的資料夾結構：
+
+.. code-block:: console
+
+  .
+  ├── bin
+  ├── etc
+  ├── include
+  └── lib
+
+``bin`` 資料夾包含測試與開發用的工具程式。
+
+``etc`` 資料夾包含了工具程式的設定檔。
+
+``include`` 資料夾包含了 C 語言標頭檔，其中定義了 Arctos Carrier API 與資料結構的定義。請參考 :ref:`carrier-api:Arctos Carrier core APIs`。
+
+``lib`` 資料夾包含了已經編譯好的共用函式庫檔。
+
+撰寫應用程式
+-----------------------------------------
+
+在你自選的專案目錄下，新增一個 ``main.c`` 檔案，並加入以下程式碼：
+
+.. code-block:: c
+
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include <time.h>
+  #include <IOEX_carrier.h>
+
+  int main(int argc, char *argv[]){
+      IOEXOptions options;
+      IOEXAvOptions av_options;
+      IOEXCallbacks callbacks;
+      IOEXCarrier *w;
+
+      return 0;
+  }
+
+這段程式碼中包含 4 個重要的資料結構。 :ref:`carrier-api:IOEXOptions` 定義了 Carrier 節點的基本設定，以及它連線到其他節點的方式。 :ref:`carrier-av-api:IOEXAvOptions` 定義了 Carrier 節點影音編解碼的相關參數。 :ref:`carrier-api:IOEXCallbacks` 定義了 Carrier 節點的各種事件 Callback。 最後，IOEXCarrier 則是包含 Carrier 執行階段狀態紀錄的主要資料結構。
+
+設定節點參數
+##################################
+
+接著逐一設定 Carrier 節點的參數：
+
+.. code-block:: c
+
+    // Set options
+    memset(&options, 0, sizeof(options));
+    options.udp_enabled = true;
+    options.local_discovery_enabled = true;
+    options.persistent_location = strdup("persistent");
+    options.storage_location = strdup("storage");
+    options.key_file_location = strdup("key");
+    options.bootstraps_size = 1;
+    options.bs_list_sync_period = 0;
+    options.bootstraps = (BootstrapNode *) malloc(options.bootstraps_size * sizeof(BootstrapNode));
+    options.bootstraps[0].ipv4 = strdup("Bootstrap-1.arctos.tw");
+    options.bootstraps[0].ipv6 = strdup("Bootstrap-1.arctos.tw");
+    options.bootstraps[0].port = strdup("10310");
+    options.bootstraps[0].public_key = strdup("D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG");
+
+這些參數定義了 Carrier 節點執行時的行為。注意 Carrier 應用程式會在你指定的 ``persistent_location``、``storage_location`` 以及 ``key_file_location`` 等路徑建立目錄與檔案，因此請確保執行應用程式時，你有讀寫這些目錄的權限。
+
+同時我們也設定了 Carrier 節點預設要連線至的座標節點 (Bootstrap Node)。若沒有設定座標節點參數，Carrier 節點就無法加入網路，也無法連線到其他節點。因此，請至少設定一個合法的座標節點參數。
+
+關於合法的座標節點列表，請跟 Arctos 開發團隊詢問。
+
+關於其他參數說明，請參考 :ref:`carrier-api:IOEXOptions`。
+
+設定影音編解碼參數
+#############################################
+
+接著我們設定以下影音編碼參數：
+
+.. code-block:: c
+
+    // Set AV options
+    memset(&av_options, 0, sizeof(av_options));
+    av_options.encoder_threads = 4;
+    av_options.decoder_threads = 4;
+    av_options.encode_deadline = 1;
+    av_options.decode_deadline = 1;
+    av_options.cpu_used_value = 4;
+    av_options.rate_control_mode = IOEXAvRateControlMode_VBR;
+    av_options.max_keyframe_interval = 40;
+    av_options.rate_control_target_bitrate = 250;
+    av_options.allow_lagged_encode_frames = 0;
+    av_options.dropframe = 75;
+    av_options.allow_resize = true;
+    av_options.resize_up_threshold = 30;
+    av_options.resize_down_threshold = 60;
+    av_options.rate_control_undershoot_bits = 0;
+    av_options.rate_control_overshoot_bits = 0;
+    av_options.buffer_size = 6000;
+    av_options.buffer_initial_size = 4000;
+    av_options.buffer_optimal_size = 5000;
+    av_options.initial_keyframe_count = 1;
+
+
+在這份快速開始教學中，我們並沒有使用到影音功能，不過啟動 Carrier 節點時仍需要提供預設影音編解碼參數。
+
+影音編解碼功能的使用方式，會在後續教學文件中說明。
+
+關於影音編解碼參數的意義，請參考 :ref:`carrier-av-api:IOEXAvOptions`。
+
+設定 Callbacks
+#########################################
+
+我們接著還需要設定事件的 callback。在 :ref:`carrier-api:IOEXCallbacks` 裡面已經定義了各種事件，以及該事件 callback 的介面。在建立應用程式時，只需要實作應用程式會關心的事件 callback 就好，不需要實做所有的事件。
+
+在這份教學中，我們會實作 ``connection_status`` 事件 callback。此事件會在 Carrier 節點成功加入網路，以及從網路中離開時觸發。
+
+此 callback 的實作如下：
+
+.. code-block:: c
+
+    // The implementation of connection status callback
+    static void connection_status_callback(IOEXCarrier *w, IOEXConnectionStatus status, void *context)
+    {
+        switch(status){
+            case IOEXConnectionStatus_Connected:
+                printf("Connected to carrier network.\n");
+                break;
+            case IOEXConnectionStatus_Disconnected:
+                printf("Disconnected from carrier network.\n");
+                break;
+            default:
+                printf("Unknown connection status.\n");
+        }
+    }
+
+接著，在 main 函式中加入以下程式碼：
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    callbacks.connection_status = connection_status_callback;
+
+如此，我們就建立了一個 :ref:`carrier-api:IOEXCallbacks` 的實體，並且實作裡面的 connection_status callback。
+
+啟動 Carrier 節點
+#######################################
+
+當完成前述的設定後，我們接著就可以初始化一個新的 `IOEXCarrier` 實體：
+
+.. code-block:: c
+
+    // Initialize carrier instance
+    w = IOEX_new(&options, &av_options, &callbacks, NULL);
+    free(options.bootstraps);
+    if(!w){
+        printf("Failed to create carrier instance: 0x%08X\n", IOEX_get_error());
+        return -1;
+    }
+
+:ref:`carrier-api:IOEX_new` 函式接收 4 個參數。前三個參數分別是我們設定好的 ``IOEXOptions``、``IOEXAvOptions`` 以及 ``IOEXCallbacks``。最後一個參數可以傳入應用程式定義的 context 資料，在這邊我們先設定為 NULL。
+
+若是呼叫任何 API 失敗，:ref:`carrier-api:IOEX_get_error` 函式會返回一個錯誤代碼，方便除錯。在此範例中，若是 IOEX_new() 返回 NULL，表示初始化失敗，此時可以透過 IOEX_get_error() 判斷失敗原因。
+
+.. note::
+
+    關於錯誤代碼，請參考 :ref:`carrier-error-number:Arctos Carrier error number`。
+
+我們也額外加入一些程式碼，可以顯示 Carrier 節點的額外資料：
+
+.. code-block:: c
+
+    // Display carrier node information
+    printf("Carrier node identities:\n");
+    printf("   Node ID: %s\n", IOEX_get_nodeid(w, buf, sizeof(buf)));
+    printf("   User ID: %s\n", IOEX_get_userid(w, buf, sizeof(buf)));
+    printf("   Address: %s\n", IOEX_get_address(w, buf, sizeof(buf)));
+    printf("    DHT ID: %s\n\n", IOEX_get_self_dht_id(w, buf, sizeof(buf)));
+    printf("\n");
+
+當 ``IOEXCarrier`` 實例成功建立後，我們就可以啟動 Carrier 節點了：
+
+.. code-block:: c
+
+    // Run carrier loop
+    rc = IOEX_run(w, 10);
+    if(rc != 0){
+        printf("Failed to start carrier loop: 0x%08X\n", IOEX_get_error());
+        IOEX_kill(w);
+        return -1;
+    }
+
+:ref:`carrier-api:IOEX_run` 函式接收 2 個參數。第一個參數是我們剛剛初始化的 ``IOEXCarrier`` 實體，第二個參數代表程式執行迴圈的間隔，以毫秒為單位。
+
+IOEX_run() 函式會阻塞住目前程式的執行，直到發生錯誤，或是被應用程式中斷才會返回。此函式實際上在執行一個無窮迴圈，這個迴圈每隔一段時間，會去檢查是否有來自其他節點的訊息、資料或是事件。這個迴圈的執行間隔，就是我們帶入的第二個參數。
+
+因此，如果沒有任何錯誤或中斷，此函式就會無限期執行 Carrier 節點的功能。
+
+當此函式返回時，應用程式必須檢查是否因為錯誤所引起。如果發生錯誤，必須呼叫 :ref:`carrier-api:IOEX_kill` 函式來手動釋放 ``IOEXCarrier`` 占用的資源。如果 IOEX_run 正常返回，代表 Carrier 節點正常結束，它會自行釋放資源。
+
+完整範例程式碼
+#################################
+
+將前述程式碼整理後，完整程式碼如下：
+
+.. literalinclude:: tutorial-quickstart-main.c
+    :language: c
+
+編譯應用程式
+------------------------------------
+
+假設前述程式碼全部寫在專案目錄下的 ``main.c`` 檔案中，你應該會有類似下面的資料夾結構：
+
+.. code-block:: console
+
+ .
+ ├── bin
+ ├── etc
+ ├── include
+ ├── lib
+ └── main.c
+
+我們使用 `gcc <https://gcc.gnu.org/>`_ 來編譯專案，指令如下：
+
+.. code-block:: bash
+
+ gcc main.c -Iinclude -Llib -lIOEXcarrier -lIOEXcommon -o main
+
+這行指令會使用 gcc 來編譯 ``main.c`` 檔案。我們引入了 ``include`` 與 ``lib`` 兩個資料夾，並連結到 Carrier SDK 的共享函式庫 IOEXcarrier 和 IOEXcommon。
+
+若順利編譯完畢，會產生 ``main`` 這個執行檔。
+
+
+執行應用程式
+-----------------------------
+
+最後，我們透過下列指令來執行應用程式：
+
+.. code-block:: bash
+
+ export LD_LIBRARY_PATH=lib && ./main
+
+這行指令首先設定了環境變數 ``LD_LIBRARY_PATH``，並指向 lib 資料夾。這個環境變數是用來告訴 Linux 作業系統，要到哪個路徑去尋找共用函式庫。更多說明請參考 `這裡 <http://tldp.org/HOWTO/Program-Library-HOWTO/shared-libraries.html>`_。
+
+.. note::
+  請不要在開發環境以外的地方使用 LD_LIBRARY_PATH。在正式環境中，請將 ``lib`` 與 ``include`` 的檔案安裝到 Linux 系統中的標準位置，例如 ``/usr/lib`` 和 ``/usr/include``。
+
+當應用程式順利執行一段時間後，螢幕上應該會顯示如下資訊（時間戳記、各 ID 與 Address 資訊應該會不相同）：
+
+.. code-block:: console
+
+    2019-08-20 10:58:11 - INFO    : Carrier: Carrier node created.
+    Carrier node identities:
+       Node ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U
+       User ID: 3xFniLY3X5DZ7TsEFbTBQAgq2HT41gAaRHLe3TRXW96U
+       Address: 7VQg2hnusj2ExMSSc2Q3b8G81nUov6dZNrUSUohX7eNe5VYRNTHu
+        DHT ID: FiPw6c6xm1j8G2UqZfwhwD25stEi631YZr3DddYB5iJD
+
+
+    Connected to carrier network.
+
+上面的訊息中，第一段是啟動 Carrier 節點後隨即印出的訊息。第二段則是 ``Connected to carrier network.`` 訊息，它是由會在應用程式啟動後過一段時間，由 connection_status callback 印出，代表我們順利連上 Carrier 網路。
+
+恭喜，到此你已經完成你的第一個 Arctos Carrier 應用程式。
+
+
+下一步
+---------------
+
+這個應用程式展示了啟動 Carrier 節點，以及處理事件的簡單流程。雖然這個應用程式並沒有太多互動功能，但可以展示出 Carrier 節點的運作流程。
+
+在下一篇教學中，會簡介如何跟其他 Carrier 節點連線，並成為好友。

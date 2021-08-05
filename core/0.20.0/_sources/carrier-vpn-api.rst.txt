@@ -1,0 +1,45 @@
+Arctos Carrier VPN APIs
+=======================
+
+Functions
+---------
+
+VPN Functions
+#############
+
+IOEX_vpn_request
+~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_vpn_request
+   :project: CarrierAPI
+
+IOEX_vpn_handshake
+~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_vpn_handshake
+   :project: CarrierAPI
+
+IOEX_vpn_accept
+~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_vpn_accept
+   :project: CarrierAPI
+
+IOEX_vpn_cancel
+~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_vpn_cancel
+   :project: CarrierAPI
+
+IOEX_vpn_send_data_lossless
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_vpn_send_data_lossless
+   :project: CarrierAPI
+
+IOEX_vpn_send_data_lossy
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. doxygenfunction:: IOEX_vpn_send_data_lossy
+   :project: CarrierAPI
+

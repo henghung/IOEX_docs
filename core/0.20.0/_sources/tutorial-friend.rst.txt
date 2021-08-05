@@ -1,0 +1,336 @@
+和節點成為好友
+======================================
+
+概觀
+--------------------------------------
+
+在這篇教學中，我們會建立一個 Arctos Carrier 應用程式，啟動節點，並且和其他節點成為好友。在這個應用程式中，我們也會加入接收使用者輸入文字命令的功能。
+
+這個應用程式延伸自前一篇教學： :ref:`tutorial-quickstart:快速開始` 中建立的應用程式。如果你還沒看過前一篇教學，強烈建議先看完。
+
+
+從標準輸入接收指令
+-------------------------------------------
+
+大多數應用程式會需要跟使用者互動，而不是獨自執行固定的命令。在這個教學中，我們希望可以接收並執行使用者輸入的指令，方便後續開發與除錯。
+
+首先，我們新增一個 ``idle`` callback：
+
+.. code-block:: c
+
+    static void idle_callback(IOEXCarrier *w, void *context)
+    {
+        char *command;
+        command = read_command();
+        if(command != NULL){
+            do_command(w, command);
+        }
+    }
+
+``idle`` callback 會在 Carrier 節點空閒時觸發，我們可以在此時讀取使用者的輸入並執行對應指令。這裡程式碼分為兩個階段。首先呼叫 ``read_command()`` 讀取使用者輸入的命令，再呼叫 ``do_command()`` 執行。
+
+首先先看 read_command() 函式：
+
+.. code-block:: c
+
+    static char *read_command(void)
+    {
+        static int command_len = 0;
+        static char command_line[1024];
+        int ch;
+
+        // By default, fgetc from stdin will be blocked until a input is received
+        ch = fgetc(stdin);
+
+        // Failed
+        if(ch == EOF){
+            return NULL;
+        }
+
+        // Printable ASCII charactors
+        if(isprint(ch)){
+            command_line[command_len] = ch;
+            command_len++;
+        }
+        // Enter is pressed
+        else if(ch == '\r' || ch == '\n'){
+            command_line[command_len] = '\0';
+            command_len = 0;
+
+            if(strlen(command_line) > 0){
+                return command_line;
+            }
+        }
+        return NULL;
+    }
+
+這個函式會不停從標準輸入裝置 (stdin) 讀取字元，直到使用者按下 Enter 為止。注意 fgetc(stdin) 會一直阻塞直到讀取到使用者輸入的字元為止，這會導致整個 idle callback 隨之阻塞，並影響整體 Carrier 節點運作。
+
+因此，我們必須要在 main() 函式中額外加入以下程式碼，讓 fgetc(stdin) 不會阻塞：
+
+.. code-block:: c
+
+    #include<fcntl.h>
+
+    // Add the codes below to main() function
+
+    // Set stdin non-block.
+    rc = fcntl(stdin, F_SETFL, O_NONBLOCK);
+    if (rc < 0) {
+         printf("Failed to set stdin non-blocking.\n");
+         return -1;
+    }
+
+現在，我們加入 do_command() 函式：
+
+.. code-block:: c
+
+    static void do_command(IOEXCarrier *w, char *command)
+    {
+        char *argv[256], *p;
+        int argc = 0, is_word = 0;
+
+        for(p = command; *p != 0; p++){
+            if(isspace(*p)){
+                *p = 0;
+                is_word = 0;
+            }
+            else{
+                if(is_word == 0){
+                    argv[argc] = p;
+                    argc++;
+                }
+                is_word = 1;
+            }
+        }
+
+        // TODO: Execute the commands ...
+        if(argc > 0){
+            // Demo debug message like this:
+            printf("The command is %s\n", argv[0]);
+        }
+    }
+
+在這裡，do_command() 把字串用空白字元分段。例如，當使用者輸入字串為 *"sendmsg raymond hello"*，do_command() 會把它分成 3 段 (argc = 3)，而
+
+- argv[0] = "sendmsg"
+- argv[1] = "raymond"
+- argv[2] = "hello"
+
+現在，你可以試著編譯並執行上面的應用程式（參考教學： :ref:`編譯應用程式 <tutorial-quickstart:編譯應用程式>` 及 :ref:`執行應用程式 <tutorial-quickstart:執行應用程式>` ）。試著輸入任何字串，按下 enter，然後螢幕上應該會顯示 "The command is ..." 並顯示 do_command() 所分析出來的第 1 個字段。
+
+.. note::
+    我們假設之後要輸入的使用者指令是以 *"<command> <argument1> <argument2> ..."* 的格式寫成，也就是說第 1 個字段是指令名稱，第 2 個字段以後都是參數。
+
+.. note::
+    從 stdin 讀取指令，並不是唯一跟使用者互動的方法。在一般具有圖形使用者介面的應用程式中，直接將 UI 事件綁定來觸發特定指令，是比較合適的做法。
+
+
+新增好友與好友上線狀態
+------------------------------------------------
+
+在 Arctos Carrier 網路中，兩個節點可以互相成為好友。只有成為好友的節點才可以彼此互相通訊、傳送資料。
+
+也因為這樣，幾乎所有 Carrier 應用程式都必須要先實作互相加為好友的方法。
+
+要跟另一個節點成為好友，首先要取得該節點的位址 (Address) 字串。Address 是個由英文字母與數字混合而成，長度不超過 :ref:`carrier-api:IOEX_MAX_ADDRESS_LEN` 個字元的字串。它會在 Carrier 應用程式第一次執行時隨機產生，並且之後不會變更。對於一個 Carrier 節點，我們可以使用 :ref:`carrier-api:IOEX_get_address` API 去取得 Address 字串。
+
+.. note::
+    節點之間互相交換、取得 Address 的行為和方式，並沒有包含在 Arctos Carrier SDK 裡面。應用程式必須依照自己的運作場景，實作 Address 的交換機制。
+
+    例如，若是將 Carrier SDK 用在行動裝置上的通訊應用程式當中，可以將自己的 Address 以 QR code 方式顯示，並給另一個安裝相同通訊應用程式裝置掃描、讀取 Address。
+
+    在某些應用場景當中，必須要考慮相關的安全性。例如前述通訊應用程式，是以面對面掃描行動裝置 QR code 的方式，確保保密性（QR code 不會被別人看到）及認證持有者身分（面對面確認行動裝置持有者）的能力。
+
+
+新增好友指令
+##############################
+
+現在，我們加入一個 ``fadd`` 指令。此指令會以另一個 Carrier 節點的 Address 為參數，並加入一段自訂的訊息，用來傳送好友邀請給 Carrier 節點。
+
+修改 do_command() 的最後幾行為：
+
+.. code-block:: c
+
+    // Execute the commands
+    if(argc > 0){
+        if(!strcmp(argv[0], "fadd")){
+            add_friend(w, argc, argv);
+        }
+    }
+
+所以，當讀取到的指令是 ``fadd`` 的話，就會呼叫 add_friend() 這個函式。這個函式的實作為：
+
+.. code-block:: c
+
+    static void add_friend(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+
+        if (argc != 3) {
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_add_friend(w, argv[1], argv[2]);
+        if (rc == 0)
+            printf("Request to add a new friend succeess.\n");
+        else
+            printf("Request to add a new friend failed(0x%08X).\n", IOEX_get_error());
+    }
+
+
+程式碼裡面的 :ref:`carrier-api:IOEX_add_friend` 是 Carrier SDK 提供的一個 API，它會向指定的節點送出一個好友邀請，並附帶一段自訂訊息。
+
+好友上線狀態 Callback
+################################################
+
+``friend_connection`` 這個 callback 會在好友上線狀態更新與離線時觸發。我們在應用程式中加入如下程式碼：
+
+.. code-block:: c
+
+    static void friend_connection_callback(IOEXCarrier *w, const char *friendid,
+                                           IOEXFriendConnectionStatus status, void *context)
+    {
+        switch (status) {
+            case IOEXFriendConnectionStatus_Direct:
+                printf("Friend[%s] connection changed to be online (direct)\n", friendid);
+                break;
+
+            case IOEXFriendConnectionStatus_Relay:
+                printf("Friend[%s] connection changed to be online (relay)\n", friendid);
+                break;
+
+            case IOEXFriendConnectionStatus_Disconnected:
+                printf("Friend[%s] connection changed to be offline.\n", friendid);
+                break;
+
+            default:
+                printf("Error!!! Got unknown connection status %d.\n", status);
+        }
+    }
+
+然後在 main() 函式中設定它：
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    callbacks.connection_status = connection_status_callback;
+    callbacks.idle = idle_callback;
+    callbacks.friend_connection = friend_connection_callback;  // Add this!
+
+一旦我們的應用程式與其他 Carrier 節點加為好友，應用程式就可以收到該節點的上線、離線狀態更新。
+
+.. note::
+    好友的上線狀態中，另外細分為直連 (Direct) 與轉送 (Relay) 兩種狀態。雖然這兩種狀態都代表好友在線上，而且可以接收我方的訊息與資料，但兩者之間的通訊管道略有差別。
+
+    直連的情況下代表兩個節點可以直接使用 UDP 協定直接交換資料；而轉送狀態代表兩個節點之間的資料是透過第三個節點來進行轉發，而使用的協定是 TCP。一般來說，直連時的資料傳輸頻寬與速度較高。無論哪種連線方式，傳輸的資料都經過加密，保證了通訊的保密性。
+
+
+到此為止的程式碼
+##########################################################
+
+到此我們已經完成此教學的一部分，以下是到目前為止的完整程式碼。建議在此先試著編譯所有程式碼，待會我們會用工具來對它進行小規模的測試
+
+.. literalinclude:: tutorial-friend-step1-main.c
+    :language: c
+
+
+使用 IOEXshell 進行測試
+----------------------------------------------------------
+
+在進行開發的時候，可以使用 Arctos Carrier SDK 中隨附的 IOEXshell 應用程式來協助測試與驗證各項功能。
+
+
+使用 IOEXshell 測試好友邀請功能
+############################################################
+
+IOEXshell 工具應用程式本身會執行一個 Carrier 節點實體，並且實作了很多 Carrier 的指令與 Callback。可以在 SDK 目錄中的 ``bin`` 資料夾找到它，以及搭配使用的 ``IOEXshell.sh`` 腳本。
+
+現在，準備兩個不同的終端機視窗。在其中一個終端機中，進到前述 bin 目錄下執行 IOEXshell.sh。你應該可以看到它順利啟動，並在畫面中印出 IOEXshell 節點使用的 Address 字串。將它複製下來。
+
+然後，在另一個終端機視窗中，編譯並執行我們寫好的應用程式。等到 *Connected to carrier network* 訊息顯示出來後，使用我們寫好的 ``fadd`` 指令，向 IOEXshell 送出好友邀請：
+
+.. code-block:: console
+
+    fadd SHELL_NODE_ADDRESS hello
+
+把上面的 SHELL_NODE_ADDRESS 換成你剛剛複製的 IOEXshell Address。如果你看到 *"Request to add a new friend succeess."* 訊息，表示這個好友邀請已經成功送出。
+
+現在，切換到 IOEXshell 所在的終端機視窗，稍等一會，你應該可以看到它顯示出下列訊息：
+
+.. code-block:: console
+
+    Friend request from user[ MAIN_NODE_ID ] with HELLO: hello.
+    Reply use following commands:
+      faccept MAIN_NODE_ID
+
+這個訊息表示 IOEXshell 收到某個節點送來的好友邀請，而在這裡顯示的 MAIN_NODE_ID 會是我們的應用程式的 Node ID。IOEXshell 也提示你使用 ``faccept`` 指令去同意這筆好友邀請。
+
+現在，在 IOEXshell 的畫面中輸入 faccept 與 ID 資訊（跟畫面上顯示的相同）的指令，接受這個好友請求。
+
+切換回到應用程式所在的終端機視窗，應該會顯示下列訊息：
+
+.. code-block:: console
+
+    Friend[ SHELL_NODE_ID ] connection changed to be online (direct)
+
+這表示應用程式已經跟 IOEXshell 成為好友，得知對方已經上線。
+
+.. note::
+    Address、Node ID 與 DHT ID 三者都是在 Carrier 節點第一次啟動後產生，但有著不同的用途。
+
+    Address 主要用在邀請好友的過程當中，我們在實作 fadd 指令中呼叫的 :ref:`carrier-api:IOEX_add_friend` 函式就是使用 Address。
+
+    Node ID 是辨識 Carrier 節點的獨特 ID，它會用在大部分 Arctos Carrier SDK 的 API 當中。
+
+    DHT ID 用作此節點的公開金鑰，用來在節點網路中互相傳輸資料時使用。API 不會使用到它。
+
+
+將 IOEXshell 還原至初始狀態
+##########################################################
+
+有時候，為了後續測試方便，你會想要把 IOEXshell 還原回初始狀態。比方說，在之前的測試當中，IOEXshell 已經跟應用程式節點成為好友，那應用程式就無法再次測試 ``fadd`` 指令，因為兩個節點已經是好友了。
+
+要把 IOEXshell 狀態還原，需要把 IOEXshell 儲存的資料全部刪除。預設狀態下，這些資料會在你的專案目錄下的 ``etc/carrier/.data`` 和 ``etc/carrier/shellkey``。因此要還原預設狀態，直接刪除此資料夾和檔案即可。
+
+.. note::
+    任何 Arctos Carrier 應用程式都可以藉由相同方法還原初始狀態。在我們的教學當中，資料存在你的專案目錄下的 ``persistent`` 資料夾和 ``key`` 檔案。刪掉這兩個東西，就會將你的應用程式狀態還原初始狀態。
+
+
+其他跟好友相關的 API 與 Callback
+---------------------------------------------------------------
+
+好友邀請 API 與 Callback
+########################################################
+
+前面的範例中，我們已經大致展示了兩個節點成為好友的流程。更詳細的流程如下：
+
+1. 節點 A 事先取得節點 B 的 Address 資訊
+2. 節點 A 使用 :ref:`carrier-api:IOEX_add_friend` API，帶入節點 B 的 Address 做參數，送出好友邀請
+3. 節點 B 收到邀請後，會觸發 :ref:`friend_request <carrier-api:IOEXCallbacks>` Callback，得知送來邀請的節點 ID
+4. 節點 B 使用 :ref:`carrier-api:IOEX_accept_friend` API，帶入節點 A 的 ID 做參數，接受好友邀請
+5. 節點 A 這邊會觸發 :ref:`friend_connection <carrier-api:IOEXCallbacks>` Callback，得知已經成為好友的節點 B 的上線狀態
+
+如果節點 B 不想與 A 成為好友，只要在第 4 步驟中，忽略 A 的邀請，不去呼叫 IOEX_accept_friend() API 即可。
+
+在前面的教學應用程式當中，並沒有實作全部跟好友邀請有關的功能。比方說，我們並沒有實作 IOEXshell 當中的 ``faccept`` ，也就是同意好友邀請的功能。
+
+請參考前面描述的流程與 API，試著把我們的應用程式完成吧。可以參考 :ref:`文件中的 API 列表 <carrier-api:Friend & interaction>` 以及 :ref:`Callback 列表 <carrier-api:IOEXCallbacks>` 當中，以 friends 為開頭的部分。
+
+完整程式碼
+###########################################
+
+以下程式是可以達到好友互加，完整流程的一個實作範例。
+
+.. literalinclude:: tutorial-friend-step2-main.c
+    :language: c
+
+
+下一步
+--------------------------------
+
+在這份教學當中，我們看到了 Arctos Carrier 彼此成為好友的過程。這是之後所有節點間通訊的必要動作。
+
+接下來，我們會介紹 Arctos Carrier SDK 中的影音通訊功能。

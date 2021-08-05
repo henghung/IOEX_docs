@@ -1,0 +1,399 @@
+影音傳輸功能
+==============================================
+
+概觀
+----------------------------------------------
+
+在這篇教學中，我們介紹 Arctos Carrier SDK 中的影音傳輸功能，並簡介在應用程式中使用的方式。
+
+這個應用程式延伸自前一篇教學： :ref:`tutorial-friend:和節點成為好友` 中建立的應用程式。如果你還沒看過前一篇教學，強烈建議先看完。
+
+.. important::
+    兩個 Carrier 節點要彼此進行影音傳輸，必須要先成為好友。
+
+.. note::
+    這份教學中，並不會談到從硬體裝置採集影音或是播放的程式碼。例如，我們不會討論從網路攝影機取得影像，以及在螢幕上繪製影像的方法。這方面的使用方式，請參考其他影音處理工具或函式庫，例如 `WebRTC <https://webrtc.org/>`_
+
+
+影音編碼設定
+-------------------------------------------
+
+Arctos Carrier SDK 本身包含軟體影音編解碼器，並提供對應的 API。影像編碼使用 VP8 格式，而音訊編碼使用 OPUS 格式。
+
+在一開始初始化 Carrier 節點（使用 :ref:`carrier-api:IOEX_new` 函式）的時候，應用程式必須建立一組影音編解碼設定 :ref:`carrier-av-api:IOEXAvOptions` ，並將它作為參數，傳遞給 IOEX_new()。
+
+Carrier 節點的所有影音傳輸，都會採用相同的基本設定。如果應用程式需要更換編碼器設定，必須使用新設定重新啟動 Carrier。
+
+Arctos Carrier SDK 也可以用來打造群組通話應用程式。這類型的應用程式可以在同一個時間，跟多個對象進行影音傳輸。Carrier 會針對每一個通訊對象分配一組影音編解碼器。如同前面說明，所有影音編解碼器都共用相同的設定。
+
+參數說明
+###########################################
+
+:ref:`carrier-av-api:IOEXAvOptions` 文件中有針對各參數的詳細說明。我們在這邊針對幾個重要的參數說明：
+
+- encoder_threads: 影像編碼器可用的最大執行緒數量，建議不要超過 CPU 核心數量。如果應用程式會同時使用多個影音編碼器，此數值可能需要再進一步降低。
+- decoder_threads: 影像解碼器可用的最大執行緒數量。
+- encode_deadline: 在編碼一張影像畫面時，希望編碼器最多花上多久時間。因此，如果此數值越低，表示編碼速度越快，同時品質也較低。此數值單位為微秒。
+- decode_deadline: 在解碼一張影像畫面時，希望解碼器最多花上多久時間。
+- rate_control_target_bitrate: 影像編碼時的目標碼率 (bitrate)，單位為 kbits / 秒。這數值越高，表示影像串流的資料量越高，但品質也會較好。
+- max_keyframe_interval: 影像編碼時的關鍵影格 (keyframe) 最大間隔。一般影像編碼會隔一段時間，輸出一張關鍵影格，作為後續解碼的參考。這數值需要依照傳輸時的網路品質，以及應用程式希望的效果做調整，不一定說越高或越低就越好。
+- initial_keyframe_count: 影像傳輸開始時，要連續送出的關鍵影格張數。由於開始通訊時可能有網路不穩等因素，我們會希望連續送出多張關鍵影格，以免接收方因漏收關鍵影格，影響後續解碼。
+
+參數調整考量
+#############################################
+
+編解碼參數設定對於影音傳輸品質有著非常大的影響。一旦參數調整不好，可能會讓應用程式陷入完全不可用的窘境。
+
+應用程式應該依照自己的應用場景，找出理想的參數組合。一般來說，建議將這些面向列入考慮：
+
+
+每秒影格數量 (FPS)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+當應用程式向影像編碼器送入一張畫面，就會得到一張編碼後的影格。因此，若是應用程式在一秒內輸入 60 張畫面，編碼器就會輸出 60 張影格，而這些影格都必須透過網路傳送給接收方。
+
+然而，編碼器有著目標碼率的限制，大致上一秒鐘內輸出的資料量是固定的，無論輸出的影格總數是 6 張或 60 張。可以想見，輸出的影格數越少，每個影格能分配到的資料量越高，影格的畫質也會較好。
+
+不過，接收方一秒內收到的影格越少，畫面呈現上看起來會顯得較不順暢，可能也會影響使用者的觀感。
+
+建議應用程式採用的策略是，盡量在可以接受的範圍內，減少每秒傳輸的影格數量。通常在手機視訊會議一類的應用中，每秒 10 張可能都可以接受。
+
+.. note::
+    應用程式必須要自行控制影像輸入編碼器的頻率。例如行動裝置開發中，可以設定攝影機的採樣頻率，減少每秒從攝影機得到的畫面張數。
+
+
+網路品質
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+在比較不穩定，或是頻寬受限的網路環境，例如行動網路，可以考慮降低編碼的目標碼率 (bitrate)、縮短關鍵影格間隔、減少 FPS。
+
+反過來說，在有線網路之類，網路品質夠好的情況下，可以提高目標碼率、提高 FPS，讓畫面看起來比較賞心悅目。
+
+建議在要降低碼率的場合，可以將其設定為 400 ~ 1000 左右。想要提高碼率的話，可以提高到 5000。
+
+注意碼率是唯一不用重新啟動編碼器，可以隨時動態調整的參數。應用程式可以自行根據使用情形，設定不同的目標碼率。可參考 :ref:`carrier-av-api:IOEX_av_set_video_bitrate` API。
+
+Arctos Carrier SDK 也有提供一個叫 :ref:`av_call_bitrate_status <carrier-api:IOEXCallbacks>` 的 Callback，會根據目前狀況建議應用程式調整碼率。
+
+
+期望畫質
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+畫質主要是指單一一張影像的解析度以及精細程度。
+
+通常來說，解析度是應用程式必須要第一個考慮的參數。應該根據顯示設備的不同，決定一個適合的數值。如果是要用在行動裝置上的視訊會議應用，可以考慮 480p 或更低的解析度。在電腦上或電視上觀看的影片串流服務，則應該考慮 720p、1080p 甚至更高的解析度。
+
+除此之外，編碼器的目標碼率也必須要適當調整。當目標解析度較高，就應該要採用更高的碼率，否則畫面可能會出現明顯的格狀方塊。
+
+解析度與碼率的組合，可以額外參考一些串流平台的建議進行調整。例如 `Youtube 的直播編碼器設定 <https://support.google.com/youtube/answer/2853702?hl=zh-Hant>`_。
+
+
+建議參數
+###########################################
+
+以下提供一些在不同場景下，我們建議的參數設定
+
+1. 網路品質較差的即時通訊（建議 FPS = 10） ::
+
+    encoder_threads = 4
+    decoder_threads = 4
+    encode_deadline = 1
+    decode_deadline = 1
+    cpu_used_value = 4
+    rate_control_mode = IOEXAvRateControlMode_VBR
+    max_keyframe_interval = 40
+    rate_control_target_bitrate = 250
+    allow_lagged_encode_frames = 0
+    dropframe = 75
+    allow_resize = true
+    resize_up_threshold = 30
+    resize_down_threshold = 60
+    rate_control_undershoot_bits = 0
+    rate_control_overshoot_bits = 0
+    buffer_size = 6000
+    buffer_initial_size = 4000
+    buffer_optimal_size = 5000
+    initial_keyframe_count = 1
+
+2. 在一般有線網路下的即時通訊（建議 FPS = 20） ::
+
+    encoder_threads = 8
+    decoder_threads = 8
+    encode_deadline = 25000
+    decode_deadline = 25000
+    cpu_used_value = 4
+    rate_control_mode = IOEXAvRateControlMode_VBR
+    max_keyframe_interval = 200
+    rate_control_target_bitrate = 1500
+    allow_lagged_encode_frames = 0
+    dropframe = 0
+    allow_resize = true
+    resize_up_threshold = 30
+    resize_down_threshold = 60
+    rate_control_undershoot_bits = 0
+    rate_control_overshoot_bits = 0
+    buffer_size = 6000
+    buffer_initial_size = 4000
+    buffer_optimal_size = 5000
+    initial_keyframe_count = 1
+
+
+建立影音傳輸會話
+-------------------------------------------
+
+Carrier 節點要跟好友進行影音傳輸之前，要先告知好友即將開始影音傳輸，待對方同意後，雙方建立起會話協議，才能開始傳輸和接收影音。
+
+這段流程所使用到的 API 與 callback 大致如下：
+
+1. 節點 A 呼叫 :ref:`carrier-av-api:IOEX_av_call`，帶入好友節點 B 的 ID 做參數，送出影音傳輸邀請
+2. 節點 B 收到邀請後，會觸發 :ref:`av_called <carrier-api:IOEXCallbacks>` Callback，得知 A 送來邀請
+3. 節點 B 使用 :ref:`carrier-av-api:IOEX_av_answer`，帶入好友節點 A 的 ID 做參數，表示同意邀請，並發送回答給 A
+4. 節點 A 收到回答後，會觸發 :ref:`av_call_answered <carrier-api:IOEXCallbacks>` Callback，得知 B 接受邀請
+5. 節點 A、B 到此已經成功建立影音傳輸會話，可以開始互相傳送影音資料
+
+.. note::
+    一個 Carrier 節點可以同時跟很多好友建立影音傳輸會話，但針對同一個好友，同時最多只能有一條影音傳輸會話。
+
+
+影音會話指令
+##########################################
+
+在這段流程，我們需要在應用程式當中，分別新增兩個指令 ``avcall`` 和 ``avanswer``，分別用在第 1 步的送出邀請，以及第 3 步的接受邀請：
+
+.. code-block:: c
+    
+    #define AUDIO_BITRATE_DEFAULT 96
+    #define VIDEO_BITRATE_DEFAULT 1000
+
+    static void av_call(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+
+        if(argc != 2){
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_av_call(w, argv[1], AUDIO_BITRATE_DEFAULT, VIDEO_BITRATE_DEFAULT);
+        if(rc < 0){
+            printf("Invalid request.(0x%8X)\n", IOEX_get_error());
+        }
+        else{
+            output("AV call sent\n");
+        }
+    }
+
+    static void av_answer(IOEXCarrier *w, int argc, char *argv[])
+    {
+        int rc;
+
+        if(argc != 2){
+            printf("Invalid command syntax.\n");
+            return;
+        }
+
+        rc = IOEX_av_answer(w, argv[1], AUDIO_BITRATE_DEFAULT, VIDEO_BITRATE_DEFAULT);
+        if(rc < 0){
+            printf("Invalid request.(0x%8X)\n", IOEX_get_error());
+        }
+        else{
+            printf("AV answer sent\n");
+        }
+    }
+
+注意上述程式碼中，IOEX_av_call() 和 IOEX_av_answer() 還需要聲音與影像編碼的兩個 bitrate 數值當參數。這個數值代表 Carrier 節點自己開始編碼時，會採用的碼率。如果把聲音或影像對應的欄位設定為 0，表示在這次的會話中，這個節點自己不傳送聲音或影像。
+
+.. tip::
+    通訊的過程中，節點還是可以重新設定影音的碼率，重新打開或關閉影音傳送。
+
+別忘了還要在 do_command() 函式中，新增這兩個指令：
+
+.. code-block:: c
+
+    // Execute the commands
+    if(argc > 0){
+        if(!strcmp(argv[0], "fadd")){
+            add_friend(w, argc, argv);
+        }
+        else if(!strcmp(argv[0], "faccept")){
+            accept_friend(w, argc, argv);
+        }
+        else if(!strcmp(argv[0], "avcall")){
+            av_call(w, argc, argv);
+        }
+        else if(!strcmp(argv[0], "avanswer")){
+            av_answer(w, argc, argv);
+        }
+    }
+
+
+影音會話 Callback
+##########################################
+
+接著，我們還需要實作 av_called 和 av_call_answered 兩個 Callback：
+
+.. code-block:: c
+
+    static void av_called_callback(IOEXCarrier *w, const char *friend_id, bool audio_enabled, bool video_enabled, void *context)
+    {
+        printf("Received AV call request from friend %s\n", friend_id);
+        printf("With audio %s and video %s\n", audio_enabled ? "enabled": "disabled", video_enabled ? "enabled": "disabled");
+        printf("Reply use following commands:\n");
+        printf("    avanswer %s\n", friend_id);
+    }
+
+    static void av_call_answered_callback(IOEXCarrier *w, const char *friend_id, void *context)
+    {
+        printf("Friend %s answered our call\n", friend_id);
+    }
+
+
+在 main() 函式中，也要記得把這兩個 Callback 加入：
+
+.. code-block:: c
+
+    // Set callbacks
+    memset(&callbacks, 0, sizeof(callbacks));
+    callbacks.connection_status = connection_status_callback;
+    callbacks.idle = idle_callback;
+    callbacks.friend_connection = friend_connection_callback;  
+    callbacks.friend_request = friend_request_callback;
+    callbacks.av_called = av_called_callback; // Add this!
+    callbacks.av_call_answered = av_call_answered_callback; // Add this!
+
+
+影音傳輸流程
+---------------------------------------------------
+
+兩個節點建立起影音傳輸會話後，就可以利用 Arctos Carrier SDK 提供的影音傳輸 API 來傳送影音資料，並且透過 Callback 來接收。
+
+
+影像傳輸
+#################################
+
+先來看傳送影像的函式 :ref:`carrier-av-api:IOEX_av_send_video` 。此函式的功能是將輸入進來的影像資料編碼、加密，然後傳送給好友。它的參數如下：
+
+.. code-block:: c
+
+    int IOEX_av_send_video(IOEXCarrier *carrier, const char *friend_id, uint16_t width, uint16_t height, const uint8_t *y, const uint8_t *u, const uint8_t *v);
+
+除了需要作為接收端的好友節點 ID 之外，應用程式還需要提供影像的基本寬度、高度資訊，以及影像的 Y, U, V 空間資料。
+
+在這個函式中的 Y, U, V 資料，是以陣列方式提供。此函式預期使用者輸入的原始影像資料是以 YUV 420 格式採樣。換句話說，Y, U, V 三個資料陣列的長度必須分別是：
+
+- Y: 寬度 * 高度
+- U: (寬度 * 高度) / 4
+- V: (寬度 * 高度) / 4
+
+當應用程式從硬體設備取得影像原始資料時，資料不一定會以 Y, U, V 三個空間的資料分別以陣列提供；而是會將三個空間資料按照特定格式，交替排列，成為一個單獨的陣列。
+
+另外，硬體設備輸出的原始資料，可能會應用程式指定它去讀取的解析度來得高。比方說，若指定攝影機讀取 800 x 600 的資料，它回傳的資料可能會類似是 972 x 640 這種稍大的資料。多出來的部分，實際上是空白資料 (Padding)。
+
+應用程式有責任處理這兩種情況。要使用 IOEX_av_send_video() 之前，應用程式必須單獨將 Y, U, V 資料分別存到不同陣列，並且中間不能有空白。以前述的例子，應用程式必須從 972 x 640 的原始影像中讀出 Y 空間資料，依序填入一個大小為 480000 的陣列當中。
+
+最後，應用程式在呼叫完 IOEX_av_send_video() 之後，如果有必要，必須把硬體讀取到的影像資料，以及過程中建立的 Y, U, V 陣列資源給釋放。
+
+
+影像接收
+################################
+
+接收端收到影像後，會先將資料解密、解碼後，透過 Callback 方式通知應用程式。這個 :ref:`av_video_received <carrier-api:IOEXCallbacks>` Callback 的參數如下：
+
+.. code-block:: c
+
+    void (*av_video_received)(IOEXCarrier *carrier, const char *friend_id, uint16_t width, uint16_t height,
+            const uint8_t *y, const uint8_t *u, const uint8_t *v,
+            int32_t ystride, int32_t ustride, int32_t vstride, void *context);
+
+
+除了告知影像傳輸者的 ID 之外，也會提供影像資料的寬、高資訊，還有 Y, U, V 三個空間的資料。
+
+然而，這邊還另外提供了 Y, U, V 空間的 Stride 值。這是由於編解碼流程中，可能會根據需要對圖片加入空白 Padding，所以接收端處理完的影像可能會比原始資料還要寬。在此情況下，Stride 就是影像的寬度加上 Padding 的值。如果完全沒有 Padding，Y Stride 的值等於寬度值，U Stride 和 V Stride 的值等於寬的一半。
+
+av_video_received Callback 提供的 Stride 值也可能是負值。在負值的情況下，代表 Y, U, V 三個陣列的資料排列是由原始影像的底部開始往上依序儲存，而不是一般由上到下的儲存方式。白話的說，Stride 為負代表影像上下顛倒。
+
+Callback 提供的 Y, U, V 三個陣列的資料也會包含 Padding。這三個陣列的長度分別為：
+
+- Y: MAX( 寬度, ABS( Y Stride)) * 高度
+- U: MAX( 寬度 / 2, ABS( U Stride)) * (高度 / 2)
+- V: MAX( 寬度 / 2, ABS( V Stride)) * (高度 / 2)
+
+MAX 函式表示取兩者中較大的那個值，ABS 函式代表取絕對值。
+
+應用程式有責任按需求移除 Y, U, V 陣列中的空白資料、處理影像方向後，再顯示到螢幕上。
+
+.. note::
+    關於 Stride 的進一步說明，可參考 `微軟的說明文件 <https://docs.microsoft.com/zh-tw/windows/win32/medfound/image-stride>`_。
+
+
+音訊傳輸
+#############################################
+
+應用程式從麥克風之類的硬體裝置，取得一段時間內的音訊資料後，可以透過 Arctos Carrier SDK 中的音訊傳輸函式 :ref:`carrier-av-api:IOEX_av_send_audio` 送給好友。這個函式的參數如下：
+
+.. code-block:: c
+
+    int IOEX_av_send_audio(IOEXCarrier *carrier, const char *friend_id, const int16_t *pcm, size_t sample_count, uint8_t channels, uint32_t sampling_rate);
+
+
+這個函式會把原始 PCM 格式的音訊資料編碼、加密後送給指定好友。
+
+聲音是連續性的資料，通常我們會透過麥克風不斷取樣，取得當下瞬間的聲音資料並儲存，並在收集到足夠長度的資料後，進行編碼和傳輸。
+
+``pcm`` 陣列是音訊資料。我們預期接收的資料是 PCM16 格式，單一一筆音訊取樣資料應該是以 16-bits 儲存。
+
+``sample_count`` 參數是指音訊資料取樣的筆數。
+
+``channels`` 指的是聲道數。Arctos Carrier SDK 只支援單聲道和雙聲道，對應到 channels 參數的值分別為 1 或 2。
+
+``sample_rate`` 是音訊的取樣頻率，單位是 Hz。比方說取樣頻率設定為 8000，代表硬體裝置在一秒鐘內總共會取樣 8000 筆資料的意思。一般來說，此值越高聲音就越精準，但產生的資料量也較大。
+
+應用程式首先應該根據麥克風支援的取樣頻率，選擇一個 IOEX_av_send_audio() 也能支援的取樣率，並固定下來。應用程式必須要確保錄音時的麥克風也使用這個取樣率。
+
+接著，應用程式應該決定每次呼叫 IOEX_av_send_audio() 函式前，應該要收集多久的音訊取樣資料。Arctos Carrier SDK 支援的音訊資料長度包括 2.5, 5, 10, 20, 40, 60 毫秒等六種。如果時間較小，代表呼叫 IOEX_av_send_audio() 的頻率也越高，可能會影響計算效能。
+
+應用程式接著計算（時間長度 * 取樣頻率 / 1000）得出來的值，此值就會是資料取樣的筆數。比方說，我們選擇 40 毫秒的時間長度，搭配 8000 Hz 取樣頻率，帶入計算得到的值是 320，代表要帶入給 IOEX_av_send_audio() 的 sample_count 參數是 320。
+
+最後，pcm 陣列的長度會是（資料取樣的筆數 * 聲道數）。這是因為如果採雙聲道採樣，表示一次採樣會有左右聲道兩筆資料，所以 pcm 資料長度也會增加。為了暫存這些採樣而來的 pcm 音訊資料，應用程式必須自己準備足夠大小的緩衝區。
+
+.. tip::
+    在傳輸音訊時，應用程式應該要使用多執行緒模型。例如，從一個執行緒呼叫硬體裝置進行取樣，取得足夠長度音訊資料後，交由另一個執行緒，呼叫 IOEX_av_send_audio() 送出。
+
+    這是為了避免 IOEX_av_send_audio() 阻塞到硬體裝置的取樣動作，造成取樣得到的聲音不連續，導致聲音延遲的現象等問題。
+
+
+音訊接收
+###############################################
+
+接收端接收到音訊後，會先將資料解密、解碼後，透過 Callback 方式通知應用程式。這個 :ref:`av_audio_received <carrier-api:IOEXCallbacks>` Callback 的參數如下：
+
+.. code-block::c
+
+    void (*av_audio_received)(IOEXCarrier *carrier, const char *friend_id, const int16_t *pcm, size_t sample_count,
+            uint8_t channels, uint32_t sampling_rate, void *context);
+
+
+這些參數的意義都跟發送時相同，請參考上一節 :ref:`tutorial-av:音訊傳輸` 的說明。
+
+
+影音同步
+################################################
+
+前面 Arctos Carrier SDK 影音傳送、接收流程中，都沒有明確提到跟時間有關的參數。這是因為，時間的概念已經隱含在各函式與 Callback 當中。
+
+基本上，我們假設應用程式從硬體裝置收集到資料後，會盡可能的快速將資料送給影音傳輸的函式，進行編碼處理。假設應用程式在同一個時間點，分別呼叫 IOEX_av_send_video() 和 IOEX_av_send_audio() 並提供影像和聲音原始資料時，我們會假設這兩筆資料也是在同一個時間採樣而來，不會有一分鐘前的畫面搭配一秒前的聲音這種情況。
+
+根據這個假設，在呼叫函式的同時，Arctos Carrier SDK 會自行將影音資料加上現在時間戳記。
+
+由於網路封包並不保證資料可以按照順序、毫無延遲的抵達，接收端在接到影音資料的同時，會先把資料暫存一小段時間。然後，按照影音資料各自的時間戳記，將資料按照時間先後順序排好，再看準時間，呼叫 av_video_received 或 av_audio_received Callback，提供給應用程式。
+
+也因此，接收端應用程式得到透過 Callback 得到影音資料的當下，都保證影音資料是同步的。接收端應用程式應該盡可能快速的將影像、聲音播放出來，以達到最好的效果。如果應用程式打算對資料進行後製處理，則應該自行計算和估計後製處理造成的延遲，並利用此延遲重新同步影音資料。
+
+.. tip::
+
+    如果應用程式仍然有影音延遲問題，建議往下列方向檢查：
+
+    - 編碼速度是否太慢，導致資料塞住越傳越慢。此時請試著重新調整編碼參數。
+    - 是否有正確使用多執行緒。若是採集資料到送出資料中間有阻塞，也會導致越傳越慢。
+    - 接收端是否花太多時間在處理 Callback 回傳的資料。在 Arctos Carrier SDK 中，Callback 都是在同一個執行緒執行，若是阻塞，會導致後續所有 Callback 事件無法觸發執行。建議在 Callback 觸發後，立刻將資料存入一個緩衝區，等待後續另一個執行緒來處理。
+

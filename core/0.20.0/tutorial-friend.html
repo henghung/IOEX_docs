@@ -1,0 +1,988 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>和節點成為好友 &mdash; Arctos Carrier Developer Documents 0.18.0 documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Arctos Carrier Developer Documents 0.18.0 documentation" href="index.html"/>
+        <link rel="next" title="影音傳輸功能" href="tutorial-av.html"/>
+        <link rel="prev" title="快速開始" href="tutorial-quickstart.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Arctos Carrier Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.18.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <p class="caption" role="heading"><span class="caption-text">Tutorials:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="tutorial-quickstart.html">快速開始</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">和節點成為好友</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">概觀</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">從標準輸入接收指令</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">新增好友與好友上線狀態</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id5">新增好友指令</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#callback">好友上線狀態 Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">到此為止的程式碼</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#ioexshell">使用 IOEXshell 進行測試</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">使用 IOEXshell 測試好友邀請功能</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">將 IOEXshell 還原至初始狀態</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#api-callback">其他跟好友相關的 API 與 Callback</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id9">好友邀請 API 與 Callback</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">完整程式碼</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id11">下一步</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial-av.html">影音傳輸功能</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API References:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="carrier-api.html">Arctos Carrier core APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-ota-api.html">Arctos Carrier OTA APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-tunnel-api.html">Arctos Carrier Tunnel APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-vpn-api.html">Arctos Carrier VPN APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-av-api.html">Arctos Carrier AV APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-group-api.html">Arctos Carrier Group APIs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="carrier-error-number.html">Arctos Carrier error number</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Arctos Carrier Developer Documents</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>和節點成為好友</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>和節點成為好友<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2>概觀<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>在這篇教學中，我們會建立一個 Arctos Carrier 應用程式，啟動節點，並且和其他節點成為好友。在這個應用程式中，我們也會加入接收使用者輸入文字命令的功能。</p>
+<p>這個應用程式延伸自前一篇教學： <a class="reference internal" href="tutorial-quickstart.html#id1"><span class="std std-ref">快速開始</span></a> 中建立的應用程式。如果你還沒看過前一篇教學，強烈建議先看完。</p>
+</div>
+<div class="section" id="id3">
+<h2>從標準輸入接收指令<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>大多數應用程式會需要跟使用者互動，而不是獨自執行固定的命令。在這個教學中，我們希望可以接收並執行使用者輸入的指令，方便後續開發與除錯。</p>
+<p>首先，我們新增一個 <code class="docutils literal notranslate"><span class="pre">idle</span></code> callback：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">idle_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">read_command</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">command</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">do_command</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">idle</span></code> callback 會在 Carrier 節點空閒時觸發，我們可以在此時讀取使用者的輸入並執行對應指令。這裡程式碼分為兩個階段。首先呼叫 <code class="docutils literal notranslate"><span class="pre">read_command()</span></code> 讀取使用者輸入的命令，再呼叫 <code class="docutils literal notranslate"><span class="pre">do_command()</span></code> 執行。</p>
+<p>首先先看 read_command() 函式：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">read_command</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">command_line</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="c1">// By default, fgetc from stdin will be blocked until a input is received</span>
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+
+    <span class="c1">// Failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Printable ASCII charactors</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="n">command_len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Enter is pressed</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\r&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">command_line</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>這個函式會不停從標準輸入裝置 (stdin) 讀取字元，直到使用者按下 Enter 為止。注意 fgetc(stdin) 會一直阻塞直到讀取到使用者輸入的字元為止，這會導致整個 idle callback 隨之阻塞，並影響整體 Carrier 節點運作。</p>
+<p>因此，我們必須要在 main() 函式中額外加入以下程式碼，讓 fgetc(stdin) 不會阻塞：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+
+<span class="c1">// Add the codes below to main() function</span>
+
+<span class="c1">// Set stdin non-block.</span>
+<span class="n">rc</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="n">stdin</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+     <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to set stdin non-blocking.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+     <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>現在，我們加入 do_command() 函式：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">do_command</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">argc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">command</span><span class="p">;</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)){</span>
+            <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_word</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">argc</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="c1">// TODO: Execute the commands ...</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="c1">// Demo debug message like this:</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;The command is %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>在這裡，do_command() 把字串用空白字元分段。例如，當使用者輸入字串為 <em>“sendmsg raymond hello”</em>，do_command() 會把它分成 3 段 (argc = 3)，而</p>
+<ul class="simple">
+<li><p>argv[0] = “sendmsg”</p></li>
+<li><p>argv[1] = “raymond”</p></li>
+<li><p>argv[2] = “hello”</p></li>
+</ul>
+<p>現在，你可以試著編譯並執行上面的應用程式（參考教學： <a class="reference internal" href="tutorial-quickstart.html#id7"><span class="std std-ref">編譯應用程式</span></a> 及 <a class="reference internal" href="tutorial-quickstart.html#id8"><span class="std std-ref">執行應用程式</span></a> ）。試著輸入任何字串，按下 enter，然後螢幕上應該會顯示 “The command is …” 並顯示 do_command() 所分析出來的第 1 個字段。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>我們假設之後要輸入的使用者指令是以 <em>“&lt;command&gt; &lt;argument1&gt; &lt;argument2&gt; …”</em> 的格式寫成，也就是說第 1 個字段是指令名稱，第 2 個字段以後都是參數。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>從 stdin 讀取指令，並不是唯一跟使用者互動的方法。在一般具有圖形使用者介面的應用程式中，直接將 UI 事件綁定來觸發特定指令，是比較合適的做法。</p>
+</div>
+</div>
+<div class="section" id="id4">
+<h2>新增好友與好友上線狀態<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>在 Arctos Carrier 網路中，兩個節點可以互相成為好友。只有成為好友的節點才可以彼此互相通訊、傳送資料。</p>
+<p>也因為這樣，幾乎所有 Carrier 應用程式都必須要先實作互相加為好友的方法。</p>
+<p>要跟另一個節點成為好友，首先要取得該節點的位址 (Address) 字串。Address 是個由英文字母與數字混合而成，長度不超過 <a class="reference internal" href="carrier-api.html#ioex-max-address-len"><span class="std std-ref">IOEX_MAX_ADDRESS_LEN</span></a> 個字元的字串。它會在 Carrier 應用程式第一次執行時隨機產生，並且之後不會變更。對於一個 Carrier 節點，我們可以使用 <a class="reference internal" href="carrier-api.html#ioex-get-address"><span class="std std-ref">IOEX_get_address</span></a> API 去取得 Address 字串。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>節點之間互相交換、取得 Address 的行為和方式，並沒有包含在 Arctos Carrier SDK 裡面。應用程式必須依照自己的運作場景，實作 Address 的交換機制。</p>
+<p>例如，若是將 Carrier SDK 用在行動裝置上的通訊應用程式當中，可以將自己的 Address 以 QR code 方式顯示，並給另一個安裝相同通訊應用程式裝置掃描、讀取 Address。</p>
+<p>在某些應用場景當中，必須要考慮相關的安全性。例如前述通訊應用程式，是以面對面掃描行動裝置 QR code 的方式，確保保密性（QR code 不會被別人看到）及認證持有者身分（面對面確認行動裝置持有者）的能力。</p>
+</div>
+<div class="section" id="id5">
+<h3>新增好友指令<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>現在，我們加入一個 <code class="docutils literal notranslate"><span class="pre">fadd</span></code> 指令。此指令會以另一個 Carrier 節點的 Address 為參數，並加入一段自訂的訊息，用來傳送好友邀請給 Carrier 節點。</p>
+<p>修改 do_command() 的最後幾行為：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Execute the commands</span>
+<span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+        <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>所以，當讀取到的指令是 <code class="docutils literal notranslate"><span class="pre">fadd</span></code> 的話，就會呼叫 add_friend() 這個函式。這個函式的實作為：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">add_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend succeess.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend failed(0x%08X).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>程式碼裡面的 <a class="reference internal" href="carrier-api.html#ioex-add-friend"><span class="std std-ref">IOEX_add_friend</span></a> 是 Carrier SDK 提供的一個 API，它會向指定的節點送出一個好友邀請，並附帶一段自訂訊息。</p>
+</div>
+<div class="section" id="callback">
+<h3>好友上線狀態 Callback<a class="headerlink" href="#callback" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">friend_connection</span></code> 這個 callback 會在好友上線狀態更新與離線時觸發。我們在應用程式中加入如下程式碼：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_connection_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+                                       <span class="n">IOEXFriendConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Direct</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online (direct)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Relay</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online (relay)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be offline.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!!! Got unknown connection status %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>然後在 main() 函式中設定它：</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="c1">// Set callbacks</span>
+<span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+<span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>  <span class="c1">// Add this!</span>
+</pre></div>
+</div>
+<p>一旦我們的應用程式與其他 Carrier 節點加為好友，應用程式就可以收到該節點的上線、離線狀態更新。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>好友的上線狀態中，另外細分為直連 (Direct) 與轉送 (Relay) 兩種狀態。雖然這兩種狀態都代表好友在線上，而且可以接收我方的訊息與資料，但兩者之間的通訊管道略有差別。</p>
+<p>直連的情況下代表兩個節點可以直接使用 UDP 協定直接交換資料；而轉送狀態代表兩個節點之間的資料是透過第三個節點來進行轉發，而使用的協定是 TCP。一般來說，直連時的資料傳輸頻寬與速度較高。無論哪種連線方式，傳輸的資料都經過加密，保證了通訊的保密性。</p>
+</div>
+</div>
+<div class="section" id="id6">
+<h3>到此為止的程式碼<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<p>到此我們已經完成此教學的一部分，以下是到目前為止的完整程式碼。建議在此先試著編譯所有程式碼，待會我們會用工具來對它進行小規模的測試</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ctype.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;IOEX_carrier.h&quot;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_connection_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+        <span class="n">IOEXFriendConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Direct</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online (direct)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Relay</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online (relay)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be offline.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!!! Got unknown connection status %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">add_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend succeess.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend failed(0x%x).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">read_command</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">command_line</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+
+    <span class="c1">// Failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Printable ASCII charactors</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="n">command_len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Enter is pressed</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\r&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">command_line</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">do_command</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">argc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">command</span><span class="p">;</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)){</span>
+            <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_word</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">argc</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+            <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">idle_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">read_command</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">command</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">do_command</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXAvOptions</span> <span class="n">av_options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+
+    <span class="c1">// Set options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bs_list_sync_period</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Set AV options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">av_options</span><span class="p">));</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">encoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">decoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">encode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">decode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">cpu_used_value</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_mode</span> <span class="o">=</span> <span class="n">IOEXAvRateControlMode_VBR</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">max_keyframe_interval</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_target_bitrate</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">allow_lagged_encode_frames</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">dropframe</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">allow_resize</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">resize_up_threshold</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">resize_down_threshold</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_undershoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_overshoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_size</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_initial_size</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_optimal_size</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">initial_keyframe_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Set callbacks</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>
+
+    <span class="c1">// Randomize</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Set stdin non-block</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to set stdin non-blocking.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Initialize carrier instance</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Display carrier node information</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Run carrier loop</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ioexshell">
+<h2>使用 IOEXshell 進行測試<a class="headerlink" href="#ioexshell" title="Permalink to this headline">¶</a></h2>
+<p>在進行開發的時候，可以使用 Arctos Carrier SDK 中隨附的 IOEXshell 應用程式來協助測試與驗證各項功能。</p>
+<div class="section" id="id7">
+<h3>使用 IOEXshell 測試好友邀請功能<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>IOEXshell 工具應用程式本身會執行一個 Carrier 節點實體，並且實作了很多 Carrier 的指令與 Callback。可以在 SDK 目錄中的 <code class="docutils literal notranslate"><span class="pre">bin</span></code> 資料夾找到它，以及搭配使用的 <code class="docutils literal notranslate"><span class="pre">IOEXshell.sh</span></code> 腳本。</p>
+<p>現在，準備兩個不同的終端機視窗。在其中一個終端機中，進到前述 bin 目錄下執行 IOEXshell.sh。你應該可以看到它順利啟動，並在畫面中印出 IOEXshell 節點使用的 Address 字串。將它複製下來。</p>
+<p>然後，在另一個終端機視窗中，編譯並執行我們寫好的應用程式。等到 <em>Connected to carrier network</em> 訊息顯示出來後，使用我們寫好的 <code class="docutils literal notranslate"><span class="pre">fadd</span></code> 指令，向 IOEXshell 送出好友邀請：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">fadd SHELL_NODE_ADDRESS hello</span>
+</pre></div>
+</div>
+<p>把上面的 SHELL_NODE_ADDRESS 換成你剛剛複製的 IOEXshell Address。如果你看到 <em>“Request to add a new friend succeess.”</em> 訊息，表示這個好友邀請已經成功送出。</p>
+<p>現在，切換到 IOEXshell 所在的終端機視窗，稍等一會，你應該可以看到它顯示出下列訊息：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Friend request from user[ MAIN_NODE_ID ] with HELLO: hello.</span>
+<span class="go">Reply use following commands:</span>
+<span class="go">  faccept MAIN_NODE_ID</span>
+</pre></div>
+</div>
+<p>這個訊息表示 IOEXshell 收到某個節點送來的好友邀請，而在這裡顯示的 MAIN_NODE_ID 會是我們的應用程式的 Node ID。IOEXshell 也提示你使用 <code class="docutils literal notranslate"><span class="pre">faccept</span></code> 指令去同意這筆好友邀請。</p>
+<p>現在，在 IOEXshell 的畫面中輸入 faccept 與 ID 資訊（跟畫面上顯示的相同）的指令，接受這個好友請求。</p>
+<p>切換回到應用程式所在的終端機視窗，應該會顯示下列訊息：</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Friend[ SHELL_NODE_ID ] connection changed to be online (direct)</span>
+</pre></div>
+</div>
+<p>這表示應用程式已經跟 IOEXshell 成為好友，得知對方已經上線。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Address、Node ID 與 DHT ID 三者都是在 Carrier 節點第一次啟動後產生，但有著不同的用途。</p>
+<p>Address 主要用在邀請好友的過程當中，我們在實作 fadd 指令中呼叫的 <a class="reference internal" href="carrier-api.html#ioex-add-friend"><span class="std std-ref">IOEX_add_friend</span></a> 函式就是使用 Address。</p>
+<p>Node ID 是辨識 Carrier 節點的獨特 ID，它會用在大部分 Arctos Carrier SDK 的 API 當中。</p>
+<p>DHT ID 用作此節點的公開金鑰，用來在節點網路中互相傳輸資料時使用。API 不會使用到它。</p>
+</div>
+</div>
+<div class="section" id="id8">
+<h3>將 IOEXshell 還原至初始狀態<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>有時候，為了後續測試方便，你會想要把 IOEXshell 還原回初始狀態。比方說，在之前的測試當中，IOEXshell 已經跟應用程式節點成為好友，那應用程式就無法再次測試 <code class="docutils literal notranslate"><span class="pre">fadd</span></code> 指令，因為兩個節點已經是好友了。</p>
+<p>要把 IOEXshell 狀態還原，需要把 IOEXshell 儲存的資料全部刪除。預設狀態下，這些資料會在你的專案目錄下的 <code class="docutils literal notranslate"><span class="pre">etc/carrier/.data</span></code> 和 <code class="docutils literal notranslate"><span class="pre">etc/carrier/shellkey</span></code>。因此要還原預設狀態，直接刪除此資料夾和檔案即可。</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>任何 Arctos Carrier 應用程式都可以藉由相同方法還原初始狀態。在我們的教學當中，資料存在你的專案目錄下的 <code class="docutils literal notranslate"><span class="pre">persistent</span></code> 資料夾和 <code class="docutils literal notranslate"><span class="pre">key</span></code> 檔案。刪掉這兩個東西，就會將你的應用程式狀態還原初始狀態。</p>
+</div>
+</div>
+</div>
+<div class="section" id="api-callback">
+<h2>其他跟好友相關的 API 與 Callback<a class="headerlink" href="#api-callback" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>好友邀請 API 與 Callback<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>前面的範例中，我們已經大致展示了兩個節點成為好友的流程。更詳細的流程如下：</p>
+<ol class="arabic simple">
+<li><p>節點 A 事先取得節點 B 的 Address 資訊</p></li>
+<li><p>節點 A 使用 <a class="reference internal" href="carrier-api.html#ioex-add-friend"><span class="std std-ref">IOEX_add_friend</span></a> API，帶入節點 B 的 Address 做參數，送出好友邀請</p></li>
+<li><p>節點 B 收到邀請後，會觸發 <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">friend_request</span></a> Callback，得知送來邀請的節點 ID</p></li>
+<li><p>節點 B 使用 <a class="reference internal" href="carrier-api.html#ioex-accept-friend"><span class="std std-ref">IOEX_accept_friend</span></a> API，帶入節點 A 的 ID 做參數，接受好友邀請</p></li>
+<li><p>節點 A 這邊會觸發 <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">friend_connection</span></a> Callback，得知已經成為好友的節點 B 的上線狀態</p></li>
+</ol>
+<p>如果節點 B 不想與 A 成為好友，只要在第 4 步驟中，忽略 A 的邀請，不去呼叫 IOEX_accept_friend() API 即可。</p>
+<p>在前面的教學應用程式當中，並沒有實作全部跟好友邀請有關的功能。比方說，我們並沒有實作 IOEXshell 當中的 <code class="docutils literal notranslate"><span class="pre">faccept</span></code> ，也就是同意好友邀請的功能。</p>
+<p>請參考前面描述的流程與 API，試著把我們的應用程式完成吧。可以參考 <a class="reference internal" href="carrier-api.html#friend-interaction"><span class="std std-ref">文件中的 API 列表</span></a> 以及 <a class="reference internal" href="carrier-api.html#ioexcallbacks"><span class="std std-ref">Callback 列表</span></a> 當中，以 friends 為開頭的部分。</p>
+</div>
+<div class="section" id="id10">
+<h3>完整程式碼<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>以下程式是可以達到好友互加，完整流程的一個實作範例。</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;stdlib.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;ctype.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;time.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&lt;fcntl.h&gt;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;IOEX_carrier.h&quot;</span><span class="cp"></span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">connection_status_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="n">IOEXConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span><span class="p">(</span><span class="n">status</span><span class="p">){</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Connected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Connected to carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Disconnected from carrier network.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Unknown connection status.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_connection_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">friendid</span><span class="p">,</span>
+        <span class="n">IOEXFriendConnectionStatus</span> <span class="n">status</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">switch</span> <span class="p">(</span><span class="n">status</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Direct</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online (direct)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Relay</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be online (relay)</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">case</span> <span class="nl">IOEXFriendConnectionStatus_Disconnected</span><span class="p">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend[%s] connection changed to be offline.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">friendid</span><span class="p">);</span>
+            <span class="k">break</span><span class="p">;</span>
+        <span class="k">default</span><span class="o">:</span>
+            <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Error!!! Got unknown connection status %d.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">status</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">friend_request_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">userid</span><span class="p">,</span>
+                                    <span class="k">const</span> <span class="n">IOEXUserInfo</span> <span class="o">*</span><span class="n">info</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">hello</span><span class="p">,</span>
+                                    <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Friend request from user[%s] with HELLO: %s.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span>
+           <span class="o">*</span><span class="n">info</span><span class="o">-&gt;</span><span class="n">name</span> <span class="o">?</span> <span class="n">info</span><span class="o">-&gt;</span><span class="nl">name</span> <span class="p">:</span> <span class="n">userid</span><span class="p">,</span> <span class="n">hello</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Reply use following commands:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;  faccept %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">userid</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">add_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend succeess.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Request to add a new friend failed(0x%x).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">accept_friend</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+
+    <span class="k">if</span> <span class="p">(</span><span class="n">argc</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Invalid command syntax.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+        <span class="k">return</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_accept_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accept friend request success.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="k">else</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Accept friend request failed(0x%x).</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">read_command</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">static</span> <span class="kt">int</span> <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="k">static</span> <span class="kt">char</span> <span class="n">command_line</span><span class="p">[</span><span class="mi">1024</span><span class="p">];</span>
+    <span class="kt">int</span> <span class="n">ch</span><span class="p">;</span>
+
+    <span class="n">ch</span> <span class="o">=</span> <span class="n">fgetc</span><span class="p">(</span><span class="n">stdin</span><span class="p">);</span>
+
+    <span class="c1">// Failed</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="n">EOF</span><span class="p">){</span>
+        <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Printable ASCII charactors</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">isprint</span><span class="p">(</span><span class="n">ch</span><span class="p">)){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">ch</span><span class="p">;</span>
+        <span class="n">command_len</span><span class="o">++</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="c1">// Enter is pressed</span>
+    <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\r&#39;</span> <span class="o">||</span> <span class="n">ch</span> <span class="o">==</span> <span class="sc">&#39;\n&#39;</span><span class="p">){</span>
+        <span class="n">command_line</span><span class="p">[</span><span class="n">command_len</span><span class="p">]</span> <span class="o">=</span> <span class="sc">&#39;\0&#39;</span><span class="p">;</span>
+        <span class="n">command_len</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+        <span class="k">if</span><span class="p">(</span><span class="n">strlen</span><span class="p">(</span><span class="n">command_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+            <span class="k">return</span> <span class="n">command_line</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="nb">NULL</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">do_command</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="mi">256</span><span class="p">],</span> <span class="o">*</span><span class="n">p</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">argc</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="k">for</span><span class="p">(</span><span class="n">p</span> <span class="o">=</span> <span class="n">command</span><span class="p">;</span> <span class="o">*</span><span class="n">p</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">p</span><span class="o">++</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">isspace</span><span class="p">(</span><span class="o">*</span><span class="n">p</span><span class="p">)){</span>
+            <span class="o">*</span><span class="n">p</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span><span class="p">{</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">is_word</span> <span class="o">==</span> <span class="mi">0</span><span class="p">){</span>
+                <span class="n">argv</span><span class="p">[</span><span class="n">argc</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">;</span>
+                <span class="n">argc</span><span class="o">++</span><span class="p">;</span>
+            <span class="p">}</span>
+            <span class="n">is_word</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="k">if</span><span class="p">(</span><span class="n">argc</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;fadd&quot;</span><span class="p">)){</span>
+            <span class="n">add_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">strcmp</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">&quot;faccept&quot;</span><span class="p">)){</span>
+            <span class="n">accept_friend</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">argc</span><span class="p">,</span> <span class="n">argv</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="k">static</span> <span class="kt">void</span> <span class="nf">idle_callback</span><span class="p">(</span><span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">,</span> <span class="kt">void</span> <span class="o">*</span><span class="n">context</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">char</span> <span class="o">*</span><span class="n">command</span><span class="p">;</span>
+    <span class="n">command</span> <span class="o">=</span> <span class="n">read_command</span><span class="p">();</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">command</span> <span class="o">!=</span> <span class="nb">NULL</span><span class="p">){</span>
+        <span class="n">do_command</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">command</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]){</span>
+    <span class="n">IOEXOptions</span> <span class="n">options</span><span class="p">;</span>
+    <span class="n">IOEXAvOptions</span> <span class="n">av_options</span><span class="p">;</span>
+    <span class="n">IOEXCallbacks</span> <span class="n">callbacks</span><span class="p">;</span>
+    <span class="n">IOEXCarrier</span> <span class="o">*</span><span class="n">w</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">rc</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buf</span><span class="p">[</span><span class="mi">80</span><span class="p">];</span>
+
+    <span class="c1">// Set options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">options</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">udp_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">local_discovery_enabled</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">persistent_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;persistent&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">storage_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;storage&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">key_file_location</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bs_list_sync_period</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span> <span class="o">=</span> <span class="p">(</span><span class="n">BootstrapNode</span> <span class="o">*</span><span class="p">)</span> <span class="n">malloc</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps_size</span> <span class="o">*</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">BootstrapNode</span><span class="p">));</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv4</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">ipv6</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;Bootstrap-1.arctos.tw&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">port</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;10310&quot;</span><span class="p">);</span>
+    <span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="n">public_key</span> <span class="o">=</span> <span class="n">strdup</span><span class="p">(</span><span class="s">&quot;D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Set AV options</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">av_options</span><span class="p">));</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">encoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">decoder_threads</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">encode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">decode_deadline</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">cpu_used_value</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_mode</span> <span class="o">=</span> <span class="n">IOEXAvRateControlMode_VBR</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">max_keyframe_interval</span> <span class="o">=</span> <span class="mi">40</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_target_bitrate</span> <span class="o">=</span> <span class="mi">250</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">allow_lagged_encode_frames</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">dropframe</span> <span class="o">=</span> <span class="mi">75</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">allow_resize</span> <span class="o">=</span> <span class="nb">true</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">resize_up_threshold</span> <span class="o">=</span> <span class="mi">30</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">resize_down_threshold</span> <span class="o">=</span> <span class="mi">60</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_undershoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">rate_control_overshoot_bits</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_size</span> <span class="o">=</span> <span class="mi">6000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_initial_size</span> <span class="o">=</span> <span class="mi">4000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">buffer_optimal_size</span> <span class="o">=</span> <span class="mi">5000</span><span class="p">;</span>
+    <span class="n">av_options</span><span class="p">.</span><span class="n">initial_keyframe_count</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+    <span class="c1">// Set callbacks</span>
+    <span class="n">memset</span><span class="p">(</span><span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">callbacks</span><span class="p">));</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">connection_status</span> <span class="o">=</span> <span class="n">connection_status_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">idle</span> <span class="o">=</span> <span class="n">idle_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">friend_connection</span> <span class="o">=</span> <span class="n">friend_connection_callback</span><span class="p">;</span>
+    <span class="n">callbacks</span><span class="p">.</span><span class="n">friend_request</span> <span class="o">=</span> <span class="n">friend_request_callback</span><span class="p">;</span>
+
+    <span class="c1">// Randomize</span>
+    <span class="n">srand</span><span class="p">(</span><span class="n">time</span><span class="p">(</span><span class="nb">NULL</span><span class="p">));</span>
+
+    <span class="c1">// Set stdin non-block</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">fcntl</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">F_SETFL</span><span class="p">,</span> <span class="n">O_NONBLOCK</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">rc</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to set stdin non-blocking.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+         <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Initialize carrier instance</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="n">IOEX_new</span><span class="p">(</span><span class="o">&amp;</span><span class="n">options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">av_options</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">callbacks</span><span class="p">,</span> <span class="nb">NULL</span><span class="p">);</span>
+    <span class="n">free</span><span class="p">(</span><span class="n">options</span><span class="p">.</span><span class="n">bootstraps</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">w</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to create carrier instance: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="c1">// Display carrier node information</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Carrier node identities:</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Node ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_nodeid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   User ID: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_userid</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;   Address: %s</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_address</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;    DHT ID: %s</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_self_dht_id</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buf</span><span class="p">)));</span>
+    <span class="n">printf</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+
+    <span class="c1">// Run carrier loop</span>
+    <span class="n">rc</span> <span class="o">=</span> <span class="n">IOEX_run</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="mi">10</span><span class="p">);</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">rc</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">){</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Failed to start carrier loop: 0x%08X</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">,</span> <span class="n">IOEX_get_error</span><span class="p">());</span>
+        <span class="n">IOEX_kill</span><span class="p">(</span><span class="n">w</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id11">
+<h2>下一步<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<p>在這份教學當中，我們看到了 Arctos Carrier 彼此成為好友的過程。這是之後所有節點間通訊的必要動作。</p>
+<p>接下來，我們會介紹 Arctos Carrier SDK 中的影音通訊功能。</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="tutorial-av.html" class="btn btn-neutral float-right" title="影音傳輸功能" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="tutorial-quickstart.html" class="btn btn-neutral" title="快速開始" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, www.ioex.vip.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'0.18.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/documentation_options.js"></script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/clipboard.min.js"></script>
+      <script type="text/javascript" src="_static/copybutton.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
