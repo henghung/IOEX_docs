@@ -1,0 +1,81 @@
+GroupType
+=========
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum GroupType
+
+   Carrier node presence status.
+
+Enum Constants
+--------------
+Av
+^^
+
+.. java:field:: public static final GroupType Av
+   :outertype: GroupType
+
+   A group can send text message and audio frame.
+
+Text
+^^^^
+
+.. java:field:: public static final GroupType Text
+   :outertype: GroupType
+
+   A group can send text message only.
+
+Unknown
+^^^^^^^
+
+.. java:field:: public static final GroupType Unknown
+   :outertype: GroupType
+
+   Other invalid group types.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: public static String format(GroupType type)
+   :outertype: GroupType
+
+   Get debug description of chat group type.
+
+   :param type: The chat group type.
+   :return: The debug description of group type
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: GroupType
+
+   Get debug description of current chat group type.
+
+   :return: The debug description of current group type.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: GroupType
+
+   Get chat group type value.
+
+   :return: The group type value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static GroupType valueOf(int type)
+   :outertype: GroupType
+
+   Get GroupType object from type value.
+
+   :param type: The group type value.
+   :throws IllegalArgumentException:
+   :return: The Carrier node GroupType object.
+

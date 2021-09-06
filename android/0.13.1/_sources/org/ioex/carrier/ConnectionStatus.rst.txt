@@ -1,0 +1,73 @@
+ConnectionStatus
+================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum ConnectionStatus
+
+   Carrier node connection status to the carrier network.
+
+Enum Constants
+--------------
+Connected
+^^^^^^^^^
+
+.. java:field:: public static final ConnectionStatus Connected
+   :outertype: ConnectionStatus
+
+   Carrier node connected to the carrier network. Indicate the node is online.
+
+Disconnected
+^^^^^^^^^^^^
+
+.. java:field:: public static final ConnectionStatus Disconnected
+   :outertype: ConnectionStatus
+
+   There is no connection to the carrier network. Indicate the node is offline.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(ConnectionStatus status)
+   :outertype: ConnectionStatus
+
+   Get the debug description of the ConnectionStatus object.
+
+   :param status: The connect status
+   :return: The debug description of ConnectionStatus object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: ConnectionStatus
+
+   Get the debug description of current ConnectionStatus object.
+
+   :return: The debug description of current ConnectionStatus object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: ConnectionStatus
+
+   Get the status value of current ConnectionStatus object.
+
+   :return: The connection status value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static ConnectionStatus valueOf(int status)
+   :outertype: ConnectionStatus
+
+   Get ConnectionStatus object from staus integter value.
+
+   :param status: The status value
+   :throws IllegalArgumentException:
+   :return: The ConnectionStatus object
+

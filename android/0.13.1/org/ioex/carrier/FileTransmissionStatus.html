@@ -1,0 +1,367 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FileTransmissionStatus &mdash; Carrier Android Developer Documents 0.13.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FriendConnectionStatus" href="FriendConnectionStatus.html" />
+    <link rel="prev" title="FileTransmissionPausedStatus" href="FileTransmissionPausedStatus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.13.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractCarrierHandler.html">AbstractCarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvOptionsBuilder.html">AvOptionsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier.html">Carrier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-AvOptions.html">Carrier.AvOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileInfo.html">FileInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FileTransmissionStatus</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enum-constants">Enum Constants</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FriendConnectionStatus.html">FriendConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendInfo.html">GroupFriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendsIterator.html">GroupFriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupType.html">GroupType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInfo.html">UserInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>FileTransmissionStatus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="filetransmissionstatus">
+<h1>FileTransmissionStatus<a class="headerlink" href="#filetransmissionstatus" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.FileTransmissionStatus">
+public enum <code class="sig-name descname">FileTransmissionStatus</code><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="enum-constants">
+<h2>Enum Constants<a class="headerlink" href="#enum-constants" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="aborted">
+<h3>Aborted<a class="headerlink" href="#aborted" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileTransmissionStatus.Aborted">
+public static final <a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">Aborted</code><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.Aborted" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="finished">
+<h3>Finished<a class="headerlink" href="#finished" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileTransmissionStatus.Finished">
+public static final <a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">Finished</code><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.Finished" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="none">
+<h3>None<a class="headerlink" href="#none" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileTransmissionStatus.None">
+public static final <a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">None</code><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.None" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pending">
+<h3>Pending<a class="headerlink" href="#pending" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileTransmissionStatus.Pending">
+public static final <a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">Pending</code><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.Pending" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="running">
+<h3>Running<a class="headerlink" href="#running" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileTransmissionStatus.Running">
+public static final <a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">Running</code><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.Running" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="format">
+<h3>format<a class="headerlink" href="#format" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileTransmissionStatus.format(FileTransmissionStatus)">
+static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">format</code><span class="sig-paren">(</span><a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a><em> status</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.format(FileTransmissionStatus)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the debug description of the FileTransmissionStatus object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – The file transmission status</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The debug description of FileTransmissionStatus object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="tostring">
+<h3>toString<a class="headerlink" href="#tostring" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileTransmissionStatus.toString()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">toString</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.toString()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the debug description of current FileTransmissionStatus object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The debug description of current FileTransmissionStatus object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="value">
+<h3>value<a class="headerlink" href="#value" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileTransmissionStatus.value()">
+public int <code class="sig-name descname">value</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.value()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the status value of current FileTransmissionStatus object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The file transmission status value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="valueof">
+<h3>valueOf<a class="headerlink" href="#valueof" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileTransmissionStatus.valueOf(int)">
+public static <a class="reference internal" href="#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">valueOf</code><span class="sig-paren">(</span>int<em> status</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileTransmissionStatus.valueOf(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get FileTransmissionStatus object from staus integter value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>status</strong> – The status value</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The FileTransmissionStatus object</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FriendConnectionStatus.html" class="btn btn-neutral float-right" title="FriendConnectionStatus" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="FileTransmissionPausedStatus.html" class="btn btn-neutral float-left" title="FileTransmissionPausedStatus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Arctos Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

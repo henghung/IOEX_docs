@@ -36,6 +36,7 @@ https://henghung.github.io/core/0.20.0
 * [v0.10.0](https://henghung.github.io/android/0.10.0/)
 * [v0.10.1](https://henghung.github.io/android/0.10.1/)
 * [v0.10.2](https://henghung.github.io/android/0.10.2/)
+* [v0.13.1](https://henghung.github.io/android/0.13.1/)
 
 ### Android App Tutorial
 

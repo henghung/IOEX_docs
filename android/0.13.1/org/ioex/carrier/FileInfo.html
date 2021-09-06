@@ -1,0 +1,463 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FileInfo &mdash; Carrier Android Developer Documents 0.13.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FileTransmissionDirection" href="FileTransmissionDirection.html" />
+    <link rel="prev" title="ConnectionStatus" href="ConnectionStatus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.13.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractCarrierHandler.html">AbstractCarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvOptionsBuilder.html">AvOptionsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier.html">Carrier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-AvOptions.html">Carrier.AvOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">FileInfo</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionStatus.html">FileTransmissionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendConnectionStatus.html">FriendConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendInfo.html">GroupFriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendsIterator.html">GroupFriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupType.html">GroupType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInfo.html">UserInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>FileInfo</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fileinfo">
+<h1>FileInfo<a class="headerlink" href="#fileinfo" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.FileInfo">
+public class <code class="sig-name descname">FileInfo</code><a class="headerlink" href="#org.ioex.carrier.FileInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="direction">
+<h3>direction<a class="headerlink" href="#direction" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.direction">
+ <a class="reference internal" href="FileTransmissionDirection.html#org.ioex.carrier.FileTransmissionDirection" title="org.ioex.carrier.FileTransmissionDirection">FileTransmissionDirection</a> <code class="sig-name descname">direction</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.direction" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The direction of the transmission.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="fileid">
+<h3>fileId<a class="headerlink" href="#fileid" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.fileId">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">fileId</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.fileId" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="filename">
+<h3>fileName<a class="headerlink" href="#filename" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.fileName">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">fileName</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.fileName" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="filepath">
+<h3>filePath<a class="headerlink" href="#filepath" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.filePath">
+ <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">filePath</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.filePath" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="pausedstatus">
+<h3>pausedStatus<a class="headerlink" href="#pausedstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.pausedStatus">
+ <a class="reference internal" href="FileTransmissionPausedStatus.html#org.ioex.carrier.FileTransmissionPausedStatus" title="org.ioex.carrier.FileTransmissionPausedStatus">FileTransmissionPausedStatus</a> <code class="sig-name descname">pausedStatus</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.pausedStatus" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The pausedStatus status of the transmission.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="status">
+<h3>status<a class="headerlink" href="#status" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.status">
+ <a class="reference internal" href="FileTransmissionStatus.html#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">status</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.status" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English The status of the transmission.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="totalfilesize">
+<h3>totalFileSize<a class="headerlink" href="#totalfilesize" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.totalFileSize">
+ long <code class="sig-name descname">totalFileSize</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.totalFileSize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="transferredsize">
+<h3>transferredSize<a class="headerlink" href="#transferredsize" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.FileInfo.transferredSize">
+ long <code class="sig-name descname">transferredSize</code><a class="headerlink" href="#org.ioex.carrier.FileInfo.transferredSize" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>FileInfo<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="org.ioex.carrier.FileInfo.FileInfo()">
+protected <code class="sig-name descname">FileInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.FileInfo()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getdirection">
+<h3>getDirection<a class="headerlink" href="#getdirection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getDirection()">
+public <a class="reference internal" href="FileTransmissionDirection.html#org.ioex.carrier.FileTransmissionDirection" title="org.ioex.carrier.FileTransmissionDirection">FileTransmissionDirection</a> <code class="sig-name descname">getDirection</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getDirection()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getfileid">
+<h3>getFileId<a class="headerlink" href="#getfileid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getFileId()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getFileId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getFileId()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getfilename">
+<h3>getFileName<a class="headerlink" href="#getfilename" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getFileName()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getFileName</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getFileName()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getfilepath">
+<h3>getFilePath<a class="headerlink" href="#getfilepath" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getFilePath()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getFilePath</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getFilePath()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getpausedstatus">
+<h3>getPausedStatus<a class="headerlink" href="#getpausedstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getPausedStatus()">
+public <a class="reference internal" href="FileTransmissionPausedStatus.html#org.ioex.carrier.FileTransmissionPausedStatus" title="org.ioex.carrier.FileTransmissionPausedStatus">FileTransmissionPausedStatus</a> <code class="sig-name descname">getPausedStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getPausedStatus()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getstatus">
+<h3>getStatus<a class="headerlink" href="#getstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getStatus()">
+public <a class="reference internal" href="FileTransmissionStatus.html#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a> <code class="sig-name descname">getStatus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getStatus()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="gettotalfilesize">
+<h3>getTotalFileSize<a class="headerlink" href="#gettotalfilesize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getTotalFileSize()">
+public long <code class="sig-name descname">getTotalFileSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getTotalFileSize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="gettransferredsize">
+<h3>getTransferredSize<a class="headerlink" href="#gettransferredsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.getTransferredSize()">
+public long <code class="sig-name descname">getTransferredSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.getTransferredSize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setdirection">
+<h3>setDirection<a class="headerlink" href="#setdirection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setDirection(FileTransmissionDirection)">
+public void <code class="sig-name descname">setDirection</code><span class="sig-paren">(</span><a class="reference internal" href="FileTransmissionDirection.html#org.ioex.carrier.FileTransmissionDirection" title="org.ioex.carrier.FileTransmissionDirection">FileTransmissionDirection</a><em> direction</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setDirection(FileTransmissionDirection)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setfileid">
+<h3>setFileId<a class="headerlink" href="#setfileid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setFileId(String)">
+public void <code class="sig-name descname">setFileId</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setFileId(String)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setfilename">
+<h3>setFileName<a class="headerlink" href="#setfilename" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setFileName(String)">
+public void <code class="sig-name descname">setFileName</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileName</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setFileName(String)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setfilepath">
+<h3>setFilePath<a class="headerlink" href="#setfilepath" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setFilePath(String)">
+public void <code class="sig-name descname">setFilePath</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filePath</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setFilePath(String)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setpausedstatus">
+<h3>setPausedStatus<a class="headerlink" href="#setpausedstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setPausedStatus(FileTransmissionPausedStatus)">
+public void <code class="sig-name descname">setPausedStatus</code><span class="sig-paren">(</span><a class="reference internal" href="FileTransmissionPausedStatus.html#org.ioex.carrier.FileTransmissionPausedStatus" title="org.ioex.carrier.FileTransmissionPausedStatus">FileTransmissionPausedStatus</a><em> pausedStatus</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setPausedStatus(FileTransmissionPausedStatus)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setstatus">
+<h3>setStatus<a class="headerlink" href="#setstatus" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setStatus(FileTransmissionStatus)">
+public void <code class="sig-name descname">setStatus</code><span class="sig-paren">(</span><a class="reference internal" href="FileTransmissionStatus.html#org.ioex.carrier.FileTransmissionStatus" title="org.ioex.carrier.FileTransmissionStatus">FileTransmissionStatus</a><em> status</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setStatus(FileTransmissionStatus)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="settotalfilesize">
+<h3>setTotalFileSize<a class="headerlink" href="#settotalfilesize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setTotalFileSize(long)">
+public void <code class="sig-name descname">setTotalFileSize</code><span class="sig-paren">(</span>long<em> totalFileSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setTotalFileSize(long)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="settransferredsize">
+<h3>setTransferredSize<a class="headerlink" href="#settransferredsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.FileInfo.setTransferredSize(long)">
+public void <code class="sig-name descname">setTransferredSize</code><span class="sig-paren">(</span>long<em> transferredSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.FileInfo.setTransferredSize(long)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="FileTransmissionDirection.html" class="btn btn-neutral float-right" title="FileTransmissionDirection" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ConnectionStatus.html" class="btn btn-neutral float-left" title="ConnectionStatus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Arctos Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

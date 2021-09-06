@@ -1,0 +1,73 @@
+FileTransmissionDirection
+=========================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum FileTransmissionDirection
+
+Enum Constants
+--------------
+Receive
+^^^^^^^
+
+.. java:field:: public static final FileTransmissionDirection Receive
+   :outertype: FileTransmissionDirection
+
+Send
+^^^^
+
+.. java:field:: public static final FileTransmissionDirection Send
+   :outertype: FileTransmissionDirection
+
+Unknown
+^^^^^^^
+
+.. java:field:: public static final FileTransmissionDirection Unknown
+   :outertype: FileTransmissionDirection
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(FileTransmissionDirection direction)
+   :outertype: FileTransmissionDirection
+
+   Get the debug description of the FileTransmissionDirection object.
+
+   :param direction: The file transmission direction
+   :return: The debug description of FileTransmissionDirection object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: FileTransmissionDirection
+
+   Get the debug description of current FileTransmissionDirection object.
+
+   :return: The debug description of current FileTransmissionDirection object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: FileTransmissionDirection
+
+   Get the direction value of current FileTransmissionDirection object.
+
+   :return: The file transmission direction value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static FileTransmissionDirection valueOf(int direction)
+   :outertype: FileTransmissionDirection
+
+   Get FileTransmissionDirection object from direction integer value.
+
+   :param direction: The direction value
+   :throws IllegalArgumentException:
+   :return: The FileTransmissionDirection object
+
