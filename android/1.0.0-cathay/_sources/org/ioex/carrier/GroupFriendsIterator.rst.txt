@@ -1,0 +1,22 @@
+GroupFriendsIterator
+====================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type::  interface GroupFriendsIterator
+
+Methods
+-------
+onIterated
+^^^^^^^^^^
+
+.. java:method::  boolean onIterated(GroupFriendInfo friendInfo, Object context)
+   :outertype: GroupFriendsIterator
+
+   The callback function to iterate friends in a group.
+
+   :param friendInfo: The friend information in a group.
+   :param context:: The application defined context data.
+   :return: True to continue iterate next friend user info in a group, false to stop iteration.
+

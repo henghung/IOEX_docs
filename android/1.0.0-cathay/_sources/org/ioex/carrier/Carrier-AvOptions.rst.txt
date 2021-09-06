@@ -1,0 +1,273 @@
+.. java:import:: android.graphics ImageFormat
+
+.. java:import:: android.media Image
+
+.. java:import:: androidx.annotation NonNull
+
+.. java:import:: org.ioex.carrier.exceptions IOEXException
+
+.. java:import:: java.nio ByteBuffer
+
+.. java:import:: java.util ArrayList
+
+.. java:import:: java.util Arrays
+
+.. java:import:: java.util List
+
+Carrier.AvOptions
+=================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public static class AvOptions
+   :outertype: Carrier
+
+   AvOptions defines several settings that control the way the Carrier AV encode and decode. It is suggest to use AvOptionsBuilder to construct the AvOptions. AvOptionsBuilder also provides default values.
+
+   **See also:** :java:ref:`AvOptionsBuilder`
+
+Constructors
+------------
+AvOptions
+^^^^^^^^^
+
+.. java:constructor:: public AvOptions(int encoderThreads, int decoderThreads, int encodeDeadline, int decodeDeadline, int cpuUsedValue, int rateControlMode, int maxKeyFrameInterval, int rateControlTargetBitrate, int allowLaggedEncodeFrame, int dropFrame, boolean allowResize, int resizeUpThreshold, int resizeDownThreshold, int rateControlUndershootBits, int rateControlOvershootBits, int bufferSize, int bufferInitialSize, int bufferOptimalSize, int initialKeyframeCount)
+   :outertype: Carrier.AvOptions
+
+Methods
+-------
+getAllowLaggedEncodeFrame
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getAllowLaggedEncodeFrame()
+   :outertype: Carrier.AvOptions
+
+getBufferInitialSize
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getBufferInitialSize()
+   :outertype: Carrier.AvOptions
+
+getBufferOptimalSize
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getBufferOptimalSize()
+   :outertype: Carrier.AvOptions
+
+getBufferSize
+^^^^^^^^^^^^^
+
+.. java:method:: public int getBufferSize()
+   :outertype: Carrier.AvOptions
+
+getCpuUsedValue
+^^^^^^^^^^^^^^^
+
+.. java:method:: public int getCpuUsedValue()
+   :outertype: Carrier.AvOptions
+
+getDecodeDeadline
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getDecodeDeadline()
+   :outertype: Carrier.AvOptions
+
+getDecoderThreads
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getDecoderThreads()
+   :outertype: Carrier.AvOptions
+
+getDefaultOptions
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public static AvOptions getDefaultOptions()
+   :outertype: Carrier.AvOptions
+
+getDropFrame
+^^^^^^^^^^^^
+
+.. java:method:: public int getDropFrame()
+   :outertype: Carrier.AvOptions
+
+getEncodeDeadline
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getEncodeDeadline()
+   :outertype: Carrier.AvOptions
+
+getEncoderThreads
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getEncoderThreads()
+   :outertype: Carrier.AvOptions
+
+getInitialKeyframeCount
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getInitialKeyframeCount()
+   :outertype: Carrier.AvOptions
+
+getMaxKeyFrameInterval
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getMaxKeyFrameInterval()
+   :outertype: Carrier.AvOptions
+
+getRateControlMode
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getRateControlMode()
+   :outertype: Carrier.AvOptions
+
+getRateControlOvershootBits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getRateControlOvershootBits()
+   :outertype: Carrier.AvOptions
+
+getRateControlTargetBitrate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getRateControlTargetBitrate()
+   :outertype: Carrier.AvOptions
+
+getRateControlUndershootBits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getRateControlUndershootBits()
+   :outertype: Carrier.AvOptions
+
+getResizeDownThreshold
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getResizeDownThreshold()
+   :outertype: Carrier.AvOptions
+
+getResizeUpThreshold
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public int getResizeUpThreshold()
+   :outertype: Carrier.AvOptions
+
+isAllowResize
+^^^^^^^^^^^^^
+
+.. java:method:: public boolean isAllowResize()
+   :outertype: Carrier.AvOptions
+
+setAllowLaggedEncodeFrame
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setAllowLaggedEncodeFrame(int allowLaggedEncodeFrame)
+   :outertype: Carrier.AvOptions
+
+setAllowResize
+^^^^^^^^^^^^^^
+
+.. java:method:: public void setAllowResize(boolean allowResize)
+   :outertype: Carrier.AvOptions
+
+setBufferInitialSize
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setBufferInitialSize(int bufferInitialSize)
+   :outertype: Carrier.AvOptions
+
+setBufferOptimalSize
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setBufferOptimalSize(int bufferOptimalSize)
+   :outertype: Carrier.AvOptions
+
+setBufferSize
+^^^^^^^^^^^^^
+
+.. java:method:: public void setBufferSize(int bufferSize)
+   :outertype: Carrier.AvOptions
+
+setCpuUsedValue
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void setCpuUsedValue(int cpuUsedValue)
+   :outertype: Carrier.AvOptions
+
+setDecodeDeadline
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setDecodeDeadline(int decodeDeadline)
+   :outertype: Carrier.AvOptions
+
+setDecoderThreads
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setDecoderThreads(int decoderThreads)
+   :outertype: Carrier.AvOptions
+
+setDropFrame
+^^^^^^^^^^^^
+
+.. java:method:: public void setDropFrame(int dropFrame)
+   :outertype: Carrier.AvOptions
+
+setEncodeDeadline
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setEncodeDeadline(int encodeDeadline)
+   :outertype: Carrier.AvOptions
+
+setEncoderThreads
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setEncoderThreads(int encoderThreads)
+   :outertype: Carrier.AvOptions
+
+setInitialKeyframeCount
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setInitialKeyframeCount(int initialKeyframeCount)
+   :outertype: Carrier.AvOptions
+
+setMaxKeyFrameInterval
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setMaxKeyFrameInterval(int maxKeyFrameInterval)
+   :outertype: Carrier.AvOptions
+
+setRateControlMode
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setRateControlMode(int rateControlMode)
+   :outertype: Carrier.AvOptions
+
+setRateControlOvershootBits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setRateControlOvershootBits(int rateControlOvershootBits)
+   :outertype: Carrier.AvOptions
+
+setRateControlTargetBitrate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setRateControlTargetBitrate(int rateControlTargetBitrate)
+   :outertype: Carrier.AvOptions
+
+setRateControlUndershootBits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setRateControlUndershootBits(int rateControlUndershootBits)
+   :outertype: Carrier.AvOptions
+
+setResizeDownThreshold
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setResizeDownThreshold(int resizeDownThreshold)
+   :outertype: Carrier.AvOptions
+
+setResizeUpThreshold
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setResizeUpThreshold(int resizeUpThreshold)
+   :outertype: Carrier.AvOptions
+

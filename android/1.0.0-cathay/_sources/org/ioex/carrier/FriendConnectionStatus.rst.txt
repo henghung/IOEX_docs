@@ -1,0 +1,81 @@
+FriendConnectionStatus
+======================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public enum FriendConnectionStatus
+
+   Friends connection status to each other.
+
+Enum Constants
+--------------
+Direct
+^^^^^^
+
+.. java:field:: public static final FriendConnectionStatus Direct
+   :outertype: FriendConnectionStatus
+
+   Friend is online, and is connected via direct P2P connection.
+
+Disconnected
+^^^^^^^^^^^^
+
+.. java:field:: public static final FriendConnectionStatus Disconnected
+   :outertype: FriendConnectionStatus
+
+   Friend is not connected.
+
+Relay
+^^^^^
+
+.. java:field:: public static final FriendConnectionStatus Relay
+   :outertype: FriendConnectionStatus
+
+   Friend is online, and is connected via relay server.
+
+Methods
+-------
+format
+^^^^^^
+
+.. java:method:: static String format(FriendConnectionStatus status)
+   :outertype: FriendConnectionStatus
+
+   Get the debug description of the FriendConnectionStatus object.
+
+   :param status: The connect status
+   :return: The debug description of FriendConnectionStatus object
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: FriendConnectionStatus
+
+   Get the debug description of current FriendConnectionStatus object.
+
+   :return: The debug description of current FriendConnectionStatus object.
+
+value
+^^^^^
+
+.. java:method:: public int value()
+   :outertype: FriendConnectionStatus
+
+   Get the status value of current FriendConnectionStatus object.
+
+   :return: The connection status value.
+
+valueOf
+^^^^^^^
+
+.. java:method:: public static FriendConnectionStatus valueOf(int status)
+   :outertype: FriendConnectionStatus
+
+   Get FriendConnectionStatus object from status integer value.
+
+   :param status: The status value
+   :throws IllegalArgumentException:
+   :return: The ConnectionStatus object
+

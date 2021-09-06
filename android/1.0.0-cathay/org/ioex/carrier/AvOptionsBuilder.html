@@ -1,0 +1,720 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AvOptionsBuilder &mdash; Carrier Android Developer Documents 1.0.0-cathay documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Base58" href="Base58.html" />
+    <link rel="prev" title="AvCallStatus" href="AvCallStatus.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0-cathay
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractCarrierHandler.html">AbstractCarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AvOptionsBuilder</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier.html">Carrier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-AvOptions.html">Carrier.AvOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileInfo.html">FileInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionStatus.html">FileTransmissionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendConnectionStatus.html">FriendConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendInfo.html">GroupFriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendsIterator.html">GroupFriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupType.html">GroupType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInfo.html">UserInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>AvOptionsBuilder</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="avoptionsbuilder">
+<h1>AvOptionsBuilder<a class="headerlink" href="#avoptionsbuilder" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.AvOptionsBuilder">
+public class <code class="sig-name descname">AvOptionsBuilder</code><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder" title="Permalink to this definition">¶</a></dt>
+<dd><p>The builder to build AvOptions.</p>
+<p><strong>See also:</strong> <a class="reference internal" href="Carrier-AvOptions.html#org.ioex.carrier.Carrier.AvOptions" title="org.ioex.carrier.Carrier.AvOptions"><code class="xref java java-ref docutils literal notranslate"><span class="pre">org.ioex.carrier.Carrier.AvOptions</span></code></a></p>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build">
+<h3>build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.build()">
+public <a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a>.<a class="reference internal" href="Carrier-AvOptions.html#org.ioex.carrier.Carrier.AvOptions" title="org.ioex.carrier.Carrier.AvOptions">AvOptions</a> <code class="sig-name descname">build</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.build()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Construct the AvOptions with current builder parameters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptions</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setallowlaggedencodeframe">
+<h3>setAllowLaggedEncodeFrame<a class="headerlink" href="#setallowlaggedencodeframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setAllowLaggedEncodeFrame(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setAllowLaggedEncodeFrame</code><span class="sig-paren">(</span>int<em> allowLaggedEncodeFrame</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setAllowLaggedEncodeFrame(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine how many future frames encoder can keep in order to encode current frame. This will introduce lags when encode, but could improve frame quality. Set 0 to disable this feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowLaggedEncodeFrame</strong> – Lagged frames [0 - 25, default: 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setallowresize">
+<h3>setAllowResize<a class="headerlink" href="#setallowresize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setAllowResize(boolean)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setAllowResize</code><span class="sig-paren">(</span>boolean<em> allowResize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setAllowResize(boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify if encoder should resize the frame if the internal buffer meets certain constraints.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>allowResize</strong> – Allow encoder to resize frame [boolean, default: true]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+<p><strong>See also:</strong> <code class="xref java java-ref docutils literal notranslate"><span class="pre">.setResizeUpThreshold(int)</span></code>, <code class="xref java java-ref docutils literal notranslate"><span class="pre">.setResizeDownThreshold(int)</span></code></p>
+</dd></dl>
+
+</div>
+<div class="section" id="setbufferinitialsize">
+<h3>setBufferInitialSize<a class="headerlink" href="#setbufferinitialsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setBufferInitialSize(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setBufferInitialSize</code><span class="sig-paren">(</span>int<em> bufferInitialSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setBufferInitialSize(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initial decoder buffer size which indicates the amount of data that can be buffered, prior to playback. The unit of this value is ms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bufferInitialSize</strong> – Max decoder buffer size in ms. [Any integer &gt;= 0, default: 4000]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setbufferoptimalsize">
+<h3>setBufferOptimalSize<a class="headerlink" href="#setbufferoptimalsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setBufferOptimalSize(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setBufferOptimalSize</code><span class="sig-paren">(</span>int<em> bufferOptimalSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setBufferOptimalSize(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Optimal decoder buffer size which indicates the amount of data that decoder should try to maintain. The unit of this value is ms.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bufferOptimalSize</strong> – Optimal decoder buffer size in ms. [Any integer &gt;= 0, default: 5000]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setbuffersize">
+<h3>setBufferSize<a class="headerlink" href="#setbuffersize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setBufferSize(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setBufferSize</code><span class="sig-paren">(</span>int<em> bufferSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setBufferSize(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max decoder buffer size which indicates the amount of data that can be buffered. The unit of this value is ms. For example, buffer_size = 5000 means that decoder will buffer 5000ms worth data before decoding. Note that buffer_size &gt;= buffer_optimal_size &gt;= buffer_initial_size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bufferSize</strong> – Max decoder buffer size in ms. [Any integer &gt;= 0, default: 6000]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setcpuusedvalue">
+<h3>setCpuUsedValue<a class="headerlink" href="#setcpuusedvalue" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setCpuUsedValue(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setCpuUsedValue</code><span class="sig-paren">(</span>int<em> cpuUsedValue</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setCpuUsedValue(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The meaning of this value depends on encode/decode deadline value. When using Best Quality mode (deadline = 0), this value has no meaning. When using Good Quality mode (between 1000000 to 2), this value can be used to set further speed steps. Range from 0 ~ 5. The lower the number, the better quality. When using Real Time mode (deadline = 1), this value controls max CPU utilisation: target CPU utilisation = (100 * ( 16 - cpu_used_value ) / 16)% So for example, cpu_used_value = 4 means target CPU utilisation = 75%</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cpuUsedValue</strong> – CPU used constraint parameter [0 - 15, Default: 4]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdecodedeadline">
+<h3>setDecodeDeadline<a class="headerlink" href="#setdecodedeadline" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setDecodeDeadline(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setDecodeDeadline</code><span class="sig-paren">(</span>int<em> decodeDeadline</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setDecodeDeadline(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max time to decode a frame in ms. Usually, longer deadline results in better quality. Best quality: 0 (no deadline) Good quality: 1000000 / max target fps Real time quality: 1 For good quality, if you want target fps 40, you should set deadline to 25000</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decodeDeadline</strong> – Max decode time in ms [0 - 1000000, default: 25000]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdecoderthreads">
+<h3>setDecoderThreads<a class="headerlink" href="#setdecoderthreads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setDecoderThreads(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setDecoderThreads</code><span class="sig-paren">(</span>int<em> decoderThreads</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setDecoderThreads(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of threads used for multi-threaded decoding. Suggest to be number of real CPU cores - 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decoderThreads</strong> – Number of decoder threads [Any integer &gt;= 1, default: 8]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setdropframe">
+<h3>setDropFrame<a class="headerlink" href="#setdropframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setDropFrame(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setDropFrame</code><span class="sig-paren">(</span>int<em> dropFrame</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setDropFrame(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Specify a buffer fullness threshold at which the encoder starts to drop frames in percentage. Set 0 to disable drop frame feature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dropFrame</strong> – Encoder buffer fullness threshold to drop frame [0 - 100, default: 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setencodedeadline">
+<h3>setEncodeDeadline<a class="headerlink" href="#setencodedeadline" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setEncodeDeadline(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setEncodeDeadline</code><span class="sig-paren">(</span>int<em> encodeDeadline</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setEncodeDeadline(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max time to encode a frame in ms. Usually, longer deadline results in better quality. Best quality: 0 (no deadline) Good quality: 1000000 / max target fps Real time quality: 1 For good quality, if you want target fps 40, you should set deadline to 25000</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encodeDeadline</strong> – Max encode time in ms [0 - 1000000, default: 25000]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setencoderthreads">
+<h3>setEncoderThreads<a class="headerlink" href="#setencoderthreads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setEncoderThreads(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setEncoderThreads</code><span class="sig-paren">(</span>int<em> encoderThreads</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setEncoderThreads(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of threads used for multi-threaded encoding. Suggest to be number of real CPU cores - 1</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>encoderThreads</strong> – Number of encoder threads [Any integer &gt;= 1, default: 8]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setinitialkeyframecount">
+<h3>setInitialKeyframeCount<a class="headerlink" href="#setinitialkeyframecount" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setInitialKeyframeCount(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setInitialKeyframeCount</code><span class="sig-paren">(</span>int<em> initialKeyframeCount</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setInitialKeyframeCount(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Number of keyframes encoder should send when initial a session. By sending more keyframes at the beginning, we could have a better, stable image at start.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>initialKeyframeCount</strong> – Number of keyframes should send at the beginning. [Any integer &gt;= 1, default: 1]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setmaxkeyframeinterval">
+<h3>setMaxKeyFrameInterval<a class="headerlink" href="#setmaxkeyframeinterval" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setMaxKeyFrameInterval(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setMaxKeyFrameInterval</code><span class="sig-paren">(</span>int<em> maxKeyFrameInterval</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setMaxKeyFrameInterval(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max interval between 2 keyframes. The value is in frames. For example, say FPS = 20 and max_keyframe_interval = 40, then we will have a keyframes every 2 seconds. Note that this value is not mandatory. Codec could insert a keyframe within this interval automatically. Set this value to 0 implies every frames are keyframes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>maxKeyFrameInterval</strong> – Max interval between 2 keyframes [Any integer &gt;= 0, default: 40]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setratecontrolmode">
+<h3>setRateControlMode<a class="headerlink" href="#setratecontrolmode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setRateControlMode(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setRateControlMode</code><span class="sig-paren">(</span>int<em> rateControlMode</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setRateControlMode(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Defines the rate control mode for vp8 codec. 0: VBR mode 1: CBR mode</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rateControlMode</strong> – Rate control mode for vp8 [0: VBR, 1: CBR, Default: 0]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setratecontrolovershootbits">
+<h3>setRateControlOvershootBits<a class="headerlink" href="#setratecontrolovershootbits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setRateControlOvershootBits(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setRateControlOvershootBits</code><span class="sig-paren">(</span>int<em> rateControlOvershootBits</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setRateControlOvershootBits(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expressed as a percentage of the target bitrate, controls the maximum allowed adaptation speed of the codec. This factor controls the maximum amount of bits that can be added to the target bitrate in order to compensate for prior undershoot. Set 100 to let encoder automatically adjust.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rateControlOvershootBits</strong> – Maximum amount of bits to be added in percentage [0-100, default: 100]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setratecontroltargetbitrate">
+<h3>setRateControlTargetBitrate<a class="headerlink" href="#setratecontroltargetbitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setRateControlTargetBitrate(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setRateControlTargetBitrate</code><span class="sig-paren">(</span>int<em> rateControlTargetBitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setRateControlTargetBitrate(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Target encode bitrate in kbps for rate control. This value here is an initial value. You can overwrite this value when using other IOEX AV APIs like IOEX_av_set_video_bitrate().</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rateControlTargetBitrate</strong> – Target encode bitrate [Any integer &gt;= 1, default: 1000]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setratecontrolundershootbits">
+<h3>setRateControlUndershootBits<a class="headerlink" href="#setratecontrolundershootbits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setRateControlUndershootBits(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setRateControlUndershootBits</code><span class="sig-paren">(</span>int<em> rateControlUndershootBits</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setRateControlUndershootBits(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Expressed as a percentage of the target bitrate, controls the maximum allowed adaptation speed of the codec. This factor controls the maximum amount of bits that can be subtracted from the target bitrate in order to compensate for prior overshoot. Set 100 to let encoder automatically adjust.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rateControlUndershootBits</strong> – Maximum amount of bits to be subtracted in percentage [0-100, default: 100]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setresizedownthreshold">
+<h3>setResizeDownThreshold<a class="headerlink" href="#setresizedownthreshold" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setResizeDownThreshold(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setResizeDownThreshold</code><span class="sig-paren">(</span>int<em> resizeDownThreshold</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setResizeDownThreshold(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>This threshold is described as a percentage of the target data buffer. When the data buffer fells below this percentage of fullness (percentage of bufferOptimalSize), the encoder will step down to a lower resolution version of the frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resizeDownThreshold</strong> – Buffer fullness threshold to resize frame up [0-100, default: 5]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setresizeupthreshold">
+<h3>setResizeUpThreshold<a class="headerlink" href="#setresizeupthreshold" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AvOptionsBuilder.setResizeUpThreshold(int)">
+public <a class="reference internal" href="#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder">AvOptionsBuilder</a> <code class="sig-name descname">setResizeUpThreshold</code><span class="sig-paren">(</span>int<em> resizeUpThreshold</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AvOptionsBuilder.setResizeUpThreshold(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>This threshold is described as a percentage of the target data buffer. When the data buffer rises above this percentage of fullness (percentage of bufferOptimalSize), the encoder will step up to a higher resolution version of the frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>resizeUpThreshold</strong> – Buffer fullness threshold to resize frame down [0-100, default: 40]</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>InvalidParameterException</strong> – If input value is invalid</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>AvOptionsBuilder</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Base58.html" class="btn btn-neutral float-right" title="Base58" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="AvCallStatus.html" class="btn btn-neutral float-left" title="AvCallStatus" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Arctos Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

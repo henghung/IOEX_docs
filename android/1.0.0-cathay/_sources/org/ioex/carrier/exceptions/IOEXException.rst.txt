@@ -1,0 +1,48 @@
+IOEXException
+=============
+
+.. java:package:: org.ioex.carrier.exceptions
+   :noindex:
+
+.. java:type:: public class IOEXException extends Exception
+
+Constructors
+------------
+IOEXException
+^^^^^^^^^^^^^
+
+.. java:constructor:: public IOEXException(int errorCode)
+   :outertype: IOEXException
+
+IOEXException
+^^^^^^^^^^^^^
+
+.. java:constructor:: public IOEXException(int errorCode, String message)
+   :outertype: IOEXException
+
+Methods
+-------
+getCode
+^^^^^^^
+
+.. java:method:: public IOEXExceptionCode getCode()
+   :outertype: IOEXException
+
+getDebugMessage
+^^^^^^^^^^^^^^^
+
+.. java:method:: public String getDebugMessage()
+   :outertype: IOEXException
+
+getErrorCode
+^^^^^^^^^^^^
+
+.. java:method:: public int getErrorCode()
+   :outertype: IOEXException
+
+getFacility
+^^^^^^^^^^^
+
+.. java:method:: public IOEXExceptionFacility getFacility()
+   :outertype: IOEXException
+

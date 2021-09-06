@@ -1,0 +1,60 @@
+GroupFriendInfo
+===============
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class GroupFriendInfo extends UserInfo
+
+   A class representing the Carrier friend information. Include the basic user information and the extra friend information.
+
+Fields
+------
+MAX_LABEL_LEN
+^^^^^^^^^^^^^
+
+.. java:field:: public static final int MAX_LABEL_LEN
+   :outertype: GroupFriendInfo
+
+   Friend peerNumber name max length.
+
+Constructors
+------------
+GroupFriendInfo
+^^^^^^^^^^^^^^^
+
+.. java:constructor:: protected GroupFriendInfo()
+   :outertype: GroupFriendInfo
+
+Methods
+-------
+getPeerNumber
+^^^^^^^^^^^^^
+
+.. java:method:: public int getPeerNumber()
+   :outertype: GroupFriendInfo
+
+   Get friend's peer number.
+
+   :return: The friend's peer number.
+
+setPeerNumber
+^^^^^^^^^^^^^
+
+.. java:method:: public void setPeerNumber(int peerNumber)
+   :outertype: GroupFriendInfo
+
+   Set friend's peer number. This function will be called in Java JNI only.
+
+   :param peerNumber: The new peer number to set.
+
+toString
+^^^^^^^^
+
+.. java:method:: @Override public String toString()
+   :outertype: GroupFriendInfo
+
+   Get formatted debug description of current GroupFriendInfo object.
+
+   :return: The debug description of current GroupFriendInfo object.
+
