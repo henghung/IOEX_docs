@@ -1,0 +1,2020 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Carrier &mdash; Carrier Android Developer Documents 1.0.0-cathay documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Carrier.AvOptions" href="Carrier-AvOptions.html" />
+    <link rel="prev" title="Base58" href="Base58.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0-cathay
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractCarrierHandler.html">AbstractCarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvOptionsBuilder.html">AvOptionsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Carrier</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fields">Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-AvOptions.html">Carrier.AvOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileInfo.html">FileInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionStatus.html">FileTransmissionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendConnectionStatus.html">FriendConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendInfo.html">GroupFriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendsIterator.html">GroupFriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupType.html">GroupType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInfo.html">UserInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>Carrier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="carrier">
+<h1>Carrier<a class="headerlink" href="#carrier" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.Carrier">
+public class <code class="sig-name descname">Carrier</code><a class="headerlink" href="#org.ioex.carrier.Carrier" title="Permalink to this definition">¶</a></dt>
+<dd><p>The class representing Carrier node instance.</p>
+</dd></dl>
+
+<div class="section" id="fields">
+<h2>Fields<a class="headerlink" href="#fields" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="max-id-len">
+<h3>MAX_ID_LEN<a class="headerlink" href="#max-id-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.Carrier.MAX_ID_LEN">
+public static final int <code class="sig-name descname">MAX_ID_LEN</code><a class="headerlink" href="#org.ioex.carrier.Carrier.MAX_ID_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max Carrier ID length.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="max-key-len">
+<h3>MAX_KEY_LEN<a class="headerlink" href="#max-key-len" title="Permalink to this headline">¶</a></h3>
+<dl class="field">
+<dt id="org.ioex.carrier.Carrier.MAX_KEY_LEN">
+public static final int <code class="sig-name descname">MAX_KEY_LEN</code><a class="headerlink" href="#org.ioex.carrier.Carrier.MAX_KEY_LEN" title="Permalink to this definition">¶</a></dt>
+<dd><p>Max Carrier KEY length.</p>
+</dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="acceptfriend">
+<h3>acceptFriend<a class="headerlink" href="#acceptfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.acceptFriend(String)">
+public void <code class="sig-name descname">acceptFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.acceptFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept the friend request. This function is used to add a friend in response to a friend request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userId</strong> – The user id who want be friend with us.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="acceptfriendfile">
+<h3>acceptFriendFile<a class="headerlink" href="#acceptfriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.acceptFriendFile(String, String, String)">
+public void <code class="sig-name descname">acceptFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.acceptFriendFile(String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept a file from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The accepted file id</p></li>
+<li><p><strong>filename</strong> – New file name</p></li>
+<li><p><strong>filepath</strong> – The saved path for the accepted file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id1">
+<h3>acceptFriendFile<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.acceptFriendFile(String, String, int)">
+public void <code class="sig-name descname">acceptFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em>, int<em> fd</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.acceptFriendFile(String, String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept a file from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The accepted file id</p></li>
+<li><p><strong>filename</strong> – File name</p></li>
+<li><p><strong>fd</strong> – The file descriptor of the file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="acceptfriendtunnel">
+<h3>acceptFriendTunnel<a class="headerlink" href="#acceptfriendtunnel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.acceptFriendTunnel(int)">
+public void <code class="sig-name descname">acceptFriendTunnel</code><span class="sig-paren">(</span>int<em> tunnel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.acceptFriendTunnel(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept a tunnel request from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tunnel_id</strong> – The id of the tunnel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="addfriend">
+<h3>addFriend<a class="headerlink" href="#addfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.addFriend(String, String)">
+public void <code class="sig-name descname">addFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> address</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> hello</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.addFriend(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add friend by sending a new friend request. This function will add a new friend with specific address, and then send a friend request to the target node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – the target user address of remote carrier node.</p></li>
+<li><p><strong>hello</strong> – PIN for target user, or any application defined content</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="answerfriendcall">
+<h3>answerFriendCall<a class="headerlink" href="#answerfriendcall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.answerFriendCall(String)">
+public void <code class="sig-name descname">answerFriendCall</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.answerFriendCall(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept an AV call request from a friend and use default audio and video bitrate settings, which are 96 kbps and 1000 kbps, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id2">
+<h3>answerFriendCall<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.answerFriendCall(String, int, int)">
+public void <code class="sig-name descname">answerFriendCall</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> audioBitrate</em>, int<em> videoBitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.answerFriendCall(String, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accept an AV call request from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+<li><p><strong>audioBitrate</strong> – Desire bitrate in kbps to transmit audio data. Common values are 64, 96, 128 and 196. Pass 0 to disable audio transmitting.</p></li>
+<li><p><strong>videoBitrate</strong> – Desire bitrate in kbps to transmit video data. Usually range between 400 to 14000. Pass 0 to disable video transmitting.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="broadcastaudioframe">
+<h3>broadcastAudioFrame<a class="headerlink" href="#broadcastaudioframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.broadcastAudioFrame(String[], short[], int, int, int)">
+public void <code class="sig-name descname">broadcastAudioFrame</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>[]<em> friendIds</em>, short[]<em> pcm</em>, int<em> samples</em>, int<em> channels</em>, int<em> samplingRate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.broadcastAudioFrame(String[], short[], int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast an pcm-16bits encoded audio frame in the call with a list of friends. The expected format of the PCM data is: [s1c1][s1c2][…][s2c1][s2c2][…]… Meaning: sample 1 for channel 1, sample 1 for channel 2, … For mono audio, this has no meaning, every sample is subsequent. For stereo, this means the expected format is LRLRLR… with samples for left and right alternating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendIds</strong> – ID of the friends.</p></li>
+<li><p><strong>pcm</strong> – An array of audio samples. The size of this array must be (samples * channels).</p></li>
+<li><p><strong>samples</strong> – Number of samples in this frame. It equals ((samplingRate)*(audio length)/1000). Audio length can be choose from 2.5, 5, 10, 20, 40 or 60 millseconds.</p></li>
+<li><p><strong>channels</strong> – Number of audio channels. Supported values are 1 (Mono) and 2 (Stereo).</p></li>
+<li><p><strong>samplingRate</strong> – Audio sampling rate in Hz used in this frame. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="broadcastvideoframe">
+<h3>broadcastVideoFrame<a class="headerlink" href="#broadcastvideoframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.broadcastVideoFrame(String[], int, int, byte[], byte[], byte[])">
+public void <code class="sig-name descname">broadcastVideoFrame</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>[]<em> friendIds</em>, int<em> width</em>, int<em> height</em>, byte[]<em> y</em>, byte[]<em> u</em>, byte[]<em> v</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.broadcastVideoFrame(String[], int, int, byte[], byte[], byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>Broadcast a raw YUV420 video frame in a call with a list of friends. This API requires Y, U and V planes separated and stored in byte array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendIds</strong> – ID of the friends.</p></li>
+<li><p><strong>width</strong> – Width of the frame in pixels.</p></li>
+<li><p><strong>height</strong> – Height of the frame in pixels.</p></li>
+<li><p><strong>y</strong> – Y (Luminance) plane data. Size must be height * width.</p></li>
+<li><p><strong>u</strong> – U (Chroma) plane data. Size must be (height/2) * (width/2).</p></li>
+<li><p><strong>v</strong> – V (Chroma) plane data. Size must be (height/2) * (width/2).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id3">
+<h3>broadcastVideoFrame<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.broadcastVideoFrame(String[], Image)">
+public void <code class="sig-name descname">broadcastVideoFrame</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a>[]<em> friendIds</em>, Image<em> image</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.broadcastVideoFrame(String[], Image)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take an Android Image object and broadcast it in a call with a list of friends. Currently, only support YUV420 format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendIds</strong> – ID of the friends.</p></li>
+<li><p><strong>image</strong> – Image object to be sent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="callfriend">
+<h3>callFriend<a class="headerlink" href="#callfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.callFriend(String)">
+public void <code class="sig-name descname">callFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.callFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send AV call request to a friend and use default audio and video bitrate settings, which are 96 kbps and 1000 kbps, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id4">
+<h3>callFriend<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.callFriend(String, int, int)">
+public void <code class="sig-name descname">callFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> audioBitrate</em>, int<em> videoBitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.callFriend(String, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send AV call request to a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+<li><p><strong>audioBitrate</strong> – Desire bitrate in kbps to transmit audio data. Common values are 64, 96, 128 and 196. Pass 0 to disable audio transmitting.</p></li>
+<li><p><strong>videoBitrate</strong> – Desire bitrate in kbps to transmit video data. Usually range between 400 to 14000. Pass 0 to disable video transmitting.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="cancelfriendfile">
+<h3>cancelFriendFile<a class="headerlink" href="#cancelfriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.cancelFriendFile(String)">
+public boolean <code class="sig-name descname">cancelFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.cancelFriendFile(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel the process of sending/receiving a file to/from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The id of the canceling file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="cancelfriendtunnel">
+<h3>cancelFriendTunnel<a class="headerlink" href="#cancelfriendtunnel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.cancelFriendTunnel(int)">
+public void <code class="sig-name descname">cancelFriendTunnel</code><span class="sig-paren">(</span>int<em> tunnel_id</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.cancelFriendTunnel(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a tunnel with a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tunnel_id</strong> – The id of the tunnel</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="creategroup">
+<h3>createGroup<a class="headerlink" href="#creategroup" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.createGroup(GroupType, String)">
+public int <code class="sig-name descname">createGroup</code><span class="sig-paren">(</span><a class="reference internal" href="GroupType.html#org.ioex.carrier.GroupType" title="org.ioex.carrier.GroupType">GroupType</a><em> type</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> title</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.createGroup(GroupType, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create chat group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>type</strong> – the group type.</p></li>
+<li><p><strong>title</strong> – the group title.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="finalize">
+<h3>finalize<a class="headerlink" href="#finalize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.finalize()">
+protected void <code class="sig-name descname">finalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.finalize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getaddress">
+<h3>getAddress<a class="headerlink" href="#getaddress" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getAddress()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getAddress</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getAddress()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get node address associated with the carrier node instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the node address.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getcallinfo">
+<h3>getCallInfo<a class="headerlink" href="#getcallinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getCallInfo()">
+public <a class="reference internal" href="AvCallInfo.html#org.ioex.carrier.AvCallInfo" title="org.ioex.carrier.AvCallInfo">AvCallInfo</a> <code class="sig-name descname">getCallInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getCallInfo()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current AV call information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>An AvCallInfo object which contains call status.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getfileinfo">
+<h3>getFileInfo<a class="headerlink" href="#getfileinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getFileInfo(String)">
+public <a class="reference internal" href="FileInfo.html#org.ioex.carrier.FileInfo" title="org.ioex.carrier.FileInfo">FileInfo</a> <code class="sig-name descname">getFileInfo</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getFileInfo(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the information of the file transferring.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The file id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getfriend">
+<h3>getFriend<a class="headerlink" href="#getfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getFriend(String)">
+public <a class="reference internal" href="FriendInfo.html#org.ioex.carrier.FriendInfo" title="org.ioex.carrier.FriendInfo">FriendInfo</a> <code class="sig-name descname">getFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get specified friend information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userId</strong> – The user identifier of friend</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The friend information.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getfriends">
+<h3>getFriends<a class="headerlink" href="#getfriends" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getFriends()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="FriendInfo.html#org.ioex.carrier.FriendInfo" title="org.ioex.carrier.FriendInfo">FriendInfo</a>&gt; <code class="sig-name descname">getFriends</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getFriends()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get friends list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The list of friend information to current user</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getgroupfriends">
+<h3>getGroupFriends<a class="headerlink" href="#getgroupfriends" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getGroupFriends(int)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="GroupFriendInfo.html#org.ioex.carrier.GroupFriendInfo" title="org.ioex.carrier.GroupFriendInfo">GroupFriendInfo</a>&gt; <code class="sig-name descname">getGroupFriends</code><span class="sig-paren">(</span>int<em> groupNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getGroupFriends(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get group friends list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – the group number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The list of friend information to current group</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getgroupid">
+<h3>getGroupId<a class="headerlink" href="#getgroupid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getGroupId(int)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getGroupId</code><span class="sig-paren">(</span>int<em> groupNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getGroupId(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get group ID by group number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – the group number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The group ID</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getgroupnumber">
+<h3>getGroupNumber<a class="headerlink" href="#getgroupnumber" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getGroupNumber(String)">
+public int <code class="sig-name descname">getGroupNumber</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> groupId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getGroupNumber(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get group number by group ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupId</strong> – the group ID.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The group number</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getgrouptitle">
+<h3>getGroupTitle<a class="headerlink" href="#getgrouptitle" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getGroupTitle(int)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getGroupTitle</code><span class="sig-paren">(</span>int<em> groupNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getGroupTitle(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get group title by group number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – the group number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The group title</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getidfromaddress">
+<h3>getIdFromAddress<a class="headerlink" href="#getidfromaddress" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getIdFromAddress(String)">
+public static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getIdFromAddress</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> address</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getIdFromAddress(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get carrier ID from carrier node address.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – The carrier node address.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>User id if address is valid, otherwise null</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getinstance">
+<h3>getInstance<a class="headerlink" href="#getinstance" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getInstance()">
+public static <a class="reference internal" href="#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a> <code class="sig-name descname">getInstance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getInstance()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a carrier node singleton instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A carrier node instance or nil on failure.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getnodeid">
+<h3>getNodeId<a class="headerlink" href="#getnodeid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getNodeId()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getNodeId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getNodeId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get nodeid associated with the carrier node instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the nodeid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getpresence">
+<h3>getPresence<a class="headerlink" href="#getpresence" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getPresence()">
+public <a class="reference internal" href="PresenceStatus.html#org.ioex.carrier.PresenceStatus" title="org.ioex.carrier.PresenceStatus">PresenceStatus</a> <code class="sig-name descname">getPresence</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getPresence()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get self presence status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getselfinfo">
+<h3>getSelfInfo<a class="headerlink" href="#getselfinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getSelfInfo()">
+public <a class="reference internal" href="UserInfo.html#org.ioex.carrier.UserInfo" title="org.ioex.carrier.UserInfo">UserInfo</a> <code class="sig-name descname">getSelfInfo</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getSelfInfo()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get self user information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Throws</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the user information to the carrier node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getuserid">
+<h3>getUserId<a class="headerlink" href="#getuserid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getUserId()">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getUserId</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getUserId()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get userid associated with the carrier node instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>the userid.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="getversion">
+<h3>getVersion<a class="headerlink" href="#getversion" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.getVersion()">
+public static <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">getVersion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.getVersion()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get current version of Carrier node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The version of carrier node.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="hangupfriendcall">
+<h3>hangupFriendCall<a class="headerlink" href="#hangupfriendcall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.hangupFriendCall(String)">
+public void <code class="sig-name descname">hangupFriendCall</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.hangupFriendCall(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hangup an existing call, or reject a friend’s call request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="initializeinstance">
+<h3>initializeInstance<a class="headerlink" href="#initializeinstance" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.initializeInstance(Options, AvOptions, CarrierHandler)">
+public static void <code class="sig-name descname">initializeInstance</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier-Options.html#org.ioex.carrier.Carrier.Options" title="org.ioex.carrier.Carrier.Options">Options</a><em> options</em>, <a class="reference internal" href="Carrier-AvOptions.html#org.ioex.carrier.Carrier.AvOptions" title="org.ioex.carrier.Carrier.AvOptions">AvOptions</a><em> avOptions</em>, <a class="reference internal" href="CarrierHandler.html#org.ioex.carrier.CarrierHandler" title="org.ioex.carrier.CarrierHandler">CarrierHandler</a><em> handler</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.initializeInstance(Options, AvOptions, CarrierHandler)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Initialize node singleton instance. After initializing the instance, it’s ready to start and therefore connect to carrier network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>options</strong> – The options to set for creating carrier node.</p></li>
+<li><p><strong>avOptions</strong> – The options to set for AV encoder/decoder.</p></li>
+<li><p><strong>handler</strong> – The interface handler for carrier node.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions/IOEXException.html#org.ioex.carrier.exceptions.IOEXException" title="org.ioex.carrier.exceptions.IOEXException"><strong>IOEXException</strong></a> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="invitegroup">
+<h3>inviteGroup<a class="headerlink" href="#invitegroup" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.inviteGroup(String, int)">
+public void <code class="sig-name descname">inviteGroup</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> groupNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.inviteGroup(String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Invite a friend to join the group by sending an invite request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – ID of the friend.</p></li>
+<li><p><strong>groupNumber</strong> – target group number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isfriend">
+<h3>isFriend<a class="headerlink" href="#isfriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.isFriend(String)">
+public boolean <code class="sig-name descname">isFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.isFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the user ID is friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userId</strong> – The userId to check</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if the user is a friend, or false if not</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isgroupexist">
+<h3>isGroupExist<a class="headerlink" href="#isgroupexist" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.isGroupExist(int)">
+public void <code class="sig-name descname">isGroupExist</code><span class="sig-paren">(</span>int<em> groupNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.isGroupExist(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the chat group exists</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – the group number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isready">
+<h3>isReady<a class="headerlink" href="#isready" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.isReady()">
+public boolean <code class="sig-name descname">isReady</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.isReady()" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English Check if carrier node instance is being ready. All carrier interactive APIs should be called only if carrier node instance is being ready.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>true if the carrier node instance is ready, or false if not.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isvalidaddress">
+<h3>isValidAddress<a class="headerlink" href="#isvalidaddress" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.isValidAddress(String)">
+public static boolean <code class="sig-name descname">isValidAddress</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> address</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.isValidAddress(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the carrier node address is valid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> – The carrier node address to be check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if key is valid, otherwise false.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="isvalidid">
+<h3>isValidId<a class="headerlink" href="#isvalidid" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.isValidId(String)">
+public static boolean <code class="sig-name descname">isValidId</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> id</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.isValidId(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if the ID is Carrier node id.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>id</strong> – The carrier node id to be check.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if id is valid, otherwise false.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="joingroup">
+<h3>joinGroup<a class="headerlink" href="#joingroup" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.joinGroup(String, String)">
+public int <code class="sig-name descname">joinGroup</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> groupId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.joinGroup(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join a group from a friend’s invitation request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – ID of the friend.</p></li>
+<li><p><strong>groupId</strong> – target group id.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>The joined group number</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="kill">
+<h3>kill<a class="headerlink" href="#kill" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.kill()">
+public synchronized void <code class="sig-name descname">kill</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.kill()" title="Permalink to this definition">¶</a></dt>
+<dd><p>Disconnect carrier node from carrier network, and destroy all associated resources to carreier node instance. After calling the method, the carrier node instance becomes invalid.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="leavegroup">
+<h3>leaveGroup<a class="headerlink" href="#leavegroup" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.leaveGroup(int)">
+public void <code class="sig-name descname">leaveGroup</code><span class="sig-paren">(</span>int<em> groupNumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.leaveGroup(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Leave the chat group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – the group number.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="pausefriendcall">
+<h3>pauseFriendCall<a class="headerlink" href="#pausefriendcall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.pauseFriendCall(String)">
+public void <code class="sig-name descname">pauseFriendCall</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.pauseFriendCall(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause an existing call with a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="pausefriendfile">
+<h3>pauseFriendFile<a class="headerlink" href="#pausefriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.pauseFriendFile(String)">
+public boolean <code class="sig-name descname">pauseFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.pauseFriendFile(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pause the process of sending/receiving a file to/from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The id of the pausing file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="queryfriendfile">
+<h3>queryFriendFile<a class="headerlink" href="#queryfriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.queryFriendFile(String, String, String)">
+public void <code class="sig-name descname">queryFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.queryFriendFile(String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Query a file from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The target id</p></li>
+<li><p><strong>filename</strong> – target file name</p></li>
+<li><p><strong>message</strong> – The extra message</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="removefriend">
+<h3>removeFriend<a class="headerlink" href="#removefriend" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.removeFriend(String)">
+public void <code class="sig-name descname">removeFriend</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.removeFriend(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a friend. This function will remove a friend on this carrier node.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userId</strong> – The target user id to remove friendship</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="resumefriendcall">
+<h3>resumeFriendCall<a class="headerlink" href="#resumefriendcall" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.resumeFriendCall(String)">
+public void <code class="sig-name descname">resumeFriendCall</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.resumeFriendCall(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume a previously paused call. Only the client who paused the call can resume it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="resumefriendfile">
+<h3>resumeFriendFile<a class="headerlink" href="#resumefriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.resumeFriendFile(String)">
+public boolean <code class="sig-name descname">resumeFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.resumeFriendFile(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resume the process of sending/receiving a file to/from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The id of the resuming file</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="seekfriendfile">
+<h3>seekFriendFile<a class="headerlink" href="#seekfriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.seekFriendFile(String, String)">
+public void <code class="sig-name descname">seekFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> position</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.seekFriendFile(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Seek a file from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fileid</strong> – The file id</p></li>
+<li><p><strong>position</strong> – The seeking position</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendaudioframe">
+<h3>sendAudioFrame<a class="headerlink" href="#sendaudioframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendAudioFrame(String, short[], int, int, int)">
+public void <code class="sig-name descname">sendAudioFrame</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, short[]<em> pcm</em>, int<em> samples</em>, int<em> channels</em>, int<em> samplingRate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendAudioFrame(String, short[], int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an pcm-16bits encoded audio frame in the call with a friend. The expected format of the PCM data is: [s1c1][s1c2][…][s2c1][s2c2][…]… Meaning: sample 1 for channel 1, sample 1 for channel 2, … For mono audio, this has no meaning, every sample is subsequent. For stereo, this means the expected format is LRLRLR… with samples for left and right alternating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – ID of the friend.</p></li>
+<li><p><strong>pcm</strong> – An array of audio samples. The size of this array must be (samples * channels).</p></li>
+<li><p><strong>samples</strong> – Number of samples in this frame. It equals ((samplingRate)*(audio length)/1000). Audio length can be choose from 2.5, 5, 10, 20, 40 or 60 millseconds.</p></li>
+<li><p><strong>channels</strong> – Number of audio channels. Supported values are 1 (Mono) and 2 (Stereo).</p></li>
+<li><p><strong>samplingRate</strong> – Audio sampling rate in Hz used in this frame. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendfriendfile">
+<h3>sendFriendFile<a class="headerlink" href="#sendfriendfile" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendFriendFile(String, String)">
+public <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a> <code class="sig-name descname">sendFriendFile</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendFriendFile(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a file to a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The target id</p></li>
+<li><p><strong>filename</strong> – The message content defined by application</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendfriendmessage">
+<h3>sendFriendMessage<a class="headerlink" href="#sendfriendmessage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendFriendMessage(String, String)">
+public void <code class="sig-name descname">sendFriendMessage</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendFriendMessage(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a message to a friend. The message length may not exceed MAX_APP_MESSAGE_LEN, and message itself should be text-formatted. Larger messages must be split by application and sent as separate messages. Other nodes can reassemble the fragments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The target id</p></li>
+<li><p><strong>message</strong> – The message content defined by application</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendfriendtunnelrequest">
+<h3>sendFriendTunnelRequest<a class="headerlink" href="#sendfriendtunnelrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendFriendTunnelRequest(String, String)">
+public int <code class="sig-name descname">sendFriendTunnelRequest</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> password</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendFriendTunnelRequest(String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send tunnel request to a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The target id</p></li>
+<li><p><strong>password</strong> – The shared secret</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendfriendvpncancel">
+<h3>sendFriendVpnCancel<a class="headerlink" href="#sendfriendvpncancel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendFriendVpnCancel(String)">
+public void <code class="sig-name descname">sendFriendVpnCancel</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendFriendVpnCancel(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancel a VPN with a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The target id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendfriendvpnrequest">
+<h3>sendFriendVpnRequest<a class="headerlink" href="#sendfriendvpnrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendFriendVpnRequest(String)">
+public void <code class="sig-name descname">sendFriendVpnRequest</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendFriendVpnRequest(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send vpn request to a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The target id</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendgroupaudio">
+<h3>sendGroupAudio<a class="headerlink" href="#sendgroupaudio" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendGroupAudio(int, short[], int, int, int)">
+public void <code class="sig-name descname">sendGroupAudio</code><span class="sig-paren">(</span>int<em> groupNumber</em>, short[]<em> pcm</em>, int<em> samples</em>, int<em> channels</em>, int<em> samplingRate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendGroupAudio(int, short[], int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send an pcm-16bits encoded audio data in the call with group friend(s). The expected format of the PCM data is: [s1c1][s1c2][…][s2c1][s2c2][…]… Meaning: sample 1 for channel 1, sample 1 for channel 2, … For mono audio, this has no meaning, every sample is subsequent. For stereo, this means the expected format is LRLRLR… with samples for left and right alternating.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – Group number.</p></li>
+<li><p><strong>pcm</strong> – An array of audio samples. The size of this array must be (samples * channels).</p></li>
+<li><p><strong>samples</strong> – Number of samples in this sampling period. It equals ((samplingRate)*(audio length)/1000). Audio length can be choose from 2.5, 5, 10, 20, 40 or 60 millseconds.</p></li>
+<li><p><strong>channels</strong> – Number of audio channels. Supported values are 1 (Mono) and 2 (Stereo).</p></li>
+<li><p><strong>samplingRate</strong> – Audio sampling rate in Hz used in this sampling period. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendgroupmessage">
+<h3>sendGroupMessage<a class="headerlink" href="#sendgroupmessage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendGroupMessage(int, String)">
+public void <code class="sig-name descname">sendGroupMessage</code><span class="sig-paren">(</span>int<em> groupNumber</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendGroupMessage(int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a message to a group. The message length may not exceed MAX_APP_MESSAGE_LEN, and message itself should be text-formatted. Larger messages must be split by application and sent as separate messages. Other nodes can reassemble the fragments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – The target group number</p></li>
+<li><p><strong>message</strong> – The message content defined by application</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendrtpaccept">
+<h3>sendRtpAccept<a class="headerlink" href="#sendrtpaccept" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendRtpAccept(String)">
+public void <code class="sig-name descname">sendRtpAccept</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendRtpAccept(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send RTP accept.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendrtpcancel">
+<h3>sendRtpCancel<a class="headerlink" href="#sendrtpcancel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendRtpCancel(String)">
+public void <code class="sig-name descname">sendRtpCancel</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendRtpCancel(String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send RTP cancel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendrtpconfig">
+<h3>sendRtpConfig<a class="headerlink" href="#sendrtpconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendRtpConfig(String, byte[], int)">
+public void <code class="sig-name descname">sendRtpConfig</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendRtpConfig(String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send RTP config.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Config data to be sent</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendrtprequest">
+<h3>sendRtpRequest<a class="headerlink" href="#sendrtprequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendRtpRequest(String, int, int)">
+public void <code class="sig-name descname">sendRtpRequest</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> width</em>, int<em> height</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendRtpRequest(String, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send RTP request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+<li><p><strong>width</strong> – Width of the video</p></li>
+<li><p><strong>height</strong> – Height of the video</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="sendvideoframe">
+<h3>sendVideoFrame<a class="headerlink" href="#sendvideoframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendVideoFrame(String, int, int, byte[], byte[], byte[])">
+public void <code class="sig-name descname">sendVideoFrame</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> width</em>, int<em> height</em>, byte[]<em> y</em>, byte[]<em> u</em>, byte[]<em> v</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendVideoFrame(String, int, int, byte[], byte[], byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send a raw YUV420 video frame in a call with a friend. This API requires Y, U and V planes separated and stored in byte array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – ID of the friend.</p></li>
+<li><p><strong>width</strong> – Width of the frame in pixels.</p></li>
+<li><p><strong>height</strong> – Height of the frame in pixels.</p></li>
+<li><p><strong>y</strong> – Y (Luminance) plane data. Size must be height * width.</p></li>
+<li><p><strong>u</strong> – U (Chroma) plane data. Size must be (height/2) * (width/2).</p></li>
+<li><p><strong>v</strong> – V (Chroma) plane data. Size must be (height/2) * (width/2).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="id5">
+<h3>sendVideoFrame<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.sendVideoFrame(String, Image)">
+public void <code class="sig-name descname">sendVideoFrame</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, Image<em> image</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.sendVideoFrame(String, Image)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Take an Android Image object and send it in a call with a friend. Currently, only support YUV420 format.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – ID of the friend.</p></li>
+<li><p><strong>image</strong> – Image object to be sent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setbroadcastaudiobitrate">
+<h3>setBroadcastAudioBitrate<a class="headerlink" href="#setbroadcastaudiobitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setBroadcastAudioBitrate(int)">
+public void <code class="sig-name descname">setBroadcastAudioBitrate</code><span class="sig-paren">(</span>int<em> bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setBroadcastAudioBitrate(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set our audio bit rate (in kbps) in broadcast. Usual numbers are 64, 96, 128 and 192, and the valid range is 6 ~ 510. Set 0 will disable our audio transmitting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bitrate</strong> – Desired bitrate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setbroadcastvideobitrate">
+<h3>setBroadcastVideoBitrate<a class="headerlink" href="#setbroadcastvideobitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setBroadcastVideoBitrate(int)">
+public void <code class="sig-name descname">setBroadcastVideoBitrate</code><span class="sig-paren">(</span>int<em> bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setBroadcastVideoBitrate(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set our video bit rate (in kbps) in broadcast. Usually numbers are 400 ~ 14000, but any number can be considered valid. Set 0 will disable our video transmitting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>bitrate</strong> – Desired bitrate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setfriendcallaudiobitrate">
+<h3>setFriendCallAudioBitrate<a class="headerlink" href="#setfriendcallaudiobitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setFriendCallAudioBitrate(String, int)">
+public void <code class="sig-name descname">setFriendCallAudioBitrate</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setFriendCallAudioBitrate(String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set our audio bit rate (in kbps) in an AV call. Usual numbers are 64, 96, 128 and 192, and the valid range is 6 ~ 510. Set 0 will disable our audio transmitting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+<li><p><strong>bitrate</strong> – Desired bitrate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setfriendcallaudioenable">
+<h3>setFriendCallAudioEnable<a class="headerlink" href="#setfriendcallaudioenable" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setFriendCallAudioEnable(String, boolean)">
+public void <code class="sig-name descname">setFriendCallAudioEnable</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, boolean<em> enable</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setFriendCallAudioEnable(String, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable receiving audio from a friend in an AV call. Note that this API will not change our transmitting state, which means we could keep transmitting our AV data event if we disabled the friend’s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+<li><p><strong>enable</strong> – Enable or disable receiving audio.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setfriendcallvideobitrate">
+<h3>setFriendCallVideoBitrate<a class="headerlink" href="#setfriendcallvideobitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setFriendCallVideoBitrate(String, int)">
+public void <code class="sig-name descname">setFriendCallVideoBitrate</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, int<em> bitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setFriendCallVideoBitrate(String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set our video bit rate (in kbps) in an AV call. Usually numbers are 400 ~ 14000, but any number can be considered valid. Set 0 will disable our video transmitting.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+<li><p><strong>bitrate</strong> – Desired bitrate.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setfriendcallvideoenable">
+<h3>setFriendCallVideoEnable<a class="headerlink" href="#setfriendcallvideoenable" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setFriendCallVideoEnable(String, boolean)">
+public void <code class="sig-name descname">setFriendCallVideoEnable</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, boolean<em> enable</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setFriendCallVideoEnable(String, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable receiving video from a friend in an AV call. Note that this API will not change our transmitting state, which means we could keep transmitting our AV data event if we disabled the friend’s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – Id of the friend.</p></li>
+<li><p><strong>enable</strong> – Enable or disable receiving video.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setgroupav">
+<h3>setGroupAv<a class="headerlink" href="#setgroupav" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setGroupAv(int, boolean)">
+public boolean <code class="sig-name descname">setGroupAv</code><span class="sig-paren">(</span>int<em> groupNumber</em>, boolean<em> enable</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setGroupAv(int, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enable or disable group A/V function</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*</strong> – groupNumber the group number</p></li>
+<li><p><strong>*</strong> – enable enable or disable</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setgrouptitle">
+<h3>setGroupTitle<a class="headerlink" href="#setgrouptitle" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setGroupTitle(int, String)">
+public void <code class="sig-name descname">setGroupTitle</code><span class="sig-paren">(</span>int<em> groupNumber</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> title</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setGroupTitle(int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set group title by group number</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>groupNumber</strong> – the group number</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setpresence">
+<h3>setPresence<a class="headerlink" href="#setpresence" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setPresence(PresenceStatus)">
+public void <code class="sig-name descname">setPresence</code><span class="sig-paren">(</span><a class="reference internal" href="PresenceStatus.html#org.ioex.carrier.PresenceStatus" title="org.ioex.carrier.PresenceStatus">PresenceStatus</a><em> presence</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setPresence(PresenceStatus)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update self presence status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>presence</strong> – the new presence status.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="setselfinfo">
+<h3>setSelfInfo<a class="headerlink" href="#setselfinfo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.setSelfInfo(UserInfo)">
+public void <code class="sig-name descname">setSelfInfo</code><span class="sig-paren">(</span><a class="reference internal" href="UserInfo.html#org.ioex.carrier.UserInfo" title="org.ioex.carrier.UserInfo">UserInfo</a><em> userinfo</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.setSelfInfo(UserInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update self user information. After self user information changed, carrier node will update this information to carrier network, and thereupon network broadcasts the change to all friends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>userinfo</strong> – The user information to update for this carrier node.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="start">
+<h3>start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.start(int)">
+public void <code class="sig-name descname">start</code><span class="sig-paren">(</span>int<em> iterateInterval</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.start(int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start carrier node asynchronously to connect to carrier network. If the connection to network is successful, carrier node starts working.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>iterateInterval</strong> – Internal loop interval, in milliseconds.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writerawdatalossless">
+<h3>writeRawDataLossless<a class="headerlink" href="#writerawdatalossless" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeRawDataLossless(String, byte[], int)">
+public void <code class="sig-name descname">writeRawDataLossless</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeRawDataLossless(String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send raw lossless data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writerawdatalossy">
+<h3>writeRawDataLossy<a class="headerlink" href="#writerawdatalossy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeRawDataLossy(String, byte[], int)">
+public void <code class="sig-name descname">writeRawDataLossy</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeRawDataLossy(String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send raw lossy data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writertpaudiodata">
+<h3>writeRtpAudioData<a class="headerlink" href="#writertpaudiodata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeRtpAudioData(String, byte[], int)">
+public void <code class="sig-name descname">writeRtpAudioData</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeRtpAudioData(String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send RTP audio data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writertpvideodata">
+<h3>writeRtpVideoData<a class="headerlink" href="#writertpvideodata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeRtpVideoData(String, byte[], int, boolean)">
+public void <code class="sig-name descname">writeRtpVideoData</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, byte[]<em> data</em>, int<em> length</em>, boolean<em> isKeyFrame</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeRtpVideoData(String, byte[], int, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send RTP video data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>friendId</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+<li><p><strong>isKeyFrame</strong> – If the video frame is key frame</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writetunneldatalossless">
+<h3>writeTunnelDataLossless<a class="headerlink" href="#writetunneldatalossless" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeTunnelDataLossless(int, byte[], int)">
+public void <code class="sig-name descname">writeTunnelDataLossless</code><span class="sig-paren">(</span>int<em> tunnel_id</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeTunnelDataLossless(int, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send lossless data via a tunnel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tunnel_id</strong> – The id of the tunnel</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writetunneldatalossy">
+<h3>writeTunnelDataLossy<a class="headerlink" href="#writetunneldatalossy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeTunnelDataLossy(int, byte[], int)">
+public void <code class="sig-name descname">writeTunnelDataLossy</code><span class="sig-paren">(</span>int<em> tunnel_id</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeTunnelDataLossy(int, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send lossy data via a tunnel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tunnel_id</strong> – The id of the tunnel</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Size of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writevpndatalossless">
+<h3>writeVpnDataLossless<a class="headerlink" href="#writevpndatalossless" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeVpnDataLossless(String, byte[], int)">
+public void <code class="sig-name descname">writeVpnDataLossless</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeVpnDataLossless(String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send lossless data via a tunnel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+<li><p><strong>length</strong> – Length of the data in bytes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="writevpndatalossy">
+<h3>writeVpnDataLossy<a class="headerlink" href="#writevpndatalossy" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.writeVpnDataLossy(String, byte[], int)">
+public void <code class="sig-name descname">writeVpnDataLossy</code><span class="sig-paren">(</span><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> to</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.writeVpnDataLossy(String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Send lossy data via a tunnel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>to</strong> – The id of the friend</p></li>
+<li><p><strong>data</strong> – Buffer store the data</p></li>
+</ul>
+</dd>
+<dt class="field-even">Throws</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/IllegalArgumentException.html" title="java.lang.IllegalArgumentException"><strong>IllegalArgumentException</strong></a> – IOEXException</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Carrier-AvOptions.html" class="btn btn-neutral float-right" title="Carrier.AvOptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Base58.html" class="btn btn-neutral float-left" title="Base58" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Arctos Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

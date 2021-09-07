@@ -1,0 +1,255 @@
+.. java:import:: java.security InvalidParameterException
+
+AvOptionsBuilder
+================
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class AvOptionsBuilder
+
+   The builder to build AvOptions.
+
+   **See also:** :java:ref:`org.ioex.carrier.Carrier.AvOptions`
+
+Methods
+-------
+build
+^^^^^
+
+.. java:method:: public Carrier.AvOptions build()
+   :outertype: AvOptionsBuilder
+
+   Construct the AvOptions with current builder parameters
+
+   :return: AvOptions
+
+setAllowLaggedEncodeFrame
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setAllowLaggedEncodeFrame(int allowLaggedEncodeFrame) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Determine how many future frames encoder can keep in order to encode current frame. This will introduce lags when encode, but could improve frame quality. Set 0 to disable this feature.
+
+   :param allowLaggedEncodeFrame: Lagged frames [0 - 25, default: 0]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setAllowResize
+^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setAllowResize(boolean allowResize)
+   :outertype: AvOptionsBuilder
+
+   Specify if encoder should resize the frame if the internal buffer meets certain constraints.
+
+   :param allowResize: Allow encoder to resize frame [boolean, default: true]
+   :return: AvOptionsBuilder
+
+   **See also:** :java:ref:`.setResizeUpThreshold(int)`, :java:ref:`.setResizeDownThreshold(int)`
+
+setBufferInitialSize
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setBufferInitialSize(int bufferInitialSize) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Initial decoder buffer size which indicates the amount of data that can be buffered, prior to playback. The unit of this value is ms.
+
+   :param bufferInitialSize: Max decoder buffer size in ms. [Any integer >= 0, default: 4000]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setBufferOptimalSize
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setBufferOptimalSize(int bufferOptimalSize) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Optimal decoder buffer size which indicates the amount of data that decoder should try to maintain. The unit of this value is ms.
+
+   :param bufferOptimalSize: Optimal decoder buffer size in ms. [Any integer >= 0, default: 5000]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setBufferSize
+^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setBufferSize(int bufferSize) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Max decoder buffer size which indicates the amount of data that can be buffered. The unit of this value is ms. For example, buffer_size = 5000 means that decoder will buffer 5000ms worth data before decoding. Note that buffer_size >= buffer_optimal_size >= buffer_initial_size.
+
+   :param bufferSize: Max decoder buffer size in ms. [Any integer >= 0, default: 6000]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setCpuUsedValue
+^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setCpuUsedValue(int cpuUsedValue) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   The meaning of this value depends on encode/decode deadline value. When using Best Quality mode (deadline = 0), this value has no meaning. When using Good Quality mode (between 1000000 to 2), this value can be used to set further speed steps. Range from 0 ~ 5. The lower the number, the better quality. When using Real Time mode (deadline = 1), this value controls max CPU utilisation: target CPU utilisation = (100 * ( 16 - cpu_used_value ) / 16)% So for example, cpu_used_value = 4 means target CPU utilisation = 75%
+
+   :param cpuUsedValue: CPU used constraint parameter [0 - 15, Default: 4]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setDecodeDeadline
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setDecodeDeadline(int decodeDeadline) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Max time to decode a frame in ms. Usually, longer deadline results in better quality. Best quality: 0 (no deadline) Good quality: 1000000 / max target fps Real time quality: 1 For good quality, if you want target fps 40, you should set deadline to 25000
+
+   :param decodeDeadline: Max decode time in ms [0 - 1000000, default: 25000]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setDecoderThreads
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setDecoderThreads(int decoderThreads) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Number of threads used for multi-threaded decoding. Suggest to be number of real CPU cores - 1
+
+   :param decoderThreads: Number of decoder threads [Any integer >= 1, default: 8]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setDropFrame
+^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setDropFrame(int dropFrame) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Specify a buffer fullness threshold at which the encoder starts to drop frames in percentage. Set 0 to disable drop frame feature.
+
+   :param dropFrame: Encoder buffer fullness threshold to drop frame [0 - 100, default: 0]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setEncodeDeadline
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setEncodeDeadline(int encodeDeadline) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Max time to encode a frame in ms. Usually, longer deadline results in better quality. Best quality: 0 (no deadline) Good quality: 1000000 / max target fps Real time quality: 1 For good quality, if you want target fps 40, you should set deadline to 25000
+
+   :param encodeDeadline: Max encode time in ms [0 - 1000000, default: 25000]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setEncoderThreads
+^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setEncoderThreads(int encoderThreads) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Number of threads used for multi-threaded encoding. Suggest to be number of real CPU cores - 1
+
+   :param encoderThreads: Number of encoder threads [Any integer >= 1, default: 8]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setInitialKeyframeCount
+^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setInitialKeyframeCount(int initialKeyframeCount) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Number of keyframes encoder should send when initial a session. By sending more keyframes at the beginning, we could have a better, stable image at start.
+
+   :param initialKeyframeCount: Number of keyframes should send at the beginning. [Any integer >= 1, default: 1]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setMaxKeyFrameInterval
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setMaxKeyFrameInterval(int maxKeyFrameInterval) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Max interval between 2 keyframes. The value is in frames. For example, say FPS = 20 and max_keyframe_interval = 40, then we will have a keyframes every 2 seconds. Note that this value is not mandatory. Codec could insert a keyframe within this interval automatically. Set this value to 0 implies every frames are keyframes.
+
+   :param maxKeyFrameInterval: Max interval between 2 keyframes [Any integer >= 0, default: 40]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setRateControlMode
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setRateControlMode(int rateControlMode) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Defines the rate control mode for vp8 codec. 0: VBR mode 1: CBR mode
+
+   :param rateControlMode: Rate control mode for vp8 [0: VBR, 1: CBR, Default: 0]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setRateControlOvershootBits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setRateControlOvershootBits(int rateControlOvershootBits) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Expressed as a percentage of the target bitrate, controls the maximum allowed adaptation speed of the codec. This factor controls the maximum amount of bits that can be added to the target bitrate in order to compensate for prior undershoot. Set 100 to let encoder automatically adjust.
+
+   :param rateControlOvershootBits: Maximum amount of bits to be added in percentage [0-100, default: 100]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setRateControlTargetBitrate
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setRateControlTargetBitrate(int rateControlTargetBitrate) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Target encode bitrate in kbps for rate control. This value here is an initial value. You can overwrite this value when using other IOEX AV APIs like IOEX_av_set_video_bitrate().
+
+   :param rateControlTargetBitrate: Target encode bitrate [Any integer >= 1, default: 1000]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setRateControlUndershootBits
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setRateControlUndershootBits(int rateControlUndershootBits) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   Expressed as a percentage of the target bitrate, controls the maximum allowed adaptation speed of the codec. This factor controls the maximum amount of bits that can be subtracted from the target bitrate in order to compensate for prior overshoot. Set 100 to let encoder automatically adjust.
+
+   :param rateControlUndershootBits: Maximum amount of bits to be subtracted in percentage [0-100, default: 100]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setResizeDownThreshold
+^^^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setResizeDownThreshold(int resizeDownThreshold) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   This threshold is described as a percentage of the target data buffer. When the data buffer fells below this percentage of fullness (percentage of bufferOptimalSize), the encoder will step down to a lower resolution version of the frame.
+
+   :param resizeDownThreshold: Buffer fullness threshold to resize frame up [0-100, default: 5]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+
+setResizeUpThreshold
+^^^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public AvOptionsBuilder setResizeUpThreshold(int resizeUpThreshold) throws InvalidParameterException
+   :outertype: AvOptionsBuilder
+
+   This threshold is described as a percentage of the target data buffer. When the data buffer rises above this percentage of fullness (percentage of bufferOptimalSize), the encoder will step up to a higher resolution version of the frame.
+
+   :param resizeUpThreshold: Buffer fullness threshold to resize frame down [0-100, default: 40]
+   :throws InvalidParameterException: If input value is invalid
+   :return: AvOptionsBuilder
+

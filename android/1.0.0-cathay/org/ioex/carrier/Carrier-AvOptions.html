@@ -1,0 +1,578 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Carrier.AvOptions &mdash; Carrier Android Developer Documents 1.0.0-cathay documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Carrier.Options" href="Carrier-Options.html" />
+    <link rel="prev" title="Carrier" href="Carrier.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0-cathay
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="AbstractCarrierHandler.html">AbstractCarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvOptionsBuilder.html">AvOptionsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier.html">Carrier</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Carrier.AvOptions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#constructors">Constructors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileInfo.html">FileInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionStatus.html">FileTransmissionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendConnectionStatus.html">FriendConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendInfo.html">GroupFriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendsIterator.html">GroupFriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupType.html">GroupType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInfo.html">UserInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>Carrier.AvOptions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="carrier-avoptions">
+<h1>Carrier.AvOptions<a class="headerlink" href="#carrier-avoptions" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.Carrier.AvOptions">
+public static class <code class="sig-name descname">AvOptions</code><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions" title="Permalink to this definition">¶</a></dt>
+<dd><p>AvOptions defines several settings that control the way the Carrier AV encode and decode. It is suggest to use AvOptionsBuilder to construct the AvOptions. AvOptionsBuilder also provides default values.</p>
+<p><strong>See also:</strong> <a class="reference internal" href="AvOptionsBuilder.html#org.ioex.carrier.AvOptionsBuilder" title="org.ioex.carrier.AvOptionsBuilder"><code class="xref java java-ref docutils literal notranslate"><span class="pre">AvOptionsBuilder</span></code></a></p>
+</dd></dl>
+
+<div class="section" id="constructors">
+<h2>Constructors<a class="headerlink" href="#constructors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="avoptions">
+<h3>AvOptions<a class="headerlink" href="#avoptions" title="Permalink to this headline">¶</a></h3>
+<dl class="constructor">
+<dt id="org.ioex.carrier.Carrier.AvOptions.AvOptions(int, int, int, int, int, int, int, int, int, int, boolean, int, int, int, int, int, int, int, int)">
+public <code class="sig-name descname">AvOptions</code><span class="sig-paren">(</span>int<em> encoderThreads</em>, int<em> decoderThreads</em>, int<em> encodeDeadline</em>, int<em> decodeDeadline</em>, int<em> cpuUsedValue</em>, int<em> rateControlMode</em>, int<em> maxKeyFrameInterval</em>, int<em> rateControlTargetBitrate</em>, int<em> allowLaggedEncodeFrame</em>, int<em> dropFrame</em>, boolean<em> allowResize</em>, int<em> resizeUpThreshold</em>, int<em> resizeDownThreshold</em>, int<em> rateControlUndershootBits</em>, int<em> rateControlOvershootBits</em>, int<em> bufferSize</em>, int<em> bufferInitialSize</em>, int<em> bufferOptimalSize</em>, int<em> initialKeyframeCount</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.AvOptions(int, int, int, int, int, int, int, int, int, int, boolean, int, int, int, int, int, int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="getallowlaggedencodeframe">
+<h3>getAllowLaggedEncodeFrame<a class="headerlink" href="#getallowlaggedencodeframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getAllowLaggedEncodeFrame()">
+public int <code class="sig-name descname">getAllowLaggedEncodeFrame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getAllowLaggedEncodeFrame()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getbufferinitialsize">
+<h3>getBufferInitialSize<a class="headerlink" href="#getbufferinitialsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getBufferInitialSize()">
+public int <code class="sig-name descname">getBufferInitialSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getBufferInitialSize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getbufferoptimalsize">
+<h3>getBufferOptimalSize<a class="headerlink" href="#getbufferoptimalsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getBufferOptimalSize()">
+public int <code class="sig-name descname">getBufferOptimalSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getBufferOptimalSize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getbuffersize">
+<h3>getBufferSize<a class="headerlink" href="#getbuffersize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getBufferSize()">
+public int <code class="sig-name descname">getBufferSize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getBufferSize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getcpuusedvalue">
+<h3>getCpuUsedValue<a class="headerlink" href="#getcpuusedvalue" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getCpuUsedValue()">
+public int <code class="sig-name descname">getCpuUsedValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getCpuUsedValue()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getdecodedeadline">
+<h3>getDecodeDeadline<a class="headerlink" href="#getdecodedeadline" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getDecodeDeadline()">
+public int <code class="sig-name descname">getDecodeDeadline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getDecodeDeadline()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getdecoderthreads">
+<h3>getDecoderThreads<a class="headerlink" href="#getdecoderthreads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getDecoderThreads()">
+public int <code class="sig-name descname">getDecoderThreads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getDecoderThreads()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getdefaultoptions">
+<h3>getDefaultOptions<a class="headerlink" href="#getdefaultoptions" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getDefaultOptions()">
+public static <a class="reference internal" href="#org.ioex.carrier.Carrier.AvOptions" title="org.ioex.carrier.Carrier.AvOptions">AvOptions</a> <code class="sig-name descname">getDefaultOptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getDefaultOptions()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getdropframe">
+<h3>getDropFrame<a class="headerlink" href="#getdropframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getDropFrame()">
+public int <code class="sig-name descname">getDropFrame</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getDropFrame()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getencodedeadline">
+<h3>getEncodeDeadline<a class="headerlink" href="#getencodedeadline" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getEncodeDeadline()">
+public int <code class="sig-name descname">getEncodeDeadline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getEncodeDeadline()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getencoderthreads">
+<h3>getEncoderThreads<a class="headerlink" href="#getencoderthreads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getEncoderThreads()">
+public int <code class="sig-name descname">getEncoderThreads</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getEncoderThreads()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getinitialkeyframecount">
+<h3>getInitialKeyframeCount<a class="headerlink" href="#getinitialkeyframecount" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getInitialKeyframeCount()">
+public int <code class="sig-name descname">getInitialKeyframeCount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getInitialKeyframeCount()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getmaxkeyframeinterval">
+<h3>getMaxKeyFrameInterval<a class="headerlink" href="#getmaxkeyframeinterval" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getMaxKeyFrameInterval()">
+public int <code class="sig-name descname">getMaxKeyFrameInterval</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getMaxKeyFrameInterval()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getratecontrolmode">
+<h3>getRateControlMode<a class="headerlink" href="#getratecontrolmode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getRateControlMode()">
+public int <code class="sig-name descname">getRateControlMode</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getRateControlMode()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getratecontrolovershootbits">
+<h3>getRateControlOvershootBits<a class="headerlink" href="#getratecontrolovershootbits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getRateControlOvershootBits()">
+public int <code class="sig-name descname">getRateControlOvershootBits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getRateControlOvershootBits()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getratecontroltargetbitrate">
+<h3>getRateControlTargetBitrate<a class="headerlink" href="#getratecontroltargetbitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getRateControlTargetBitrate()">
+public int <code class="sig-name descname">getRateControlTargetBitrate</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getRateControlTargetBitrate()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getratecontrolundershootbits">
+<h3>getRateControlUndershootBits<a class="headerlink" href="#getratecontrolundershootbits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getRateControlUndershootBits()">
+public int <code class="sig-name descname">getRateControlUndershootBits</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getRateControlUndershootBits()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getresizedownthreshold">
+<h3>getResizeDownThreshold<a class="headerlink" href="#getresizedownthreshold" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getResizeDownThreshold()">
+public int <code class="sig-name descname">getResizeDownThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getResizeDownThreshold()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="getresizeupthreshold">
+<h3>getResizeUpThreshold<a class="headerlink" href="#getresizeupthreshold" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.getResizeUpThreshold()">
+public int <code class="sig-name descname">getResizeUpThreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.getResizeUpThreshold()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="isallowresize">
+<h3>isAllowResize<a class="headerlink" href="#isallowresize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.isAllowResize()">
+public boolean <code class="sig-name descname">isAllowResize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.isAllowResize()" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setallowlaggedencodeframe">
+<h3>setAllowLaggedEncodeFrame<a class="headerlink" href="#setallowlaggedencodeframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setAllowLaggedEncodeFrame(int)">
+public void <code class="sig-name descname">setAllowLaggedEncodeFrame</code><span class="sig-paren">(</span>int<em> allowLaggedEncodeFrame</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setAllowLaggedEncodeFrame(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setallowresize">
+<h3>setAllowResize<a class="headerlink" href="#setallowresize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setAllowResize(boolean)">
+public void <code class="sig-name descname">setAllowResize</code><span class="sig-paren">(</span>boolean<em> allowResize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setAllowResize(boolean)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setbufferinitialsize">
+<h3>setBufferInitialSize<a class="headerlink" href="#setbufferinitialsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setBufferInitialSize(int)">
+public void <code class="sig-name descname">setBufferInitialSize</code><span class="sig-paren">(</span>int<em> bufferInitialSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setBufferInitialSize(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setbufferoptimalsize">
+<h3>setBufferOptimalSize<a class="headerlink" href="#setbufferoptimalsize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setBufferOptimalSize(int)">
+public void <code class="sig-name descname">setBufferOptimalSize</code><span class="sig-paren">(</span>int<em> bufferOptimalSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setBufferOptimalSize(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setbuffersize">
+<h3>setBufferSize<a class="headerlink" href="#setbuffersize" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setBufferSize(int)">
+public void <code class="sig-name descname">setBufferSize</code><span class="sig-paren">(</span>int<em> bufferSize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setBufferSize(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setcpuusedvalue">
+<h3>setCpuUsedValue<a class="headerlink" href="#setcpuusedvalue" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setCpuUsedValue(int)">
+public void <code class="sig-name descname">setCpuUsedValue</code><span class="sig-paren">(</span>int<em> cpuUsedValue</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setCpuUsedValue(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setdecodedeadline">
+<h3>setDecodeDeadline<a class="headerlink" href="#setdecodedeadline" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setDecodeDeadline(int)">
+public void <code class="sig-name descname">setDecodeDeadline</code><span class="sig-paren">(</span>int<em> decodeDeadline</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setDecodeDeadline(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setdecoderthreads">
+<h3>setDecoderThreads<a class="headerlink" href="#setdecoderthreads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setDecoderThreads(int)">
+public void <code class="sig-name descname">setDecoderThreads</code><span class="sig-paren">(</span>int<em> decoderThreads</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setDecoderThreads(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setdropframe">
+<h3>setDropFrame<a class="headerlink" href="#setdropframe" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setDropFrame(int)">
+public void <code class="sig-name descname">setDropFrame</code><span class="sig-paren">(</span>int<em> dropFrame</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setDropFrame(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setencodedeadline">
+<h3>setEncodeDeadline<a class="headerlink" href="#setencodedeadline" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setEncodeDeadline(int)">
+public void <code class="sig-name descname">setEncodeDeadline</code><span class="sig-paren">(</span>int<em> encodeDeadline</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setEncodeDeadline(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setencoderthreads">
+<h3>setEncoderThreads<a class="headerlink" href="#setencoderthreads" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setEncoderThreads(int)">
+public void <code class="sig-name descname">setEncoderThreads</code><span class="sig-paren">(</span>int<em> encoderThreads</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setEncoderThreads(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setinitialkeyframecount">
+<h3>setInitialKeyframeCount<a class="headerlink" href="#setinitialkeyframecount" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setInitialKeyframeCount(int)">
+public void <code class="sig-name descname">setInitialKeyframeCount</code><span class="sig-paren">(</span>int<em> initialKeyframeCount</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setInitialKeyframeCount(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setmaxkeyframeinterval">
+<h3>setMaxKeyFrameInterval<a class="headerlink" href="#setmaxkeyframeinterval" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setMaxKeyFrameInterval(int)">
+public void <code class="sig-name descname">setMaxKeyFrameInterval</code><span class="sig-paren">(</span>int<em> maxKeyFrameInterval</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setMaxKeyFrameInterval(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setratecontrolmode">
+<h3>setRateControlMode<a class="headerlink" href="#setratecontrolmode" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setRateControlMode(int)">
+public void <code class="sig-name descname">setRateControlMode</code><span class="sig-paren">(</span>int<em> rateControlMode</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setRateControlMode(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setratecontrolovershootbits">
+<h3>setRateControlOvershootBits<a class="headerlink" href="#setratecontrolovershootbits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setRateControlOvershootBits(int)">
+public void <code class="sig-name descname">setRateControlOvershootBits</code><span class="sig-paren">(</span>int<em> rateControlOvershootBits</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setRateControlOvershootBits(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setratecontroltargetbitrate">
+<h3>setRateControlTargetBitrate<a class="headerlink" href="#setratecontroltargetbitrate" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setRateControlTargetBitrate(int)">
+public void <code class="sig-name descname">setRateControlTargetBitrate</code><span class="sig-paren">(</span>int<em> rateControlTargetBitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setRateControlTargetBitrate(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setratecontrolundershootbits">
+<h3>setRateControlUndershootBits<a class="headerlink" href="#setratecontrolundershootbits" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setRateControlUndershootBits(int)">
+public void <code class="sig-name descname">setRateControlUndershootBits</code><span class="sig-paren">(</span>int<em> rateControlUndershootBits</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setRateControlUndershootBits(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setresizedownthreshold">
+<h3>setResizeDownThreshold<a class="headerlink" href="#setresizedownthreshold" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setResizeDownThreshold(int)">
+public void <code class="sig-name descname">setResizeDownThreshold</code><span class="sig-paren">(</span>int<em> resizeDownThreshold</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setResizeDownThreshold(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="setresizeupthreshold">
+<h3>setResizeUpThreshold<a class="headerlink" href="#setresizeupthreshold" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.Carrier.AvOptions.setResizeUpThreshold(int)">
+public void <code class="sig-name descname">setResizeUpThreshold</code><span class="sig-paren">(</span>int<em> resizeUpThreshold</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.Carrier.AvOptions.setResizeUpThreshold(int)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="Carrier-Options.html" class="btn btn-neutral float-right" title="Carrier.Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="Carrier.html" class="btn btn-neutral float-left" title="Carrier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Arctos Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

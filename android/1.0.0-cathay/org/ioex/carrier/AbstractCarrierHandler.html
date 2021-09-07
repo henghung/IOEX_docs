@@ -1,0 +1,1177 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en-US" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en-US" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>AbstractCarrierHandler &mdash; Carrier Android Developer Documents 1.0.0-cathay documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/css/custom.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="AvCallInfo" href="AvCallInfo.html" />
+    <link rel="prev" title="org.ioex.carrier" href="package-index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Carrier Android Developer Documents
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0.0-cathay
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../../../packages.html">Javadoc</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="package-index.html">org.ioex.carrier</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">AbstractCarrierHandler</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallInfo.html">AvCallInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvCallStatus.html">AvCallStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="AvOptionsBuilder.html">AvOptionsBuilder</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Base58.html">Base58</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier.html">Carrier</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-AvOptions.html">Carrier.AvOptions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options.html">Carrier.Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Carrier-Options-BootstrapNode.html">Carrier.Options.BootstrapNode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="CarrierHandler.html">CarrierHandler</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ConnectionStatus.html">ConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileInfo.html">FileInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionDirection.html">FileTransmissionDirection</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionPausedStatus.html">FileTransmissionPausedStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FileTransmissionStatus.html">FileTransmissionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendConnectionStatus.html">FriendConnectionStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendInfo.html">FriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="FriendsIterator.html">FriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendInfo.html">GroupFriendInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupFriendsIterator.html">GroupFriendsIterator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="GroupType.html">GroupType</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Log.html">Log</a></li>
+<li class="toctree-l3"><a class="reference internal" href="PresenceStatus.html">PresenceStatus</a></li>
+<li class="toctree-l3"><a class="reference internal" href="UserInfo.html">UserInfo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="VpnClientConfig.html">VpnClientConfig</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="exceptions/package-index.html">org.ioex.carrier.exceptions</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Carrier Android Developer Documents</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../packages.html">Javadoc</a> &raquo;</li>
+        
+          <li><a href="package-index.html">org.ioex.carrier</a> &raquo;</li>
+        
+      <li>AbstractCarrierHandler</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="abstractcarrierhandler">
+<h1>AbstractCarrierHandler<a class="headerlink" href="#abstractcarrierhandler" title="Permalink to this headline">¶</a></h1>
+<dl class="type">
+<dt id="org.ioex.carrier.AbstractCarrierHandler">
+public abstract class <code class="sig-name descname">AbstractCarrierHandler</code> implements <a class="reference internal" href="CarrierHandler.html#org.ioex.carrier.CarrierHandler" title="org.ioex.carrier.CarrierHandler">CarrierHandler</a><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>The abstract carrier node handler class.</p>
+</dd></dl>
+
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="onaudioreceived">
+<h3>onAudioReceived<a class="headerlink" href="#onaudioreceived" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onAudioReceived(Carrier, String, short[], int, int, int)">
+public void <code class="sig-name descname">onAudioReceived</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, short[]<em> pcm</em>, int<em> sampleCount</em>, int<em> channels</em>, int<em> sampleRate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onAudioReceived(Carrier, String, short[], int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when received audio frame from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who sent the audio.</p></li>
+<li><p><strong>pcm</strong> – [in] Array of audio sample. Its size is sample_count * channels.</p></li>
+<li><p><strong>sampleCount</strong> – [in] Number of samples in the frames.</p></li>
+<li><p><strong>channels</strong> – [in] Number of audio channels. Can only be 1 or 2.</p></li>
+<li><p><strong>sampleRate</strong> – [in] Sample rate of the audio. Valid values are 8000, 12000, 16000, 24000, 48000.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="oncallbitratestatus">
+<h3>onCallBitrateStatus<a class="headerlink" href="#oncallbitratestatus" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onCallBitrateStatus(Carrier, String, int, int)">
+public void <code class="sig-name descname">onCallBitrateStatus</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, int<em> audiobitrate</em>, int<em> videobitrate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onCallBitrateStatus(Carrier, String, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when AV core suggest new bit rates due to network status changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who sent the video.</p></li>
+<li><p><strong>audiobitrate</strong> – [in] Suggested maximum audio bit rate in Kb/sec.</p></li>
+<li><p><strong>videobitrate</strong> – [in] Suggested maximum video bit rate in Kb/sec.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onconnection">
+<h3>onConnection<a class="headerlink" href="#onconnection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onConnection(Carrier, ConnectionStatus)">
+public void <code class="sig-name descname">onConnection</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference internal" href="ConnectionStatus.html#org.ioex.carrier.ConnectionStatus" title="org.ioex.carrier.ConnectionStatus">ConnectionStatus</a><em> status</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onConnection(Carrier, ConnectionStatus)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the self connection status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>status</strong> – Current connection status. &#64;see ConnectionStatus</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendadded">
+<h3>onFriendAdded<a class="headerlink" href="#onfriendadded" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendAdded(Carrier, FriendInfo)">
+public void <code class="sig-name descname">onFriendAdded</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference internal" href="FriendInfo.html#org.ioex.carrier.FriendInfo" title="org.ioex.carrier.FriendInfo">FriendInfo</a><em> info</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendAdded(Carrier, FriendInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the new friend added event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>info</strong> – The added friend’s information</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendcallanswered">
+<h3>onFriendCallAnswered<a class="headerlink" href="#onfriendcallanswered" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendCallAnswered(Carrier, String)">
+public void <code class="sig-name descname">onFriendCallAnswered</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendCallAnswered(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when friend answered our call request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who answered the call.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendcallhangup">
+<h3>onFriendCallHangup<a class="headerlink" href="#onfriendcallhangup" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendCallHangup(Carrier, String)">
+public void <code class="sig-name descname">onFriendCallHangup</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendCallHangup(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when friend hang up the call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who hang up the call.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendcallpaused">
+<h3>onFriendCallPaused<a class="headerlink" href="#onfriendcallpaused" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendCallPaused(Carrier, String)">
+public void <code class="sig-name descname">onFriendCallPaused</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendCallPaused(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when friend paused a call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who paused the call.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendcallresumed">
+<h3>onFriendCallResumed<a class="headerlink" href="#onfriendcallresumed" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendCallResumed(Carrier, String)">
+public void <code class="sig-name descname">onFriendCallResumed</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendCallResumed(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when friend resumed a paused call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who resumed the call.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendcalled">
+<h3>onFriendCalled<a class="headerlink" href="#onfriendcalled" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendCalled(Carrier, String, boolean, boolean)">
+public void <code class="sig-name descname">onFriendCalled</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, boolean<em> isAudioEnabled</em>, boolean<em> isVideoEnabled</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendCalled(Carrier, String, boolean, boolean)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when received a AV request from friends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who sent the request.</p></li>
+<li><p><strong>isAudioEnabled</strong> – [in] If this call requires audio.</p></li>
+<li><p><strong>isVideoEnabled</strong> – [in] If this call requires video.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendconnection">
+<h3>onFriendConnection<a class="headerlink" href="#onfriendconnection" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendConnection(Carrier, String, FriendConnectionStatus)">
+public void <code class="sig-name descname">onFriendConnection</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, <a class="reference internal" href="FriendConnectionStatus.html#org.ioex.carrier.FriendConnectionStatus" title="org.ioex.carrier.FriendConnectionStatus">FriendConnectionStatus</a><em> status</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendConnection(Carrier, String, FriendConnectionStatus)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend connections status changed event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – carrier node instance.</p></li>
+<li><p><strong>friendId</strong> – The friend’s user id.</p></li>
+<li><p><strong>status</strong> – The connection status of friend. &#64;see FriendConnectionStatus</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfileaborted">
+<h3>onFriendFileAborted<a class="headerlink" href="#onfriendfileaborted" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileAborted(Carrier, String, String, String, long, long)">
+public void <code class="sig-name descname">onFriendFileAborted</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, long<em> totalsize</em>, long<em> transferredsize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileAborted(Carrier, String, String, String, long, long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the friend file aborted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendid</strong> – The user id</p></li>
+<li><p><strong>filename</strong> – The transferred file name</p></li>
+<li><p><strong>fileid</strong> – The file id</p></li>
+<li><p><strong>totalsize</strong> – The total file size</p></li>
+<li><p><strong>transferredsize</strong> – The transferred file size</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfileaccepted">
+<h3>onFriendFileAccepted<a class="headerlink" href="#onfriendfileaccepted" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileAccepted(Carrier, String, String, String, long)">
+public void <code class="sig-name descname">onFriendFileAccepted</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> receiver</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em>, long<em> filesize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileAccepted(Carrier, String, String, String, long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend file accepted.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>receiver</strong> – The user id who accepts the file sending request</p></li>
+<li><p><strong>fileid</strong> – The file id accepted by receiver</p></li>
+<li><p><strong>filepath</strong> – The full file path accepted by receiver</p></li>
+<li><p><strong>filesize</strong> – The file size accepts by receiver</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfilecanceled">
+<h3>onFriendFileCanceled<a class="headerlink" href="#onfriendfilecanceled" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileCanceled(Carrier, String, String, String)">
+public void <code class="sig-name descname">onFriendFileCanceled</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileCanceled(Carrier, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the file is canceled.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendid</strong> – The friend id</p></li>
+<li><p><strong>fileid</strong> – The fileid</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfilecompleted">
+<h3>onFriendFileCompleted<a class="headerlink" href="#onfriendfilecompleted" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileCompleted(Carrier, String, String, String)">
+public void <code class="sig-name descname">onFriendFileCompleted</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileCompleted(Carrier, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the file is completed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendid</strong> – The friend id</p></li>
+<li><p><strong>fileid</strong> – The fileid</p></li>
+<li><p><strong>filepath</strong> – The full path of the completed file including file name</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfilepaused">
+<h3>onFriendFilePaused<a class="headerlink" href="#onfriendfilepaused" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFilePaused(Carrier, String, String, String)">
+public void <code class="sig-name descname">onFriendFilePaused</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFilePaused(Carrier, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the file is paused.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendid</strong> – The friend id</p></li>
+<li><p><strong>fileid</strong> – The file id</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfileprogress">
+<h3>onFriendFileProgress<a class="headerlink" href="#onfriendfileprogress" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileProgress(Carrier, String, String, String, long, long)">
+public void <code class="sig-name descname">onFriendFileProgress</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, long<em> totalsize</em>, long<em> transferredsize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileProgress(Carrier, String, String, String, long, long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend file transferred.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendid</strong> – The user id</p></li>
+<li><p><strong>filepath</strong> – The full path of the transferred file</p></li>
+<li><p><strong>fileid</strong> – The file id</p></li>
+<li><p><strong>totalsize</strong> – The total file size</p></li>
+<li><p><strong>transferredsize</strong> – The transferred file size</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfilequeried">
+<h3>onFriendFileQueried<a class="headerlink" href="#onfriendfilequeried" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileQueried(Carrier, String, String, String)">
+public void <code class="sig-name descname">onFriendFileQueried</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileQueried(Carrier, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend file queried.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>userid</strong> – The user id who queries the file</p></li>
+<li><p><strong>filename</strong> – The queried file name</p></li>
+<li><p><strong>message</strong> – The extra message from friend</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfilerequest">
+<h3>onFriendFileRequest<a class="headerlink" href="#onfriendfilerequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileRequest(Carrier, String, String, String, long)">
+public void <code class="sig-name descname">onFriendFileRequest</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filename</em>, long<em> filesize</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileRequest(Carrier, String, String, String, long)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend file request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The user id from who send the file request</p></li>
+<li><p><strong>fileid</strong> – The file id of the sending file</p></li>
+<li><p><strong>filename</strong> – The file name sent from friend</p></li>
+<li><p><strong>filesize</strong> – The file size sent from friend</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendfileresumed">
+<h3>onFriendFileResumed<a class="headerlink" href="#onfriendfileresumed" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendFileResumed(Carrier, String, String, String)">
+public void <code class="sig-name descname">onFriendFileResumed</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> fileid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> filepath</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendFileResumed(Carrier, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the file is resumed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendid</strong> – The friend id</p></li>
+<li><p><strong>fileid</strong> – The fileid</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendinfochanged">
+<h3>onFriendInfoChanged<a class="headerlink" href="#onfriendinfochanged" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendInfoChanged(Carrier, String, FriendInfo)">
+public void <code class="sig-name descname">onFriendInfoChanged</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, <a class="reference internal" href="FriendInfo.html#org.ioex.carrier.FriendInfo" title="org.ioex.carrier.FriendInfo">FriendInfo</a><em> info</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendInfoChanged(Carrier, String, FriendInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend information changed event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendId</strong> – The friend’s user id</p></li>
+<li><p><strong>info</strong> – The update friend information</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendmessage">
+<h3>onFriendMessage<a class="headerlink" href="#onfriendmessage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendMessage(Carrier, String, String)">
+public void <code class="sig-name descname">onFriendMessage</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendMessage(Carrier, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The id(<a class="reference external" href="mailto:userid&#37;&#52;&#48;nodeid">userid<span>&#64;</span>nodeid</a>) from who send the message</p></li>
+<li><p><strong>message</strong> – The message content</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendpresence">
+<h3>onFriendPresence<a class="headerlink" href="#onfriendpresence" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendPresence(Carrier, String, PresenceStatus)">
+public void <code class="sig-name descname">onFriendPresence</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em>, <a class="reference internal" href="PresenceStatus.html#org.ioex.carrier.PresenceStatus" title="org.ioex.carrier.PresenceStatus">PresenceStatus</a><em> presence</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendPresence(Carrier, String, PresenceStatus)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend presence changed event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendId</strong> – The friend’s user id</p></li>
+<li><p><strong>presence</strong> – The presence status of the friend</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrawdata">
+<h3>onFriendRawData<a class="headerlink" href="#onfriendrawdata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRawData(Carrier, String, byte[])">
+public void <code class="sig-name descname">onFriendRawData</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRawData(Carrier, String, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received raw data from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>data</strong> – [in] The data received.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendremoved">
+<h3>onFriendRemoved<a class="headerlink" href="#onfriendremoved" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRemoved(Carrier, String)">
+public void <code class="sig-name descname">onFriendRemoved</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendId</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRemoved(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend removed event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friendId</strong> – The friend’s user id</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrequest">
+<h3>onFriendRequest<a class="headerlink" href="#onfriendrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRequest(Carrier, String, UserInfo, String)">
+public void <code class="sig-name descname">onFriendRequest</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> userId</em>, <a class="reference internal" href="UserInfo.html#org.ioex.carrier.UserInfo" title="org.ioex.carrier.UserInfo">UserInfo</a><em> info</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> hello</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRequest(Carrier, String, UserInfo, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the friend request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>userId</strong> – The user id who want be friend with current user</p></li>
+<li><p><strong>info</strong> – The user information to <cite>userId</cite></p></li>
+<li><p><strong>hello</strong> – The PIN for target user, or any application defined content</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrtpaccepted">
+<h3>onFriendRtpAccepted<a class="headerlink" href="#onfriendrtpaccepted" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRtpAccepted(Carrier, String)">
+public void <code class="sig-name descname">onFriendRtpAccepted</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRtpAccepted(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received rtp accept from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrtpaudio">
+<h3>onFriendRtpAudio<a class="headerlink" href="#onfriendrtpaudio" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRtpAudio(Carrier, String, byte[])">
+public void <code class="sig-name descname">onFriendRtpAudio</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRtpAudio(Carrier, String, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received rtp audio data from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>data</strong> – [in] The data received.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrtpcanceled">
+<h3>onFriendRtpCanceled<a class="headerlink" href="#onfriendrtpcanceled" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRtpCanceled(Carrier, String)">
+public void <code class="sig-name descname">onFriendRtpCanceled</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRtpCanceled(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received rtp cancel from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrtpconfig">
+<h3>onFriendRtpConfig<a class="headerlink" href="#onfriendrtpconfig" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRtpConfig(Carrier, String, byte[])">
+public void <code class="sig-name descname">onFriendRtpConfig</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRtpConfig(Carrier, String, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received rtp config from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>data</strong> – [in] The config data friend sent</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrtprequested">
+<h3>onFriendRtpRequested<a class="headerlink" href="#onfriendrtprequested" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRtpRequested(Carrier, String, int, int)">
+public void <code class="sig-name descname">onFriendRtpRequested</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, int<em> width</em>, int<em> height</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRtpRequested(Carrier, String, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received rtp request from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>width</strong> – [in] Width of the video</p></li>
+<li><p><strong>height</strong> – [in] Height of the video</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendrtpvideo">
+<h3>onFriendRtpVideo<a class="headerlink" href="#onfriendrtpvideo" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendRtpVideo(Carrier, String, byte[])">
+public void <code class="sig-name descname">onFriendRtpVideo</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendRtpVideo(Carrier, String, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received rtp video data from a friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>data</strong> – [in] The data received.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendtunnelaccept">
+<h3>onFriendTunnelAccept<a class="headerlink" href="#onfriendtunnelaccept" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelAccept(Carrier, int, String)">
+public void <code class="sig-name descname">onFriendTunnelAccept</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, int<em> tunnelid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelAccept(Carrier, int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when a friend accepted our previous tunnel request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>tunnelid</strong> – [in] ID to uniquely identify this tunnel.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the request.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendtunnelcancel">
+<h3>onFriendTunnelCancel<a class="headerlink" href="#onfriendtunnelcancel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelCancel(Carrier, int, String)">
+public void <code class="sig-name descname">onFriendTunnelCancel</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, int<em> tunnelid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelCancel(Carrier, int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when an existing tunnel is canceled or shutdown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>tunnelid</strong> – [in] ID to uniquely identify this tunnel.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who canceled the tunnel.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendtunneldata">
+<h3>onFriendTunnelData<a class="headerlink" href="#onfriendtunneldata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelData(Carrier, int, String, byte[], int)">
+public void <code class="sig-name descname">onFriendTunnelData</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, int<em> tunnelid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, byte[]<em> data</em>, int<em> length</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelData(Carrier, int, String, byte[], int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received data from a tunnel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>tunnelid</strong> – [in] ID to uniquely identify this tunnel.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>data</strong> – [in] The data received.</p></li>
+<li><p><strong>length</strong> – [in] Size of the data in bytes.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendtunnelrequest">
+<h3>onFriendTunnelRequest<a class="headerlink" href="#onfriendtunnelrequest" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelRequest(Carrier, int, String, String)">
+public void <code class="sig-name descname">onFriendTunnelRequest</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, int<em> tunnelid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> password</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendTunnelRequest(Carrier, int, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when a friend sent us a tunnel request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>tunnelid</strong> – [in] ID to uniquely identify this tunnel.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the request.</p></li>
+<li><p><strong>password</strong> – [in] A shared secret sent by friend for authentication purpose.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendvpnaccept">
+<h3>onFriendVpnAccept<a class="headerlink" href="#onfriendvpnaccept" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendVpnAccept(Carrier, String, VpnClientConfig)">
+public void <code class="sig-name descname">onFriendVpnAccept</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, <a class="reference internal" href="VpnClientConfig.html#org.ioex.carrier.VpnClientConfig" title="org.ioex.carrier.VpnClientConfig">VpnClientConfig</a><em> config</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendVpnAccept(Carrier, String, VpnClientConfig)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when a friend accepted our previous vpn request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who accepted our VPN request.</p></li>
+<li><p><strong>config</strong> – [in] Server provided configuration like IP address, DNS server and MTU.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendvpncancel">
+<h3>onFriendVpnCancel<a class="headerlink" href="#onfriendvpncancel" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendVpnCancel(Carrier, String)">
+public void <code class="sig-name descname">onFriendVpnCancel</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendVpnCancel(Carrier, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when an existing VPN connection is canceled or shutdown.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who canceled the tunnel.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriendvpndata">
+<h3>onFriendVpnData<a class="headerlink" href="#onfriendvpndata" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriendVpnData(Carrier, String, byte[])">
+public void <code class="sig-name descname">onFriendVpnData</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, byte[]<em> data</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriendVpnData(Carrier, String, byte[])" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when we received data from a VPN connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] The friend who sent the data.</p></li>
+<li><p><strong>data</strong> – [in] The data received.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onfriends">
+<h3>onFriends<a class="headerlink" href="#onfriends" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onFriends(Carrier, List)">
+public void <code class="sig-name descname">onFriends</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/util/List.html" title="java.util.List">List</a>&lt;<a class="reference internal" href="FriendInfo.html#org.ioex.carrier.FriendInfo" title="org.ioex.carrier.FriendInfo">FriendInfo</a>&gt;<em> friends</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onFriends(Carrier, List)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to iterate the each friend item in friend list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>friends</strong> – The friends list.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongroupaudiodatareceived">
+<h3>onGroupAudioDataReceived<a class="headerlink" href="#ongroupaudiodatareceived" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupAudioDataReceived(Carrier, String, int, int, short[], int, int, int)">
+public void <code class="sig-name descname">onGroupAudioDataReceived</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, int<em> groupNumber</em>, int<em> peerNumber</em>, short[]<em> pcm</em>, int<em> sampleCount</em>, int<em> channels</em>, int<em> sampleRate</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupAudioDataReceived(Carrier, String, int, int, short[], int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when audio data received from a friend of the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>from</strong> – [in] The user id</p></li>
+<li><p><strong>groupNumber</strong> – [in] The group number</p></li>
+<li><p><strong>peerNumber</strong> – [in] The peer number</p></li>
+<li><p><strong>pcm</strong> – [in] Array of audio sample. Its size is sample_count * channels.</p></li>
+<li><p><strong>sampleCount</strong> – [in] Number of samples in the frames.</p></li>
+<li><p><strong>channels</strong> – [in] Number of audio channels. Can only be 1 or 2.</p></li>
+<li><p><strong>sampleRate</strong> – [in] Sample rate of the audio. Valid values are 8000, 12000, 16000, 24000, 48000.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongroupinvited">
+<h3>onGroupInvited<a class="headerlink" href="#ongroupinvited" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupInvited(Carrier, String, String, String, String)">
+public void <code class="sig-name descname">onGroupInvited</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> invitationid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> groupid</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> title</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupInvited(Carrier, String, String, String, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the group invite request.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The user id from who send the invite request</p></li>
+<li><p><strong>invitationid</strong> – The ID of the invitation request</p></li>
+<li><p><strong>groupid</strong> – The group ID of the request</p></li>
+<li><p><strong>title</strong> – The group title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongroupmessage">
+<h3>onGroupMessage<a class="headerlink" href="#ongroupmessage" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupMessage(Carrier, String, int, int, String)">
+public void <code class="sig-name descname">onGroupMessage</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, int<em> groupnumber</em>, int<em> peernumber</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> message</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupMessage(Carrier, String, int, int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the group message.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The id from who send the message</p></li>
+<li><p><strong>groupnumber</strong> – The joined group number</p></li>
+<li><p><strong>peernumber</strong> – The joined peer number</p></li>
+<li><p><strong>message</strong> – The message content</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongrouppeerjoined">
+<h3>onGroupPeerJoined<a class="headerlink" href="#ongrouppeerjoined" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupPeerJoined(Carrier, String, String, int)">
+public void <code class="sig-name descname">onGroupPeerJoined</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> name</em>, int<em> groupnumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupPeerJoined(Carrier, String, String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the joined group event from the friend.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The user id from who’s joined the group</p></li>
+<li><p><strong>name</strong> – The user name from who’s joined the group</p></li>
+<li><p><strong>groupnumber</strong> – The joined group number</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongrouppeerleaved">
+<h3>onGroupPeerLeaved<a class="headerlink" href="#ongrouppeerleaved" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupPeerLeaved(Carrier, String, int)">
+public void <code class="sig-name descname">onGroupPeerLeaved</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, int<em> groupnumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupPeerLeaved(Carrier, String, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to notify the friend leaved the group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The user id from who leaved the group</p></li>
+<li><p><strong>groupnumber</strong> – The leaved group number</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongrouppeerlistchanged">
+<h3>onGroupPeerListChanged<a class="headerlink" href="#ongrouppeerlistchanged" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupPeerListChanged(Carrier, int)">
+public void <code class="sig-name descname">onGroupPeerListChanged</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, int<em> groupnumber</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupPeerListChanged(Carrier, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the group peer list changed event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>groupnumber</strong> – The joined group number</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="ongrouptitlechanged">
+<h3>onGroupTitleChanged<a class="headerlink" href="#ongrouptitlechanged" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onGroupTitleChanged(Carrier, String, int, int, String)">
+public void <code class="sig-name descname">onGroupTitleChanged</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> from</em>, int<em> groupnumber</em>, int<em> peernumber</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> title</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onGroupTitleChanged(Carrier, String, int, int, String)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the group title changed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>from</strong> – The id from who changed the title</p></li>
+<li><p><strong>groupnumber</strong> – The group number</p></li>
+<li><p><strong>peernumber</strong> – The peer number</p></li>
+<li><p><strong>title</strong> – The new group title</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onidle">
+<h3>onIdle<a class="headerlink" href="#onidle" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onIdle(Carrier)">
+public void <code class="sig-name descname">onIdle</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onIdle(Carrier)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function that perform idle work.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onready">
+<h3>onReady<a class="headerlink" href="#onready" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onReady(Carrier)">
+public void <code class="sig-name descname">onReady</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onReady(Carrier)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the ready notification. Application should wait this callback invoked before calling any carrier function to interact with friends.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onselfinfochanged">
+<h3>onSelfInfoChanged<a class="headerlink" href="#onselfinfochanged" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onSelfInfoChanged(Carrier, UserInfo)">
+public void <code class="sig-name descname">onSelfInfoChanged</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference internal" href="UserInfo.html#org.ioex.carrier.UserInfo" title="org.ioex.carrier.UserInfo">UserInfo</a><em> info</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onSelfInfoChanged(Carrier, UserInfo)" title="Permalink to this definition">¶</a></dt>
+<dd><p>The callback function to process the self info changed event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – Carrier node instance</p></li>
+<li><p><strong>info</strong> – The updated user information</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="onvideoreceived">
+<h3>onVideoReceived<a class="headerlink" href="#onvideoreceived" title="Permalink to this headline">¶</a></h3>
+<dl class="method">
+<dt id="org.ioex.carrier.AbstractCarrierHandler.onVideoReceived(Carrier, String, int, int, byte[], byte[], byte[], int, int, int)">
+public void <code class="sig-name descname">onVideoReceived</code><span class="sig-paren">(</span><a class="reference internal" href="Carrier.html#org.ioex.carrier.Carrier" title="org.ioex.carrier.Carrier">Carrier</a><em> carrier</em>, <a class="reference external" href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html" title="java.lang.String">String</a><em> friendid</em>, int<em> width</em>, int<em> height</em>, byte[]<em> y</em>, byte[]<em> u</em>, byte[]<em> v</em>, int<em> ystride</em>, int<em> ustride</em>, int<em> vstride</em><span class="sig-paren">)</span><a class="headerlink" href="#org.ioex.carrier.AbstractCarrierHandler.onVideoReceived(Carrier, String, int, int, byte[], byte[], byte[], int, int, int)" title="Permalink to this definition">¶</a></dt>
+<dd><p>~English An application-defined function that is called when received video frame from a friend. The size of plane data is derived from width and height as documented below. Strides represent padding for each plane that may or may not be present. You must handle strides in your image processing code. Strides are negative if the image is bottom-up hence why you MUST abs() it when calculating plane buffer size.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>carrier</strong> – [in] A handle to the Carrier node instance.</p></li>
+<li><p><strong>friendid</strong> – [in] Friend who sent the video.</p></li>
+<li><p><strong>width</strong> – [in] Width of the frame in pixels.</p></li>
+<li><p><strong>height</strong> – [in] Height of the frame in pixels.</p></li>
+<li><p><strong>y</strong> – [in] Luminosity plane. Size = MAX(width, abs(ystride)) * height.</p></li>
+<li><p><strong>u</strong> – [in] U chroma plane. Size = MAX(width/2, abs(ustride)) * (height/2).</p></li>
+<li><p><strong>v</strong> – [in] V chroma plane. Size = MAX(width/2, abs(vstride)) * (height/2).</p></li>
+<li><p><strong>ystride</strong> – [in] Luminosity plane stride.</p></li>
+<li><p><strong>ustride</strong> – [in] U chroma plane stride.</p></li>
+<li><p><strong>vstride</strong> – [in] V chroma plane stride.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="AvCallInfo.html" class="btn btn-neutral float-right" title="AvCallInfo" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="package-index.html" class="btn btn-neutral float-left" title="org.ioex.carrier" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Arctos Team
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

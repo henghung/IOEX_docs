@@ -1,0 +1,170 @@
+FileInfo
+========
+
+.. java:package:: org.ioex.carrier
+   :noindex:
+
+.. java:type:: public class FileInfo
+
+Fields
+------
+direction
+^^^^^^^^^
+
+.. java:field::  FileTransmissionDirection direction
+   :outertype: FileInfo
+
+   \~English The direction of the transmission.
+
+fileId
+^^^^^^
+
+.. java:field::  String fileId
+   :outertype: FileInfo
+
+fileName
+^^^^^^^^
+
+.. java:field::  String fileName
+   :outertype: FileInfo
+
+filePath
+^^^^^^^^
+
+.. java:field::  String filePath
+   :outertype: FileInfo
+
+pausedStatus
+^^^^^^^^^^^^
+
+.. java:field::  FileTransmissionPausedStatus pausedStatus
+   :outertype: FileInfo
+
+   \~English The pausedStatus status of the transmission.
+
+status
+^^^^^^
+
+.. java:field::  FileTransmissionStatus status
+   :outertype: FileInfo
+
+   \~English The status of the transmission.
+
+totalFileSize
+^^^^^^^^^^^^^
+
+.. java:field::  long totalFileSize
+   :outertype: FileInfo
+
+transferredSize
+^^^^^^^^^^^^^^^
+
+.. java:field::  long transferredSize
+   :outertype: FileInfo
+
+Constructors
+------------
+FileInfo
+^^^^^^^^
+
+.. java:constructor:: protected FileInfo()
+   :outertype: FileInfo
+
+Methods
+-------
+getDirection
+^^^^^^^^^^^^
+
+.. java:method:: public FileTransmissionDirection getDirection()
+   :outertype: FileInfo
+
+getFileId
+^^^^^^^^^
+
+.. java:method:: public String getFileId()
+   :outertype: FileInfo
+
+getFileName
+^^^^^^^^^^^
+
+.. java:method:: public String getFileName()
+   :outertype: FileInfo
+
+getFilePath
+^^^^^^^^^^^
+
+.. java:method:: public String getFilePath()
+   :outertype: FileInfo
+
+getPausedStatus
+^^^^^^^^^^^^^^^
+
+.. java:method:: public FileTransmissionPausedStatus getPausedStatus()
+   :outertype: FileInfo
+
+getStatus
+^^^^^^^^^
+
+.. java:method:: public FileTransmissionStatus getStatus()
+   :outertype: FileInfo
+
+getTotalFileSize
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public long getTotalFileSize()
+   :outertype: FileInfo
+
+getTransferredSize
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public long getTransferredSize()
+   :outertype: FileInfo
+
+setDirection
+^^^^^^^^^^^^
+
+.. java:method:: public void setDirection(FileTransmissionDirection direction)
+   :outertype: FileInfo
+
+setFileId
+^^^^^^^^^
+
+.. java:method:: public void setFileId(String fileId)
+   :outertype: FileInfo
+
+setFileName
+^^^^^^^^^^^
+
+.. java:method:: public void setFileName(String fileName)
+   :outertype: FileInfo
+
+setFilePath
+^^^^^^^^^^^
+
+.. java:method:: public void setFilePath(String filePath)
+   :outertype: FileInfo
+
+setPausedStatus
+^^^^^^^^^^^^^^^
+
+.. java:method:: public void setPausedStatus(FileTransmissionPausedStatus pausedStatus)
+   :outertype: FileInfo
+
+setStatus
+^^^^^^^^^
+
+.. java:method:: public void setStatus(FileTransmissionStatus status)
+   :outertype: FileInfo
+
+setTotalFileSize
+^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setTotalFileSize(long totalFileSize)
+   :outertype: FileInfo
+
+setTransferredSize
+^^^^^^^^^^^^^^^^^^
+
+.. java:method:: public void setTransferredSize(long transferredSize)
+   :outertype: FileInfo
+
