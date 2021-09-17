@@ -1,0 +1,361 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>影音串流 &mdash; Documentation for android app developers 2.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script type="text/javascript" src="../_static/clipboard.min.js"></script>
+        <script type="text/javascript" src="../_static/copybutton.js"></script>
+        <script type="text/javascript" src="../_static/sphinxcontrib-images\LightBox2\lightbox2\js\jquery-1.11.0.min.js"></script>
+        <script type="text/javascript" src="../_static/sphinxcontrib-images\LightBox2\lightbox2\js\lightbox.min.js"></script>
+        <script type="text/javascript" src="../_static/sphinxcontrib-images\LightBox2\lightbox2-customize\jquery-noconflict.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/sphinxcontrib-images\LightBox2\lightbox2\css\lightbox.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="管理節點資訊" href="CarrierStatusManagement.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: #78C257" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Documentation for android app developers
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">OverView:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ImportLibrary.html">導入 SDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CreateACarrier.html">建立 Carrier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ConnectToOtherNodes.html">建立節點間的連線</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CarrierStatusManagement.html">管理節點資訊</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">影音串流</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2"><strong>一、建立串流通道</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3"><strong>二、進行影音串流</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4"><strong>三、關閉串流通道</strong></a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Documentation for android app developers</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>影音串流</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1>影音串流<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id2">
+<h2><strong>一、建立串流通道</strong><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<a class=""
+               data-lightbox="group-df4bec95-700b-49dc-8ffe-fb9709b99fe1"
+               href="../_images/image02-11.svg"
+               title=""
+               data-title=""
+               ><img src="../_images/image02-11.svg"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><ol class="arabic simple">
+<li><p>當要發起視訊通話請求時，使用 API <code class="docutils literal notranslate"><span class="pre">callFriend</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">callFriend</span><span class="o">(</span><span class="n">friendId</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : The target id.</p>
+<ol class="arabic simple" start="2">
+<li><p>當收到來自好友的通話視訊請求時，會觸發 callback <code class="docutils literal notranslate"><span class="pre">onFriendCalled</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFriendCalled</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">,</span> <span class="n">String</span> <span class="n">friendid</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isAudioEnabled</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">isVideoEnabled</span><span class="o">)</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">friendid</span></code> : The friend id from who send the request.</p>
+<p><code class="docutils literal notranslate"><span class="pre">isAudioEnabled</span></code> : If this call requires audio.</p>
+<p><code class="docutils literal notranslate"><span class="pre">isVideoEnabled</span></code> : If this call requires video.</p>
+<ol class="arabic simple" start="3">
+<li><p>同意好友的通話視訊請求，使用 API <code class="docutils literal notranslate"><span class="pre">answerFriendCall</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">answerFriendCall</span><span class="o">(</span><span class="n">friendId</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : Id of the friend.</p>
+<ol class="arabic simple" start="4">
+<li><p>當同意好友的通話成功時，好友會觸發 callback <code class="docutils literal notranslate"><span class="pre">onFriendCallAnswered</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFriendCallAnswered</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">,</span> <span class="n">String</span> <span class="n">friendid</span><span class="o">)</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">friendid</span></code> : Friend who answered the call.</p>
+</div>
+<div class="section" id="id3">
+<h2><strong>二、進行影音串流</strong><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>使用 API <code class="docutils literal notranslate"><span class="pre">sendVideoFrame</span></code> 來發送影像資料：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">sendVideoFrame</span><span class="o">(</span><span class="n">friendId</span><span class="o">,</span> <span class="n">width</span><span class="o">,</span> <span class="n">height</span><span class="o">,</span> <span class="n">y</span><span class="o">,</span> <span class="n">u</span><span class="o">,</span> <span class="n">v</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : The target id.</p>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code> : Width of the frame in pixels..</p>
+<p><code class="docutils literal notranslate"><span class="pre">height</span></code> : Height of the frame in pixels..</p>
+<p><code class="docutils literal notranslate"><span class="pre">y</span></code> : Y (Luminance) plane data. Size must be height * width.</p>
+<p><code class="docutils literal notranslate"><span class="pre">u</span></code> : U (Chroma) plane data. Size must be (height/2) * (width/2).</p>
+<p><code class="docutils literal notranslate"><span class="pre">v</span></code> : V (Chroma) plane data. Size must be (height/2) * (width/2).</p>
+<ol class="arabic simple" start="2">
+<li><p>使用 API <code class="docutils literal notranslate"><span class="pre">sendAudioFrame</span></code> 來發送聲音資料：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">sendAudioFrame</span><span class="o">(</span><span class="n">friendId</span><span class="o">,</span> <span class="n">pcm</span><span class="o">,</span> <span class="n">samples</span><span class="o">,</span> <span class="n">channels</span><span class="o">,</span> <span class="n">samplingRate</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : The target id.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcm</span></code> : An array of audio samples. The size of this array must be (samples * channels).</p>
+<p><code class="docutils literal notranslate"><span class="pre">samples</span></code> : Number of samples in this frame. It equals ((samplingRate)*(audio length)/1000). Audio length can be choose from 2.5, 5, 10, 20, 40 or 60 millseconds.</p>
+<p><code class="docutils literal notranslate"><span class="pre">channels</span></code> : Number of audio channels. Supported values are 1 (Mono) and 2 (Stereo).</p>
+<p><code class="docutils literal notranslate"><span class="pre">samplingRate</span></code> : Audio sampling rate in Hz used in this frame. Valid sampling rates are 8000, 12000, 16000, 24000, or 48000.</p>
+<ol class="arabic simple" start="3">
+<li><p>當收到串流影像時，會觸發 callback <code class="docutils literal notranslate"><span class="pre">onVideoReceived</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onVideoReceived</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">,</span> <span class="n">String</span> <span class="n">friendId</span><span class="o">,</span><span class="kt">int</span> <span class="n">width</span><span class="o">,</span> <span class="kt">int</span> <span class="n">height</span><span class="o">,</span>
+                            <span class="kt">byte</span><span class="o">[]</span> <span class="n">y</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">u</span><span class="o">,</span> <span class="kt">byte</span><span class="o">[]</span> <span class="n">v</span><span class="o">,</span> <span class="kt">int</span> <span class="n">ystride</span><span class="o">,</span> <span class="kt">int</span> <span class="n">ustride</span><span class="o">,</span> <span class="kt">int</span> <span class="n">vstride</span><span class="o">)</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : The friend who sent the data.</p>
+<p><code class="docutils literal notranslate"><span class="pre">width</span></code> : Width of the frame in pixels.</p>
+<p><code class="docutils literal notranslate"><span class="pre">height</span></code> : Height of the frame in pixels.</p>
+<p><code class="docutils literal notranslate"><span class="pre">y</span></code> : Y (Luminance) plane data. Size must be height * width.</p>
+<p><code class="docutils literal notranslate"><span class="pre">u</span></code> : U (Chroma) plane data. Size must be (height/2) * (width/2).</p>
+<p><code class="docutils literal notranslate"><span class="pre">v</span></code> : V (Chroma) plane data. Size must be (height/2) * (width/2).</p>
+<p><code class="docutils literal notranslate"><span class="pre">ystride</span></code> : Luminosity plane stride.</p>
+<p><code class="docutils literal notranslate"><span class="pre">ustride</span></code> : U chroma plane stride.</p>
+<p><code class="docutils literal notranslate"><span class="pre">vstride</span></code> : V chroma plane stride.</p>
+<ol class="arabic simple" start="4">
+<li><p>當收到串流聲音時，會觸發 callback <code class="docutils literal notranslate"><span class="pre">onAudioReceived</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onAudioReceived</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">,</span> <span class="n">String</span> <span class="n">friendId</span><span class="o">,</span> <span class="kt">short</span><span class="o">[]</span> <span class="n">pcm</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sampleCount</span><span class="o">,</span> <span class="kt">int</span> <span class="n">channels</span><span class="o">,</span> <span class="kt">int</span> <span class="n">sampleRate</span><span class="o">)</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : Friend who sent the audio.</p>
+<p><code class="docutils literal notranslate"><span class="pre">pcm</span></code> : Array of audio sample. Its size is sample_count * channels.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sampleCount</span></code> : Number of samples in the frames.</p>
+<p><code class="docutils literal notranslate"><span class="pre">channels</span></code> : Number of audio channels. Can only be 1 or 2.</p>
+<p><code class="docutils literal notranslate"><span class="pre">sampleRate</span></code> : Sample rate of the audio. Valid values are 8000, 12000, 16000, 24000, 48000.</p>
+</div>
+<div class="section" id="id4">
+<h2><strong>三、關閉串流通道</strong><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<a class=""
+               data-lightbox="group-17e85185-022f-465c-b204-10d468442bc0"
+               href="../_images/image02-21.svg"
+               title=""
+               data-title=""
+               ><img src="../_images/image02-21.svg"
+                     class=""
+                     width="100%"
+                     height="auto"
+                     alt=""/>
+                </a><ol class="arabic simple">
+<li><p>需要關閉串流通道時，可以使用 API <code class="docutils literal notranslate"><span class="pre">hangupFriendCall</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="n">Carrier</span><span class="o">.</span><span class="na">getInstance</span><span class="o">().</span><span class="na">hangupFriendCall</span><span class="o">(</span><span class="n">friendId</span><span class="o">);</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : Id of the friend.</p>
+<ol class="arabic simple" start="2">
+<li><p>其他節點關閉串流通道時，會觸發 callback <code class="docutils literal notranslate"><span class="pre">onFriendCallHangup</span></code>：</p></li>
+</ol>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="nd">@Override</span>
+<span class="kd">public</span> <span class="kt">void</span> <span class="nf">onFriendCallHangup</span><span class="o">(</span><span class="n">Carrier</span> <span class="n">carrier</span><span class="o">,</span> <span class="n">String</span> <span class="n">friendId</span><span class="o">)</span> <span class="o">{</span>
+
+<span class="o">}</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">carrier</span></code> : A handle to the Carrier node instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">friendId</span></code> : Friend who hang up the call.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="CarrierStatusManagement.html" class="btn btn-neutral float-left" title="管理節點資訊" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, 桓竑智聯股份有限公司 Co.,Ltd
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

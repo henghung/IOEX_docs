@@ -18,14 +18,14 @@
 # -- Project information -----------------------------------------------------
 
 project = 'Documentation for android app developers'
-copyright = '2021, 喆立聯網股份有限公司 IOEX Co.,Ltd'
-author = '喆立聯網股份有限公司 IOEX Co.,Ltd'
+copyright = '2021, 桓竑智聯股份有限公司 Co.,Ltd'
+author = '桓竑智聯網股份有限公司 Co.,Ltd'
 
 # The short X.Y version.
-version = '1.0'
+version = '2.0'
 
 # The full version, including alpha/beta/rc tags
-release = '1.0'
+release = '2.0'
 
 
 # -- General configuration ---------------------------------------------------

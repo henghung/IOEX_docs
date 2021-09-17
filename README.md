@@ -42,3 +42,4 @@ https://henghung.github.io/core/0.20.0
 ### Android App Tutorial
 
 * [v1.0](https://henghung.github.io/android-app-tutorial/1.0/index.html)
+* [v2.0](https://henghung.github.io/android-app-tutorial/2.0/index.html)
