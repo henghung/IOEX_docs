@@ -44,19 +44,19 @@
 
         ArrayList<Carrier.Options.BootstrapNode> arrayList = new ArrayList<>();
         // 1
-        Carrier.Options.BootstrapNode node = new Carrier.Options.BootstrapNode("Bootstrap-1.arctos.tw", "null", "10310", "D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG");
+        Carrier.Options.BootstrapNode node = new Carrier.Options.BootstrapNode("Bootstrap-1.arctos.tw", null, "10310", "D7jmsDeoVj3H234RDWzRVR2vnG8GCo6FezRtSoVcE3LG");
         arrayList.add(node);
         // 2
-        node = new Carrier.Options.BootstrapNode("Bootstrap-2.arctos.tw", "null", "10310", "HuvotLiezBNqfFnzKyQsHp8Zs9pR7YJ441KjhqUUc9mq");
+        node = new Carrier.Options.BootstrapNode("Bootstrap-2.arctos.tw", null, "10310", "HuvotLiezBNqfFnzKyQsHp8Zs9pR7YJ441KjhqUUc9mq");
         arrayList.add(node);
         // 3
-        node = new Carrier.Options.BootstrapNode("Bootstrap-3.arctos.tw", "null", "10310", "5WTT7ozhfpznsvLawf7tPEqiTRiFDBqLEDHQHUsezLLc");
+        node = new Carrier.Options.BootstrapNode("Bootstrap-3.arctos.tw", null, "10310", "5WTT7ozhfpznsvLawf7tPEqiTRiFDBqLEDHQHUsezLLc");
         arrayList.add(node);
         // 4
-        node = new Carrier.Options.BootstrapNode("Bootstrap-4.arctos.tw", "null", "10310", "6nYMtMGs8Ghwom5EwMRrP9Zkw6j1CuPc8VKp9g6fq4Ut");
+        node = new Carrier.Options.BootstrapNode("Bootstrap-4.arctos.tw", null, "10310", "6nYMtMGs8Ghwom5EwMRrP9Zkw6j1CuPc8VKp9g6fq4Ut");
         arrayList.add(node);
         // 5
-        node = new Carrier.Options.BootstrapNode("Bootstrap-5.arctos.tw", "null", "10310", "HvLH4duMMWHqAMpwU3ZXyHSYc8axbJME3ACVDmgDHLgV");
+        node = new Carrier.Options.BootstrapNode("Bootstrap-5.arctos.tw", null, "10310", "HvLH4duMMWHqAMpwU3ZXyHSYc8axbJME3ACVDmgDHLgV");
         arrayList.add(node);
 
         options.setBootstrapNodes(arrayList);
