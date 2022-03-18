@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://henghung.github.io/arctos-client-sdk/</loc>
+         <lastmod>2022-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://henghung.github.io/arctos-client-sdk/faq/</loc>
+         <lastmod>2022-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://henghung.github.io/arctos-client-sdk/glossary/</loc>
+         <lastmod>2022-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://henghung.github.io/arctos-client-sdk/verify_with_arctos_switch/</loc>
+         <lastmod>2022-03-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
