@@ -61,7 +61,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#_1" class="md-skip">
+        <a href="#常見問題" class="md-skip">
           跳轉到
         </a>
       
@@ -102,6 +102,39 @@
     </div>
     
     
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜尋" placeholder="搜尋" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜尋引擎
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
     
   </nav>
@@ -162,8 +195,38 @@
   
   
     <li class="md-nav__item">
+      <a href="../quick_start/" class="md-nav__link">
+        快速開始
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../arctos_client_manual/" class="md-nav__link">
+        功能說明
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../verify_with_arctos_switch/" class="md-nav__link">
-        驗證 Arctos Client SDK 功能
+        測試與驗證
       </a>
     </li>
   
@@ -211,8 +274,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#arctos_client_sdk_由誰開發及維護" class="md-nav__link">
+    Arctos Client SDK 由誰開發及維護？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arctos_client_只能跟_switch_通訊嗎能讓_client_之間彼此通訊嗎" class="md-nav__link">
+    Arctos Client 只能跟 Switch 通訊嗎？能讓 Client 之間彼此通訊嗎？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#是否可以使用模擬器進行開發" class="md-nav__link">
     是否可以使用模擬器進行開發？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arctos_使用的傳輸密碼技術是什麼影音編碼技術是什麼" class="md-nav__link">
+    Arctos 使用的傳輸密碼技術是什麼？影音編碼技術是什麼？
   </a>
   
 </li>
@@ -221,21 +305,6 @@
   
 </nav>
       
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../glossary/" class="md-nav__link">
-        詞彙表
-      </a>
     </li>
   
 
@@ -267,8 +336,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#arctos_client_sdk_由誰開發及維護" class="md-nav__link">
+    Arctos Client SDK 由誰開發及維護？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arctos_client_只能跟_switch_通訊嗎能讓_client_之間彼此通訊嗎" class="md-nav__link">
+    Arctos Client 只能跟 Switch 通訊嗎？能讓 Client 之間彼此通訊嗎？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#是否可以使用模擬器進行開發" class="md-nav__link">
     是否可以使用模擬器進行開發？
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arctos_使用的傳輸密碼技術是什麼影音編碼技術是什麼" class="md-nav__link">
+    Arctos 使用的傳輸密碼技術是什麼？影音編碼技術是什麼？
   </a>
   
 </li>
@@ -287,10 +377,19 @@
                 
 
 
-<h1 id="_1">常見問題</h1>
-<h2 id="_2">是否可以使用模擬器進行開發？</h2>
-<p>不一定。無論是 Arctos Client SDK 或是 Arctos Switch，都需要 Google Play Service。因此若要使用模擬器，請注意必須要在有安裝 Google Play Service 的機器上進行。</p>
-<p>另外，通常模擬器的計算效能不如實體機器，因此在影像傳輸過程中，模擬器可能會出現停頓、不順的現象。因此，一般建議使用實體裝置進行開發。</p>
+<h1 id="常見問題">常見問題<a class="headerlink" href="#常見問題" title="Permanent link">&para;</a></h1>
+<p>以下列出關於 Arctos Client SDK 相關的常見問題與回答。</p>
+<h2 id="arctos_client_sdk_由誰開發及維護">Arctos Client SDK 由誰開發及維護？<a class="headerlink" href="#arctos_client_sdk_由誰開發及維護" title="Permanent link">&para;</a></h2>
+<p>Arctos Client SDK 為 <a href="https://www.ihh.tw/">桓竑智聯股份有限公司</a> 所開發及維護的互動影音通訊解決方案。</p>
+<h2 id="arctos_client_只能跟_switch_通訊嗎能讓_client_之間彼此通訊嗎">Arctos Client 只能跟 Switch 通訊嗎？能讓 Client 之間彼此通訊嗎？<a class="headerlink" href="#arctos_client_只能跟_switch_通訊嗎能讓_client_之間彼此通訊嗎" title="Permanent link">&para;</a></h2>
+<p>是的，Arctos Client 只能跟 Switch 通訊。Arctos Client SDK 的通訊架構是以 Switch 為中心，由 Switch 整合多個 Client 的影音後，發送給所有 Client。</p>
+<h2 id="是否可以使用模擬器進行開發">是否可以使用模擬器進行開發？<a class="headerlink" href="#是否可以使用模擬器進行開發" title="Permanent link">&para;</a></h2>
+<p>可以，但請注意以下說明。</p>
+<p>無論是 Arctos Client SDK 或是 Arctos Switch，都需要 Google Play Service。因此必須要在有安裝 Google Play Service 的模擬器環境上進行開發。</p>
+<p>另外，通常模擬器的計算效能不如實體機器，因此在影像傳輸過程中，可能會因為頻繁的影音編碼、解碼計算造成模擬器負擔過重，導致畫面出現停頓、破格的現象。</p>
+<h2 id="arctos_使用的傳輸密碼技術是什麼影音編碼技術是什麼">Arctos 使用的傳輸密碼技術是什麼？影音編碼技術是什麼？<a class="headerlink" href="#arctos_使用的傳輸密碼技術是什麼影音編碼技術是什麼" title="Permanent link">&para;</a></h2>
+<p>Arctos SDK 使用 xsalsa20 對稱式密碼系統加密訊息，使用 curve25519 公開金鑰系統進行金鑰交換。金鑰長度為 256 位元。</p>
+<p>影像編碼採用 vp8 格式，音訊編碼採用 opus。</p>
 
               
             </article>
@@ -304,7 +403,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../verify_with_arctos_switch/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 驗證 Arctos Client SDK 功能" rel="prev">
+        <a href="../verify_with_arctos_switch/" class="md-footer__link md-footer__link--prev" aria-label="上一頁: 測試與驗證" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -313,26 +412,11 @@
               <span class="md-footer__direction">
                 上一頁
               </span>
-              驗證 Arctos Client SDK 功能
+              測試與驗證
             </div>
           </div>
         </a>
       
-      
-        
-        <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="下一頁: 詞彙表" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                下一頁
-              </span>
-              詞彙表
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
       
     </nav>
   
